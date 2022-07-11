@@ -7,5 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Type extends Model
 {
-    //return $this->belongsToMany('App\User');
+    public function users(){
+        return $this->belongsToMany('App\User');
+    }
 }
