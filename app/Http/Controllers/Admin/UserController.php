@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\User;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -15,7 +16,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::all();
+        $user = Auth::user();
+        $users = User::where('id', $user->id)->get();
         return view('admin.users.index', compact('users'));
     }
 
