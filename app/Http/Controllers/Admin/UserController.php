@@ -35,7 +35,7 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store()
     {
         //
     }
@@ -46,9 +46,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user)
+    public function show()
     {
-        return view('admin.users.show', compact('user'));
+        //
     }
 
     /**
@@ -57,9 +57,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user)
+    public function edit()
     {
-        return view('admin.users.edit', compact('user'));
+        //
     }
 
     /**
@@ -69,16 +69,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update()
     {
-        $data = $request->all();
-        
-        $user->name = $data['name'];
-        $user->address = $data['address'];
-        
-        $user->update();
-
-        return redirect()->route('admin.users.show', $user->id);
+        //
     }
 
     /**

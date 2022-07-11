@@ -4,10 +4,12 @@
     <h1 class="text-center">Index</h1>
     <div class="container d-flex">
         @foreach ($users as $user)
-        <div class="card col-4 d-flex justify-content-center align-items-center p-5">
+        <div class="container d-flex align-items-center flex-column">
             <img src="https://media-assets.lacucinaitaliana.it/photos/61fb0393f9bff304ce3ec288/16:9/w_2560%2Cc_limit/Il-meglio-del-lago-di-Orta.jpg" alt="user" style="width: 300px">
-            <h2><a href="{{route('admin.users.show', $user->id)}}">{{$user->name}}</a></h2>
-            <p>{{$user->address}}</p>
+            <h1 class="text-center">{{$user->name}}</h1>
+            <p class="text-center">{{$user->address}}</p>
+            {{-- {{route('admin.products.index')}} --}}
+            <a href="" class="btn btn-primary text-uppercase my-5 col-2" type="button">Prodotti</a>
             <form action="{{route('admin.users.destroy', $user->id)}}" method="post">
                 @csrf
                 @method('DELETE')
