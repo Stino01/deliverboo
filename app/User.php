@@ -38,8 +38,8 @@ class User extends Authenticatable
     public function products() {
         return $this->hasMany('App\Product');
     }
+
     public function types(){
         return $this->belongsToMany('App\Type');
     }
-
 }

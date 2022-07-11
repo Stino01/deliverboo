@@ -13,11 +13,13 @@ class TypesTableSeeder extends Seeder
      */
     public function run()
     {
-        $types= ['pizza', 'sushi', 'dessert', 'poke', 'gelato', 'hamburger', 'kebab', 'sandwich', 'americano', 'italiano', 'cinese', 'giapponese'];
-        for($i = 0; $i < count($types); $i++){
+        $typeslist = ['pizza', 'sushi', 'dessert', 'poke', 'gelato', 'hamburger', 'kebab', 'sandwich', 'americano', 'italiano', 'cinese', 'giapponese'];
+        foreach ($typeslist as $type) {
             $newType = new Type();
-            $newType->name = $types[$i];
+
+            $newType->name = $type;
             $newType->slug = Str::of($newType->name)->slug('-');
+
             $newType->save();
         }
     }
