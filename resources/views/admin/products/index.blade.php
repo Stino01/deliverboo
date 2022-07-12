@@ -24,7 +24,7 @@
             </div>
         </div>
     </div> --}}
-    <a href="{{route('admin.products.create')}}" class="btn btn-primary my-3">Crea nuovo product</a>
+    <a href="{{route('admin.products.create')}}" class="btn btn-primary my-3">Crea nuovo prodotto</a>
     @if(session()->has('message'))
     <div class="alert alert-success">
         {{session()->get('message')}}
