@@ -10,8 +10,8 @@ class Product extends Model
         return $this->belongTo('App\Category');
     }
 
-    public function user() {
-        return $this->belongTo('App\User');
+    public function restaurant() {
+        return $this->belongTo('App\Restaurant');
     }
 
     public function orders() {
