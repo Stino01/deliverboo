@@ -1,12 +1,14 @@
 <template>
     <main>
-        <h1>MAIN</h1>
+        <TypesSlider />
     </main>
 </template>
 
 <script>
+import TypesSlider from './TypesSlider.vue';
 export default {
-    name: 'MainComponent',
+    name: "MainComponent",
+    components: { TypesSlider }
 }
 </script>
 

@@ -3,6 +3,11 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 window.Vue = require('vue');
 
+import Vue from 'vue'
+import VueAgile from 'vue-agile'
+
+Vue.use(VueAgile)
+
 import App from "./views/App";
 
 const app = new Vue({
