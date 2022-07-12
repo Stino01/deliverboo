@@ -8,16 +8,16 @@
     <title>HomePage</title>
 </head>
 <body>
-    <div class="flex-cemter position-ref fill-height">
+    <div id="auth-container">
         @if (Route::has('login'))
-            <div class="top-rigth links">
+            <div>
                 @auth
-                    <a href="{{ url('/admin') }}">Home</a>           
+                    <a type="button" class="btn btn_add" href="{{ url('/admin') }}">area personale</a>           
                 @else
-                    <a href="{{ route('login') }}">Login</a>
+                    <a type="button" class="btn btn_add" href="{{ route('login') }}">accedi</a>
 
                     @if (Route::has('register'))
-                        <a href="{{ route('register') }}">Register</a>
+                        <a type="button" class="btn btn_add" href="{{ route('register') }}">registrati</a>
                     @endif
                 @endauth
             </div>
@@ -29,3 +29,20 @@
     <script src="{{asset('js/front.js')}}"></script>
 </body>
 </html>
+
+<style>
+    #auth-container{
+        position: absolute;
+        top: 0;
+        right: 15%;
+    }
+    .btn_add{
+        background-color: #BA5A31;
+        text-transform: uppercase;
+        color: white;
+        font-size: 15px;
+        margin-top: 5px
+    }
+    
+
+</style>
