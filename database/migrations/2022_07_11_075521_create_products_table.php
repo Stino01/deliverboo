@@ -22,7 +22,7 @@ class CreateProductsTable extends Migration
             $table->float('price', 5, 2);
             $table->boolean('visible');
             $table->foreignID('category_id')->nullable()->onDelete('set null');
-            $table->foreignID('user_id')->nullable()->constrained()->onDelete('set null');
+            $table->foreignID('restaurant_id')->nullable()->onDelete('set null');
             $table->timestamps();
         });
     }

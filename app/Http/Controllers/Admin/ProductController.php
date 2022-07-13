@@ -9,8 +9,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 use App\Product;
 use App\User;
-// use App\Category;
-// use App\Order;
+use App\Restaurant;
 
 class ProductController extends Controller
 {
@@ -21,9 +20,28 @@ class ProductController extends Controller
      */
     public function index()
     {
+        // $user = Auth::user();
+        // $products = Product::where('user_id', $user->id)->get();
+        // return view('admin.products.index', compact('products', 'user'));
+
+        // $restaurants = Restaurant::all();
+        // $user_id = Auth::user()->id;
+        // $data = [
+        //     'products' => Product::where([
+        //         ['user_id', $user->id],
+        //         ['restaurant_id', $restaurants->id]
+        //     ])->get(),
+        // ];
+
+        // return view('admin.products.index', $data);
+
+        // $products = Product::where('restaurant_id', $restaurant_id)->get();
+        // return view('admin.products.index', compact('products'));
+
         $user = Auth::user();
-        $products = Product::where('user_id', $user->id)->get();
-        return view('admin.products.index', compact('products', 'user'));
+        $restaurants = Restaurant::where('user_id', $user->id)->get();
+        $products = Product::all();
+        return view('admin.products.index', compact('products', 'restaurants'));
     }
 
     /**
@@ -90,5 +108,19 @@ class ProductController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    private function getSlug($name)
+    {
+        $slug = Str::of($name)->slug("-");
+        $count = 1;
+
+        //prendi il primo post il cui slug è uguale a $slug
+        // se è presente allora genero un nuovo slug aggiungendo -$count
+        while (Product::where("slug", $slug)->first()) {
+            $slug = Str::of($name)->slug("-") . "-{$count}";
+            $count++;
+        }
+        return $slug;
     }
 }

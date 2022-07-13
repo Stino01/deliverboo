@@ -24,7 +24,7 @@ class ProductsTableSeeder extends Seeder
             $newProduct->price = $faker->randomFloat(2, 1, 999);
             $newProduct->visible = $faker->boolean();
             $newProduct->category_id = $faker->randomElement(['1', '2', '3', '4', '5']);
-            $newProduct->user_id = '1';
+            $newProduct->restaurant_id = '1';
 
             $newProduct->save();
         }

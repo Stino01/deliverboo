@@ -1,13 +1,13 @@
 @extends('layouts.admin')
 
 @section('content')
-<div class="container">
-    <a href="{{route('admin.products.create')}}" class="btn btn-primary my-3">Crea nuovo prodotto</a>
-    @if(session()->has('message'))
-    <div class="alert alert-success">
-        {{session()->get('message')}}
-    </div>
-    @endif
+<h1 class="text-center">Show</h1>
+<div class="container d-flex align-items-center flex-column">
+    <h1 class="text-center">{{$restaurant->name}}</h1>
+    <p class="text-center">{{$restaurant->address}}</p>
+    {{-- {{route('admin.products.index')}} --}}
+    <h2>Prodotti disponibili</h2>
+
     <table class="table">
         <thead>
             <tr>
@@ -22,8 +22,6 @@
         </thead>
         <tbody>
             @foreach ($products as $product)
-            @foreach ($restaurants as $restaurant)
-            @if ($product->restaurant_id == $restaurant->id)
             <tr>
                 <td><a href="{{route('admin.products.show', $product->id)}}">{{$product->id}}</a></td>
                 <td><a href="{{route('admin.products.show', $product->id)}}">{{$product->name}}</a></td>
@@ -40,12 +38,11 @@
                     </form>
                 </td>
             </tr>
-            @endif
-            @endforeach
             @endforeach
         </tbody>
     </table>
-    {{-- PER LA VISUALIZZAZIONE DEL PAGINATE --}}
-    {{-- {{$products->links()}} --}}
+
+    <a href="{{route('admin.restaurants.edit', $restaurant->id)}}" class="btn btn-primary text-uppercase my-5 col-2"
+        type="button">Edit</a>
 </div>
 @endsection
