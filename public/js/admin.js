@@ -49574,6 +49574,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 __webpack_require__(/*! C:\Users\giaco\OneDrive\Desktop\PROGETTO FINALE BOOLEAN\deliverboo\resources\js\admin.js */"./resources/js/admin.js");
 __webpack_require__(/*! C:\Users\giaco\OneDrive\Desktop\PROGETTO FINALE BOOLEAN\deliverboo\resources\sass\admin.scss */"./resources/sass/admin.scss");
 module.exports = __webpack_require__(/*! C:\Users\giaco\OneDrive\Desktop\PROGETTO FINALE BOOLEAN\deliverboo\resources\sass\front.scss */"./resources/sass/front.scss");
@@ -49582,6 +49583,11 @@ __webpack_require__(/*! B:\faz94\MAMP\htdocs\esercizi_php\deliverboo\resources\j
 __webpack_require__(/*! B:\faz94\MAMP\htdocs\esercizi_php\deliverboo\resources\sass\admin.scss */"./resources/sass/admin.scss");
 module.exports = __webpack_require__(/*! B:\faz94\MAMP\htdocs\esercizi_php\deliverboo\resources\sass\front.scss */"./resources/sass/front.scss");
 >>>>>>> 9abc1ac36b0da28933fed8f2816d1d9a43993265
+=======
+__webpack_require__(/*! C:\Users\giaco\OneDrive\Desktop\PROGETTO FINALE BOOLEAN\deliverboo\resources\js\admin.js */"./resources/js/admin.js");
+__webpack_require__(/*! C:\Users\giaco\OneDrive\Desktop\PROGETTO FINALE BOOLEAN\deliverboo\resources\sass\admin.scss */"./resources/sass/admin.scss");
+module.exports = __webpack_require__(/*! C:\Users\giaco\OneDrive\Desktop\PROGETTO FINALE BOOLEAN\deliverboo\resources\sass\front.scss */"./resources/sass/front.scss");
+>>>>>>> giacomo-alfonso-products-crud
 
 
 /***/ })

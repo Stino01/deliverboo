@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Product;
 use App\User;
 use App\Restaurant;
+use App\Category;
 
 class ProductController extends Controller
 {
@@ -49,9 +50,12 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Restaurant $restaurant)
     {
-        //
+        $user = Auth::user();
+        $categories = Category::all();
+        $restaurants = Restaurant::all();
+        return view('admin.products.create', compact('restaurants', 'categories', 'user'));
     }
 
     /**
