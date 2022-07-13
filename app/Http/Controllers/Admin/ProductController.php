@@ -65,6 +65,31 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate($this->validationRule);
+        $data = $request->all();
+        $newProduct = new Product();
+
+        $newProduct->name = $data['name'];
+        $newProduct->slug = $this->getSlug($newProduct->name);
+        $newProduct->description = $data['description'];
+        // IMMAGINE
+        if (isset($data['image'])) {
+            $path_image = Storage::put("uploads", $data['image']); // uploads/nomeimg.jpg
+            $newProduct->image = $path_image;
+        }
+        $newProduct->price = $data['price'];
+        $newProduct->visible = isset($data['visible']);
+        $newProduct->category_id = $data['category_id'];
+        $newProduct->restaurant_id = Auth::user()->id;
+
+        $newProduct->save();
+
+        // METODO SYNC CON CONTROLLO PER GLI ORDERS
+        // if (isset($data['orders'])) {
+        //     $newProduct->orders()->sync($data['orders']);
+        // }
+
+        return redirect()->route('admin.products.index');
     }
 
     /**

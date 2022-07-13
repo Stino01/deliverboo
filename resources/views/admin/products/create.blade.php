@@ -39,23 +39,6 @@
             @enderror
         </div>
 
-        {{-- RISTORANTE --}}
-        <div class="mb-3">
-            <label for="restaurant" class="form-label">Ristorante</label>
-            <select class="form-control @error('restaurant_id') is-invalid @enderror" id="restaurant"
-                name="restaurant_id">
-                <option value="">Selezione il ristorante</option>
-                @foreach ($restaurants as $restaurant)
-                @if ($restaurant->user_id == $user->id)
-                <option value="{{$restaurant->id}}">{{$restaurant->name}}</option>
-                @endif
-                @endforeach
-            </select>
-            @error('restaurant_id')
-            <div class="alert alert-danger">{{$message}}</div>
-            @enderror
-        </div>
-
         {{-- IMAGE --}}
         {{-- <div class="form-group">
             <img id="uploadPreview" width="100" src="https://via.placeholder.com/300x200">
