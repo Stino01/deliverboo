@@ -1,8 +1,8 @@
 @extends('layouts.admin')
-
+@include('partials/popupdelete')
 @section('content')
 <div class="container">
-    {{--
+
     <!-- Modal -->
     <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -22,7 +22,7 @@
                 </div>
             </div>
         </div>
-    </div> --}}
+    </div>
     <a href="{{route('admin.products.create')}}" class="btn btn-primary my-3">Crea nuovo prodotto</a>
     @if(session()->has('message'))
     <div class="alert alert-success">
@@ -49,7 +49,7 @@
                 <td>{{$product->created_at}}</td>
                 <td><a href="{{route('admin.products.edit', $product->id)}}" class="btn btn-warning">Modifica</a></td>
                 <td>
-                    <form action="{{route('admin.products.destroy', $product->id)}}" method="product">
+                    <form action="{{route('admin.products.destroy', $product->id)}}" method="POST">
                         @csrf
                         @method('DELETE')
                         <button type="submit" onclick="boolpress.openModal(event, {{ $product->id }})"

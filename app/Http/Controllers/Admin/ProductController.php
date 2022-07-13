@@ -8,7 +8,6 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 use App\Product;
-use App\User;
 use App\Restaurant;
 use App\Category;
 
@@ -22,7 +21,7 @@ class ProductController extends Controller
         "restaurant_id" => "nullable|exists:restaurants,id",
         // "image" => "nullable||image|mimes:jpeg,bmp,png,svg|max:2048", 
         // "image" => "nullable|image|mimes:jpg,jpeg,bmp,png,svg|max:2048|file", //FUNZIONANTE
-        // "image" => "nullable|image|max:2048",
+        "image" => "nullable|image|max:2048",
         // "image" => "nullable|mimes:jpg,jpeg,bmp,png,svg|max:2048",
         // "tag" => "nullable|exists:tags,id",
         "price" => 'required',
@@ -80,6 +79,7 @@ class ProductController extends Controller
     {
         $request->validate($this->validationRule);
         $data = $request->all();
+
         $newProduct = new Product();
 
         $newProduct->name = $data['name'];
@@ -102,7 +102,7 @@ class ProductController extends Controller
         //     $newProduct->orders()->sync($data['orders']);
         // }
 
-        return redirect()->route('admin.products.index');
+        return redirect()->route('admin.products.show', $newProduct->id);
     }
 
     /**
@@ -111,9 +111,10 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Product $product)
     {
-        //
+        $categories = Category::all();
+        return view('admin.products.show', compact('product', 'categories'));
     }
 
     /**
@@ -145,9 +146,10 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Product $product)
     {
-        //
+        $product->delete();
+        return redirect()->route('admin.products.index')->with("message", "Prodotto \"{$product->name}\" rimosso definitivamente!");
     }
 
     private function getSlug($name)

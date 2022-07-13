@@ -81,7 +81,7 @@ class RestaurantController extends Controller
      */
     public function show(Restaurant $restaurant)
     {
-        $products = Product::where('restaurant_id', $restaurant->id)->get();
+        $products = Product::where('restaurant_id', $restaurant->user_id)->get();
         return view('admin.restaurants.show', compact('restaurant', 'products'));
     }
 

@@ -1,8 +1,7 @@
 @extends('layouts.admin')
-
+@include('partials/popupdelete')
 @section('content')
 <div class="container">
-    <h1 class="text-center">Index</h1>
     {{-- <a href="{{route('admin.restaurants.create')}}" class="btn btn-primary text-uppercase my-3"
         type="button">Aggiungi
         un ristorante</a> --}}
@@ -23,7 +22,8 @@
             <form action="{{route('admin.restaurants.destroy', $restaurant->id)}}" method="post">
                 @csrf
                 @method('DELETE')
-                <input type="submit" class="btn btn-danger text-uppercase col-12" value="Delete">
+                <button type="submit" onclick="boolpress.openModal(event, {{ $restaurant->id }})"
+                    class="btn btn-danger delete">Delete</button>
             </form>
         </div>
     </div>
