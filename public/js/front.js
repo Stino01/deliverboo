@@ -19969,14 +19969,14 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var vue_agile__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-agile */ "./node_modules/vue-agile/src/index.js");
+/* harmony import */ var vue_agile__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue-agile */ "./node_modules/vue-agile/src/index.js");
 /* harmony import */ var _views_App__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./views/App */ "./resources/js/views/App.vue");
 window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 
 
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_agile__WEBPACK_IMPORTED_MODULE_1__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_agile__WEBPACK_IMPORTED_MODULE_3__["default"]);
 
 var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   el: '#root',
@@ -20063,7 +20063,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\MAMP\htdocs\esercizi\deliverboo\resources\js\front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! B:\faz94\MAMP\htdocs\esercizi_php\deliverboo\resources\js\front.js */"./resources/js/front.js");
 
 
 /***/ })
