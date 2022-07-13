@@ -20,14 +20,15 @@ class RestaurantController extends Controller
      */
     public function index()
     {
-        $user_id = Auth::user()->id;
+        $restaurants = Restaurant::all();
+        $user = Auth::user()->id;
         // $data = [
         //     'restaurants' => Restaurant::where('user_id', $user_id)->orderBy('name', 'asc')->get(),
         //     'types' => Type::where(''),
         // ];
-        $restaurant = Restaurant::where('user_id', $user_id)->first();
+        $restaurant = Restaurant::where('user_id', $user)->first();
 
-        return view('admin.restaurants.index', compact('restaurant'));
+        return view('admin.restaurants.index', compact('restaurant', 'restaurants', 'user'));
     }
 
     /**
@@ -69,7 +70,7 @@ class RestaurantController extends Controller
             $newRestaurant->types()->sync($data['types']);
         }
 
-        return redirect()->route('admin.restaurants.index', $newRestaurant->id);
+        return redirect()->route('admin.restaurants.index');
     }
 
     /**

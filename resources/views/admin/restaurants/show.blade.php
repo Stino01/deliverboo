@@ -44,7 +44,7 @@
         </tbody>
     </table>
 
-    <a href="{{route('admin.restaurants.edit', $restaurant->id)}}" class="btn btn-primary text-uppercase my-5 col-2"
+    <a href="{{route('admin.restaurants.edit', $restaurant->id)}}" class="btn btn-primary text-uppercase my-5"
         type="button">Edit</a>
 </div>
 @endsection
