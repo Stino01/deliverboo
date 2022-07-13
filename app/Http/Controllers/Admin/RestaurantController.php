@@ -8,6 +8,7 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use App\Restaurant;
 use App\Type;
+use App\Product;
 
 class RestaurantController extends Controller
 {
@@ -72,9 +73,10 @@ class RestaurantController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Restaurant $restaurant)
     {
-        //
+        $products = Product::where('restaurant_id', $restaurant->id)->get();
+        return view('admin.restaurants.show', compact('restaurant', 'products'));
     }
 
     /**
