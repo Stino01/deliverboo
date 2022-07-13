@@ -1,19 +1,19 @@
 <template>
-    <agile id="TypesSliderContainer" :slides-to-show="6" :options="myOptions">
-        <div class="slide slide1"> <p>cibo numero 1</p> </div>
-        <div class="slide slide2"> <p>cibo numero 2</p> </div>
-        <div class="slide slide3"> <p>cibo numero 3</p> </div>
-        <div class="slide slide4"> <p>cibo numero 4</p> </div>
-        <div class="slide slide5"> <p>cibo numero 5</p> </div>
-        <div class="slide slide6"> <p>cibo numero 6</p> </div>
-        <div class="slide slide7"> <p>cibo numero 7</p> </div>
-        <div class="slide slide8"> <p>cibo numero 8</p> </div>
-        <div class="slide slide9"> <p>cibo numero 9</p> </div>
-        <div class="slide slide10"> <p>cibo numero 10</p> </div>
-        <div class="slide slide11"> <p>cibo numero 11</p> </div>
-        <div class="slide slide12"> <p>cibo numero 12</p> </div>
-        <template class="typesArrows" slot="prevButton"><i class="fa-solid fa-circle-chevron-left"></i></template>
-        <template class="typesArrows" slot="nextButton"><i class="fa-solid fa-circle-chevron-right"></i></template>
+    <agile id="TypesSliderContainer" :slides-to-show="6" :options="myOptions" :center-mode="true">
+        <div class="cardCont"><div class="slide slide1"> <p>cibo numero 1</p> </div></div>
+        <div class="cardCont"><div class="slide slide2"> <p>cibo numero 2</p> </div></div>
+        <div class="cardCont"><div class="slide slide3"> <p>cibo numero 3</p> </div></div>
+        <div class="cardCont"><div class="slide slide4"> <p>cibo numero 4</p> </div></div>
+        <div class="cardCont"><div class="slide slide5"> <p>cibo numero 5</p> </div></div>
+        <div class="cardCont"><div class="slide slide6"> <p>cibo numero 6</p> </div></div>
+        <div class="cardCont"><div class="slide slide7"> <p>cibo numero 7</p> </div></div>
+        <div class="cardCont"><div class="slide slide8"> <p>cibo numero 8</p> </div></div>
+        <div class="cardCont"><div class="slide slide9"> <p>cibo numero 9</p> </div></div>
+        <div class="cardCont"><div class="slide slide10"> <p>cibo numero 10</p> </div></div>
+        <div class="cardCont"><div class="slide slide11"> <p>cibo numero 11</p> </div></div>
+        <div class="cardCont"><div class="slide slide12"> <p>cibo numero 12</p> </div></div>
+        <template class="typesArrows typeArrowsLeft" slot="prevButton"><i class="fa-solid fa-circle-chevron-left"></i></template>
+        <template class="typesArrows typeArrowsRight" slot="nextButton"><i class="fa-solid fa-circle-chevron-right"></i></template>
     </agile>
 </template>
 
@@ -59,17 +59,29 @@ button{
         color: #69dc9e;
     }
 }
+
+.cardCont{
+    padding: 0 10px;
+}
+
+.agile__actions{
+    position: relative;
+    top: -9vw;
+    i{
+        background-color: white;
+        border-radius: 50%;
+    }
+}
+
+
+
 #TypesSliderContainer {
     margin: 100px auto 0;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+
     .slide {
         border-radius: 18px;
         height: 15vw;
-        margin: 10px;
         overflow: hidden;
         background-color: black;
         background-position: center;

@@ -2065,7 +2065,15 @@ var staticRenderFns = [function () {
     staticClass: "block"
   }, [_c("ul", [_c("li", [_vm._v("Aiuto")]), _vm._v(" "), _c("li", [_vm._v("contatti")]), _vm._v(" "), _c("li", [_vm._v("FAQ")]), _vm._v(" "), _c("li", [_vm._v("tipi di cucina")])])]), _vm._v(" "), _c("div", {
     staticClass: "block"
-  }, [_c("ul", [_c("li", [_vm._v("Porta Deliveroo con te")]), _vm._v(" "), _c("li", [_vm._v("primo")]), _vm._v(" "), _c("li", [_vm._v("secondo")])])])]), _vm._v(" "), _c("div", {
+  }, [_c("ul", [_c("li", [_vm._v("Porta Deliverboo con te")]), _vm._v(" "), _c("li", [_c("img", {
+    attrs: {
+      src: "https://cdn.discordapp.com/attachments/941312490950766592/996772132816162946/appstore.png"
+    }
+  })]), _vm._v(" "), _c("li", [_c("img", {
+    attrs: {
+      src: "https://cdn.discordapp.com/attachments/941312490950766592/996772133004922951/playstore.png"
+    }
+  })])])])]), _vm._v(" "), _c("div", {
     attrs: {
       id: "underFooter"
     }
@@ -2198,39 +2206,64 @@ var render = function render() {
     attrs: {
       id: "TypesSliderContainer",
       "slides-to-show": 6,
-      options: _vm.myOptions
+      options: _vm.myOptions,
+      "center-mode": true
     }
   }, [_c("div", {
+    staticClass: "cardCont"
+  }, [_c("div", {
     staticClass: "slide slide1"
-  }, [_c("p", [_vm._v("cibo numero 1")])]), _vm._v(" "), _c("div", {
+  }, [_c("p", [_vm._v("cibo numero 1")])])]), _vm._v(" "), _c("div", {
+    staticClass: "cardCont"
+  }, [_c("div", {
     staticClass: "slide slide2"
-  }, [_c("p", [_vm._v("cibo numero 2")])]), _vm._v(" "), _c("div", {
+  }, [_c("p", [_vm._v("cibo numero 2")])])]), _vm._v(" "), _c("div", {
+    staticClass: "cardCont"
+  }, [_c("div", {
     staticClass: "slide slide3"
-  }, [_c("p", [_vm._v("cibo numero 3")])]), _vm._v(" "), _c("div", {
+  }, [_c("p", [_vm._v("cibo numero 3")])])]), _vm._v(" "), _c("div", {
+    staticClass: "cardCont"
+  }, [_c("div", {
     staticClass: "slide slide4"
-  }, [_c("p", [_vm._v("cibo numero 4")])]), _vm._v(" "), _c("div", {
+  }, [_c("p", [_vm._v("cibo numero 4")])])]), _vm._v(" "), _c("div", {
+    staticClass: "cardCont"
+  }, [_c("div", {
     staticClass: "slide slide5"
-  }, [_c("p", [_vm._v("cibo numero 5")])]), _vm._v(" "), _c("div", {
+  }, [_c("p", [_vm._v("cibo numero 5")])])]), _vm._v(" "), _c("div", {
+    staticClass: "cardCont"
+  }, [_c("div", {
     staticClass: "slide slide6"
-  }, [_c("p", [_vm._v("cibo numero 6")])]), _vm._v(" "), _c("div", {
+  }, [_c("p", [_vm._v("cibo numero 6")])])]), _vm._v(" "), _c("div", {
+    staticClass: "cardCont"
+  }, [_c("div", {
     staticClass: "slide slide7"
-  }, [_c("p", [_vm._v("cibo numero 7")])]), _vm._v(" "), _c("div", {
+  }, [_c("p", [_vm._v("cibo numero 7")])])]), _vm._v(" "), _c("div", {
+    staticClass: "cardCont"
+  }, [_c("div", {
     staticClass: "slide slide8"
-  }, [_c("p", [_vm._v("cibo numero 8")])]), _vm._v(" "), _c("div", {
+  }, [_c("p", [_vm._v("cibo numero 8")])])]), _vm._v(" "), _c("div", {
+    staticClass: "cardCont"
+  }, [_c("div", {
     staticClass: "slide slide9"
-  }, [_c("p", [_vm._v("cibo numero 9")])]), _vm._v(" "), _c("div", {
+  }, [_c("p", [_vm._v("cibo numero 9")])])]), _vm._v(" "), _c("div", {
+    staticClass: "cardCont"
+  }, [_c("div", {
     staticClass: "slide slide10"
-  }, [_c("p", [_vm._v("cibo numero 10")])]), _vm._v(" "), _c("div", {
+  }, [_c("p", [_vm._v("cibo numero 10")])])]), _vm._v(" "), _c("div", {
+    staticClass: "cardCont"
+  }, [_c("div", {
     staticClass: "slide slide11"
-  }, [_c("p", [_vm._v("cibo numero 11")])]), _vm._v(" "), _c("div", {
+  }, [_c("p", [_vm._v("cibo numero 11")])])]), _vm._v(" "), _c("div", {
+    staticClass: "cardCont"
+  }, [_c("div", {
     staticClass: "slide slide12"
-  }, [_c("p", [_vm._v("cibo numero 12")])]), _vm._v(" "), _c("template", {
-    staticClass: "typesArrows",
+  }, [_c("p", [_vm._v("cibo numero 12")])])]), _vm._v(" "), _c("template", {
+    staticClass: "typesArrows typeArrowsLeft",
     slot: "prevButton"
   }, [_c("i", {
     staticClass: "fa-solid fa-circle-chevron-left"
   })]), _vm._v(" "), _c("template", {
-    staticClass: "typesArrows",
+    staticClass: "typesArrows typeArrowsRight",
     slot: "nextButton"
   }, [_c("i", {
     staticClass: "fa-solid fa-circle-chevron-right"
@@ -2279,7 +2312,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "footer {\n  padding: 0 15%;\n  margin: 0 auto;\n  background-color: #73818C;\n}\nfooter #blocks {\n  display: flex;\n  justify-content: space-between;\n}\nfooter #blocks .block {\n  background-color: #8C7E73;\n  width: 20%;\n  margin: 40px 0;\n  border-radius: 10px;\n  padding: 10px;\n}\nfooter #blocks .block ul {\n  list-style-type: none;\n  padding: 0 !important;\n}\nfooter #blocks .block ul :first-child {\n  font-size: 1.5rem;\n  font-weight: 800;\n  margin-bottom: 5px;\n}\nfooter #blocks .block ul li {\n  color: white;\n}\nfooter #underFooter {\n  display: flex;\n  justify-content: space-between;\n  padding: 20px 0;\n}\nfooter #underFooter #left, footer #underFooter #right {\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n}\nfooter #underFooter #left {\n  display: flex;\n  gap: 10px;\n}\nfooter #underFooter #left i {\n  font-size: 30px;\n  color: white;\n}\nfooter #underFooter #right {\n  color: #bdbdbd;\n}", ""]);
+exports.push([module.i, "footer {\n  padding: 0 15%;\n  margin: 0 auto;\n  background-color: #73818C;\n}\nfooter #blocks {\n  display: flex;\n  justify-content: space-between;\n}\nfooter #blocks .block {\n  background-color: #8C7E73;\n  width: 23%;\n  margin: 40px 0;\n  border-radius: 10px;\n  padding: 10px;\n}\nfooter #blocks .block ul {\n  list-style-type: none;\n  padding: 0 !important;\n}\nfooter #blocks .block ul :first-child {\n  font-size: 1.5rem;\n  font-weight: 800;\n  margin-bottom: 5px;\n}\nfooter #blocks .block ul li {\n  color: white;\n}\nfooter #underFooter {\n  display: flex;\n  justify-content: space-between;\n  padding: 20px 0;\n}\nfooter #underFooter #left, footer #underFooter #right {\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n}\nfooter #underFooter #left {\n  display: flex;\n  gap: 10px;\n}\nfooter #underFooter #left i {\n  font-size: 30px;\n  color: white;\n}\nfooter #underFooter #right {\n  color: #bdbdbd;\n}", ""]);
 
 // exports
 
@@ -2336,7 +2369,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "button {\n  border: 0;\n  background-color: transparent !important;\n}\nbutton i {\n  font-size: 50px;\n  color: #69dc9e;\n}\n#TypesSliderContainer {\n  margin: 100px auto 0;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n}\n#TypesSliderContainer .slide {\n  border-radius: 18px;\n  height: 15vw;\n  margin: 10px;\n  overflow: hidden;\n  background-color: black;\n  background-position: center;\n  background-repeat: no-repeat;\n  background-size: cover;\n  display: flex;\n  flex-direction: column-reverse;\n  align-items: center;\n  background-color: #E59F71;\n}\n#TypesSliderContainer .slide p {\n  margin: 7%;\n  color: white;\n  font-weight: 800;\n  font-size: 1.5rem;\n  text-shadow: 1px 1px 2px black, 0 0 25px black, 0 0 5px black;\n}\n#TypesSliderContainer .slide1 {\n  background-image: url(\"https://cdn.discordapp.com/attachments/993428504194584577/996431633597071400/unknown.png\");\n}\n#TypesSliderContainer .slide2 {\n  background-image: url(\"https://cdn.discordapp.com/attachments/993428504194584577/996431633878110298/unknown.png\");\n}\n#TypesSliderContainer .slide3 {\n  background-image: url(\"https://cdn.discordapp.com/attachments/993428504194584577/996431634133946518/unknown.png\");\n}\n#TypesSliderContainer .slide4 {\n  background-image: url(\"https://cdn.discordapp.com/attachments/993428504194584577/996431634444333147/unknown.png\");\n}\n#TypesSliderContainer .slide5 {\n  background-image: url(\"https://cdn.discordapp.com/attachments/993428504194584577/996431635060887664/unknown.png\");\n}\n#TypesSliderContainer .slide6 {\n  background-image: url(\"https://cdn.discordapp.com/attachments/993428504194584577/996431635484508431/unknown.png\");\n}\n#TypesSliderContainer .slide7 {\n  background-image: url(\"https://cdn.discordapp.com/attachments/993428504194584577/996431635790712892/unknown.png\");\n}\n#TypesSliderContainer .slide8 {\n  background-image: url(\"https://cdn.discordapp.com/attachments/993428504194584577/996431636008800347/unknown.png\");\n}\n#TypesSliderContainer .slide9 {\n  background-image: url(\"https://cdn.discordapp.com/attachments/993428504194584577/996434061042130974/poke_icon.png\");\n}\n#TypesSliderContainer .slide10 {\n  background-image: url(\"https://cdn.discordapp.com/attachments/993428504194584577/996434061251854336/americana_icon.png\");\n}\n#TypesSliderContainer .slide11 {\n  background-image: url(\"https://cdn.discordapp.com/attachments/993428504194584577/996434781489336401/giapponese_icon.png\");\n}\n#TypesSliderContainer .slide12 {\n  background-image: url(\"https://cdn.discordapp.com/attachments/993428504194584577/996434781866827847/italiana_icon.png\");\n}", ""]);
+exports.push([module.i, "button {\n  border: 0;\n  background-color: transparent !important;\n}\nbutton i {\n  font-size: 50px;\n  color: #69dc9e;\n}\n.cardCont {\n  padding: 0 10px;\n}\n.agile__actions {\n  position: relative;\n  top: -9vw;\n}\n.agile__actions i {\n  background-color: white;\n  border-radius: 50%;\n}\n#TypesSliderContainer {\n  margin: 100px auto 0;\n}\n#TypesSliderContainer .slide {\n  border-radius: 18px;\n  height: 15vw;\n  overflow: hidden;\n  background-color: black;\n  background-position: center;\n  background-repeat: no-repeat;\n  background-size: cover;\n  display: flex;\n  flex-direction: column-reverse;\n  align-items: center;\n  background-color: #E59F71;\n}\n#TypesSliderContainer .slide p {\n  margin: 7%;\n  color: white;\n  font-weight: 800;\n  font-size: 1.5rem;\n  text-shadow: 1px 1px 2px black, 0 0 25px black, 0 0 5px black;\n}\n#TypesSliderContainer .slide1 {\n  background-image: url(\"https://cdn.discordapp.com/attachments/993428504194584577/996431633597071400/unknown.png\");\n}\n#TypesSliderContainer .slide2 {\n  background-image: url(\"https://cdn.discordapp.com/attachments/993428504194584577/996431633878110298/unknown.png\");\n}\n#TypesSliderContainer .slide3 {\n  background-image: url(\"https://cdn.discordapp.com/attachments/993428504194584577/996431634133946518/unknown.png\");\n}\n#TypesSliderContainer .slide4 {\n  background-image: url(\"https://cdn.discordapp.com/attachments/993428504194584577/996431634444333147/unknown.png\");\n}\n#TypesSliderContainer .slide5 {\n  background-image: url(\"https://cdn.discordapp.com/attachments/993428504194584577/996431635060887664/unknown.png\");\n}\n#TypesSliderContainer .slide6 {\n  background-image: url(\"https://cdn.discordapp.com/attachments/993428504194584577/996431635484508431/unknown.png\");\n}\n#TypesSliderContainer .slide7 {\n  background-image: url(\"https://cdn.discordapp.com/attachments/993428504194584577/996431635790712892/unknown.png\");\n}\n#TypesSliderContainer .slide8 {\n  background-image: url(\"https://cdn.discordapp.com/attachments/993428504194584577/996431636008800347/unknown.png\");\n}\n#TypesSliderContainer .slide9 {\n  background-image: url(\"https://cdn.discordapp.com/attachments/993428504194584577/996434061042130974/poke_icon.png\");\n}\n#TypesSliderContainer .slide10 {\n  background-image: url(\"https://cdn.discordapp.com/attachments/993428504194584577/996434061251854336/americana_icon.png\");\n}\n#TypesSliderContainer .slide11 {\n  background-image: url(\"https://cdn.discordapp.com/attachments/993428504194584577/996434781489336401/giapponese_icon.png\");\n}\n#TypesSliderContainer .slide12 {\n  background-image: url(\"https://cdn.discordapp.com/attachments/993428504194584577/996434781866827847/italiana_icon.png\");\n}", ""]);
 
 // exports
 

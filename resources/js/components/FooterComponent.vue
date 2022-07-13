@@ -34,9 +34,9 @@
       </div>
       <div class="block">
         <ul>
-          <li>Porta Deliveroo con te</li>
-          <li>primo</li>
-          <li>secondo</li>
+          <li>Porta Deliverboo con te</li>
+          <li><img src="https://cdn.discordapp.com/attachments/941312490950766592/996772132816162946/appstore.png"></li>
+          <li><img src="https://cdn.discordapp.com/attachments/941312490950766592/996772133004922951/playstore.png"></li>
         </ul>
       </div>
     </div>
@@ -70,7 +70,7 @@ footer{
   justify-content: space-between;
   .block{
     background-color: #8C7E73;
-    width: 20%;
+    width: 23%;
     margin: 40px 0;
     border-radius: 10px;
     padding: 10px;
