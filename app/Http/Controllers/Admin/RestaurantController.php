@@ -53,21 +53,19 @@ class RestaurantController extends Controller
 
         $newRestaurant->name = $data['name'];
         $newRestaurant->slug = $this->getSlug($newRestaurant->name);
-        $newRestaurant->email = $data['email'];
-        $newRestaurant->password = $data['password'];
         $newRestaurant->address = $data['address'];
         $newRestaurant->vat_number = $data['vat_number'];
         $newRestaurant->user_id = Auth::user()->id;
 
-        if( isset($data['image']) ) {
+        if (isset($data['image'])) {
             $path_image = Storage::put("uploads", $data['image']);
             $newRestaurant->image = $path_image;
         }
 
         $newRestaurant->save();
 
-        if(isset($data['types'])){
-            $newRestaurant->types()->sync($data['types']);        
+        if (isset($data['types'])) {
+            $newRestaurant->types()->sync($data['types']);
         }
 
         return redirect()->route('admin.restaurants.index', $newRestaurant->id);
@@ -124,7 +122,7 @@ class RestaurantController extends Controller
         $slug = Str::of($title)->slug("-");
         $count = 1;
 
-        while(Restaurant::where('slug', $slug)->first()) {
+        while (Restaurant::where('slug', $slug)->first()) {
             $slug = Str::of($title)->slug("-") . "-{$count}";
             $count++;
         };
