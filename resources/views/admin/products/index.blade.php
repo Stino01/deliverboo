@@ -34,7 +34,6 @@
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Nome prodotto</th>
-                <th scope="col">Nome Ristorante</th>
                 <th scope="col">Prezzo</th>
                 <th scope="col">Data di creazione</th>
                 <th scope="col">Modifica prodotto</th>
@@ -43,12 +42,9 @@
         </thead>
         <tbody>
             @foreach ($products as $product)
-            @foreach ($restaurants as $restaurant)
-            @if ($product->restaurant_id == $restaurant->id)
             <tr>
                 <td><a href="{{route('admin.products.show', $product->id)}}">{{$product->id}}</a></td>
                 <td><a href="{{route('admin.products.show', $product->id)}}">{{$product->name}}</a></td>
-                <td>{{$restaurant->name}}</td>
                 <td>{{$product->price}}</td>
                 <td>{{$product->created_at}}</td>
                 <td><a href="{{route('admin.products.edit', $product->id)}}" class="btn btn-warning">Modifica</a></td>
@@ -61,8 +57,6 @@
                     </form>
                 </td>
             </tr>
-            @endif
-            @endforeach
             @endforeach
         </tbody>
     </table>

@@ -16,7 +16,7 @@ class RestaurantsTableSeeder extends Seeder
     {
         $name_list = ['Pizzeria Napoli', 'Sushi Chon', 'Burger King', 'Osteria da Clelia', 'Kebab da Donato', 'Ist. Luce', 'Salah Salad'];
         $vat_list = ['IT12345678901', 'IT12345678902', 'IT12345678903', 'IT12345678904', 'IT12345678905', 'IT12345678906', 'IT12345678907',];
-        $user_id_list = ['1', '1', '2', '3', '4', '4',];
+        $user_id_list = ['1', '2', '5', '3', '4', '6',];
 
         for ($i = 0; $i < 6; $i++) {
             $newRestaurant = new Restaurant();

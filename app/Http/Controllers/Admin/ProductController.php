@@ -39,10 +39,10 @@ class ProductController extends Controller
         // $products = Product::where('restaurant_id', $restaurant_id)->get();
         // return view('admin.products.index', compact('products'));
 
-        $user = Auth::user();
-        $restaurants = Restaurant::where('user_id', $user->id)->get();
-        $products = Product::all();
-        return view('admin.products.index', compact('products', 'restaurants'));
+        $user = Auth::user()->id;
+        // $restaurants = Restaurant::where('user_id', $user->id)->get();
+        $products = Product::where('restaurant_id', $user)->get();
+        return view('admin.products.index', compact('products'));
     }
 
     /**
@@ -50,12 +50,11 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Restaurant $restaurant)
+    public function create()
     {
-        $user = Auth::user();
+        $user = Auth::user()->id;
         $categories = Category::all();
-        $restaurants = Restaurant::all();
-        return view('admin.products.create', compact('restaurants', 'categories', 'user'));
+        return view('admin.products.create', compact('categories', 'user'));
     }
 
     /**
@@ -66,7 +65,6 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
     }
 
     /**
