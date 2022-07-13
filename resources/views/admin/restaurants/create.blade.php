@@ -93,9 +93,9 @@
         {{-- CHECKBOX --}}
         <div class="form-group row">
             @foreach ($types as $type)
-                <label for="type" class="col-md-4 col-form-label text-md-right">{{$type->name}}</label>
+                <label for="types[]" class="col-md-4 col-form-label text-md-right">{{$type->name}}</label>
                 <div class="col-md-6">
-                    <input id="type" type="checkbox" name="type" class="form-control" value="{{$type->id}}">
+                    <input id="type" type="checkbox" name="types[]" class="form-control" value="{{$type->id}}">
                 </div>
             @endforeach
         </div>

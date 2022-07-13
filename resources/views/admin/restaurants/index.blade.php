@@ -2,6 +2,7 @@
 
 @section('content')
 <h1 class="text-center">Index</h1>
+<a href="{{route('admin.restaurants.create')}}" class="btn btn-primary text-uppercase my-3 col-6" type="button">Aggiungi un ristorante</a>
 <div class="container d-flex">
     @foreach ($restaurants as $restaurant)
     <div class="container d-flex align-items-center flex-column">
@@ -9,8 +10,7 @@
             alt="user" style="width: 300px">
         <h1 class="text-center">{{$restaurant->name}}</h1>
         {{-- <p class="text-center">{{$user->address}}</p> --}}
-        <a href="{{route('admin.restaurants.show', $restaurant->id)}}" class="btn btn-primary text-uppercase my-5 col-2"
-            type="button">Visualizza</a>
+        <a href="{{route('admin.restaurants.show', $restaurant->id)}}" class="btn btn-primary text-uppercase my-3 col-6" type="button">Visualizza</a>
         <form action="{{route('admin.restaurants.destroy', $restaurant->id)}}" method="post">
             @csrf
             @method('DELETE')
