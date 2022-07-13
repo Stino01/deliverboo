@@ -1,18 +1,14 @@
 <template>
-    <header>
-        <div class="container">
-            <div id="bottom">
-                <div id="left">
-                    <h1>i piatti che ami a domicilio</h1>
-                </div>
-                <div id="right">
-                    <img src="https://cdn.discordapp.com/attachments/941312490950766592/996357413194170438/campaign.df58721f.png">
-                </div>
+    <div class="container">
+        <div id="bottom">
+            <div id="left">
+                <h1>i piatti che ami a domicilio</h1>
+            </div>
+            <div id="right">
+                <img src="https://cdn.discordapp.com/attachments/941312490950766592/996357413194170438/campaign.df58721f.png">
             </div>
         </div>
-
-
-    </header>
+    </div>
 </template>
 <script>
 export default {
@@ -44,7 +40,7 @@ export default {
 }
 </script>
 <style lang="scss">
-header{
+.container{
     margin: 0 auto;
     background-color: #69DC9E;
     #bottom{
