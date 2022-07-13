@@ -1,19 +1,54 @@
 <template>
-    <agile id="TypesSliderContainer" :slides-to-show="6" :options="myOptions" :center-mode="true">
-        <div class="cardCont"><div class="slide slide1"> <p>cibo numero 1</p> </div></div>
-        <div class="cardCont"><div class="slide slide2"> <p>cibo numero 2</p> </div></div>
-        <div class="cardCont"><div class="slide slide3"> <p>cibo numero 3</p> </div></div>
-        <div class="cardCont"><div class="slide slide4"> <p>cibo numero 4</p> </div></div>
-        <div class="cardCont"><div class="slide slide5"> <p>cibo numero 5</p> </div></div>
-        <div class="cardCont"><div class="slide slide6"> <p>cibo numero 6</p> </div></div>
-        <div class="cardCont"><div class="slide slide7"> <p>cibo numero 7</p> </div></div>
-        <div class="cardCont"><div class="slide slide8"> <p>cibo numero 8</p> </div></div>
-        <div class="cardCont"><div class="slide slide9"> <p>cibo numero 9</p> </div></div>
-        <div class="cardCont"><div class="slide slide10"> <p>cibo numero 10</p> </div></div>
-        <div class="cardCont"><div class="slide slide11"> <p>cibo numero 11</p> </div></div>
-        <div class="cardCont"><div class="slide slide12"> <p>cibo numero 12</p> </div></div>
-        <template class="typesArrows typeArrowsLeft" slot="prevButton"><i class="fa-solid fa-circle-chevron-left"></i></template>
-        <template class="typesArrows typeArrowsRight" slot="nextButton"><i class="fa-solid fa-circle-chevron-right"></i></template>
+    <agile
+        id="TypesSliderContainer"
+        :slides-to-show="6"
+        :options="myOptions"
+        :center-mode="true"
+        :autoplay="true"
+        :autoplay-speed="2000"
+    >
+        <div class="cardCont">
+            <div class="slide slide1"><p>Sushi</p></div>
+        </div>
+        <div class="cardCont">
+            <div class="slide slide2"><p>Cinese</p></div>
+        </div>
+        <div class="cardCont">
+            <div class="slide slide3"><p>Dessert</p></div>
+        </div>
+        <div class="cardCont">
+            <div class="slide slide4"><p>Gelato</p></div>
+        </div>
+        <div class="cardCont">
+            <div class="slide slide5"><p>Hamburger</p></div>
+        </div>
+        <div class="cardCont">
+            <div class="slide slide6"><p>Kebab</p></div>
+        </div>
+        <div class="cardCont">
+            <div class="slide slide7"><p>Pizza</p></div>
+        </div>
+        <div class="cardCont">
+            <div class="slide slide8"><p>Sandwich</p></div>
+        </div>
+        <div class="cardCont">
+            <div class="slide slide9"><p>Poke</p></div>
+        </div>
+        <div class="cardCont">
+            <div class="slide slide10"><p>Ameriano</p></div>
+        </div>
+        <div class="cardCont">
+            <div class="slide slide11"><p>Giapponese</p></div>
+        </div>
+        <div class="cardCont">
+            <div class="slide slide12"><p>Italiano</p></div>
+        </div>
+        <template class="typesArrows typeArrowsLeft" slot="prevButton"
+            ><i class="fa-solid fa-circle-chevron-left"></i
+        ></template>
+        <template class="typesArrows typeArrowsRight" slot="nextButton"
+            ><i class="fa-solid fa-circle-chevron-right"></i
+        ></template>
     </agile>
 </template>
 
@@ -51,33 +86,30 @@ export default {
 </script>
 
 <style lang="scss">
-button{
+button {
     border: 0;
     background-color: transparent !important;
-    i{
+    i {
         font-size: 50px;
         color: #69dc9e;
     }
 }
 
-.cardCont{
+.cardCont {
     padding: 0 10px;
 }
 
-.agile__actions{
+.agile__actions {
     position: relative;
     top: -9vw;
-    i{
+    i {
         background-color: white;
         border-radius: 50%;
     }
 }
 
-
-
 #TypesSliderContainer {
     margin: 100px auto 0;
-
 
     .slide {
         border-radius: 18px;
@@ -86,14 +118,12 @@ button{
         background-color: black;
         background-position: center;
         background-repeat: no-repeat;
-        background-size: cover;
-
+        background-size: 60%;
         display: flex;
         flex-direction: column-reverse;
         align-items: center;
-
-        background-color: #E59F71;
-        p{
+        background-color: #e59f71;
+        p {
             margin: 7%;
             color: white;
             font-weight: 800;
@@ -101,17 +131,41 @@ button{
             text-shadow: 1px 1px 2px black, 0 0 25px black, 0 0 5px black;
         }
     }
-    .slide1 {background-image: url("https://cdn.discordapp.com/attachments/993428504194584577/996431633597071400/unknown.png");}
-    .slide2 {background-image: url("https://cdn.discordapp.com/attachments/993428504194584577/996431633878110298/unknown.png");}
-    .slide3 {background-image: url("https://cdn.discordapp.com/attachments/993428504194584577/996431634133946518/unknown.png");}
-    .slide4 {background-image: url("https://cdn.discordapp.com/attachments/993428504194584577/996431634444333147/unknown.png");}
-    .slide5 {background-image: url("https://cdn.discordapp.com/attachments/993428504194584577/996431635060887664/unknown.png");}
-    .slide6 {background-image: url("https://cdn.discordapp.com/attachments/993428504194584577/996431635484508431/unknown.png");}
-    .slide7 {background-image: url("https://cdn.discordapp.com/attachments/993428504194584577/996431635790712892/unknown.png");}
-    .slide8 {background-image: url("https://cdn.discordapp.com/attachments/993428504194584577/996431636008800347/unknown.png");}
-    .slide9 {background-image: url("https://cdn.discordapp.com/attachments/993428504194584577/996434061042130974/poke_icon.png");}
-    .slide10 {background-image: url("https://cdn.discordapp.com/attachments/993428504194584577/996434061251854336/americana_icon.png");}
-    .slide11 {background-image: url("https://cdn.discordapp.com/attachments/993428504194584577/996434781489336401/giapponese_icon.png");}
-    .slide12 {background-image: url("https://cdn.discordapp.com/attachments/993428504194584577/996434781866827847/italiana_icon.png");}
+    .slide1 {
+        background-image: url("https://cdn.discordapp.com/attachments/993428504194584577/996431633597071400/unknown.png");
+    }
+    .slide2 {
+        background-image: url("https://cdn.discordapp.com/attachments/993428504194584577/996431633878110298/unknown.png");
+    }
+    .slide3 {
+        background-image: url("https://cdn.discordapp.com/attachments/993428504194584577/996431634133946518/unknown.png");
+    }
+    .slide4 {
+        background-image: url("https://cdn.discordapp.com/attachments/993428504194584577/996431634444333147/unknown.png");
+    }
+    .slide5 {
+        background-image: url("https://cdn.discordapp.com/attachments/993428504194584577/996431635060887664/unknown.png");
+    }
+    .slide6 {
+        background-image: url("https://cdn.discordapp.com/attachments/993428504194584577/996431635484508431/unknown.png");
+    }
+    .slide7 {
+        background-image: url("https://cdn.discordapp.com/attachments/993428504194584577/996431635790712892/unknown.png");
+    }
+    .slide8 {
+        background-image: url("https://cdn.discordapp.com/attachments/993428504194584577/996431636008800347/unknown.png");
+    }
+    .slide9 {
+        background-image: url("https://cdn.discordapp.com/attachments/993428504194584577/996434061042130974/poke_icon.png");
+    }
+    .slide10 {
+        background-image: url("https://cdn.discordapp.com/attachments/993428504194584577/996434061251854336/americana_icon.png");
+    }
+    .slide11 {
+        background-image: url("https://cdn.discordapp.com/attachments/993428504194584577/996434781489336401/giapponese_icon.png");
+    }
+    .slide12 {
+        background-image: url("https://cdn.discordapp.com/attachments/993428504194584577/996434781866827847/italiana_icon.png");
+    }
 }
 </style>
