@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
@@ -57,6 +58,11 @@ class RestaurantController extends Controller
         $newRestaurant->address = $data['address'];
         $newRestaurant->vat_number = $data['vat_number'];
         $newRestaurant->user_id = Auth::user()->id;
+
+        if( isset($data['image']) ) {
+            $path_image = Storage::put("uploads", $data['image']);
+            $newRestaurant->image = $path_image;
+        }
 
         $newRestaurant->save();
 
