@@ -17,7 +17,7 @@ class CreateOrdersTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('surname');
-            $table->string('email');
+            $table->string('email')->unique();
             $table->string('phone_number');
             $table->float('total_price', 6, 2);
             $table->string('billing_address');

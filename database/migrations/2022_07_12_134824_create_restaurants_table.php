@@ -16,11 +16,11 @@ class CreateRestaurantsTable extends Migration
         Schema::create('restaurants', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('slug');
-            $table->string('email')->unique();
-            $table->string('password');
+            $table->string('slug')->unique();
             $table->string('address');
-            $table->string('vat_number');
+            $table->string('vat_number')->unique();
+            $table->string("image")->nullable();
+            $table->foreignID('user_id')->nullable()->onDelete('set null');
             $table->timestamps();
         });
     }

@@ -15,19 +15,14 @@ class CreateRestaurantTypeTable extends Migration
     {
         Schema::create('restaurant_type', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
 
             $table->unsignedBigInteger('restaurant_id');
-            $table->foreign("restaurant_id")
-                ->references('id')
-                ->on('restaurants')
-                ->onDelete('cascade');
+            $table->foreign("restaurant_id")->references('id')->on('restaurants')->onDelete('cascade');
 
             $table->unsignedBigInteger('type_id');
-            $table->foreign("type_id")
-                    ->references('id')
-                    ->on('types')
-                    ->onDelete('cascade');
+            $table->foreign("type_id")->references('id')->on('types')->onDelete('cascade');
+
+            $table->timestamps();
         });
     }
 

@@ -17,6 +17,7 @@ class CreateTypesTable extends Migration
             $table->id();
             $table->string('name', 50);
             $table->string('slug', 60) -> unique();
+            $table->string("image")->nullable();
             $table->timestamps();
         });
     }
