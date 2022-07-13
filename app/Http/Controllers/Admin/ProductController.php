@@ -14,6 +14,19 @@ use App\Category;
 
 class ProductController extends Controller
 {
+    protected $validationRule = [
+        'name' => 'required|string|max:100',
+        'description' => 'required',
+        "visible" => "sometimes|accepted",
+        "category_id" => "nullable|exists:categories,id",
+        "restaurant_id" => "nullable|exists:restaurants,id",
+        // "image" => "nullable||image|mimes:jpeg,bmp,png,svg|max:2048", 
+        // "image" => "nullable|image|mimes:jpg,jpeg,bmp,png,svg|max:2048|file", //FUNZIONANTE
+        // "image" => "nullable|image|max:2048",
+        // "image" => "nullable|mimes:jpg,jpeg,bmp,png,svg|max:2048",
+        // "tag" => "nullable|exists:tags,id",
+        "price" => 'required',
+    ];
     /**
      * Display a listing of the resource.
      *

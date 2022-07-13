@@ -7,7 +7,9 @@
     <p class="text-center">{{$restaurant->address}}</p>
     {{-- {{route('admin.products.index')}} --}}
     <h2>Prodotti disponibili</h2>
-
+    <a href="{{route('admin.products.create')}}" class="btn btn-primary text-uppercase my-5" type="button">Aggiungi
+        piatto
+    </a>
     <table class="table">
         <thead>
             <tr>

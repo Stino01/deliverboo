@@ -2,8 +2,10 @@
 
 @section('content')
 <h1 class="text-center">Index</h1>
+@if($restaurant->user_id == null)
 <a href="{{route('admin.restaurants.create')}}" class="btn btn-primary text-uppercase my-3 col-6" type="button">Aggiungi
     un ristorante</a>
+@endif
 <div class="container d-flex">
     <div class="container d-flex align-items-center flex-column">
         @if ($restaurant->image == null)
