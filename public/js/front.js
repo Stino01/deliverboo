@@ -2317,7 +2317,7 @@ var staticRenderFns = [function () {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _c("header", [_c("div", {
+  return _c("div", {
     staticClass: "container"
   }, [_c("div", {
     attrs: {
@@ -2335,7 +2335,7 @@ var staticRenderFns = [function () {
     attrs: {
       src: "https://cdn.discordapp.com/attachments/941312490950766592/996357413194170438/campaign.df58721f.png"
     }
-  })])])])]);
+  })])])]);
 }];
 render._withStripped = true;
 
@@ -2454,7 +2454,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "header {\n  margin: 0 auto;\n  background-color: #69DC9E;\n}\nheader #bottom {\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between;\n  align-items: center;\n}\nheader #bottom #left h1 {\n  text-transform: uppercase;\n  color: black;\n  font-size: 46px;\n  font-weight: 900;\n}\nheader #bottom #right {\n  display: flex;\n  flex-direction: row-reverse;\n  width: 30%;\n}\nheader #bottom #right img {\n  width: 100%;\n  position: relative;\n  bottom: -3vw;\n}", ""]);
+exports.push([module.i, ".container {\n  margin: 0 auto;\n  background-color: #69DC9E;\n}\n.container #bottom {\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between;\n  align-items: center;\n}\n.container #bottom #left h1 {\n  text-transform: uppercase;\n  color: black;\n  font-size: 46px;\n  font-weight: 900;\n}\n.container #bottom #right {\n  display: flex;\n  flex-direction: row-reverse;\n  width: 30%;\n}\n.container #bottom #right img {\n  width: 100%;\n  position: relative;\n  bottom: -3vw;\n}", ""]);
 
 // exports
 
@@ -20298,7 +20298,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\MAMP\htdocs\esercizi\deliverboo\resources\js\front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! C:\Users\stino\Desktop\deliverboo\resources\js\front.js */"./resources/js/front.js");
 
 
 /***/ })
