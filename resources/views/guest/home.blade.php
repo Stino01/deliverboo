@@ -14,7 +14,7 @@
         @if (Route::has('login'))
             <div>
                 @auth
-                    <a type="button" class="btn btn_add" href="{{ url('/admin') }}">area personale</a>           
+                    <a type="button" class="btn btn_add" href="{{ url('/admin/restaurants') }}">area personale</a>           
                 @else
                     <a type="button" class="btn btn_add" href="{{ route('login') }}">accedi</a>
 
