@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container-slogan">
         <div id="bottom">
             <div id="left">
                 <h1>i piatti che ami a domicilio</h1>
@@ -40,10 +40,11 @@ export default {
 }
 </script>
 <style lang="scss">
-.container{
-    margin: 0 auto;
+.container-slogan{
     background-color: #69DC9E;
     #bottom{
+        width: 70%;
+        margin: 0 auto;
         display: flex;
         flex-direction: row;
         justify-content: space-between;

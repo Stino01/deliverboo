@@ -2318,7 +2318,7 @@ var staticRenderFns = [function () {
       _c = _vm._self._c;
 
   return _c("div", {
-    staticClass: "container"
+    staticClass: "container-slogan"
   }, [_c("div", {
     attrs: {
       id: "bottom"
@@ -2454,7 +2454,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".container {\n  margin: 0 auto;\n  background-color: #69DC9E;\n}\n.container #bottom {\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between;\n  align-items: center;\n}\n.container #bottom #left h1 {\n  text-transform: uppercase;\n  color: black;\n  font-size: 46px;\n  font-weight: 900;\n}\n.container #bottom #right {\n  display: flex;\n  flex-direction: row-reverse;\n  width: 30%;\n}\n.container #bottom #right img {\n  width: 100%;\n  position: relative;\n  bottom: -3vw;\n}", ""]);
+exports.push([module.i, ".container-slogan {\n  background-color: #69DC9E;\n}\n.container-slogan #bottom {\n  width: 70%;\n  margin: 0 auto;\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between;\n  align-items: center;\n}\n.container-slogan #bottom #left h1 {\n  text-transform: uppercase;\n  color: black;\n  font-size: 46px;\n  font-weight: 900;\n}\n.container-slogan #bottom #right {\n  display: flex;\n  flex-direction: row-reverse;\n  width: 30%;\n}\n.container-slogan #bottom #right img {\n  width: 100%;\n  position: relative;\n  bottom: -3vw;\n}", ""]);
 
 // exports
 
