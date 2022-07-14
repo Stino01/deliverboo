@@ -63,6 +63,9 @@ button {
 .cardCont {
     padding: 0 10px;
 }
+.cardCont, .agile__actions{
+    cursor: pointer;
+}
 
 .agile__actions {
     position: relative;
