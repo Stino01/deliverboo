@@ -2,25 +2,44 @@ main {
     background-color: #69dc9e;
     height: calc(100vh - 55px);
     width: 100%;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+
     .container {
         width: 100%;
     }
     .card {
-        background-color: #e59f71;
+        background-color: #69DC9E;
+        border: none;
+
         .card-header {
+            border-radius: 1rem;
             background-color: #ba5a31;
             color: white;
             font-size: 1.5rem;
+            margin-bottom: 1rem;
+            box-shadow: 0px 0px 15px 1px rgba(0,0,0,0.5);
+            text-align: center;
+            text-transform: uppercase;
         }
+
         .card-body {
+            padding: 5rem 0;
+            border-radius: 1rem;
+            background-color: #e59f71;
+            box-shadow: 0px 0px 15px 1px rgba(0,0,0,0.5);
+
             .btn-login {
                 background-color: #ba5a31;
                 color: white;
             }
+
             .btn-forgot {
                 color: #8d3c19;
                 text-decoration: underline;
                 font-weight: 900;
+
                 &:hover {
                     color: #c05c31;
                 }
