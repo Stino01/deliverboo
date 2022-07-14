@@ -2,22 +2,26 @@
 @include('partials/popupdelete')
 @section('content')
 <div class="container">
-    @if(session()->has('message'))
+    {{-- @if(session()->has('message'))
     <div class="alert alert-success">
         {{session()->get('message')}}
     </div>
-    @endif
+    @endif --}}
     <div class="card d-flex flex-column my-3 gap-3">
         <div class="card-header">
             <div class="container text-center">
-                <h1>{{$product->name}}</h1>
+                <h1>{{$order->name}}</h1>
+                <h1>{{$order->surname}}</h1>
+                @foreach ($products as $product)
+                <p>{{$product->name}}</p>
+                @endforeach
             </div>
         </div>
-        <div class="card-body d-flex flex-column gap-3">
+        {{-- <div class="card-body d-flex flex-column gap-3">
             <div>
-                <small class="mr-3">In magazzino dal: {{$product->created_at}}</small>
+                <small class="mr-3">In magazzino dal: {{$product->created_at}}</small> --}}
                 {{-- condizione per stampare il valore corretto a seconda del booleano --}}
-                @if($product->visible !== 0)
+                {{-- @if($product->visible !== 0)
                 <p class="badge-success d-inline-block p-1 rounded">Disponibile</p>
                 @else
                 <p class="badge-danger d-inline-block p-1 rounded">Non disponibile</p>
@@ -39,7 +43,7 @@
             @endif
             @if($product->image != null)
             <img src="{{ asset('storage/' . $product->image) }}" class="rounded " alt="{{ $product->title }}">
-            @endif
+            @endif --}}
             {{-- @if (count($product->tags)>0)
             <h5>Tags</h5>
             <ul>
@@ -55,7 +59,7 @@
                     </div>
                 </ul>
             </div> --}}
-            <div class="d-flex align-items-start">
+            {{-- <div class="d-flex align-items-start">
                 <a href="{{ route('admin.products.edit', $product->id) }}" class="btn btn-warning mr-2">Edit</a>
                 <form action="{{ route('admin.products.destroy', $product->id) }}" method="post">
                     @csrf
@@ -63,7 +67,7 @@
                     <button type="submit" onclick="boolpress.openModal(event, {{ $product->id }})"
                         class="btn btn-danger delete">Delete</button>
                 </form>
-            </div>
+            </div> --}}
             {{-- @endif --}}
         </div>
     </div>
