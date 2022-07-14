@@ -1,5 +1,4 @@
 @extends('layouts.admin')
-{{-- @dump($tags); --}}
 @section('content')
 <div class="container">
     <h2>Inserisci un nuovo prodotto</h2>
