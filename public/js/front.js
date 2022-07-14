@@ -20209,14 +20209,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_agile__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue-agile */ "./node_modules/vue-agile/src/index.js");
 /* harmony import */ var _views_App__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./views/App */ "./resources/js/views/App.vue");
 window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+window.axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_agile__WEBPACK_IMPORTED_MODULE_3__["default"]);
 
 var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
-  el: '#root',
+  el: "#root",
   render: function render(h) {
     return h(_views_App__WEBPACK_IMPORTED_MODULE_2__["default"]);
   }

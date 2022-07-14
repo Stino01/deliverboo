@@ -1,8 +1,8 @@
 @extends('layouts.admin')
-
+@include('partials/popupdelete')
 @section('content')
 <div class="container">
-    {{--
+
     <!-- Modal -->
     <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -22,7 +22,7 @@
                 </div>
             </div>
         </div>
-    </div> --}}
+    </div>
     <a href="{{route('admin.products.create')}}" class="btn btn-primary my-3">Crea nuovo prodotto</a>
     @if(session()->has('message'))
     <div class="alert alert-success">
@@ -34,7 +34,6 @@
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Nome prodotto</th>
-                <th scope="col">Nome Ristorante</th>
                 <th scope="col">Prezzo</th>
                 <th scope="col">Data di creazione</th>
                 <th scope="col">Modifica prodotto</th>
@@ -43,17 +42,14 @@
         </thead>
         <tbody>
             @foreach ($products as $product)
-            @foreach ($restaurants as $restaurant)
-            @if ($product->restaurant_id == $restaurant->id)
             <tr>
                 <td><a href="{{route('admin.products.show', $product->id)}}">{{$product->id}}</a></td>
                 <td><a href="{{route('admin.products.show', $product->id)}}">{{$product->name}}</a></td>
-                <td>{{$restaurant->name}}</td>
                 <td>{{$product->price}}</td>
                 <td>{{$product->created_at}}</td>
                 <td><a href="{{route('admin.products.edit', $product->id)}}" class="btn btn-warning">Modifica</a></td>
                 <td>
-                    <form action="{{route('admin.products.destroy', $product->id)}}" method="product">
+                    <form action="{{route('admin.products.destroy', $product->id)}}" method="POST">
                         @csrf
                         @method('DELETE')
                         <button type="submit" onclick="boolpress.openModal(event, {{ $product->id }})"
@@ -61,8 +57,6 @@
                     </form>
                 </td>
             </tr>
-            @endif
-            @endforeach
             @endforeach
         </tbody>
     </table>

@@ -1,13 +1,14 @@
 @extends('layouts.admin')
-{{-- @dump($tags); --}}
 @section('content')
 <div class="container">
+    <h2>Inserisci un nuovo prodotto</h2>
+    <p class="fst-italic">I campi contrassegnati con * sono obbligatori</p>
     <form action="{{route('admin.products.store')}}" method="POST" enctype="multipart/form-data">
         @csrf
 
         {{-- NOME --}}
         <div class="mb-3">
-            <label for="name" class="form-label">Nome prodotto</label>
+            <label for="name" class="form-label">Nome prodotto *</label>
             <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name"
                 placeholder="Inserisci il titolo">
             @error('name')
@@ -27,7 +28,7 @@
 
         {{-- CATEGORIA --}}
         <div class="mb-3">
-            <label for="category" class="form-label">Categoria</label>
+            <label for="category" class="form-label">Categoria *</label>
             <select class="form-control @error('category_id') is-invalid @enderror" id="category" name="category_id">
                 <option value="">Selezione la categoria</option>
                 @foreach ($categories as $category)
@@ -39,38 +40,24 @@
             @enderror
         </div>
 
-        {{-- RISTORANTE --}}
-        <div class="mb-3">
-            <label for="restaurant" class="form-label">Ristorante</label>
-            <select class="form-control @error('restaurant_id') is-invalid @enderror" id="restaurant"
-                name="restaurant_id">
-                <option value="">Selezione il ristorante</option>
-                @foreach ($restaurants as $restaurant)
-                @if ($restaurant->user_id == $user->id)
-                <option value="{{$restaurant->id}}">{{$restaurant->name}}</option>
-                @endif
-                @endforeach
-            </select>
-            @error('restaurant_id')
-            <div class="alert alert-danger">{{$message}}</div>
-            @enderror
-        </div>
-
         {{-- IMAGE --}}
-        {{-- <div class="form-group">
+        <div class="form-group">
             <img id="uploadPreview" width="100" src="https://via.placeholder.com/300x200">
             <label for="image">Aggiungi immagine</label>
             <input type="file" id="image" name="image" onchange="boolpress.previewImage();">
-            @error('image')
+            {{-- @error('image')
             <div class="alert alert-danger">{{ $message }}</div>
-            @enderror
-        </div> --}}
+            @enderror --}}
+        </div>
 
         {{-- PRICE --}}
         <div class="form-group mb-3">
-            <label for="price" class="form-label">Prezzo</label>
-            <input type="number" step="0.10" class="form-control" id="price" name="price" min='1' max='999.99'
-                aria-describedby="price" placeholder="price">
+            <label for="price" class="form-label @error('price') is-invalid @enderror">Prezzo *</label>
+            <input type="number" step="0.10" class="form-control" id="price" name="price" min='1' max='999.90'
+                aria-describedby="price" placeholder="Es: 2.90">
+            @error('price')
+            <div class="alert alert-danger">{{$message}}</div>
+            @enderror
         </div>
 
         {{-- TAGS --}}
@@ -90,18 +77,18 @@
 
         {{-- VISIBLE --}}
         <div class="mb-3 form-check">
-            <input type="checkbox" class="form-check-input" {{old('visibile') ? 'checked' : '' }} id="visibile"
-                name="visibile">
-            <label class="form-check-label" for="visibile">Visibile</label>
+            <input type="checkbox" class="form-check-input" {{old('visible') ? 'checked' : '' }} id="visible"
+                name="visible">
+            <label class="form-check-label" for="visible">Visibile</label>
         </div>
 
         {{-- BOTTONE --}}
         <button type="submit" class="btn btn-primary">Crea</button>
     </form>
 </div>
-{{-- <script src="//js.nicedit.com/nicEdit-latest.js" type="text/javascript">
+<script src="//js.nicedit.com/nicEdit-latest.js" type="text/javascript">
 </script>
 <script type="text/javascript">
     bkLib.onDomLoaded(nicEditors.allTextAreas);
-</script> --}}
+</script>
 @endsection

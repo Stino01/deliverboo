@@ -8,12 +8,24 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 use App\Product;
-use App\User;
 use App\Restaurant;
 use App\Category;
 
 class ProductController extends Controller
 {
+    protected $validationRule = [
+        'name' => 'required|string|max:100',
+        'description' => 'required',
+        "visible" => "sometimes|accepted",
+        "category_id" => "nullable|exists:categories,id",
+        "restaurant_id" => "nullable|exists:restaurants,id",
+        // "image" => "nullable||image|mimes:jpeg,bmp,png,svg|max:2048", 
+        // "image" => "nullable|image|mimes:jpg,jpeg,bmp,png,svg|max:2048|file", //FUNZIONANTE
+        "image" => "nullable|image|max:2048",
+        // "image" => "nullable|mimes:jpg,jpeg,bmp,png,svg|max:2048",
+        // "tag" => "nullable|exists:tags,id",
+        "price" => 'required',
+    ];
     /**
      * Display a listing of the resource.
      *
@@ -39,10 +51,10 @@ class ProductController extends Controller
         // $products = Product::where('restaurant_id', $restaurant_id)->get();
         // return view('admin.products.index', compact('products'));
 
-        $user = Auth::user();
-        $restaurants = Restaurant::where('user_id', $user->id)->get();
-        $products = Product::all();
-        return view('admin.products.index', compact('products', 'restaurants'));
+        $user = Auth::user()->id;
+        // $restaurants = Restaurant::where('user_id', $user->id)->get();
+        $products = Product::where('restaurant_id', $user)->get();
+        return view('admin.products.index', compact('products'));
     }
 
     /**
@@ -50,12 +62,11 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Restaurant $restaurant)
+    public function create()
     {
-        $user = Auth::user();
+        $user = Auth::user()->id;
         $categories = Category::all();
-        $restaurants = Restaurant::all();
-        return view('admin.products.create', compact('restaurants', 'categories', 'user'));
+        return view('admin.products.create', compact('categories', 'user'));
     }
 
     /**
@@ -66,7 +77,32 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate($this->validationRule);
+        $data = $request->all();
+
+        $newProduct = new Product();
+
+        $newProduct->name = $data['name'];
+        $newProduct->slug = $this->getSlug($newProduct->name);
+        $newProduct->description = $data['description'];
+        // IMMAGINE
+        if (isset($data['image'])) {
+            $path_image = Storage::put("uploads", $data['image']); // uploads/nomeimg.jpg
+            $newProduct->image = $path_image;
+        }
+        $newProduct->price = $data['price'];
+        $newProduct->visible = isset($data['visible']);
+        $newProduct->category_id = $data['category_id'];
+        $newProduct->restaurant_id = Auth::user()->id;
+
+        $newProduct->save();
+
+        // METODO SYNC CON CONTROLLO PER GLI ORDERS
+        // if (isset($data['orders'])) {
+        //     $newProduct->orders()->sync($data['orders']);
+        // }
+
+        return redirect()->route('admin.products.show', $newProduct->id);
     }
 
     /**
@@ -75,9 +111,10 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Product $product)
     {
-        //
+        $categories = Category::all();
+        return view('admin.products.show', compact('product', 'categories'));
     }
 
     /**
@@ -109,9 +146,10 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Product $product)
     {
-        //
+        $product->delete();
+        return redirect()->route('admin.products.index')->with("message", "Prodotto \"{$product->name}\" rimosso definitivamente!");
     }
 
     private function getSlug($name)
