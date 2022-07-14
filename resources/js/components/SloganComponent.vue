@@ -16,9 +16,10 @@ export default {
 }
 </script>
 <style lang="scss">
+
 .container-slogan{
     
-    background-color: #69DC9E;
+    background-color: #005C53; /*BLUE MARINE */
     #bottom{
         display: flex;
         flex-direction: row;
@@ -29,7 +30,7 @@ export default {
         #left{
             h1{
                 text-transform: uppercase;
-                color: black;
+                color: white;
                 font-size: 46px;
                 font-weight: 900;
             }

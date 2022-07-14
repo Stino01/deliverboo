@@ -91,7 +91,7 @@ button {
     background-color: transparent !important;
     i {
         font-size: 50px;
-        color: #69dc9e;
+        color: #dbf227; /*YELLOW */
     }
 }
 
@@ -103,7 +103,7 @@ button {
     position: relative;
     top: -9vw;
     i {
-        background-color: white;
+        background-color: #042940; /*BLUE */
         border-radius: 50%;
     }
 }
@@ -122,7 +122,7 @@ button {
         display: flex;
         flex-direction: column-reverse;
         align-items: center;
-        background-color: #e59f71;
+        background-color: red;
         p {
             margin: 7%;
             color: white;
@@ -133,39 +133,51 @@ button {
     }
     .slide1 {
         background-image: url("https://cdn.discordapp.com/attachments/993428504194584577/996431633597071400/unknown.png");
+        background-color: #ADC965;
     }
     .slide2 {
         background-image: url("https://cdn.discordapp.com/attachments/993428504194584577/996431633878110298/unknown.png");
+        background-color: #89D5C9;
     }
     .slide3 {
         background-image: url("https://cdn.discordapp.com/attachments/993428504194584577/996431634133946518/unknown.png");
+        background-color: #FAC172;
     }
     .slide4 {
         background-image: url("https://cdn.discordapp.com/attachments/993428504194584577/996431634444333147/unknown.png");
+        background-color: #FF8357;
     }
     .slide5 {
         background-image: url("https://cdn.discordapp.com/attachments/993428504194584577/996431635060887664/unknown.png");
+        background-color: #E25B45;
     }
     .slide6 {
         background-image: url("https://cdn.discordapp.com/attachments/993428504194584577/996431635484508431/unknown.png");
+        background-color: #FABE0E;
     }
     .slide7 {
         background-image: url("https://cdn.discordapp.com/attachments/993428504194584577/996431635790712892/unknown.png");
+        background-color: #F5C6B2;
     }
     .slide8 {
         background-image: url("https://cdn.discordapp.com/attachments/993428504194584577/996431636008800347/unknown.png");
+        background-color: #AAE6DA;
     }
     .slide9 {
         background-image: url("https://cdn.discordapp.com/attachments/993428504194584577/996434061042130974/poke_icon.png");
+        background-color: #E0966F;
     }
     .slide10 {
         background-image: url("https://cdn.discordapp.com/attachments/993428504194584577/996434061251854336/americana_icon.png");
+        background-color: #49888A;
     }
     .slide11 {
         background-image: url("https://cdn.discordapp.com/attachments/993428504194584577/996434781489336401/giapponese_icon.png");
+        background-color: #B68141;
     }
     .slide12 {
         background-image: url("https://cdn.discordapp.com/attachments/993428504194584577/996434781866827847/italiana_icon.png");
+        background-color: #F8B2BC;
     }
 }
 </style>
