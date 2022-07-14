@@ -1,19 +1,54 @@
 <template>
-    <agile id="TypesSliderContainer" :slides-to-show="6" :options="myOptions" :center-mode="true" :autoplay="true" :autoplay-speed="3500">
-        <div class="cardCont"> <div class="slide slide1"><p>Sushi</p></div></div>
-        <div class="cardCont"> <div class="slide slide2"><p>Cinese</p></div></div>
-        <div class="cardCont"> <div class="slide slide3"><p>Dessert</p></div></div>
-        <div class="cardCont"> <div class="slide slide4"><p>Gelato</p></div></div>
-        <div class="cardCont"> <div class="slide slide5"><p>Hamburger</p></div></div>
-        <div class="cardCont"> <div class="slide slide6"><p>Kebab</p></div></div>
-        <div class="cardCont"> <div class="slide slide7"><p>Pizza</p></div></div>
-        <div class="cardCont"> <div class="slide slide8"><p>Sandwich</p></div></div>
-        <div class="cardCont"> <div class="slide slide9"><p>Poke</p></div></div>
-        <div class="cardCont"> <div class="slide slide10"><p>Ameriano</p></div></div>
-        <div class="cardCont"> <div class="slide slide11"><p>Giapponese</p></div></div>
-        <div class="cardCont"> <div class="slide slide12"><p>Italiano</p></div></div>
-        <template class="typesArrows typeArrowsLeft" slot="prevButton"><i class="fa-solid fa-circle-chevron-left"></i></template>
-        <template class="typesArrows typeArrowsRight" slot="nextButton"><i class="fa-solid fa-circle-chevron-right"></i></template>
+    <agile
+        id="TypesSliderContainer"
+        :slides-to-show="6"
+        :options="myOptions"
+        :center-mode="true"
+        :autoplay="true"
+        :autoplay-speed="2000"
+    >
+        <div class="cardCont">
+            <div class="slide slide1"><p>Sushi</p></div>
+        </div>
+        <div class="cardCont">
+            <div class="slide slide2"><p>Cinese</p></div>
+        </div>
+        <div class="cardCont">
+            <div class="slide slide3"><p>Dessert</p></div>
+        </div>
+        <div class="cardCont">
+            <div class="slide slide4"><p>Gelato</p></div>
+        </div>
+        <div class="cardCont">
+            <div class="slide slide5"><p>Hamburger</p></div>
+        </div>
+        <div class="cardCont">
+            <div class="slide slide6"><p>Kebab</p></div>
+        </div>
+        <div class="cardCont">
+            <div class="slide slide7"><p>Pizza</p></div>
+        </div>
+        <div class="cardCont">
+            <div class="slide slide8"><p>Sandwich</p></div>
+        </div>
+        <div class="cardCont">
+            <div class="slide slide9"><p>Poke</p></div>
+        </div>
+        <div class="cardCont">
+            <div class="slide slide10"><p>Ameriano</p></div>
+        </div>
+        <div class="cardCont">
+            <div class="slide slide11"><p>Giapponese</p></div>
+        </div>
+        <div class="cardCont">
+            <div class="slide slide12"><p>Italiano</p></div>
+        </div>
+        <template class="typesArrows typeArrowsLeft" slot="prevButton"
+            ><i class="fa-solid fa-circle-chevron-left"></i
+        ></template>
+        <template class="typesArrows typeArrowsRight" slot="nextButton"
+            ><i class="fa-solid fa-circle-chevron-right"></i
+        ></template>
     </agile>
 </template>
 
@@ -62,9 +97,6 @@ button {
 
 .cardCont {
     padding: 0 10px;
-}
-.cardCont, .agile__actions{
-    cursor: pointer;
 }
 
 .agile__actions {

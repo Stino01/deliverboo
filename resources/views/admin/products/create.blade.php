@@ -60,6 +60,21 @@
             @enderror
         </div>
 
+        {{-- TAGS --}}
+        {{-- <div class="mb-3">
+            <div class="form-group">
+                <h5>Tags</h5>
+                @foreach ($tags as $tag)
+                <div class="form-check-inline">
+                    <input type="checkbox" class="form-check-input" {{in_array($tag->id, old("tags", [])) ? 'checked' :
+                    '' }}
+                    id="{{$tag->slug}}" name="tags[]" value="{{$tag->id}}">
+                    <label class="form-check-label" for="{{$tag->slug}}">{{$tag->name}}</label>
+                </div>
+                @endforeach
+            </div>
+        </div> --}}
+
         {{-- VISIBLE --}}
         <div class="mb-3 form-check">
             <input type="checkbox" class="form-check-input" {{old('visible') ? 'checked' : '' }} id="visible"
