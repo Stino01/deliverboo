@@ -21,20 +21,34 @@ class OrderController extends Controller
     {
         $orders = Order::all();
         $user_id = Auth::user()->id;
-
         $restaurant = Restaurant::where('user_id', $user_id)->first();
-        $products = Product::where('restaurant_id', $restaurant->id)->get();
+        $products = Product::where('restaurant_id', $restaurant->user_id)->get();
+        $filteredOrders = [];
 
         foreach ($products as $product) {
-            foreach($product->orders as $order) {
+            foreach ($product->orders as $order) {
                 // echo $product->pivot->product_id;
                 // echo $order->name;
+                // dump($order->getOriginal());
+                // dump($order->getOriginal('pivot_product_id'));
+                // dump($order->getOriginal('pivot_order_id'));
                 $product_id[] = $order->pivot->product_id;
+                foreach ($orders as $ord) {
+                    if ($ord->id == $order->getOriginal('pivot_order_id')) {
+                        // dump($ord);
+                        if (!in_array($ord, $filteredOrders)) {
+                            array_push($filteredOrders, $ord);
+                        }
+                    }
+                }
             }
-            //dd($product_id);
         }
+        // dump($filteredOrders);
+        // dump($product_id);
 
-        return view('admin.orders.index', compact('orders', 'product_id'));
+
+
+        return view('admin.orders.index', compact('orders', 'filteredOrders'));
     }
 
     /**
@@ -73,13 +87,13 @@ class OrderController extends Controller
         $products = Product::where('restaurant_id', $restaurant->id)->get();
 
         foreach ($products as $product) {
-            foreach($product->orders as $order) {
+            foreach ($product->orders as $order) {
                 $product_id[] = $order->pivot->product_id;
                 $order_id[] = $order->pivot->order_id;
             }
         }
-        
-        return view('admin.orders.show', compact('products' ,'order'));
+
+        return view('admin.orders.show', compact('products', 'order'));
     }
 
     /**
