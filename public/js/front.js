@@ -2226,57 +2226,59 @@ var render = function render() {
       id: "TypesSliderContainer",
       "slides-to-show": 6,
       options: _vm.myOptions,
-      "center-mode": true
+      "center-mode": true,
+      autoplay: true,
+      "autoplay-speed": 3500
     }
   }, [_c("div", {
     staticClass: "cardCont"
   }, [_c("div", {
     staticClass: "slide slide1"
-  }, [_c("p", [_vm._v("cibo numero 1")])])]), _vm._v(" "), _c("div", {
+  }, [_c("p", [_vm._v("Sushi")])])]), _vm._v(" "), _c("div", {
     staticClass: "cardCont"
   }, [_c("div", {
     staticClass: "slide slide2"
-  }, [_c("p", [_vm._v("cibo numero 2")])])]), _vm._v(" "), _c("div", {
+  }, [_c("p", [_vm._v("Cinese")])])]), _vm._v(" "), _c("div", {
     staticClass: "cardCont"
   }, [_c("div", {
     staticClass: "slide slide3"
-  }, [_c("p", [_vm._v("cibo numero 3")])])]), _vm._v(" "), _c("div", {
+  }, [_c("p", [_vm._v("Dessert")])])]), _vm._v(" "), _c("div", {
     staticClass: "cardCont"
   }, [_c("div", {
     staticClass: "slide slide4"
-  }, [_c("p", [_vm._v("cibo numero 4")])])]), _vm._v(" "), _c("div", {
+  }, [_c("p", [_vm._v("Gelato")])])]), _vm._v(" "), _c("div", {
     staticClass: "cardCont"
   }, [_c("div", {
     staticClass: "slide slide5"
-  }, [_c("p", [_vm._v("cibo numero 5")])])]), _vm._v(" "), _c("div", {
+  }, [_c("p", [_vm._v("Hamburger")])])]), _vm._v(" "), _c("div", {
     staticClass: "cardCont"
   }, [_c("div", {
     staticClass: "slide slide6"
-  }, [_c("p", [_vm._v("cibo numero 6")])])]), _vm._v(" "), _c("div", {
+  }, [_c("p", [_vm._v("Kebab")])])]), _vm._v(" "), _c("div", {
     staticClass: "cardCont"
   }, [_c("div", {
     staticClass: "slide slide7"
-  }, [_c("p", [_vm._v("cibo numero 7")])])]), _vm._v(" "), _c("div", {
+  }, [_c("p", [_vm._v("Pizza")])])]), _vm._v(" "), _c("div", {
     staticClass: "cardCont"
   }, [_c("div", {
     staticClass: "slide slide8"
-  }, [_c("p", [_vm._v("cibo numero 8")])])]), _vm._v(" "), _c("div", {
+  }, [_c("p", [_vm._v("Sandwich")])])]), _vm._v(" "), _c("div", {
     staticClass: "cardCont"
   }, [_c("div", {
     staticClass: "slide slide9"
-  }, [_c("p", [_vm._v("cibo numero 9")])])]), _vm._v(" "), _c("div", {
+  }, [_c("p", [_vm._v("Poke")])])]), _vm._v(" "), _c("div", {
     staticClass: "cardCont"
   }, [_c("div", {
     staticClass: "slide slide10"
-  }, [_c("p", [_vm._v("cibo numero 10")])])]), _vm._v(" "), _c("div", {
+  }, [_c("p", [_vm._v("Ameriano")])])]), _vm._v(" "), _c("div", {
     staticClass: "cardCont"
   }, [_c("div", {
     staticClass: "slide slide11"
-  }, [_c("p", [_vm._v("cibo numero 11")])])]), _vm._v(" "), _c("div", {
+  }, [_c("p", [_vm._v("Giapponese")])])]), _vm._v(" "), _c("div", {
     staticClass: "cardCont"
   }, [_c("div", {
     staticClass: "slide slide12"
-  }, [_c("p", [_vm._v("cibo numero 12")])])]), _vm._v(" "), _c("template", {
+  }, [_c("p", [_vm._v("Italiano")])])]), _vm._v(" "), _c("template", {
     staticClass: "typesArrows typeArrowsLeft",
     slot: "prevButton"
   }, [_c("i", {
@@ -2435,7 +2437,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "button {\n  border: 0;\n  background-color: transparent !important;\n}\nbutton i {\n  font-size: 50px;\n  color: #69dc9e;\n}\n.cardCont {\n  padding: 0 10px;\n}\n.agile__actions {\n  position: relative;\n  top: -9vw;\n}\n.agile__actions i {\n  background-color: white;\n  border-radius: 50%;\n}\n#TypesSliderContainer {\n  margin: 100px auto 0;\n}\n#TypesSliderContainer .slide {\n  border-radius: 18px;\n  height: 15vw;\n  overflow: hidden;\n  background-color: black;\n  background-position: center;\n  background-repeat: no-repeat;\n  background-size: cover;\n  display: flex;\n  flex-direction: column-reverse;\n  align-items: center;\n  background-color: #E59F71;\n}\n#TypesSliderContainer .slide p {\n  margin: 7%;\n  color: white;\n  font-weight: 800;\n  font-size: 1.5rem;\n  text-shadow: 1px 1px 2px black, 0 0 25px black, 0 0 5px black;\n}\n#TypesSliderContainer .slide1 {\n  background-image: url(\"https://cdn.discordapp.com/attachments/993428504194584577/996431633597071400/unknown.png\");\n}\n#TypesSliderContainer .slide2 {\n  background-image: url(\"https://cdn.discordapp.com/attachments/993428504194584577/996431633878110298/unknown.png\");\n}\n#TypesSliderContainer .slide3 {\n  background-image: url(\"https://cdn.discordapp.com/attachments/993428504194584577/996431634133946518/unknown.png\");\n}\n#TypesSliderContainer .slide4 {\n  background-image: url(\"https://cdn.discordapp.com/attachments/993428504194584577/996431634444333147/unknown.png\");\n}\n#TypesSliderContainer .slide5 {\n  background-image: url(\"https://cdn.discordapp.com/attachments/993428504194584577/996431635060887664/unknown.png\");\n}\n#TypesSliderContainer .slide6 {\n  background-image: url(\"https://cdn.discordapp.com/attachments/993428504194584577/996431635484508431/unknown.png\");\n}\n#TypesSliderContainer .slide7 {\n  background-image: url(\"https://cdn.discordapp.com/attachments/993428504194584577/996431635790712892/unknown.png\");\n}\n#TypesSliderContainer .slide8 {\n  background-image: url(\"https://cdn.discordapp.com/attachments/993428504194584577/996431636008800347/unknown.png\");\n}\n#TypesSliderContainer .slide9 {\n  background-image: url(\"https://cdn.discordapp.com/attachments/993428504194584577/996434061042130974/poke_icon.png\");\n}\n#TypesSliderContainer .slide10 {\n  background-image: url(\"https://cdn.discordapp.com/attachments/993428504194584577/996434061251854336/americana_icon.png\");\n}\n#TypesSliderContainer .slide11 {\n  background-image: url(\"https://cdn.discordapp.com/attachments/993428504194584577/996434781489336401/giapponese_icon.png\");\n}\n#TypesSliderContainer .slide12 {\n  background-image: url(\"https://cdn.discordapp.com/attachments/993428504194584577/996434781866827847/italiana_icon.png\");\n}", ""]);
+exports.push([module.i, "button {\n  border: 0;\n  background-color: transparent !important;\n}\nbutton i {\n  font-size: 50px;\n  color: #69dc9e;\n}\n.cardCont {\n  padding: 0 10px;\n}\n.agile__actions {\n  position: relative;\n  top: -9vw;\n}\n.agile__actions i {\n  background-color: white;\n  border-radius: 50%;\n}\n#TypesSliderContainer {\n  margin: 100px auto 0;\n}\n#TypesSliderContainer .slide {\n  border-radius: 18px;\n  height: 15vw;\n  overflow: hidden;\n  background-color: black;\n  background-position: center;\n  background-repeat: no-repeat;\n  background-size: 60%;\n  display: flex;\n  flex-direction: column-reverse;\n  align-items: center;\n  background-color: #e59f71;\n}\n#TypesSliderContainer .slide p {\n  margin: 7%;\n  color: white;\n  font-weight: 800;\n  font-size: 1.5rem;\n  text-shadow: 1px 1px 2px black, 0 0 25px black, 0 0 5px black;\n}\n#TypesSliderContainer .slide1 {\n  background-image: url(\"https://cdn.discordapp.com/attachments/993428504194584577/996431633597071400/unknown.png\");\n}\n#TypesSliderContainer .slide2 {\n  background-image: url(\"https://cdn.discordapp.com/attachments/993428504194584577/996431633878110298/unknown.png\");\n}\n#TypesSliderContainer .slide3 {\n  background-image: url(\"https://cdn.discordapp.com/attachments/993428504194584577/996431634133946518/unknown.png\");\n}\n#TypesSliderContainer .slide4 {\n  background-image: url(\"https://cdn.discordapp.com/attachments/993428504194584577/996431634444333147/unknown.png\");\n}\n#TypesSliderContainer .slide5 {\n  background-image: url(\"https://cdn.discordapp.com/attachments/993428504194584577/996431635060887664/unknown.png\");\n}\n#TypesSliderContainer .slide6 {\n  background-image: url(\"https://cdn.discordapp.com/attachments/993428504194584577/996431635484508431/unknown.png\");\n}\n#TypesSliderContainer .slide7 {\n  background-image: url(\"https://cdn.discordapp.com/attachments/993428504194584577/996431635790712892/unknown.png\");\n}\n#TypesSliderContainer .slide8 {\n  background-image: url(\"https://cdn.discordapp.com/attachments/993428504194584577/996431636008800347/unknown.png\");\n}\n#TypesSliderContainer .slide9 {\n  background-image: url(\"https://cdn.discordapp.com/attachments/993428504194584577/996434061042130974/poke_icon.png\");\n}\n#TypesSliderContainer .slide10 {\n  background-image: url(\"https://cdn.discordapp.com/attachments/993428504194584577/996434061251854336/americana_icon.png\");\n}\n#TypesSliderContainer .slide11 {\n  background-image: url(\"https://cdn.discordapp.com/attachments/993428504194584577/996434781489336401/giapponese_icon.png\");\n}\n#TypesSliderContainer .slide12 {\n  background-image: url(\"https://cdn.discordapp.com/attachments/993428504194584577/996434781866827847/italiana_icon.png\");\n}", ""]);
 
 // exports
 
