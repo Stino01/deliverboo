@@ -2219,7 +2219,7 @@ var render = function render() {
       options: _vm.myOptions,
       "center-mode": true,
       autoplay: true,
-      "autoplay-speed": 2000
+      "autoplay-speed": 3500
     }
   }, [_c("div", {
     staticClass: "cardCont"
@@ -2283,53 +2283,6 @@ var render = function render() {
 };
 
 var staticRenderFns = [];
-render._withStripped = true;
-
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/sloganComponent.vue?vue&type=template&id=1ff285c4&":
-/*!************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/sloganComponent.vue?vue&type=template&id=1ff285c4& ***!
-  \************************************************************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function render() {
-  var _vm = this,
-      _c = _vm._self._c;
-
-  return _vm._m(0);
-};
-
-var staticRenderFns = [function () {
-  var _vm = this,
-      _c = _vm._self._c;
-
-  return _c("div", {
-    staticClass: "container"
-  }, [_c("div", {
-    attrs: {
-      id: "bottom"
-    }
-  }, [_c("div", {
-    attrs: {
-      id: "left"
-    }
-  }, [_c("h1", [_vm._v("i piatti che ami a domicilio")])]), _vm._v(" "), _c("div", {
-    attrs: {
-      id: "right"
-    }
-  }, [_c("img", {
-    attrs: {
-      src: "https://cdn.discordapp.com/attachments/941312490950766592/996357413194170438/campaign.df58721f.png"
-    }
-  })])])]);
-}];
 render._withStripped = true;
 
 
@@ -2428,26 +2381,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "button {\n  border: 0;\n  background-color: transparent !important;\n}\nbutton i {\n  font-size: 50px;\n  color: #69dc9e;\n}\n.cardCont {\n  padding: 0 10px;\n}\n.agile__actions {\n  position: relative;\n  top: -9vw;\n}\n.agile__actions i {\n  background-color: white;\n  border-radius: 50%;\n}\n#TypesSliderContainer {\n  margin: 100px auto 0;\n}\n#TypesSliderContainer .slide {\n  border-radius: 18px;\n  height: 15vw;\n  overflow: hidden;\n  background-color: black;\n  background-position: center;\n  background-repeat: no-repeat;\n  background-size: 60%;\n  display: flex;\n  flex-direction: column-reverse;\n  align-items: center;\n  background-color: #e59f71;\n}\n#TypesSliderContainer .slide p {\n  margin: 7%;\n  color: white;\n  font-weight: 800;\n  font-size: 1.5rem;\n  text-shadow: 1px 1px 2px black, 0 0 25px black, 0 0 5px black;\n}\n#TypesSliderContainer .slide1 {\n  background-image: url(\"https://cdn.discordapp.com/attachments/993428504194584577/996431633597071400/unknown.png\");\n}\n#TypesSliderContainer .slide2 {\n  background-image: url(\"https://cdn.discordapp.com/attachments/993428504194584577/996431633878110298/unknown.png\");\n}\n#TypesSliderContainer .slide3 {\n  background-image: url(\"https://cdn.discordapp.com/attachments/993428504194584577/996431634133946518/unknown.png\");\n}\n#TypesSliderContainer .slide4 {\n  background-image: url(\"https://cdn.discordapp.com/attachments/993428504194584577/996431634444333147/unknown.png\");\n}\n#TypesSliderContainer .slide5 {\n  background-image: url(\"https://cdn.discordapp.com/attachments/993428504194584577/996431635060887664/unknown.png\");\n}\n#TypesSliderContainer .slide6 {\n  background-image: url(\"https://cdn.discordapp.com/attachments/993428504194584577/996431635484508431/unknown.png\");\n}\n#TypesSliderContainer .slide7 {\n  background-image: url(\"https://cdn.discordapp.com/attachments/993428504194584577/996431635790712892/unknown.png\");\n}\n#TypesSliderContainer .slide8 {\n  background-image: url(\"https://cdn.discordapp.com/attachments/993428504194584577/996431636008800347/unknown.png\");\n}\n#TypesSliderContainer .slide9 {\n  background-image: url(\"https://cdn.discordapp.com/attachments/993428504194584577/996434061042130974/poke_icon.png\");\n}\n#TypesSliderContainer .slide10 {\n  background-image: url(\"https://cdn.discordapp.com/attachments/993428504194584577/996434061251854336/americana_icon.png\");\n}\n#TypesSliderContainer .slide11 {\n  background-image: url(\"https://cdn.discordapp.com/attachments/993428504194584577/996434781489336401/giapponese_icon.png\");\n}\n#TypesSliderContainer .slide12 {\n  background-image: url(\"https://cdn.discordapp.com/attachments/993428504194584577/996434781866827847/italiana_icon.png\");\n}", ""]);
-
-// exports
-
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/sloganComponent.vue?vue&type=style&index=0&id=1ff285c4&lang=scss&":
-/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--8-2!./node_modules/sass-loader/dist/cjs.js??ref--8-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/sloganComponent.vue?vue&type=style&index=0&id=1ff285c4&lang=scss& ***!
-  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, ".container {\n  margin: 0 auto;\n  background-color: #69DC9E;\n}\n.container #bottom {\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between;\n  align-items: center;\n}\n.container #bottom #left h1 {\n  text-transform: uppercase;\n  color: black;\n  font-size: 46px;\n  font-weight: 900;\n}\n.container #bottom #right {\n  display: flex;\n  flex-direction: row-reverse;\n  width: 30%;\n}\n.container #bottom #right img {\n  width: 100%;\n  position: relative;\n  bottom: -3vw;\n}", ""]);
+exports.push([module.i, "button {\n  border: 0;\n  background-color: transparent !important;\n}\nbutton i {\n  font-size: 50px;\n  color: #69dc9e;\n}\n.cardCont {\n  padding: 0 10px;\n}\n.cardCont, .agile__actions {\n  cursor: pointer;\n}\n.agile__actions {\n  position: relative;\n  top: -9vw;\n}\n.agile__actions i {\n  background-color: white;\n  border-radius: 50%;\n}\n#TypesSliderContainer {\n  margin: 100px auto 0;\n}\n#TypesSliderContainer .slide {\n  border-radius: 18px;\n  height: 15vw;\n  overflow: hidden;\n  background-color: black;\n  background-position: center;\n  background-repeat: no-repeat;\n  background-size: 60%;\n  display: flex;\n  flex-direction: column-reverse;\n  align-items: center;\n  background-color: #e59f71;\n}\n#TypesSliderContainer .slide p {\n  margin: 7%;\n  color: white;\n  font-weight: 800;\n  font-size: 1.5rem;\n  text-shadow: 1px 1px 2px black, 0 0 25px black, 0 0 5px black;\n}\n#TypesSliderContainer .slide1 {\n  background-image: url(\"https://cdn.discordapp.com/attachments/993428504194584577/996431633597071400/unknown.png\");\n}\n#TypesSliderContainer .slide2 {\n  background-image: url(\"https://cdn.discordapp.com/attachments/993428504194584577/996431633878110298/unknown.png\");\n}\n#TypesSliderContainer .slide3 {\n  background-image: url(\"https://cdn.discordapp.com/attachments/993428504194584577/996431634133946518/unknown.png\");\n}\n#TypesSliderContainer .slide4 {\n  background-image: url(\"https://cdn.discordapp.com/attachments/993428504194584577/996431634444333147/unknown.png\");\n}\n#TypesSliderContainer .slide5 {\n  background-image: url(\"https://cdn.discordapp.com/attachments/993428504194584577/996431635060887664/unknown.png\");\n}\n#TypesSliderContainer .slide6 {\n  background-image: url(\"https://cdn.discordapp.com/attachments/993428504194584577/996431635484508431/unknown.png\");\n}\n#TypesSliderContainer .slide7 {\n  background-image: url(\"https://cdn.discordapp.com/attachments/993428504194584577/996431635790712892/unknown.png\");\n}\n#TypesSliderContainer .slide8 {\n  background-image: url(\"https://cdn.discordapp.com/attachments/993428504194584577/996431636008800347/unknown.png\");\n}\n#TypesSliderContainer .slide9 {\n  background-image: url(\"https://cdn.discordapp.com/attachments/993428504194584577/996434061042130974/poke_icon.png\");\n}\n#TypesSliderContainer .slide10 {\n  background-image: url(\"https://cdn.discordapp.com/attachments/993428504194584577/996434061251854336/americana_icon.png\");\n}\n#TypesSliderContainer .slide11 {\n  background-image: url(\"https://cdn.discordapp.com/attachments/993428504194584577/996434781489336401/giapponese_icon.png\");\n}\n#TypesSliderContainer .slide12 {\n  background-image: url(\"https://cdn.discordapp.com/attachments/993428504194584577/996434781866827847/italiana_icon.png\");\n}", ""]);
 
 // exports
 
@@ -20243,7 +20177,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\MAMP\htdocs\esercizi\deliverboo\resources\js\front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! C:\Users\stino\Desktop\deliverboo\resources\js\front.js */"./resources/js/front.js");
 
 
 /***/ })
