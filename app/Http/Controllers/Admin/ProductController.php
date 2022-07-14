@@ -125,7 +125,9 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        $product = Product::findOrFail($id);
+        $categories = Category::all();
+        return view('admin.products.edit', compact('product', 'categories'));
     }
 
     /**
@@ -135,9 +137,42 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Product $product)
     {
-        //
+        $request->validate($this->validationRule);
+        $data = $request->all();
+
+        $product->name = $data['name'];
+        //controllo sullo slug
+        if ($product->name != $data['name']) {
+            $product->name = $data['name'];
+            $slug = Str::of($product->name)->slug("-");
+            if ($slug != $product->slug) {
+                $product->slug = $this->getSlug($product->name);
+            }
+        }
+        $product->description = $data['description'];
+        // IMMAGINE
+        if (isset($data['image'])) {
+            // cancello l'immagine
+            Storage::delete($product->image);
+            // salvo la nuova immagine
+            $path_image = Storage::put("uploads", $data['image']);
+            $product->image = $path_image;
+        }
+        $product->price = $data['price'];
+        $product->visible = isset($data['visible']);
+        $product->category_id = $data['category_id'];
+        $product->restaurant_id = Auth::user()->id;
+
+        $product->update();
+
+        // METODO SYNC CON CONTROLLO PER GLI ORDERS
+        // if (isset($data['orders'])) {
+        //     $product->orders()->sync($data['orders']);
+        // }
+
+        return redirect()->route('admin.products.show', $product->id);
     }
 
     /**

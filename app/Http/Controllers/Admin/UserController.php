@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\User;
+use App\Restaurant;
 use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
@@ -17,8 +18,9 @@ class UserController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $users = User::where('id', $user->id)->get();
-        return view('admin.users.index', compact('users'));
+        $restaurant = Restaurant::where('user_id', $user->id)->get();
+        dd($restaurant);
+        return view('admin.users.index', compact('user', 'restaurants'));   
     }
 
     /**
