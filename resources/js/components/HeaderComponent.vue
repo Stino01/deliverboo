@@ -45,7 +45,7 @@ export default {
 <style lang="scss">
 header{
     margin: 0 auto;
-    background-color: #69DC9E;
+    background-color: #042940;  /*BLUE */
     #top{
         #left{
             display: flex;
