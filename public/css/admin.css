@@ -1,6 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
 main {
-  background-color: #69DC9E;
+  background-color: #69dc9e;
   height: calc(100vh - 55px);
   width: 100%;
 }
@@ -8,15 +8,15 @@ main .container {
   width: 100%;
 }
 main .card {
-  background-color: #E59F71;
+  background-color: #e59f71;
 }
 main .card .card-header {
-  background-color: #BA5A31;
+  background-color: #ba5a31;
   color: white;
   font-size: 1.5rem;
 }
 main .card .card-body .btn-login {
-  background-color: #BA5A31;
+  background-color: #ba5a31;
   color: white;
 }
 main .card .card-body .btn-forgot {
