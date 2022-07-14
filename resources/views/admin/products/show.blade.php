@@ -37,7 +37,7 @@
             @if($product->category_id == null)
             <h5>Nessuna categoria assegnata</h5>
             @endif
-            @if($product->image)
+            @if($product->image != null)
             <img src="{{ asset('storage/' . $product->image) }}" class="rounded " alt="{{ $product->title }}">
             @endif
             {{-- @if (count($product->tags)>0)
