@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container-slogan">
         <div id="bottom">
             <div id="left">
                 <h1>i piatti che ami a domicilio</h1>
@@ -12,42 +12,20 @@
 </template>
 <script>
 export default {
-    name: 'SloganComponent',
-    data(){
-        return {
-             menuItem: [
-        		{
-					label: 'Home',
-					routeName: 'home'
-				},
-				{
-					label: 'Posts',
-					routeName: 'posts'
-				},
-				{
-					label: 'Chi Siamo',
-					routeName: 'about'
-				},
-				{
-					label: 'Contatti',
-					routeName: 'contact'
-				}
-            ]
-        }
-    }
-
-
+    name: 'SloganComponent'
 }
 </script>
 <style lang="scss">
-.container{
-    margin: 0 auto;
+.container-slogan{
+    
     background-color: #69DC9E;
     #bottom{
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
+        margin: 0 auto;
+        width: 70%;
         #left{
             h1{
                 text-transform: uppercase;

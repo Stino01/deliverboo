@@ -2018,24 +2018,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'SloganComponent',
-  data: function data() {
-    return {
-      menuItem: [{
-        label: 'Home',
-        routeName: 'home'
-      }, {
-        label: 'Posts',
-        routeName: 'posts'
-      }, {
-        label: 'Chi Siamo',
-        routeName: 'about'
-      }, {
-        label: 'Contatti',
-        routeName: 'contact'
-      }]
-    };
-  }
+  name: 'SloganComponent'
 });
 
 /***/ }),
@@ -2320,7 +2303,7 @@ var staticRenderFns = [function () {
       _c = _vm._self._c;
 
   return _c("div", {
-    staticClass: "container"
+    staticClass: "container-slogan"
   }, [_c("div", {
     attrs: {
       id: "bottom"
@@ -2456,7 +2439,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".container {\n  margin: 0 auto;\n  background-color: #69DC9E;\n}\n.container #bottom {\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between;\n  align-items: center;\n}\n.container #bottom #left h1 {\n  text-transform: uppercase;\n  color: black;\n  font-size: 46px;\n  font-weight: 900;\n}\n.container #bottom #right {\n  display: flex;\n  flex-direction: row-reverse;\n  width: 30%;\n}\n.container #bottom #right img {\n  width: 100%;\n  position: relative;\n  bottom: -3vw;\n}", ""]);
+exports.push([module.i, ".container-slogan {\n  background-color: #69DC9E;\n}\n.container-slogan #bottom {\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between;\n  align-items: center;\n  margin: 0 auto;\n  width: 70%;\n}\n.container-slogan #bottom #left h1 {\n  text-transform: uppercase;\n  color: black;\n  font-size: 46px;\n  font-weight: 900;\n}\n.container-slogan #bottom #right {\n  display: flex;\n  flex-direction: row-reverse;\n  width: 30%;\n}\n.container-slogan #bottom #right img {\n  width: 100%;\n  position: relative;\n  bottom: -3vw;\n}", ""]);
 
 // exports
 
@@ -20300,7 +20283,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\stino\Desktop\deliverboo\resources\js\front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! C:\MAMP\htdocs\esercizi\deliverboo\resources\js\front.js */"./resources/js/front.js");
 
 
 /***/ })
