@@ -13,30 +13,6 @@
 <script>
 export default {
     name: 'SloganComponent',
-    data(){
-        return {
-             menuItem: [
-        		{
-					label: 'Home',
-					routeName: 'home'
-				},
-				{
-					label: 'Posts',
-					routeName: 'posts'
-				},
-				{
-					label: 'Chi Siamo',
-					routeName: 'about'
-				},
-				{
-					label: 'Contatti',
-					routeName: 'contact'
-				}
-            ]
-        }
-    }
-
-
 }
 </script>
 <style lang="scss">
