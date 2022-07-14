@@ -105,7 +105,13 @@ button {
     i {
         background-color: #042940; /*BLUE */
         border-radius: 50%;
+           &:hover {
+        color: #005c53; /* BLUE MARINE */
+        background-color: #dbf227; /*YELLOW */
     }
+    }
+
+ 
 }
 
 #TypesSliderContainer {

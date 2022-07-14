@@ -38,21 +38,23 @@ main {
             background-color: #9fc131; // TERTIARY_COLOR
             box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.5);
 
-            .btn-login {
+            .btn-login,
+            .btn-submit {
                 background-color: #dbf227 !important; // YELLOW_COLOR
 
-                &:hover {
-                    background-color: #042940 !important; // BLUE_COLOR
+                &:hover,
+                .btn-submit:hover {
+                    background-color: #005c53 !important; /* BLUE MARINE */
                     color: white;
                 }
             }
 
-            .btn-link, .btn-submit {
+            .btn-link {
                 color: #005c53 !important; // BLUE_MARINE_COLOR
                 text-decoration: underline;
                 font-weight: 900;
 
-                &:hover, .btn-submit:hover {
+                &:hover {
                     color: #042940 !important; // BLUE_COLOR
                 }
             }
