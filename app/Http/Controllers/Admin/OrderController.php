@@ -4,9 +4,11 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Product;
-use App\Restaurant;
+use Illuminate\Support\Facades\Auth;
 use App\Order;
+use App\Restaurant;
+use App\Type;
+use App\Product;
 
 class OrderController extends Controller
 {
@@ -18,7 +20,21 @@ class OrderController extends Controller
     public function index()
     {
         $orders = Order::all();
-        return view('admin.orders.index', compact('orders'));
+        $user_id = Auth::user()->id;
+
+        $restaurant = Restaurant::where('user_id', $user_id)->first();
+        $products = Product::where('restaurant_id', $restaurant->id)->get();
+
+        foreach ($products as $product) {
+            foreach($product->orders as $order) {
+                // echo $product->pivot->product_id;
+                // echo $order->name;
+                $product_id[] = $order->pivot->product_id;
+            }
+            //dd($product_id);
+        }
+
+        return view('admin.orders.index', compact('orders', 'product_id'));
     }
 
     /**
@@ -48,9 +64,22 @@ class OrderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Order $order)
     {
-        //
+        $orders = Order::all();
+        $user_id = Auth::user()->id;
+
+        $restaurant = Restaurant::where('user_id', $user_id)->first();
+        $products = Product::where('restaurant_id', $restaurant->id)->get();
+
+        foreach ($products as $product) {
+            foreach($product->orders as $order) {
+                $product_id[] = $order->pivot->product_id;
+                $order_id[] = $order->pivot->order_id;
+            }
+        }
+        
+        return view('admin.orders.show', compact('products' ,'order'));
     }
 
     /**
