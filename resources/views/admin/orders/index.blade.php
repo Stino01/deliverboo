@@ -2,65 +2,38 @@
 @include('partials/popupdelete')
 @section('content')
 <div class="container">
-
-    <!-- Modal -->
-    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="deleteModalLabel">Confirm product delete</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    Sei sicuro di voler eliminare il product con id: @{{itemId}} ?
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-danger" @@click="submitForm()">Conferma</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <a href="{{route('admin.products.create')}}" class="btn btn-primary my-3">Crea nuovo prodotto</a>
-    @if(session()->has('message'))
-    <div class="alert alert-success">
-        {{session()->get('message')}}
-    </div>
-    @endif
+    <h1>Lista degli ordini ricevuti</h1>
     <table class="table">
         <thead>
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">Nome prodotto</th>
-                <th scope="col">Prezzo</th>
-                <th scope="col">Data di creazione</th>
-                <th scope="col">Modifica prodotto</th>
-                <th scope="col">Elimina prodotto</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Cognome</th>
+                <th scope="col">E-mail</th>
+                <th scope="col">Telefono</th>
+                <th scope="col">Prezzo totale</th>
+                <th scope="col">Indirizzo di fatturazione</th>
+                <th scope="col">Indirizzo di spedizione</th>
+                <th scope="col">Spedito</th>
+                <th scope="col">Data</th>
             </tr>
         </thead>
         <tbody>
-            @foreach ($products as $product)
+            @foreach ($orders as $order)
             <tr>
-                <td><a href="{{route('admin.products.show', $product->id)}}">{{$product->id}}</a></td>
-                <td><a href="{{route('admin.products.show', $product->id)}}">{{$product->name}}</a></td>
-                <td>{{$product->price}}</td>
-                <td>{{$product->created_at}}</td>
-                <td><a href="{{route('admin.products.edit', $product->id)}}" class="btn btn-warning">Modifica</a></td>
-                <td>
-                    <form action="{{route('admin.products.destroy', $product->id)}}" method="POST">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" onclick="boolpress.openModal(event, {{ $product->id }})"
-                            class="btn btn-danger delete">Delete</button>
-                    </form>
-                </td>
+                <td><a href="{{route('admin.orders.show', $order->id)}}">{{$order->id}}</a></td>
+                <td>{{$order->name}}</td>
+                <td>{{$order->surname}}</td>
+                <td>{{$order->email}}</td>
+                <td>{{$order->phone_number}}</td>
+                <td>{{$order->total_price}}</td>
+                <td>{{$order->billing_address}}</td>
+                <td>{{$order->shipping_address}}</td>
+                <td>{{$order->shipped}}</td>
+                <td>{{$order->updated_at}}</td>
             </tr>
             @endforeach
         </tbody>
     </table>
-    {{-- PER LA VISUALIZZAZIONE DEL PAGINATE --}}
-    {{-- {{$products->links()}} --}}
 </div>
 @endsection
