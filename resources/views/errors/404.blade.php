@@ -1,5 +1,6 @@
 @extends('errors::minimal')
 
-@section('title', __('Not Found'))
-@section('code', '404')
-@section('message', __('Not Found'))
+
+
+
+<img src= "{{asset('media/gif/404.gif')}}" >
