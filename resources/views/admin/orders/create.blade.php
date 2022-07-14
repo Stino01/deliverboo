@@ -1,11 +1,11 @@
 @extends('layouts.admin')
 @section('content')
 <div class="container">
-    <h2>Modifica il prodotto: {{$product->title}}</h2>
-    {{-- <p class="fst-italic">I campi contrassegnati con * sono obbligatori</p> --}}
-    <form action="{{route('admin.products.update', $product->id)}}" method="POST" enctype="multipart/form-data">
+    <h2>Inserisci un nuovo prodotto</h2>
+    <p class="fst-italic">I campi contrassegnati con * sono obbligatori</p>
+    <form action="{{route('admin.products.store')}}" method="POST" enctype="multipart/form-data">
         @csrf
-        @method('PUT')
+
         {{-- NOME --}}
         <div class="mb-3">
             <label for="name" class="form-label">Nome prodotto *</label>
@@ -83,7 +83,7 @@
         </div>
 
         {{-- BOTTONE --}}
-        <button type="submit" class="btn btn-primary">Modifica</button>
+        <button type="submit" class="btn btn-primary">Crea</button>
     </form>
 </div>
 <script src="//js.nicedit.com/nicEdit-latest.js" type="text/javascript">
