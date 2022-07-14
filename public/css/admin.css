@@ -35,19 +35,23 @@ main .card .card-body {
   background-color: #9fc131;
   box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.5);
 }
-main .card .card-body .btn-login {
+main .card .card-body .btn-login,
+main .card .card-body .btn-submit {
   background-color: #dbf227 !important;
 }
-main .card .card-body .btn-login:hover {
-  background-color: #042940 !important;
+main .card .card-body .btn-login:hover,
+main .card .card-body .btn-login .btn-submit:hover,
+main .card .card-body .btn-submit:hover,
+main .card .card-body .btn-submit .btn-submit:hover {
+  background-color: #005c53 !important; /* BLUE MARINE */
   color: white;
 }
-main .card .card-body .btn-link, main .card .card-body .btn-submit {
+main .card .card-body .btn-link {
   color: #005c53 !important;
   text-decoration: underline;
   font-weight: 900;
 }
-main .card .card-body .btn-link:hover, main .card .card-body .btn-link .btn-submit:hover, main .card .card-body .btn-submit:hover, main .card .card-body .btn-submit .btn-submit:hover {
+main .card .card-body .btn-link:hover {
   color: #042940 !important;
 }
 main .card .card-body .form-check-input:checked {
