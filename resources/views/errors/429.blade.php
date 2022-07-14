@@ -1,5 +1,9 @@
 @extends('errors::minimal')
 
-@section('title', __('Too Many Requests'))
-@section('code', '429')
-@section('message', __('Too Many Requests'))
+<style>
+    .position-ref{
+        background-image: url("{{asset('media/gif/429.gif')}}");
+        width: 100vw;
+        height: 100vh;
+    }
+</style>

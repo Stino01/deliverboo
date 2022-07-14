@@ -1,5 +1,9 @@
 @extends('errors::minimal')
 
-@section('title', __('Unauthorized'))
-@section('code', '401')
-@section('message', __('Unauthorized'))
+<style>
+    .position-ref{
+        background-image: url("{{asset('media/gif/401.gif')}}");
+        width: 100vw;
+        height: 100vh;
+    }
+</style>
