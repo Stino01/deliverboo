@@ -6,11 +6,14 @@
 </template>
 
 <script>
+import SloganComponent from './SloganComponent.vue';
 import TypesSlider from './TypesSlider.vue';
-import SloganComponent from './sloganComponent.vue';
 export default {
     name: "MainComponent",
-    components: { TypesSlider, SloganComponent }
+    components: {
+        TypesSlider,
+        SloganComponent
+    }
 }
 </script>
 

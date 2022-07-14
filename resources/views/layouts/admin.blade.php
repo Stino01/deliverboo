@@ -27,7 +27,7 @@
 
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <header>
             <div class="container">
                 {{-- <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
@@ -97,7 +97,7 @@
                     </ul>
                 </div>
             </div>
-        </nav>
+        </header>
 
         <main class="py-4">
             @yield('content')
@@ -106,3 +106,39 @@
 </body>
 
 </html>
+
+
+
+<style>
+    #auth-container{
+        position: absolute;
+        top: 0;
+        right: 15%;
+    }
+    .btn_add{
+        background-color: #BA5A31;
+        text-transform: uppercase;
+        color: white;
+        font-size: 15px;
+        margin-top: 5px
+    }
+    header{
+        margin: 0 auto;
+        background-color: #69DC9E;
+    }
+    #left{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        vertical-align: middle;
+    }
+    h1{
+        color: white;
+        text-transform: uppercase;
+        vertical-align: middle;
+        margin: 0 !important;
+    }
+    #left img{
+        width: 50px;
+    }
+    </style>
