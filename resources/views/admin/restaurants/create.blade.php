@@ -67,7 +67,7 @@
             @foreach ($types as $type)
             <label for="types[]" class="col-md-4 col-form-label text-md-right">{{$type->name}}</label>
             <div class="col-md-6">
-                <input id="type" type="checkbox" name="types[]" class="form-control" value="{{$type->id}}">
+                <input id="type" type="checkbox" name="types[]" class="form-check-input" value="{{$type->id}}">
             </div>
             @endforeach
         </div>

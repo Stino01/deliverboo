@@ -114,9 +114,12 @@ class RestaurantController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy()
+    public function destroy(Restaurant $restaurant)
     {
-        //
+        $restaurant->delete();
+        $user = Auth::user();
+        $restaurants = Restaurant::all();
+        return view('admin.home', compact('user', 'restaurants'));
     }
 
     private function getSlug($title)
