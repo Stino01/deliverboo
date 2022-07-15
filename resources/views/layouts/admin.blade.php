@@ -58,7 +58,7 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link {{Route::currentRouteName() == 'admin.orders.index' ? 'active' : ''}}"
-                                href="{{ route('admin.orders.index') }}">Lista degli ordini</a>
+                                href="{{ route('admin.orders.index') }}">Ordini</a>
                         </li>
                         @endauth
                     </ul>

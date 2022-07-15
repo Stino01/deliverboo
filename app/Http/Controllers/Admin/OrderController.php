@@ -27,11 +27,6 @@ class OrderController extends Controller
 
         foreach ($products as $product) {
             foreach ($product->orders as $order) {
-                // echo $product->pivot->product_id;
-                // echo $order->name;
-                // dump($order->getOriginal());
-                // dump($order->getOriginal('pivot_product_id'));
-                // dump($order->getOriginal('pivot_order_id'));
                 $product_id[] = $order->pivot->product_id;
                 foreach ($orders as $ord) {
                     if ($ord->id == $order->getOriginal('pivot_order_id')) {
@@ -43,11 +38,6 @@ class OrderController extends Controller
                 }
             }
         }
-        // dump($filteredOrders);
-        // dump($product_id);
-
-
-
         return view('admin.orders.index', compact('orders', 'filteredOrders'));
     }
 
@@ -82,18 +72,23 @@ class OrderController extends Controller
     {
         $orders = Order::all();
         $user_id = Auth::user()->id;
-
-        $restaurant = Restaurant::where('user_id', $user_id)->first();
-        $products = Product::where('restaurant_id', $restaurant->id)->get();
-
-        foreach ($products as $product) {
-            foreach ($product->orders as $order) {
-                $product_id[] = $order->pivot->product_id;
-                $order_id[] = $order->pivot->order_id;
-            }
+        $products = Order::find($order->id)->products()->get();
+        $ord_product = Order::find($order->id)->products()->get();
+        // dump($ord_product);
+        foreach ($ord_product as $prod_attributes) {
+            $prod_attributes = Order::find($order->id)->products()->get();
         }
-
-        return view('admin.orders.show', compact('products', 'order'));
+        // dump($prod_attributes);
+        foreach ($prod_attributes as $pivot_attr) {
+            $pivot_attr = Order::find($order->id)->products()->get();
+            // dump($pivot_attr->pivot);
+        }
+        foreach ($pivot_attr as $pivot) {
+            // dump($pivot);
+        }
+        // dump($pivot_attr);
+        // dump($pivot_attr->count());
+        return view('admin.orders.show', compact('products', 'order', 'pivot_attr'));
     }
 
     /**
