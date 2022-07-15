@@ -28,7 +28,7 @@
 
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar_dark ">
             <div class="container">
                 {{-- <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
@@ -44,21 +44,21 @@
                     <ul class="navbar-nav mr-auto">
                         @auth
                         <li class="nav-item">
-                            <a class="nav-link {{Route::currentRouteName() == 'home' ? 'active' : ''}}"
+                            <a class="nav-link btn btn_main {{Route::currentRouteName() == 'home' ? 'active' : ''}}"
                                 href="{{ url('home') }}">
                                 Home
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link {{Route::currentRouteName() == 'admin.products.index' ? 'active' : ''}}"
+                            <a class="nav-link btn btn_main {{Route::currentRouteName() == 'admin.products.index' ? 'active' : ''}}"
                                 href="{{ route('admin.products.index') }}">Prodotti</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link {{Route::currentRouteName() == 'admin.restaurants.index' ? 'active' : ''}}"
+                            <a class="nav-link btn btn_main {{Route::currentRouteName() == 'admin.restaurants.index' ? 'active' : ''}}"
                                 href="{{ route('admin.restaurants.index') }}">Ristorante</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link {{Route::currentRouteName() == 'admin.orders.index' ? 'active' : ''}}"
+                            <a class="nav-link btn btn_main {{Route::currentRouteName() == 'admin.orders.index' ? 'active' : ''}}"
                                 href="{{ route('admin.orders.index') }}">Ordini</a>
                         </li>
                         @endauth
@@ -78,7 +78,7 @@
                         @endif
                         @else
                         <li class="nav-item">
-                            <a class=" btn btn_add nav-link {{Route::currentRouteName() == 'admin.home' ? 'active' : ''}}"
+                            <a class=" btn btn_main nav-link {{Route::currentRouteName() == 'admin.home' ? 'active' : ''}}"
                                 href="{{ url('admin') }}">Dashboard</a>
                         </li>
                         <li class="nav-item dropdown">

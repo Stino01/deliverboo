@@ -14,13 +14,22 @@
 }
 
 
-.btn_add {
+.btn_main {
     background-color:var(--QuaternaryColor)!important;/* YELLOW */
     text-transform: uppercase;
     color:var(--SecondaryColor)!important; /*BLUE MARINE */
     font-size: 15px;
+    margin: 0 .2rem ;
 }
-.btn_add:hover {
+.btn_main:hover {
     background-color: var(--SecondaryColor)!important; /*BLUE MARINE */
     color: white!important;
+}
+
+.navbar_dark {
+    background-color: var(--PrimaryColor)!important;
+    box-shadow: 0px 6px 15px 0px rgba(0,0,0,.35)!important;
+    z-index: 1;
+    /*margin:.2rem 0!important; */
+
 }
