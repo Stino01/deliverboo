@@ -13,6 +13,13 @@ use App\Product;
 
 class RestaurantController extends Controller
 {
+    protected $validationRule = [
+        'name' => 'required|string|max:100',
+        'address' => 'required|string|max:255',
+        "vat_number" => "numeric|required|digits:11",
+        "types" => "required",
+        "image" => "nullable|file|mimes:jpeg,png,jpg,gif,svg|max:2048",
+    ];
     /**
      * Display a listing of the resource.
      *
@@ -22,10 +29,6 @@ class RestaurantController extends Controller
     {
         $restaurants = Restaurant::all();
         $user = Auth::user()->id;
-        // $data = [
-        //     'restaurants' => Restaurant::where('user_id', $user_id)->orderBy('name', 'asc')->get(),
-        //     'types' => Type::where(''),
-        // ];
         $restaurant = Restaurant::where('user_id', $user)->first();
 
         return view('admin.restaurants.index', compact('restaurant', 'restaurants', 'user'));
@@ -39,7 +42,14 @@ class RestaurantController extends Controller
     public function create()
     {
         $types = Type::all();
-        return view('admin.restaurants.create', compact('types'));
+        $user = Auth::user()->id;
+        $restaurants = Restaurant::all();
+        $restaurant = Restaurant::where('user_id', $user)->first();
+        if (Restaurant::where('user_id', '=', $user)->exists()) {
+            return view('admin.restaurants.index', compact('restaurant', 'restaurants', 'user'));
+        } else {
+            return view('admin.restaurants.create', compact('types'));   
+        }
     }
 
     /**
@@ -50,8 +60,24 @@ class RestaurantController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate($this->validationRule);
         $data = $request->all();
         $newRestaurant = new Restaurant();
+
+        // $numbers=[0,1,2,3,4,5,6,7,8,9];
+        // $vie=['Via', 'Piazza', 'Largo', 'Strada', 'Stradone', 'Contrada', 'Rione', 'Circonvallazione'];
+        // $number = false;
+        // $via = false;
+        // foreach($numbers as $number){
+        //     if(str_contains($data["address"], $number)){
+        //         $number = true;
+        //     }
+        // }
+        // foreach($vie as $via){
+        //     if(str_contains($data["address"], $via)){
+        //         $via = true;
+        //     }
+        // }
 
         $newRestaurant->name = $data['name'];
         $newRestaurant->slug = $this->getSlug($newRestaurant->name);
@@ -81,7 +107,12 @@ class RestaurantController extends Controller
      */
     public function show(Restaurant $restaurant)
     {
+        $restaurants = Restaurant::all();
+        $user = Auth::user()->id;
         $products = Product::where('restaurant_id', $restaurant->user_id)->get();
+        if (Auth::id() !== $restaurant->user_id){
+            return view('admin.restaurants.index', compact('restaurant', 'restaurants', 'user'));
+        }
         return view('admin.restaurants.show', compact('restaurant', 'products'));
     }
 

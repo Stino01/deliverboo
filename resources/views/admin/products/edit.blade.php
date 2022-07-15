@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 @section('content')
 <div class="container">
-    <h2 class="text-white">Modifica il prodotto: {{$product->title}}</h2>
+    <h2 class="text-white">Modifica il prodotto: {{$product->name}}</h2>
     {{-- <p class="fst-italic">I campi contrassegnati con * sono obbligatori</p> --}}
     <form action="{{route('admin.products.update', $product->id)}}" method="POST" enctype="multipart/form-data">
         @csrf
@@ -9,8 +9,7 @@
         {{-- NOME --}}
         <div class="mb-3">
             <label for="name" class="form-label">Nome prodotto *</label>
-            <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name"
-                placeholder="Inserisci il titolo">
+            <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" placeholder="Inserisci il titolo" value="{{$product->name}}">
             @error('name')
             <div class="alert alert-danger">{{$message}}</div>
             @enderror
@@ -20,7 +19,7 @@
         <div class="mb-3">
             <label for="description" class="form-label @error('description') is-invalid @enderror">Descrizione
                 prodotto</label>
-            <textarea name="description" id="description" class="form-control" cols="30" rows="10"></textarea>
+            <textarea name="description" id="description" class="form-control" cols="30" rows="10">{{$product->description}}</textarea>
             @error('description')
             <div class="alert alert-danger">{{$message}}</div>
             @enderror
@@ -32,7 +31,7 @@
             <select class="form-control @error('category_id') is-invalid @enderror" id="category" name="category_id">
                 <option value="">Selezione la categoria</option>
                 @foreach ($categories as $category)
-                <option value="{{$category->id}}">{{$category->name}}</option>
+                    <option value="{{$category->id}}" {{old('category_id') == $category->id ? 'selected' : ''}}>{{$category->name}}</option>
                 @endforeach
             </select>
             @error('category_id')
@@ -54,26 +53,11 @@
         <div class="form-group mb-3">
             <label for="price" class="form-label @error('price') is-invalid @enderror">Prezzo *</label>
             <input type="number" step="0.10" class="form-control" id="price" name="price" min='1' max='999.90'
-                aria-describedby="price" placeholder="Es: 2.90">
+                aria-describedby="price" value="{{$product->price}}">
             @error('price')
             <div class="alert alert-danger">{{$message}}</div>
             @enderror
         </div>
-
-        {{-- TAGS --}}
-        {{-- <div class="mb-3">
-            <div class="form-group">
-                <h5>Tags</h5>
-                @foreach ($tags as $tag)
-                <div class="form-check-inline">
-                    <input type="checkbox" class="form-check-input" {{in_array($tag->id, old("tags", [])) ? 'checked' :
-                    '' }}
-                    id="{{$tag->slug}}" name="tags[]" value="{{$tag->id}}">
-                    <label class="form-check-label" for="{{$tag->slug}}">{{$tag->name}}</label>
-                </div>
-                @endforeach
-            </div>
-        </div> --}}
 
         {{-- VISIBLE --}}
         <div class="mb-3 form-check">
