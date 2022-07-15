@@ -48,7 +48,7 @@ class RestaurantController extends Controller
         if (Restaurant::where('user_id', '=', $user)->exists()) {
             return view('admin.restaurants.index', compact('restaurant', 'restaurants', 'user'));
         } else {
-            return view('admin.restaurants.create', compact('types'));   
+            return view('admin.restaurants.create', compact('types'));
         }
     }
 
@@ -110,8 +110,8 @@ class RestaurantController extends Controller
         $restaurants = Restaurant::all();
         $user = Auth::user()->id;
         $products = Product::where('restaurant_id', $restaurant->user_id)->get();
-        if (Auth::id() !== $restaurant->user_id){
-            return view('admin.restaurants.index', compact('restaurant', 'restaurants', 'user'));
+        if (Auth::id() !== $restaurant->user_id) {
+            return view('admin.restaurants.error');
         }
         return view('admin.restaurants.show', compact('restaurant', 'products'));
     }

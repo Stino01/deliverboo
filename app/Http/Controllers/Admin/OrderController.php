@@ -75,19 +75,40 @@ class OrderController extends Controller
         $products = Order::find($order->id)->products()->get();
         $ord_product = Order::find($order->id)->products()->get();
         // dump($ord_product);
+        $user = Auth::user()->id;
+        $restaurant = Restaurant::where('user_id', $user)->first();
+        $allProducts = Product::where('restaurant_id', $user)->get();
+        $filteredOrders = [];
+        foreach ($products as $product) {
+            foreach ($product->orders as $order) {
+                $product_id[] = $order->pivot->product_id;
+                foreach ($orders as $ord) {
+                    if ($ord->id == $order->getOriginal('pivot_order_id')) {
+                        // dump($ord);
+                        if (!in_array($ord, $filteredOrders)) {
+                            array_push($filteredOrders, $ord);
+                        }
+                    }
+                }
+            }
+        }
+        // dump($allProducts); // tutti i prodotti del ristorante autenticato
+        // dump($filteredOrders); // tutti gli ordini ricevuti dal ristorante
+        foreach ($filteredOrders as $filt_ord) {
+            // dump($filt_ord);
+            if ($filt_ord->id != $ord->id) {
+                return view('admin.orders.error');
+            }
+        }
         foreach ($ord_product as $prod_attributes) {
             $prod_attributes = Order::find($order->id)->products()->get();
         }
+        // dump($prod_attributes);
         // dump($prod_attributes);
         foreach ($prod_attributes as $pivot_attr) {
             $pivot_attr = Order::find($order->id)->products()->get();
             // dump($pivot_attr->pivot);
         }
-        foreach ($pivot_attr as $pivot) {
-            // dump($pivot);
-        }
-        // dump($pivot_attr);
-        // dump($pivot_attr->count());
         return view('admin.orders.show', compact('products', 'order', 'pivot_attr'));
     }
 

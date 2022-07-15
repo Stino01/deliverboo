@@ -55,7 +55,7 @@ class RegisterController extends Controller
             'surname' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'password-confirm' => ['required', 'string', 'min:8', 'same:password'],
+            'password-confirm' => ['same:password', 'string', 'min:8'],
         ]);
     }
 
@@ -80,7 +80,7 @@ class RegisterController extends Controller
         $slug = Str::of($title)->slug("-");
         $count = 1;
 
-        while(User::where('slug', $slug)->first()) {
+        while (User::where('slug', $slug)->first()) {
             $slug = Str::of($title)->slug("-") . "-{$count}";
             $count++;
         };

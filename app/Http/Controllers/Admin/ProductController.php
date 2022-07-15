@@ -23,7 +23,6 @@ class ProductController extends Controller
         // "image" => "nullable|image|mimes:jpg,jpeg,bmp,png,svg|max:2048|file", //FUNZIONANTE
         "image" => "nullable|image|max:2048",
         // "image" => "nullable|mimes:jpg,jpeg,bmp,png,svg|max:2048",
-        // "tag" => "nullable|exists:tags,id",
         "price" => 'required',
     ];
     /**
@@ -33,24 +32,6 @@ class ProductController extends Controller
      */
     public function index()
     {
-        // $user = Auth::user();
-        // $products = Product::where('user_id', $user->id)->get();
-        // return view('admin.products.index', compact('products', 'user'));
-
-        // $restaurants = Restaurant::all();
-        // $user_id = Auth::user()->id;
-        // $data = [
-        //     'products' => Product::where([
-        //         ['user_id', $user->id],
-        //         ['restaurant_id', $restaurants->id]
-        //     ])->get(),
-        // ];
-
-        // return view('admin.products.index', $data);
-
-        // $products = Product::where('restaurant_id', $restaurant_id)->get();
-        // return view('admin.products.index', compact('products'));
-
         $user = Auth::user()->id;
         // $restaurants = Restaurant::where('user_id', $user->id)->get();
         $products = Product::where('restaurant_id', $user)->get();
@@ -117,8 +98,9 @@ class ProductController extends Controller
         $restaurant = Restaurant::where('user_id', $user)->first();
         $categories = Category::all();
         $products = Product::where('restaurant_id', $user)->get();
-        if ($restaurant->id !== $product->restaurant_id){
-            return view('admin.products.index', compact('products'));
+        // foreach ($products as $product) {
+        if ($restaurant->user_id != $product->restaurant_id) {
+            return view('admin.products.error');
         } else {
             return view('admin.products.show', compact('product', 'categories'));
         }
@@ -134,12 +116,12 @@ class ProductController extends Controller
     {
         $user = Auth::user()->id;
         $restaurant = Restaurant::where('user_id', $user)->first();
-        
+
         $product = Product::findOrFail($id);
         $categories = Category::all();
         $products = Product::where('restaurant_id', $user)->get();
-        if ($restaurant->id !== $product->restaurant_id){
-            return view('admin.products.index', compact('products'));
+        if ($restaurant->user_id !== $product->restaurant_id) {
+            return view('admin.products.error');
         } else {
             return view('admin.products.edit', compact('product', 'categories'));
         }
