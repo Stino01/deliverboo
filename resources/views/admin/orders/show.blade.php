@@ -2,16 +2,23 @@
 @include('partials/popupdelete')
 @section('content')
 <div class="container">
-    <div class="card d-flex flex-column my-3 gap-3">
+    <div class="card my-3 gap-3">
         <div class="card-header">
-            <div class="container text-center">
-                <h1>{{$order->name}}</h1>
-                <h1>{{$order->surname}}</h1>
-                @foreach ($products as $product)
-                <p>{{$product->name}}</p>
-                @endforeach
+            <div class="container">
+                <h1>Ordine numero: {{$order->id}}</h1>
+                <h3>Effettuato da: {{$order->name}} {{$order->surname}}</h3>
+                <h4>Prodotti:</h4>
+                <ol>
+
+                    @for($i=0;$i<$pivot_attr->count();$i++)
+                        <li>{{$products[$i]->name}} - prezzo: {{$products[$i]->price}}&euro; - quantità:
+                            {{$pivot_attr[$i]->pivot->quantity}}
+                        </li>
+                        @endfor
+
+                </ol>
             </div>
         </div>
     </div>
-</div>    
+</div>
 @endsection

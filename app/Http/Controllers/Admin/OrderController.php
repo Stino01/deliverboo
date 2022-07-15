@@ -21,20 +21,24 @@ class OrderController extends Controller
     {
         $orders = Order::all();
         $user_id = Auth::user()->id;
-
         $restaurant = Restaurant::where('user_id', $user_id)->first();
-        $products = Product::where('restaurant_id', $restaurant->id)->get();
+        $products = Product::where('restaurant_id', $restaurant->user_id)->get();
+        $filteredOrders = [];
 
         foreach ($products as $product) {
-            foreach($product->orders as $order) {
-                // echo $product->pivot->product_id;
-                // echo $order->name;
+            foreach ($product->orders as $order) {
                 $product_id[] = $order->pivot->product_id;
+                foreach ($orders as $ord) {
+                    if ($ord->id == $order->getOriginal('pivot_order_id')) {
+                        // dump($ord);
+                        if (!in_array($ord, $filteredOrders)) {
+                            array_push($filteredOrders, $ord);
+                        }
+                    }
+                }
             }
-            //dd($product_id);
         }
-
-        return view('admin.orders.index', compact('orders', 'product_id'));
+        return view('admin.orders.index', compact('orders', 'filteredOrders'));
     }
 
     /**
@@ -68,18 +72,23 @@ class OrderController extends Controller
     {
         $orders = Order::all();
         $user_id = Auth::user()->id;
-
-        $restaurant = Restaurant::where('user_id', $user_id)->first();
-        $products = Product::where('restaurant_id', $restaurant->id)->get();
-
-        foreach ($products as $product) {
-            foreach($product->orders as $order) {
-                $product_id[] = $order->pivot->product_id;
-                $order_id[] = $order->pivot->order_id;
-            }
+        $products = Order::find($order->id)->products()->get();
+        $ord_product = Order::find($order->id)->products()->get();
+        // dump($ord_product);
+        foreach ($ord_product as $prod_attributes) {
+            $prod_attributes = Order::find($order->id)->products()->get();
         }
-        
-        return view('admin.orders.show', compact('products' ,'order'));
+        // dump($prod_attributes);
+        foreach ($prod_attributes as $pivot_attr) {
+            $pivot_attr = Order::find($order->id)->products()->get();
+            // dump($pivot_attr->pivot);
+        }
+        foreach ($pivot_attr as $pivot) {
+            // dump($pivot);
+        }
+        // dump($pivot_attr);
+        // dump($pivot_attr->count());
+        return view('admin.orders.show', compact('products', 'order', 'pivot_attr'));
     }
 
     /**

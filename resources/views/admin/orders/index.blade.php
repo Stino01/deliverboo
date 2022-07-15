@@ -19,7 +19,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($orders as $order)
+            @foreach ($filteredOrders as $order)
             <tr>
                 <td><a href="{{route('admin.orders.show', $order->id)}}">{{$order->id}}</a></td>
                 <td>{{$order->name}}</td>

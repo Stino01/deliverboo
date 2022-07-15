@@ -56,6 +56,10 @@
                             <a class="nav-link {{Route::currentRouteName() == 'admin.restaurants.index' ? 'active' : ''}}"
                                 href="{{ route('admin.restaurants.index') }}">Ristorante</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{Route::currentRouteName() == 'admin.orders.index' ? 'active' : ''}}"
+                                href="{{ route('admin.orders.index') }}">Ordini</a>
+                        </li>
                         @endauth
                     </ul>
 
