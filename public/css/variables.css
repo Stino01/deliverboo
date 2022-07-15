@@ -19,7 +19,6 @@
     text-transform: uppercase;
     color:var(--SecondaryColor)!important; /*BLUE MARINE */
     font-size: 15px;
-    margin: 1.5rem .2rem!important;
 }
 .btn_add:hover {
     background-color: var(--SecondaryColor)!important; /*BLUE MARINE */
