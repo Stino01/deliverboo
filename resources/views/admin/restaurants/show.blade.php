@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 @include('partials/popupdelete')
 @section('content')
-<div class="container d-flex align-items-center flex-column">
+<div class="container d-flex align-items-center flex-column text-white">
     <h1 class="text-center">{{$restaurant->name}}
         {{-- <a href="{{route('admin.restaurants.edit', $restaurant->id)}}" class="btn btn-warning text-uppercase"
             type="button">Modifica
