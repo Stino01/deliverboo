@@ -113,8 +113,15 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
+        $user = Auth::user()->id;
+        $restaurant = Restaurant::where('user_id', $user)->first();
         $categories = Category::all();
-        return view('admin.products.show', compact('product', 'categories'));
+        $products = Product::where('restaurant_id', $user)->get();
+        if ($restaurant->id !== $product->restaurant_id){
+            return view('admin.products.index', compact('products'));
+        } else {
+            return view('admin.products.show', compact('product', 'categories'));
+        }
     }
 
     /**
@@ -125,9 +132,17 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
+        $user = Auth::user()->id;
+        $restaurant = Restaurant::where('user_id', $user)->first();
+        
         $product = Product::findOrFail($id);
         $categories = Category::all();
-        return view('admin.products.edit', compact('product', 'categories'));
+        $products = Product::where('restaurant_id', $user)->get();
+        if ($restaurant->id !== $product->restaurant_id){
+            return view('admin.products.index', compact('products'));
+        } else {
+            return view('admin.products.edit', compact('product', 'categories'));
+        }
     }
 
     /**
