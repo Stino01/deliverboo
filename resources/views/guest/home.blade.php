@@ -48,7 +48,7 @@
         text-transform: uppercase;
         color:#005C53; /*BLUE MARINE */
         font-size: 15px;
-        margin-top: 5px;
+        margin: 1.5rem;
     }
     .btn_add:hover {
         background-color:  #005c53; /* BLUE MARINE */

@@ -1924,21 +1924,21 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'HeaderComponent',
+  name: "HeaderComponent",
   data: function data() {
     return {
       menuItem: [{
-        label: 'Home',
-        routeName: 'home'
+        label: "Home",
+        routeName: "home"
       }, {
-        label: 'Posts',
-        routeName: 'posts'
+        label: "Posts",
+        routeName: "posts"
       }, {
-        label: 'Chi Siamo',
-        routeName: 'about'
+        label: "Chi Siamo",
+        routeName: "about"
       }, {
-        label: 'Contatti',
-        routeName: 'contact'
+        label: "Contatti",
+        routeName: "contact"
       }]
     };
   }
@@ -2446,7 +2446,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "header {\n  margin: 0 auto;\n  background-color: #042940; /*BLUE */\n}\nheader #top #left {\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  vertical-align: middle;\n}\nheader #top #left img {\n  width: 50px;\n}\nheader #top #left h1 {\n  color: white;\n  text-transform: uppercase;\n  vertical-align: middle;\n  margin: 0 !important;\n}", ""]);
+exports.push([module.i, "header {\n  margin: 0 auto;\n  background-color: #042940; /*BLUE */\n}\nheader #top #left {\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  vertical-align: middle;\n}\nheader #top #left img {\n  width: 50px;\n}\nheader #top #left h1 {\n  color: white;\n  text-transform: uppercase;\n  vertical-align: middle;\n  margin: 0 !important;\n  padding: 1.5rem;\n}", ""]);
 
 // exports
 
@@ -20347,7 +20347,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\giaco\OneDrive\Desktop\PROGETTO FINALE BOOLEAN\deliverboo\resources\js\front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! B:\faz94\MAMP\htdocs\esercizi_php\deliverboo\resources\js\front.js */"./resources/js/front.js");
 
 
 /***/ })
