@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <link rel="stylesheet" href="{{asset('css/variables.css')}}">
 
 <head>
     <meta charset="utf-8">
@@ -77,7 +78,7 @@
                         @endif
                         @else
                         <li class="nav-item">
-                            <a class="nav-link {{Route::currentRouteName() == 'admin.home' ? 'active' : ''}}"
+                            <a class=" btn btn_add nav-link {{Route::currentRouteName() == 'admin.home' ? 'active' : ''}}"
                                 href="{{ url('admin') }}">Dashboard</a>
                         </li>
                         <li class="nav-item dropdown">
@@ -110,3 +111,9 @@
 </body>
 
 </html>
+
+<style>
+
+
+
+</style>
