@@ -25,6 +25,7 @@ Route::middleware('auth')
         Route::resource('/users', 'UserController');
         Route::resource('/products', 'ProductController');
         Route::resource('/restaurants', 'RestaurantController');
+        Route::resource('/orders', 'OrderController');
     });
 
 Route::get("{any?}", function () {

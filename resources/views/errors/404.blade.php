@@ -1,5 +1,11 @@
 @extends('errors::minimal')
 
-@section('title', __('Not Found'))
-@section('code', '404')
-@section('message', __('Not Found'))
+
+
+<style>
+    .position-ref{
+        background-image: url("{{asset('media/gif/404.gif')}}");
+        width: 100vw;
+        height: 100vh;
+    }
+</style>

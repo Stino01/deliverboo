@@ -6,15 +6,18 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-    public function category() {
+    public function category()
+    {
         return $this->belongTo('App\Category');
     }
 
-    public function restaurant() {
+    public function restaurant()
+    {
         return $this->belongTo('App\Restaurant');
     }
 
-    public function orders() {
+    public function orders()
+    {
         return $this->belongsToMany('App\Order');
     }
 }

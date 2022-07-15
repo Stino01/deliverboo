@@ -1,0 +1,14 @@
+:root{
+    --PrimaryColor: #042940;  /*BLUE */
+    --SecondaryColor:#005C53; /*BLUE MARINE */
+    --TertiaryColor:#9FC131; /* LIME GRAY */
+    --QuaternaryColor:#DBF227; /*YELLOW */
+    --QuintiaryColor:#D6D58E; /* SAND */
+
+
+    --PrimaryColorV2: #042940;  /*BLUE */
+    --SecondaryColorV2:#005C53; /*BLUE MARINE */
+    --TertiaryColorV2:#9FC131; /* LIME GRAY */
+    --QuaternaryColorV2:#bfd420; /*YELLOW */
+    --QuintiaryColorV2:#D6D58E; /* SAND */
+}

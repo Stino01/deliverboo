@@ -7,7 +7,7 @@
 
 <script>
 import TypesSlider from './TypesSlider.vue';
-import SloganComponent from './sloganComponent.vue';
+import SloganComponent from './SloganComponent.vue';
 export default {
     name: "MainComponent",
     components: { TypesSlider, SloganComponent }

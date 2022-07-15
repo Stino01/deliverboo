@@ -44,10 +44,14 @@
     }
 
     .btn_add {
-        background-color: #BA5A31;
+        background-color: #DBF227; /*YELLOW */
         text-transform: uppercase;
-        color: white;
+        color:#005C53; /*BLUE MARINE */
         font-size: 15px;
-        margin-top: 5px
+        margin-top: 5px;
+    }
+    .btn_add:hover {
+        background-color:  #005c53; /* BLUE MARINE */
+        color: white;
     }
 </style>

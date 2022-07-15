@@ -1,5 +1,9 @@
 @extends('errors::minimal')
 
-@section('title', __('Service Unavailable'))
-@section('code', '503')
-@section('message', __($exception->getMessage() ?: 'Service Unavailable'))
+<style>
+    .position-ref{
+        background-image: url("{{asset('media/gif/503.gif')}}");
+        width: 100vw;
+        height: 100vh;
+    }
+</style>
