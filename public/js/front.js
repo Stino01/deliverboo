@@ -2077,13 +2077,77 @@ var staticRenderFns = [function () {
     }
   }, [_c("div", {
     staticClass: "block"
-  }, [_c("ul", [_c("li", [_vm._v("Scopri Deliveroo")]), _vm._v(" "), _c("li", [_vm._v("investitori")]), _vm._v(" "), _c("li", [_vm._v("chi siamo")]), _vm._v(" "), _c("li", [_vm._v("ristoranti")]), _vm._v(" "), _c("li", [_vm._v("altro")]), _vm._v(" "), _c("li", [_vm._v("pressroom")]), _vm._v(" "), _c("li", [_vm._v("il nostro blog")]), _vm._v(" "), _c("li", [_vm._v("programmazione")]), _vm._v(" "), _c("li", [_vm._v("design")]), _vm._v(" "), _c("li", [_vm._v("lavora con noi")]), _vm._v(" "), _c("li", [_vm._v("diventa nostro partner")])])]), _vm._v(" "), _c("div", {
+  }, [_c("ul", [_c("li", [_vm._v("Scopri Deliverboo")]), _vm._v(" "), _c("li", [_c("a", {
+    attrs: {
+      href: "#"
+    }
+  }, [_vm._v(" investitori")])]), _vm._v(" "), _c("li", [_c("a", {
+    attrs: {
+      href: "#"
+    }
+  }, [_vm._v(" chi siamo ")])]), _vm._v(" "), _c("li", [_c("a", {
+    attrs: {
+      href: "#"
+    }
+  }, [_vm._v("ristoranti")])]), _vm._v(" "), _c("li", [_c("a", {
+    attrs: {
+      href: "#"
+    }
+  }, [_vm._v(" altro ")])]), _vm._v(" "), _c("li", [_c("a", {
+    attrs: {
+      href: "#"
+    }
+  }, [_vm._v("pressroom")])]), _vm._v(" "), _c("li", [_c("a", {
+    attrs: {
+      href: "#"
+    }
+  }, [_vm._v("il nostro blog")])]), _vm._v(" "), _c("li", [_c("a", {
+    attrs: {
+      href: ""
+    }
+  }, [_vm._v("  programmazione")])]), _vm._v(" "), _c("li", [_c("a", {
+    attrs: {
+      href: "#"
+    }
+  }, [_vm._v("design")])]), _vm._v(" "), _c("li", [_c("a", {
+    attrs: {
+      href: "#"
+    }
+  }, [_vm._v(" lavora con noi")])]), _vm._v(" "), _c("li", [_c("a", {
+    attrs: {
+      href: "#"
+    }
+  }, [_vm._v("diventa nostro partner")])])])]), _vm._v(" "), _c("div", {
     staticClass: "block"
-  }, [_c("ul", [_c("li", [_vm._v("Note legali")]), _vm._v(" "), _c("li", [_vm._v("termini & Condizioni")]), _vm._v(" "), _c("li", [_vm._v("informativa sulla privacy")]), _vm._v(" "), _c("li", [_vm._v("cookies")])])]), _vm._v(" "), _c("div", {
+  }, [_c("ul", [_c("li", [_vm._v("Note legali ")]), _vm._v(" "), _c("li", [_c("a", {
+    attrs: {
+      href: "#"
+    }
+  }, [_vm._v("termini & Condizioni ")])]), _vm._v(" "), _c("li", [_c("a", {
+    attrs: {
+      href: "#"
+    }
+  }, [_vm._v(" informativa sulla privacy")])]), _vm._v(" "), _c("li", [_c("a", {
+    attrs: {
+      href: "#"
+    }
+  }, [_vm._v("cookies ")])])])]), _vm._v(" "), _c("div", {
     staticClass: "block"
-  }, [_c("ul", [_c("li", [_vm._v("Aiuto")]), _vm._v(" "), _c("li", [_vm._v("contatti")]), _vm._v(" "), _c("li", [_vm._v("FAQ")]), _vm._v(" "), _c("li", [_vm._v("tipi di cucina")])])]), _vm._v(" "), _c("div", {
+  }, [_c("ul", [_c("li", [_vm._v(" Aiuto")]), _vm._v(" "), _c("li", [_c("a", {
+    attrs: {
+      href: "#"
+    }
+  }, [_vm._v("contatti")])]), _vm._v(" "), _c("li", [_c("a", {
+    attrs: {
+      href: "#"
+    }
+  }, [_vm._v("FAQ")])]), _vm._v(" "), _c("li", [_c("a", {
+    attrs: {
+      href: "#"
+    }
+  }, [_vm._v("tipi di cucina")])])])]), _vm._v(" "), _c("div", {
     staticClass: "block"
-  }, [_c("ul", [_c("li", [_vm._v("Porta Deliverboo con te")]), _vm._v(" "), _c("li", [_c("img", {
+  }, [_c("ul", [_c("li", [_vm._v("Porta Deliverboo con te ")]), _vm._v(" "), _c("li", [_c("img", {
     attrs: {
       src: "https://cdn.discordapp.com/attachments/941312490950766592/996772132816162946/appstore.png"
     }
@@ -2363,7 +2427,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "footer {\n  padding: 0 15%;\n  margin: 0 auto;\n  background-color: #73818C;\n}\nfooter #blocks {\n  display: flex;\n  justify-content: space-between;\n}\nfooter #blocks .block {\n  background-color: #8C7E73;\n  width: 23%;\n  margin: 40px 0;\n  border-radius: 10px;\n  padding: 10px;\n}\nfooter #blocks .block ul {\n  list-style-type: none;\n  padding: 0 !important;\n}\nfooter #blocks .block ul :first-child {\n  font-size: 1.5rem;\n  font-weight: 800;\n  margin-bottom: 5px;\n}\nfooter #blocks .block ul li {\n  color: white;\n}\nfooter #underFooter {\n  display: flex;\n  justify-content: space-between;\n  padding: 20px 0;\n}\nfooter #underFooter #left, footer #underFooter #right {\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n}\nfooter #underFooter #left {\n  display: flex;\n  gap: 10px;\n}\nfooter #underFooter #left i {\n  font-size: 30px;\n  color: white;\n}\nfooter #underFooter #right {\n  color: #bdbdbd;\n}", ""]);
+exports.push([module.i, "footer {\n  padding: 0 15%;\n  margin: 0 auto;\n  background-color: #73818c;\n}\nfooter #blocks {\n  display: flex;\n  justify-content: space-between;\n}\nfooter #blocks .block {\n  background-color: #8c7e73;\n  width: 23%;\n  margin: 40px 0;\n  border-radius: 10px;\n  padding: 10px;\n}\nfooter #blocks .block ul {\n  list-style-type: none;\n  padding: 0 !important;\n}\nfooter #blocks .block ul :first-child {\n  font-size: 1.5rem;\n  font-weight: 800;\n  margin-bottom: 5px;\n}\nfooter #blocks .block ul li {\n  color: white;\n}\nfooter #blocks .block ul li a {\n  text-decoration: none;\n  color: #dbf227 !important;\n  font-size: 1rem !important;\n}\nfooter #blocks .block ul li a:hover {\n  color: #005c53 !important;\n}\nfooter #underFooter {\n  display: flex;\n  justify-content: space-between;\n  padding: 20px 0;\n}\nfooter #underFooter #left,\nfooter #underFooter #right {\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n}\nfooter #underFooter #left {\n  display: flex;\n  gap: 10px;\n}\nfooter #underFooter #left i {\n  font-size: 30px;\n  color: white;\n}\nfooter #underFooter #right {\n  color: #bdbdbd;\n}", ""]);
 
 // exports
 
@@ -20283,7 +20347,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\MAMP\htdocs\esercizi\deliverboo\resources\js\front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! B:\faz94\MAMP\htdocs\esercizi_php\deliverboo\resources\js\front.js */"./resources/js/front.js");
 
 
 /***/ })
