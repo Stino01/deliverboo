@@ -13,7 +13,7 @@
                 <h1>{{$product->name}}</h1>
             </div>
         </div>
-        <div class="card-body d-flex flex-column gap-3">
+        <div class="card-body d-flex flex-column gap-3 px-5">
             <div>
                 <small class="mr-3">In magazzino dal: {{$product->created_at}}</small>
                 {{-- condizione per stampare il valore corretto a seconda del booleano --}}
