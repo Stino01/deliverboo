@@ -1,8 +1,8 @@
 @extends('layouts.admin')
 @section('content')
 <div class="container">
-    <h2>Inserisci un nuovo prodotto</h2>
-    <p class="fst-italic">I campi contrassegnati con * sono obbligatori</p>
+    <h2 class="text-white">Inserisci un nuovo prodotto</h2>
+    <p class="fst-italic text-white">I campi contrassegnati con * sono obbligatori</p>
     <form action="{{route('admin.products.store')}}" method="POST" enctype="multipart/form-data">
         @csrf
 
@@ -92,3 +92,13 @@
     bkLib.onDomLoaded(nicEditors.allTextAreas);
 </script>
 @endsection
+
+<style>
+    label {
+        color: white
+    }
+
+    .nicEdit-main {
+        background-color: white;
+    }
+</style>

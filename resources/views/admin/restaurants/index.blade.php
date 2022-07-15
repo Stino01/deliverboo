@@ -15,7 +15,7 @@
             @else
             <img src="{{ asset('storage/' . $restaurant->image)}}" alt="user" style="width: 300px">
             @endif
-            <h1 class="text-center">{{$restaurant->name}}</h1>
+            <h1 class="text-center text-white">{{$restaurant->name}}</h1>
             {{-- <p class="text-center">{{$user->address}}</p> --}}
             <a href="{{route('admin.restaurants.show', $restaurant->id)}}" class="btn btn-primary text-uppercase my-3"
                 type="button">Visualizza</a>

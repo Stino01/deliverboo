@@ -1,8 +1,8 @@
 @extends('layouts.admin')
 
 @section('content')
-<h1 class="text-center">Aggiungi il tuo ristorante</h1>
-<div class="container d-flex">
+<div class="container text-white">
+    <h1 class="text-center">Aggiungi il tuo ristorante</h1>
     <form method="POST" action="{{route('admin.restaurants.store')}}" enctype="multipart/form-data">
         @csrf
 
@@ -54,6 +54,7 @@
             </div>
         </div>
 
+        {{-- IMAGE --}}
         <div class="form-group row">
             <label for="image" class="col-md-4 col-form-label text-md-right">Add image</label>
 
@@ -63,16 +64,29 @@
         </div>
 
         {{-- CHECKBOX --}}
-        <div class="form-group row">
+        <div class="form-group d-flex justify-content-center align-items-center form-check-inline">
             @foreach ($types as $type)
-            <label for="types[]" class="col-md-4 col-form-label text-md-right">{{$type->name}}</label>
-            <div class="col-md-6">
-                <input id="type" type="checkbox" name="types[]" class="form-check-input" value="{{$type->id}}">
-            </div>
+                <label for="types[]" class="col-form-label mx-3">{{$type->name}}</label>
+                <div><input id="type" type="checkbox" name="types[]" class="form-check-input" value="{{$type->id}}"></div>
             @endforeach
         </div>
 
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary btn1">Submit</button>
     </form>
 </div>
 @endsection
+
+<style>
+    main .container {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .btn1 {
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%) !important;
+    }
+</style>

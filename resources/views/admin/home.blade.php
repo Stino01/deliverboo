@@ -19,7 +19,7 @@
                                 </div>
                             @endif
 
-                            {{ __('You are logged in!') }}
+                            <p class="text-center">{{ __('You are logged in!') }}</p>
                         </div>
                     </div>
                 @else
@@ -28,7 +28,7 @@
                     ?>
                     @if ($c == count($restaurants))
                         <div class="card">
-                            <div class="card-header">{{ __('Aggiungi Prodotto') }}</div>
+                            <div class="card-header">{{ __('Aggiungi Ristorante') }}</div>
         
                             <div class="card-body">
                                 <a href="{{route('admin.restaurants.create')}}" class="btn btn-primary text-uppercase my-3" type="button">Aggiungi Ristorante</a>
@@ -41,3 +41,11 @@
     </div>
 </div>
 @endsection
+
+<style>
+    .card-body a {
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%) !important;
+    }
+</style>
