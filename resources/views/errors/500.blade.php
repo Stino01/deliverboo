@@ -1,5 +1,9 @@
 @extends('errors::minimal')
 
-@section('title', __('Server Error'))
-@section('code', '500')
-@section('message', __('Server Error'))
+<style>
+    .position-ref{
+        background-image: url("{{asset('media/gif/500.gif')}}");
+        width: 100vw;
+        height: 100vh;
+    }
+</style>

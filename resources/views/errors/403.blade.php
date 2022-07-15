@@ -1,5 +1,9 @@
 @extends('errors::minimal')
 
-@section('title', __('Forbidden'))
-@section('code', '403')
-@section('message', __($exception->getMessage() ?: 'Forbidden'))
+<style>
+    .position-ref{
+        background-image: url("{{asset('media/gif/403.gif')}}");
+        width: 100vw;
+        height: 100vh;
+    }
+</style>
