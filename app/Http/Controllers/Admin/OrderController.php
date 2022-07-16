@@ -9,6 +9,7 @@ use App\Order;
 use App\Restaurant;
 use App\Type;
 use App\Product;
+use Mockery\Undefined;
 
 class OrderController extends Controller
 {
@@ -23,8 +24,9 @@ class OrderController extends Controller
         $user_id = Auth::user()->id;
         $restaurant = Restaurant::where('user_id', $user_id)->first();
         $products = Product::where('restaurant_id', $restaurant->user_id)->get();
-        $filteredOrders = [];
 
+        //SERIE DI FILTRI PER RICAVARE UN ARRAY CON TUTTI GLI ORDINI RICEVUTI DAL RISTORATORE LOGGATO
+        $filteredOrders = [];
         foreach ($products as $product) {
             foreach ($product->orders as $order) {
                 $product_id[] = $order->pivot->product_id;
@@ -74,10 +76,11 @@ class OrderController extends Controller
         $user_id = Auth::user()->id;
         $products = Order::find($order->id)->products()->get();
         $ord_product = Order::find($order->id)->products()->get();
-        // dump($ord_product);
         $user = Auth::user()->id;
         $restaurant = Restaurant::where('user_id', $user)->first();
         $allProducts = Product::where('restaurant_id', $user)->get();
+
+        //SERIE DI FILTRI PER RICAVARE UN ARRAY CON TUTTI GLI ORDINI RICEVUTI DAL RISTORATORE LOGGATO
         $filteredOrders = [];
         foreach ($products as $product) {
             foreach ($product->orders as $order) {
@@ -92,25 +95,36 @@ class OrderController extends Controller
                 }
             }
         }
-        // dump($allProducts); // tutti i prodotti del ristorante autenticato
-        // dump($filteredOrders); // tutti gli ordini ricevuti dal ristorante
+
+        // SERIE DI FILTRI E CONDIZIONI CHE DEVONO MOSTRARE UNA PAGINA DI ERRORE OGNI VOLTA CHE UN RISTORATORE CERCA DI ACCEDERE A DEGLI ORDINI DI ALTRI RISTORANTI O A ORDINI CHE NON ESISTONO
+
         foreach ($filteredOrders as $filt_ord) {
             // dump($filt_ord);
             if ($filt_ord->id != $ord->id) {
                 return view('admin.orders.error');
             }
         }
-        foreach ($ord_product as $prod_attributes) {
-            $prod_attributes = Order::find($order->id)->products()->get();
+        // dump($order->getOriginal('pivot_order_id')); // = 7
+        // dump($order->id); // = 7
+        if ($order->getOriginal('pivot_order_id') == $order->id) {
+            foreach ($ord_product as $prod_attributes) {
+                // dump($prod_attributes);
+
+                $prod_attributes = Order::find($order->id)->products()->get();
+                // dump($prod_attributes);
+            }
+            // dump($prod_attributes);
+            // dump($prod_attributes);
+            foreach ($prod_attributes as $pivot_attr) {
+                $pivot_attr = Order::find($order->id)->products()->get();
+                // dump($pivot_attr->pivot);
+            }
+            return view('admin.orders.show', compact('products', 'order', 'pivot_attr'));
+        } else {
+            return view('admin.orders.error');
         }
-        // dump($prod_attributes);
-        // dump($prod_attributes);
-        foreach ($prod_attributes as $pivot_attr) {
-            $pivot_attr = Order::find($order->id)->products()->get();
-            // dump($pivot_attr->pivot);
-        }
-        return view('admin.orders.show', compact('products', 'order', 'pivot_attr'));
     }
+
 
     /**
      * Show the form for editing the specified resource.
