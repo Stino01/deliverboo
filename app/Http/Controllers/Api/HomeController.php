@@ -19,8 +19,6 @@ class HomeController extends Controller
     {
         $restaurants = Restaurant::all();
         $types = Type::all();
-        $res_type = Restaurant::find($restaurant->id)->types()->get();
-        $restaurant = Restaurant::where('user_id', $user)->first();
         $filteredRestaurants = [];
 
         foreach ($types as $type) {
@@ -28,36 +26,35 @@ class HomeController extends Controller
                 //$type_id[] = $restaurant->pivot->type_id;
                 foreach ($restaurants as $res) {
                     if ($res->id == $restaurant->getOriginal('pivot_restaurant_id')) {
-                        //dump($res);
-                        if (!in_array($res, $filteredRestaurants)) {
-                            array_push($filteredRestaurants, $res);
+                        //dump($restaurant->getOriginal());
+                        if (!in_array($restaurant->getOriginal(), $filteredRestaurants)) {
+                            array_push($filteredRestaurants, $restaurant->getOriginal());
                         }
                     }
                 }
             }
         }
-        if ($restaurant->getOriginal('pivot_restaurant_id') == $restaurant->id) {
-            // dump($restaurant->getOriginal('pivot_restaurant_id'));
-            foreach ($res_type as $type_attributes) {
-                dump($type_attributes);
+        // if ($restaurant->getOriginal('pivot_restaurant_id') == $restaurant->id) {
+        //     // dump($restaurant->getOriginal('pivot_restaurant_id'));
+        //     foreach ($res_type as $type_attributes) {
+        //         dump($type_attributes);
 
-            //     $prod_attributes = Order::find($order->id)->products()->get();
-            //     // dump($prod_attributes);
-            // }
-            // // dump($prod_attributes);
-            // // dump($prod_attributes);
-            // foreach ($prod_attributes as $pivot_attr) {
-            //     $pivot_attr = Order::find($order->id)->products()->get();
-            //     // dump($pivot_attr->pivot);
-            // }
-        };
-        //dump($filteredRestaurants);
+        //     //     $prod_attributes = Order::find($order->id)->products()->get();
+        //     //     // dump($prod_attributes);
+        //     // }
+        //     // // dump($prod_attributes);
+        //     // // dump($prod_attributes);
+        //     // foreach ($prod_attributes as $pivot_attr) {
+        //     //     $pivot_attr = Order::find($order->id)->products()->get();
+        //     //     // dump($pivot_attr->pivot);
+        //     // }
+        // };
+        dump($filteredRestaurants);
         $data = [
             'restaurants' => $restaurants,
             'types' => $types
         ];
         return response()->json($data);
-        }
     }
 
     /**
