@@ -3,17 +3,18 @@
     <SloganComponent />
     <TypesSlider />
 
-    <ul>
-      <li v-for="(type, index) in types" :key="index">
-        {{ type.name }}
-      </li>
-    </ul>
+    <label type="text" for="type">Type</label>
+    <select class="form-control" name="type" id="type" v-model="inputText" @change="changeSearch()">
+      <option value="">All</option>
+      <option :value="index" v-for="(type, index) in types" :key="index">{{ type.name }}</option>
+    </select>
 
     <ul>
       <li v-for="(restaurant, index) in restaurants" :key="index">
         {{ restaurant.name }}
       </li>
     </ul>
+
   </main>
 </template>
 
@@ -27,7 +28,15 @@ export default {
     return {
       types: [],
       restaurants: [],
+      inputText: '',
+      searchText: "",
     };
+  },
+  methods: {
+    changeSearch(){
+        this.searchText = this.inputText
+        //console.log(this.searchText)
+    }
   },
   created() {
     //CHIAMATA AXIOS PER TYPES
@@ -55,7 +64,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-main {
-  height: 100vh;
-}
+
 </style>
