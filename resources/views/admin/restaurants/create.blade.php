@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-<div class="container text-white">
+<div class="container">
     <h1 class="text-center mb-3">Aggiungi il tuo ristorante</h1>
     <form method="POST" action="{{route('admin.restaurants.store')}}" enctype="multipart/form-data">
         @csrf
@@ -80,7 +80,7 @@
             @enderror
         </div>
         <div class="submit-button d-flex justify-content-center align-items-center gap-3">
-            <button type="submit" class="btn btn-primary btn1">Submit</button>
+            <button type="submit" class="btn btn_main">Submit</button>
             <span class="fst-italic">(*) Campi obbligatori</span>
         </div>
     </form>
