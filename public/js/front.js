@@ -2364,7 +2364,7 @@ var render = function render() {
     staticClass: "cardCont"
   }, [_c("div", {
     staticClass: "slide slide10"
-  }, [_c("p", [_vm._v("Ameriano")])])]), _vm._v(" "), _c("div", {
+  }, [_c("p", [_vm._v("Americano")])])]), _vm._v(" "), _c("div", {
     staticClass: "cardCont"
   }, [_c("div", {
     staticClass: "slide slide11"

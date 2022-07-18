@@ -17,3 +17,6 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+//CONTROLLER PER VISUALIZZARE LE TIPOLOGIE IN HOME
+Route::get('/types', 'Api\HomeController@index');

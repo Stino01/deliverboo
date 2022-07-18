@@ -35,7 +35,7 @@
             <div class="slide slide9"><p>Poke</p></div>
         </div>
         <div class="cardCont">
-            <div class="slide slide10"><p>Ameriano</p></div>
+            <div class="slide slide10"><p>Americano</p></div>
         </div>
         <div class="cardCont">
             <div class="slide slide11"><p>Giapponese</p></div>
