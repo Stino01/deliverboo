@@ -20,3 +20,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 //CONTROLLER PER VISUALIZZARE LE TIPOLOGIE IN HOME
 Route::get('/types', 'Api\HomeController@index');
+Route::get('/restaurants', 'Api\HomeController@index');

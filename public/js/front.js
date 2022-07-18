@@ -1964,6 +1964,28 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     TypesSlider: _TypesSlider_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
     SloganComponent: _SloganComponent_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
+  data: function data() {
+    return {
+      types: [],
+      restaurants: []
+    };
+  },
+  created: function created() {
+    var _this = this;
+
+    //CHIAMATA AXIOS PER TYPES
+    axios.get("/api/types").then(function (res) {
+      _this.types = res.data;
+    })["catch"](function (error) {
+      console.log(error);
+    }); //CHIAMATA AXIOS PER RISTORANTI
+
+    axios.get("/api/restaurants").then(function (res) {
+      _this.restaurants = res.data;
+    })["catch"](function (error) {
+      console.log(error);
+    });
   }
 });
 
@@ -2244,7 +2266,11 @@ var render = function render() {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _c("main", [_c("SloganComponent"), _vm._v(" "), _c("TypesSlider")], 1);
+  return _c("main", [_c("SloganComponent"), _vm._v(" "), _c("TypesSlider"), _vm._v(" "), _c("ul", _vm._l(_vm.restaurants, function (restaurant, index) {
+    return _c("li", {
+      key: index
+    }, [_vm._v("\n      " + _vm._s(restaurant.name) + "\n    ")]);
+  }), 0)], 1);
 };
 
 var staticRenderFns = [];

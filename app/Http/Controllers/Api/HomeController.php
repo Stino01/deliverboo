@@ -16,10 +16,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        // $request->query('types');
+        $restaurants = Restaurant::all();
         $types = Type::all();
-        dd($types);
-        return response()->json($types);
+
+        // return response()->json([$types, $restaurants]);
+        return response()->json($restaurants);
     }
 
     /**
