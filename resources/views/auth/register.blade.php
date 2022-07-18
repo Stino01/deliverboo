@@ -5,14 +5,14 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+                <div class="card-header text-white">{{ __('Register') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
 
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nome') }}*</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-right text-white">{{ __('Nome') }}*</label>
 
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror"
@@ -27,8 +27,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="surname" class="col-md-4 col-form-label text-md-right">{{ __('Cognome')
-                                }}*</label>
+                            <label for="surname" class="col-md-4 col-form-label text-md-right text-white">{{ __('Cognome') }}*</label>
 
                             <div class="col-md-6">
                                 <input id="surname" type="text"
@@ -44,8 +43,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Indirizzo E-Mail')
-                                }}*</label>
+                            <label for="email" class="col-md-4 col-form-label text-md-right text-white">{{ __('Indirizzo E-Mail') }}*</label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
@@ -60,13 +58,12 @@
                         </div>
 
                         <div class="form-group row">
+
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password')
                                 }}*</label>
 
-                            <div class="col-md-6">
-                                <input id="password" type="password"
+                            <label for="password" class="col-md-4 col-form-label text-md-right text-white">{{ __('Password') }}*</label>
                                     class="form-control @error('password') is-invalid @enderror" name="password"
-                                    required autocomplete="new-password">
 
                                 @error('password')
                                 <span class="invalid-feedback" role="alert">
@@ -77,8 +74,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Conferma
-                                Password') }}*</label>
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right text-white">{{ __('Conferma Password') }}*</label>
 
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password"
@@ -98,13 +94,6 @@
                                 <button type="submit" class="btn btn-submit">
                                     {{ __('Registrati') }}
                                 </button>
-                                <span class="fst-italic">(*) Campi obbligatori</span>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-@endsection
+
+                                <span class="text-white fst-italic">(*) Campi obbligatori</span>
+

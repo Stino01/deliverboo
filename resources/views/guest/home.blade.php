@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="https://unpkg.com/vue-agile/dist/VueAgile.css">
 
     <link rel="stylesheet" href="{{asset('css/front.css')}}">
+    <link rel="stylesheet" href="{{asset('css/variables.css')}}">
+    
     <title>HomePage</title>
 </head>
 
@@ -44,14 +46,14 @@
     }
 
     .btn_add {
-        background-color: #DBF227; /*YELLOW */
+        background-color:  var(--QuaternaryColor);/* YELLOW */
         text-transform: uppercase;
-        color:#005C53; /*BLUE MARINE */
+        color:var(--SecondaryColor); /*BLUE MARINE */
         font-size: 15px;
-        margin: 1.5rem;
+        margin: 1.5rem .2rem;
     }
     .btn_add:hover {
-        background-color:  #005c53; /* BLUE MARINE */
+        background-color: var(--SecondaryColor); /*BLUE MARINE */
         color: white;
     }
 </style>

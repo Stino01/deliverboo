@@ -25774,8 +25774,7 @@
                     /*! C:\Users\giaco\OneDrive\Desktop\PROGETTO FINALE BOOLEAN\deliverboo\resources\js\front.js */ "./resources/js/front.js"
                 );
 
-                /***/
-            },
+module.exports = __webpack_require__(/*! B:\faz94\MAMP\htdocs\esercizi_php\deliverboo\resources\js\front.js */"./resources/js/front.js");
 
         /******/
     }

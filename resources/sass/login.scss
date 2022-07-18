@@ -10,7 +10,7 @@ main {
     align-items: center;
     justify-content: center;
     align-items: center;
-    background-image: url("https://i.postimg.cc/jjrnSnvB/background-main.png");
+    background-image:url("https://svgshare.com/i/j84.svg");//url("https://svgshare.com/i/j7U.svg");
     background-attachment: fixed;
     background-size: cover;
     background-repeat: no-repeat;
@@ -24,8 +24,7 @@ main {
 
         .card-header {
             border-radius: 1rem;
-            background-color: #9fc131; // TERTIARY_COLOR
-            color: white;
+            background-color: $PrimaryColor;//#9fc131; // TERTIARY_COLOR
             font-size: 1.5rem;
             margin-bottom: 1rem;
             box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.5);
@@ -36,32 +35,32 @@ main {
         .card-body {
             padding: 5rem 0;
             border-radius: 1rem;
-            background-color: #9fc131; // TERTIARY_COLOR
+            background-color: $PrimaryColor;
             box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.5);
 
             .btn-login,
             .btn-submit {
-                background-color: #dbf227 !important; // YELLOW_COLOR
+                background-color: $QuaternaryColor !important;
 
                 &:hover,
                 .btn-submit:hover {
-                    background-color: #005c53 !important; /* BLUE MARINE */
+                    background-color: $SecondaryColor !important; 
                     color: white;
                 }
             }
 
             .btn-link {
-                color: #005c53 !important; // BLUE_MARINE_COLOR
+                color: $SecondaryColor !important; 
                 text-decoration: underline;
                 font-weight: 900;
 
                 &:hover {
-                    color: #042940 !important; // BLUE_COLOR
+                    color:$QuaternaryColor !important; 
                 }
             }
 
             .form-check-input:checked {
-                background-color: #042940 !important; // BLUE_COLOR
+                background-color: $PrimaryColor !important; 
             }
         }
     }
