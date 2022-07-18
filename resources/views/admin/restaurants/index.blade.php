@@ -9,13 +9,13 @@
     @if($restaurant->user_id == $user)
     <div class="container d-flex">
         <div class="container d-flex align-items-center flex-column">
-            @if ($restaurant->image == null)
-            <img src="https://cdn.discordapp.com/attachments/993428504194584577/996725473071607838/unknown.png"
-                alt="user" style="width: 300px">
-            @else
-            <img src="{{ asset('storage/' . $restaurant->image)}}" alt="user" style="width: 300px">
-            @endif
             <h1 class="text-center ">{{$restaurant->name}}</h1>
+            @if ($restaurant->image)
+                <img class="resturant-image" src="{{$restaurant->image}}" alt="user">
+                {{-- <img id="resturant-image" src="{{ asset('storage/' . $restaurant->image)}}" alt="user"> --}}
+            @else
+                <img class="resturant-image" src="{{asset('media/img/mistery-resturant.png')}}" alt="user">
+            @endif
             {{-- <p class="text-center">{{$user->address}}</p> --}}
             <a href="{{route('admin.restaurants.show', $restaurant->id)}}" class="btn btn_main text-uppercase my-3"
                 type="button">Visualizza</a>
@@ -32,3 +32,11 @@
 </div>
 
 @endsection
+
+<style>
+    .resturant-image{
+        width: 60%;
+        border-radius: 20px;
+    }
+
+</style>
