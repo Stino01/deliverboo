@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Type;
 use App\Restaurant;
+use Response;
 
 class HomeController extends Controller
 {
@@ -16,11 +17,16 @@ class HomeController extends Controller
      */
     public function index()
     {
+
         $restaurants = Restaurant::all();
         $types = Type::all();
-
+        $data = [
+            'restaurants' => $restaurants,
+            'types' => $types
+        ];
+        // dd($datas);
         // return response()->json([$types, $restaurants]);
-        return response()->json($restaurants);
+        return response()->json($data);
     }
 
     /**

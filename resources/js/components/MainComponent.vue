@@ -3,11 +3,11 @@
     <SloganComponent />
     <TypesSlider />
 
-    <!-- <ul>
+    <ul>
       <li v-for="(type, index) in types" :key="index">
         {{ type.name }}
       </li>
-    </ul> -->
+    </ul>
 
     <ul>
       <li v-for="(restaurant, index) in restaurants" :key="index">
@@ -34,7 +34,8 @@ export default {
     axios
       .get("/api/types")
       .then((res) => {
-        this.types = res.data;
+        // console.log(res.data.types);
+        this.types = res.data.types;
       })
       .catch((error) => {
         console.log(error);
@@ -44,7 +45,7 @@ export default {
     axios
       .get("/api/restaurants")
       .then((res) => {
-        this.restaurants = res.data;
+        this.restaurants = res.data.restaurants;
       })
       .catch((error) => {
         console.log(error);
