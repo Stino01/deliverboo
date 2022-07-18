@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 @include('partials/popupdelete')
 @section('content')
-<div class="container d-flex align-items-center flex-column text-white">
+<div class="container d-flex align-items-center flex-column ">
     <h1 class="text-center">{{$restaurant->name}}
         {{-- <a href="{{route('admin.restaurants.edit', $restaurant->id)}}" class="btn btn-warning text-uppercase"
             type="button">Modifica
@@ -30,20 +30,20 @@
                 <td>{{$restaurant->name}}</td>
                 <td>{{$product->price}}</td>
                 <td>{{$product->created_at}}</td>
-                <td><a href="{{route('admin.products.edit', $product->id)}}" class="btn btn-warning">Modifica</a></td>
+                <td><a href="{{route('admin.products.edit', $product->id)}}" class="btn btn-warning text-uppercase">Modifica</a></td>
                 <td>
                     <form action="{{route('admin.products.destroy', $product->id)}}" method="post">
                         @csrf
                         @method('DELETE')
                         <button type="submit" onclick="boolpress.openModal(event, {{ $product->id }})"
-                            class="btn btn-danger delete">Delete</button>
+                            class="btn btn-danger delete text-uppercase">Elimina</button>
                     </form>
                 </td>
             </tr>
             @endforeach
         </tbody>
     </table>
-    <a href="{{route('admin.products.create')}}" class="btn btn-primary text-uppercase my-3" type="button">Aggiungi
+    <a href="{{route('admin.products.create')}}" class="btn btn_main text-uppercase my-3" type="button">Aggiungi
         piatto
     </a>
 </div>

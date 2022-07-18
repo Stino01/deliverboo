@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 @section('content')
 <div class="container">
-    <h2 class="text-white">Modifica il prodotto: {{$product->name}}</h2>
+    <h2>Modifica il prodotto: {{$product->name}}</h2>
     {{-- <p class="fst-italic">I campi contrassegnati con * sono obbligatori</p> --}}
     <form action="{{route('admin.products.update', $product->id)}}" method="POST" enctype="multipart/form-data">
         @csrf
@@ -41,7 +41,7 @@
 
         {{-- IMAGE --}}
         <div class="form-group">
-            <img id="uploadPreview" width="100" src="https://via.placeholder.com/300x200">
+            <img id="uploadPreview" width="100" src="https://cdn.discordapp.com/attachments/943126356932317214/998530366459621497/1231032-200.png">
             <label for="image">Aggiungi immagine</label>
             <input type="file" id="image" name="image" onchange="boolpress.previewImage();">
             {{-- @error('image')
@@ -67,7 +67,7 @@
         </div>
 
         {{-- BOTTONE --}}
-        <button type="submit" class="btn btn-primary">Modifica</button>
+        <button type="submit" class="btn btn_main">Modifica</button>
     </form>
 </div>
 <script src="//js.nicedit.com/nicEdit-latest.js" type="text/javascript">
@@ -78,11 +78,33 @@
 @endsection
 
 <style>
-    label {
-        color: white
-    }
 
     .nicEdit-main {
         background-color: white;
     }
+    .form-check-input:checked {
+                background-color: #042940 !important; 
+            }
+    #image::-webkit-file-upload-button{
+        background-color: #DBF227;
+        margin: 0 10px;
+        border: 0;
+        color: #005C53;
+        border-radius: 3px;
+        font-size: 1.1rem;
+        padding: 6px 10px;
+        cursor: pointer;
+        transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+        text-transform: uppercase;
+    }
+    #image::-webkit-file-upload-button:hover{
+        background-color: #005C53;
+        border: 0px;
+        color: white;
+        border-radius: 3px;
+        font-size: 1.1rem;
+        padding: 6px 10px;
+        cursor: pointer;
+    }
+
 </style>

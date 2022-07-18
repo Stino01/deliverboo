@@ -2,7 +2,7 @@
 @include('partials/popupdelete')
 @section('content')
 <div class="container">
-    <h1 class="text-white">Lista degli ordini ricevuti</h1>
+    <h1>Lista degli ordini ricevuti</h1>
     <table class="table">
         <thead>
             <tr>

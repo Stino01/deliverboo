@@ -5,44 +5,46 @@
                 <ul>
                     <li>Scopri Deliverboo</li>
                     <li><a href="#"> investitori</a></li>
-                    <li> <a href="#"> chi siamo </a> </li>
-                    <li><a href="#">ristoranti</a> </li>
-                    <li><a href="#"> altro </a> </li>
-                    <li><a href="#">pressroom</a> </li>
-                    <li><a href="#">il nostro blog</a> </li>
-                    <li><a href="">  programmazione</a></li>
-                    <li><a href="#">design</a> </li>
+                    <li><a href="#"> chi siamo </a></li>
+                    <li><a href="#">ristoranti</a></li>
+                    <li><a href="#"> altro </a></li>
+                    <li><a href="#">pressroom</a></li>
+                    <li><a href="#">il nostro blog</a></li>
+                    <li><a href=""> programmazione</a></li>
+                    <li><a href="#">design</a></li>
                     <li><a href="#"> lavora con noi</a></li>
-                    <li><a href="#">diventa nostro partner</a> </li>
+                    <li><a href="#">diventa nostro partner</a></li>
                 </ul>
             </div>
             <div class="block">
                 <ul>
-                    <li>Note legali </li>
-                    <li><a href="#">termini & Condizioni </a> </li>
+                    <li>Note legali</li>
+                    <li><a href="#">termini & Condizioni </a></li>
                     <li><a href="#"> informativa sulla privacy</a></li>
-                    <li><a href="#">cookies </a> </li>
+                    <li><a href="#">cookies </a></li>
                 </ul>
             </div>
             <div class="block">
                 <ul>
-                    <li> Aiuto</li>
-                    <li><a href="#">contatti</a> </li>
-                    <li><a href="#">FAQ</a> </li>
-                    <li><a href="#">tipi di cucina</a> </li>
+                    <li>Aiuto</li>
+                    <li><a href="#">contatti</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">tipi di cucina</a></li>
                 </ul>
             </div>
             <div class="block">
                 <ul>
-                    <li>Porta Deliverboo con te </li>
+                    <li>Porta Deliverboo con te</li>
                     <li>
                         <img
-                            src="https://cdn.discordapp.com/attachments/941312490950766592/996772132816162946/appstore.png"
+                            style="width: 50%"
+                            src="https://cdn.discordapp.com/attachments/943126356932317214/998539536600670228/app_store.png"
                         />
                     </li>
                     <li>
                         <img
-                            src="https://cdn.discordapp.com/attachments/941312490950766592/996772133004922951/playstore.png"
+                            style="width: 50%"
+                            src="https://cdn.discordapp.com/attachments/943126356932317214/998539537028497528/google_play.png"
                         />
                     </li>
                 </ul>
@@ -71,12 +73,12 @@ export default {
 footer {
     padding: 0 15%;
     margin: 0 auto;
-    background-color: #73818c;
+    background-color: #005c53;
     #blocks {
         display: flex;
         justify-content: space-between;
         .block {
-            background-color: #8c7e73;
+            background-color: #042940;
             width: 23%;
             margin: 40px 0;
             border-radius: 10px;
@@ -92,13 +94,13 @@ footer {
                 li {
                     color: white;
 
-                    a{
-                      text-decoration: none;
-                      color:#dbf227!important; // YELLOW
-                      font-size: 1rem!important;
-                      &:hover{
-                        color:  #005c53!important; // BLUE MARINE
-                      }
+                    a {
+                        text-decoration: none;
+                        color: #dbf227 !important; // YELLOW
+                        font-size: 1rem !important;
+                        &:hover {
+                            color: #005c53 !important; // BLUE MARINE
+                        }
                     }
                 }
             }

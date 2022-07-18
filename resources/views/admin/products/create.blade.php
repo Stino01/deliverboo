@@ -98,8 +98,29 @@
     .nicEdit-main {
         background-color: white;
     }
-
-    button{
-        background-color: red!important;
+    .form-check-input:checked {
+                background-color: #042940 !important; 
+            }
+    #image::-webkit-file-upload-button{
+        background-color: #DBF227;
+        margin: 0 10px;
+        border: 0;
+        color: #005C53;
+        border-radius: 3px;
+        font-size: 1.1rem;
+        padding: 6px 10px;
+        cursor: pointer;
+        transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+        text-transform: uppercase;
     }
+    #image::-webkit-file-upload-button:hover{
+        background-color: #005C53;
+        border: 0px;
+        color: white;
+        border-radius: 3px;
+        font-size: 1.1rem;
+        padding: 6px 10px;
+        cursor: pointer;
+    }
+
 </style>

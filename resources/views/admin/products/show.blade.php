@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 @include('partials/popupdelete')
 @section('content')
-<div class="container">
+<div class="container text-white">
     @if(session()->has('message'))
     <div class="alert alert-success">
         {{session()->get('message')}}
@@ -56,12 +56,12 @@
                 </ul>
             </div> --}}
             <div class="d-flex align-items-start">
-                <a href="{{ route('admin.products.edit', $product->id) }}" class="btn btn-warning mr-2">Edit</a>
+                <a href="{{ route('admin.products.edit', $product->id) }}" class="btn btn-warning mr-2 text-uppercase">Modifica</a>
                 <form action="{{ route('admin.products.destroy', $product->id) }}" method="post">
                     @csrf
                     @method('DELETE')
                     <button type="submit" onclick="boolpress.openModal(event, {{ $product->id }})"
-                        class="btn btn-danger delete">Delete</button>
+                        class="btn btn-danger delete text-uppercase">Elimina</button>
                 </form>
             </div>
             {{-- @endif --}}
