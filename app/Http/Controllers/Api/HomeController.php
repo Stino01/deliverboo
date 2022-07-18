@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Type;
 use App\Restaurant;
+use App\Product;
 use Response;
 
 class HomeController extends Controller
@@ -26,32 +27,14 @@ class HomeController extends Controller
                 //$type_id[] = $restaurant->pivot->type_id;
                 foreach ($restaurants as $res) {
                     if ($res->id == $restaurant->getOriginal('pivot_restaurant_id')) {
-                        //dump($restaurant->getOriginal());
-                        if (!in_array($restaurant->getOriginal(), $filteredRestaurants)) {
-                            array_push($filteredRestaurants, $restaurant->getOriginal());
-                        }
+                        // dump($restaurant->getOriginal());
+                        $filteredRestaurants[] = $restaurant->getOriginal();
                     }
                 }
             }
         }
-        // if ($restaurant->getOriginal('pivot_restaurant_id') == $restaurant->id) {
-        //     // dump($restaurant->getOriginal('pivot_restaurant_id'));
-        //     foreach ($res_type as $type_attributes) {
-        //         dump($type_attributes);
-
-        //     //     $prod_attributes = Order::find($order->id)->products()->get();
-        //     //     // dump($prod_attributes);
-        //     // }
-        //     // // dump($prod_attributes);
-        //     // // dump($prod_attributes);
-        //     // foreach ($prod_attributes as $pivot_attr) {
-        //     //     $pivot_attr = Order::find($order->id)->products()->get();
-        //     //     // dump($pivot_attr->pivot);
-        //     // }
-        // };
-        dump($filteredRestaurants);
         $data = [
-            'restaurants' => $restaurants,
+            'restaurants' => $filteredRestaurants,
             'types' => $types
         ];
         return response()->json($data);
@@ -84,9 +67,13 @@ class HomeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-        //
+        $restaurant = Restaurant::where('slug', $slug)->first();
+        // $user = Auth::user()->id;
+        // $products = Product::where('restaurant_id', $restaurant->user_id)->get();
+        // dd($slug);
+        return response()->json($restaurant);
     }
 
     /**

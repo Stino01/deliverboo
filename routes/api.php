@@ -14,10 +14,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
 
-//CONTROLLER PER VISUALIZZARE LE TIPOLOGIE IN HOME
+//CONTROLLER PER VISUALIZZARE LE TIPOLOGIE E I RISTORANTI IN HOME
 Route::get('/types', 'Api\HomeController@index');
 Route::get('/restaurants', 'Api\HomeController@index');
+
+//CONTROLLER PER VISUALIZZARE IL SINGOLO RISTORANTE
+Route::get("/restaurants/{slug}", "Api\HomeController@show");
