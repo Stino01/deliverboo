@@ -1,14 +1,14 @@
 <template>
-    <RestaurantGridComponent />
+  <RestaurantGridComponent />
 </template>
 
 <script>
-import RestaurantGridComponent from '../components/RestaurantGridComponent.vue';
+import RestaurantGridComponent from "../components/RestaurantGridComponent.vue";
 export default {
   components: { RestaurantGridComponent },
   name: "RestaurantsComponent",
   data() {
-
+    return {};
   },
 };
 </script>
