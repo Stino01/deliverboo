@@ -5,7 +5,12 @@
     <div id="container-ristorante">
         <h1 class="text-center">{{$restaurant->name}}</h1>
         <a href="{{route('admin.products.create')}}" class="btn btn_main text-uppercase my-3" type="button">Aggiungi piatto</a>
-        <img src="https://cdn.discordapp.com/attachments/993428504194584577/996725473071607838/unknown.png">
+        @if ($restaurant->image)
+            <img class="resturant-image" src="{{$restaurant->image}}" alt="user">
+        {{-- <img id="resturant-image" src="{{ asset('storage/' . $restaurant->image)}}" alt="user"> --}}
+        @else
+            <img class="resturant-image" src="{{asset('media/img/mistery-resturant.png')}}" alt="user">
+        @endif
     </div>
     <div id="container-prodotti">
         @foreach ($products as $product)
@@ -24,7 +29,11 @@
                 </div>
             </div>
             <div class="right-side-card">
-                <img src="{{$product->image}}">
+                @if($product->image)         
+                    <img src="{{$product->image}}">
+                @else
+                    <img src="{{asset('media/img/mistery-food.png')}}">
+                @endif
             </div>
         </div>
         @endforeach
@@ -42,7 +51,7 @@
         display: flex;
         flex-direction: row;
         align-items: center;
-        margin-top: 2vw;
+        margin: 1vw 0;
 
     }
     .prezzo-prodotto::before{
@@ -99,7 +108,14 @@
         justify-content: space-evenly;
         align-content: flex-start;
         width: 60%;
-        height: 10000px;
+        height: calc(100vh - 110px);
+        overflow: auto;
+    }
+    #container-prodotti::-webkit-scrollbar {
+        display: none;
     }
 
+    .py-4{
+        padding-bottom: 0 !important;
+    }
 </style>
