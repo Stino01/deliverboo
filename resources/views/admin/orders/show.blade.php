@@ -2,7 +2,7 @@
 @include('partials/popupdelete')
 @section('content')
 <div class="container">
-    <div class="card my-3 gap-3">
+    <div class="card my-3 gap-3 text-white">
         <div class="card-header">
             <div class="container">
                 <h1>Ordine numero: {{$order->id}}</h1>
