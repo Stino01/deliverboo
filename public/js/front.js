@@ -1988,7 +1988,8 @@ __webpack_require__.r(__webpack_exports__);
       types: [],
       restaurants: [],
       inputText: "",
-      searchText: ""
+      searchText: "",
+      cart: null
     };
   },
   methods: {
@@ -1997,6 +1998,15 @@ __webpack_require__.r(__webpack_exports__);
       this.searchText = index + 1;
       console.log(this.searchText);
       console.log(this.filteredList);
+    },
+    addToCart: function addToCart(prodotto) {
+      var price = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 5;
+      window.localStorage.setItem("nomeProdotto", prodotto);
+      window.localStorage.setItem("prezzo", price);
+      this.cart = {
+        nomeProdotto: prodotto,
+        prezzo: price
+      };
     }
   },
   created: function created() {
@@ -2015,13 +2025,17 @@ __webpack_require__.r(__webpack_exports__);
     })["catch"](function (error) {
       console.log(error);
     });
+    this.cart = {
+      nomeProdotto: window.localStorage.getItem("nomeProdotto"),
+      prezzo: window.localStorage.getItem("prezzo")
+    };
   },
   computed: {
     filteredList: function filteredList() {
       var _this2 = this;
 
       if (this.searchText === "") {
-        return this.restaurants;
+        return this.restaurants = [];
       }
 
       return this.restaurants.filter(function (el) {
@@ -2106,9 +2120,11 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     var _this = this;
 
-    var slug = this.$route.params.slug;
+    var slug = this.$route.params.slug; // console.log(slug);
+
     axios.get("/api/restaurants/".concat(slug)).then(function (response) {
       _this.restaurant = response.data;
+      console.log(_this.restaurant);
     });
   }
 });
@@ -2260,7 +2276,19 @@ var render = function render() {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _c("main", [_c("SloganComponent"), _vm._v(" "), _c("TypesSlider"), _vm._v(" "), _c("InputComponent", {
+  return _c("main", [_c("SloganComponent"), _vm._v(" "), _c("button", {
+    staticClass: "btn btn-warning",
+    attrs: {
+      type: "button"
+    },
+    on: {
+      click: function click($event) {
+        return _vm.addToCart("Kebab con cipolla");
+      }
+    }
+  }, [_vm._v("\n    Aggiungi al carrello\n  ")]), _vm._v(" "), _vm.cart ? _c("div", {
+    staticClass: "card"
+  }, [_vm._v("\n    " + _vm._s(_vm.cart.nomeProdotto) + " : €" + _vm._s(_vm.cart.prezzo) + "\n  ")]) : _vm._e(), _vm._v(" "), _c("TypesSlider"), _vm._v(" "), _c("InputComponent", {
     attrs: {
       restaurantTypes: _vm.types
     },
@@ -2292,7 +2320,7 @@ var render = function render() {
         }
       }
     }, [_vm._v("\n            Visualizza Ristorante\n          ")])], 1)])]);
-  }), 0) : _vm._e()], 1);
+  }), 0) : _vm._e(), _vm._v(" "), _vm.filteredList.length == 0 ? _c("div", [_c("p", [_vm._v("Non ci sono ristoranti che corrispondono a questa tipologia")])]) : _vm._e(), _vm._v(" "), _c("router-view")], 1);
 };
 
 var staticRenderFns = [];
@@ -2454,7 +2482,9 @@ var render = function render() {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _c("h1", [_vm._v("Funziona")]);
+  return _c("div", {
+    staticClass: "container"
+  }, [_vm.restaurant ? _c("div", [_c("h1", [_vm._v(_vm._s(_vm.restaurant.name))])]) : _vm._e()]);
 };
 
 var staticRenderFns = [];
@@ -23358,13 +23388,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var vue_agile__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-agile */ "./node_modules/vue-agile/src/index.js");
 /* harmony import */ var _views_App__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./views/App */ "./resources/js/views/App.vue");
-/* harmony import */ var _router_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./router.js */ "./resources/js/router.js");
-window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-window.axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
+/* harmony import */ var _router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./router */ "./resources/js/router.js");
+
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 
-
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_agile__WEBPACK_IMPORTED_MODULE_1__["default"]);
+window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+window.axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
 
 
 var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
@@ -23372,7 +23402,7 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   render: function render(h) {
     return h(_views_App__WEBPACK_IMPORTED_MODULE_2__["default"]);
   },
-  router: _router_js__WEBPACK_IMPORTED_MODULE_3__["default"]
+  router: _router__WEBPACK_IMPORTED_MODULE_3__["default"]
 });
 
 /***/ }),

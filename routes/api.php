@@ -23,4 +23,4 @@ Route::get('/types', 'Api\HomeController@index');
 Route::get('/restaurants', 'Api\HomeController@index');
 
 //CONTROLLER PER VISUALIZZARE IL SINGOLO RISTORANTE
-Route::get("/restaurants/{slug}", "Api\HomeController@show");
+Route::get('/restaurants/{slug}', 'Api\HomeController@show');

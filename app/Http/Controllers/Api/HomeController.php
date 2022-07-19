@@ -69,7 +69,7 @@ class HomeController extends Controller
      */
     public function show($slug)
     {
-        $restaurant = Restaurant::where('slug', $slug)->first();
+        $restaurant = Restaurant::where("slug", $slug)->first();
         // $user = Auth::user()->id;
         // $products = Product::where('restaurant_id', $restaurant->user_id)->get();
         // dd($slug);

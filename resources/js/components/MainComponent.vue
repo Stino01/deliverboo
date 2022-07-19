@@ -1,6 +1,16 @@
 <template>
   <main>
     <SloganComponent />
+    <button
+      type="button"
+      class="btn btn-warning"
+      @click="addToCart('Kebab con cipolla')"
+    >
+      Aggiungi al carrello
+    </button>
+    <div class="card" v-if="cart">
+      {{ cart.nomeProdotto }} : &euro;{{ cart.prezzo }}
+    </div>
     <TypesSlider />
 
     <!-- <label type="text" for="type">Type</label>
@@ -49,7 +59,10 @@
           <div class="card-body">
             <router-link
               class="mx-2 btn btn_main"
-              :to="{ name: 'single-restaurant', params: { slug: restaurant.slug } }"
+              :to="{
+                name: 'single-restaurant',
+                params: { slug: restaurant.slug },
+              }"
             >
               Visualizza Ristorante
             </router-link>
@@ -57,6 +70,10 @@
         </div>
       </div>
     </div>
+    <div v-if="filteredList.length == 0">
+      <p>Non ci sono ristoranti che corrispondono a questa tipologia</p>
+    </div>
+    <router-view></router-view>
   </main>
 </template>
 
@@ -73,6 +90,7 @@ export default {
       restaurants: [],
       inputText: "",
       searchText: "",
+      cart: null,
     };
   },
   methods: {
@@ -81,6 +99,11 @@ export default {
       this.searchText = index + 1;
       console.log(this.searchText);
       console.log(this.filteredList);
+    },
+    addToCart(prodotto, price = 5) {
+      window.localStorage.setItem("nomeProdotto", prodotto);
+      window.localStorage.setItem("prezzo", price);
+      this.cart = { nomeProdotto: prodotto, prezzo: price };
     },
   },
   created() {
@@ -104,11 +127,15 @@ export default {
       .catch((error) => {
         console.log(error);
       });
+    this.cart = {
+      nomeProdotto: window.localStorage.getItem("nomeProdotto"),
+      prezzo: window.localStorage.getItem("prezzo"),
+    };
   },
   computed: {
     filteredList() {
       if (this.searchText === "") {
-        return this.restaurants;
+        return (this.restaurants = []);
       }
       return this.restaurants.filter((el) => {
         return el.pivot_type_id === this.searchText;
