@@ -13,12 +13,11 @@
         <ul>
           <li v-for="category in categories" :key="category.id">
             <a href="">{{ category.name }}</a>
-          </li>
-        </ul>
-        <h3>LISTA PRODOTTI</h3>
-        <ul>
-          <li v-for="product in products" :key="product.id" >
-            {{ product.name }}
+            <ul v-for="product in products" :key="product.id">
+              <li v-if="product.category_id == category.id">
+                <p>{{ product.name }} : &euro; {{ product.price }}</p>
+              </li>
+            </ul>
           </li>
         </ul>
       </div>
@@ -38,19 +37,25 @@ export default {
   },
   mounted() {
     const slug = this.$route.params.slug;
-    
-    axios.get(`/api/restaurants/${slug}`).then((response) => {
-      this.restaurant = response.data.restaurant;
-      this.products = response.data.products;
-    }).catch((error) => {
-      console.log(error);
-    });;
 
-    axios.get("/api/categories").then((res) => {
+    axios
+      .get(`/api/restaurants/${slug}`)
+      .then((response) => {
+        this.restaurant = response.data.restaurant;
+        this.products = response.data.products;
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
+    axios
+      .get("/api/categories")
+      .then((res) => {
         this.categories = res.data.categories;
-    }).catch((error) => {
-      console.log(error);
-    });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   },
 };
 </script>
