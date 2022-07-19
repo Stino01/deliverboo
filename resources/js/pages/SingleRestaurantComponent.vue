@@ -1,8 +1,6 @@
 <template>
   <div class="container">
-    <div v-if="restaurant">
-      <h1>{{ restaurant.name }}</h1>
-    </div>
+    <h1>{{ restaurant.name }}</h1>
   </div>
 </template>
 
@@ -16,10 +14,8 @@ export default {
   },
   mounted() {
     const slug = this.$route.params.slug;
-    // console.log(slug);
     axios.get(`/api/restaurants/${slug}`).then((response) => {
       this.restaurant = response.data;
-      console.log(this.restaurant);
     });
   },
 };

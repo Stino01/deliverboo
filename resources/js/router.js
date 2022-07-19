@@ -4,7 +4,7 @@ import VueRouter from "vue-router";
 
 Vue.use(VueRouter);
 
-// import HomeComponent from "./pages/HomeComponent";
+import RestaurantsComponent from "./pages/RestaurantsComponent";
 // import AboutComponent from "./pages/AboutComponent";
 // import PostsComponent from "./pages/PostsComponent";
 // import ContactComponent from "./pages/ContactComponent";
@@ -15,12 +15,11 @@ const router = new VueRouter({
     // mode: "history" serve a farci sparire il cancelletto dalla navigazione
     mode: "history",
     routes: [
-        // {
-        //     path: "/",
-        //     name: "home",
-        //     // meta: { nome: "Clelia" },
-        //     component: HomeComponent,
-        // },
+        {
+            path: "/",
+            name: "restaurants",
+            component: RestaurantsComponent,
+        },
         // {
         //     path: "/about",
         //     name: "about",

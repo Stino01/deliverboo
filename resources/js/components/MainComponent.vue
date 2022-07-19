@@ -13,16 +13,14 @@
     </div>
     
     <router-view></router-view>
-    <RestaurantGridComponent />
   </main>
 </template>
 
 <script>
 import SloganComponent from "./SloganComponent.vue";
-import RestaurantGridComponent from "./RestaurantGridComponent.vue";
 export default {
   name: "MainComponent",
-  components: {  SloganComponent, RestaurantGridComponent },
+  components: {  SloganComponent },
   data() {
     return {
       cart: null,
