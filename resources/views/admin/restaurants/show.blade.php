@@ -6,7 +6,7 @@
         <h1 class="text-center">{{$restaurant->name}}</h1>
         <a href="{{route('admin.products.create')}}" class="btn btn_main text-uppercase my-3" type="button">Aggiungi piatto</a>
         @if ($restaurant->image)
-            <img class="resturant-image" src="{{$restaurant->image}}" alt="user">
+            <img class="resturant-image" src="{{asset('storage/' . $restaurant->image)}}" alt="user">
         {{-- <img id="resturant-image" src="{{ asset('storage/' . $restaurant->image)}}" alt="user"> --}}
         @else
             <img class="resturant-image" src="{{asset('media/img/mistery-resturant.png')}}" alt="user">
@@ -16,8 +16,10 @@
         @foreach ($products as $product)
         <div class="product-card">
             <div class="left-side-card">
-                <p><a href="{{route('admin.products.show', $product->id)}}">{{$product->name}}</a></p>
-                <p>€ {{$product->price}}</p>
+                <div  class="left-side-top-card">
+                    <h1><a href="{{route('admin.products.show', $product->id)}}">{{$product->name}}</a></h1>
+                    <p>€ {{$product->price}}</p>
+                </div>
                 <div class="left-side-under-card">
                     <form>
                         <a href="{{route('admin.products.edit', $product->id)}}" class="btn btn-warning text-uppercase">Modifica</a>
@@ -30,7 +32,7 @@
             </div>
             <div class="right-side-card">
                 @if($product->image)         
-                    <img src="{{$product->image}}">
+                    <img src="{{asset('storage/' . $product->image)}}">
                 @else
                     <img src="{{asset('media/img/mistery-food.png')}}">
                 @endif
@@ -59,10 +61,29 @@
     }
     .left-side-card{
         width: 60%;
+        height: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
 
+    }
+    .left-side-top-card{
+        width: 100%;
+        height: 100%;
+    }
+    .left-side-top-card{
+        text-align: center;
+    }
+
+    .left-side-top-card h1 a{
+        font-size: 1.4rem;
+        text-overflow: ellipsis;
+
+        color: #005C53;
+    }
+    .left-side-top-card h1 a:hover{
+        color: #DBF227;
+        transition: 0.1s;
     }
     .left-side-under-card{
         display: flex;
