@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Type;
 use App\Restaurant;
 use App\Product;
+use App\Category;
 use Response;
 
 class HomeController extends Controller
@@ -21,7 +22,15 @@ class HomeController extends Controller
         $restaurants = Restaurant::all();
         $types = Type::all();
         $filteredRestaurants = [];
+        $categories = Category::all();
 
+        // PRODOTTI DA MOSTRARE NELLA SHOW PER IL MENU DA FIXARE
+        foreach ($restaurants as $restaurant) {
+            $products = Product::where('restaurant_id', $restaurant->user_id)->get();
+        };
+        // dump($products);
+
+        // FILTRO PER I RISTORANTI (DA FIXARE)
         foreach ($types as $type) {
             foreach ($type->restaurants as $restaurant) {
                 //$type_id[] = $restaurant->pivot->type_id;
@@ -35,7 +44,9 @@ class HomeController extends Controller
         }
         $data = [
             'restaurants' => $filteredRestaurants,
-            'types' => $types
+            'types' => $types,
+            'categories' => $categories,
+            'products' => $products,
         ];
         return response()->json($data);
     }
@@ -71,8 +82,7 @@ class HomeController extends Controller
     {
         $restaurant = Restaurant::where("slug", $slug)->first();
         // $user = Auth::user()->id;
-        // $products = Product::where('restaurant_id', $restaurant->user_id)->get();
-        // dd($slug);
+
         return response()->json($restaurant);
     }
 

@@ -24,3 +24,9 @@ Route::get('/restaurants', 'Api\HomeController@index');
 
 //CONTROLLER PER VISUALIZZARE IL SINGOLO RISTORANTE
 Route::get('/restaurants/{slug}', 'Api\HomeController@show');
+
+//CONTROLLER PER VISUALIZZARE LE CATEGORIE NEL MENU
+Route::get('/categories', 'Api\HomeController@index');
+
+//CONTROLLER PER VISUALIZZARE I PRODOTTI NEL MENU
+Route::get('/products', 'Api\HomeController@index');
