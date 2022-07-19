@@ -81,9 +81,13 @@ class HomeController extends Controller
     public function show($slug)
     {
         $restaurant = Restaurant::where("slug", $slug)->first();
-        // $user = Auth::user()->id;
+        $products = Product::where('restaurant_id', $restaurant->user_id)->get();
+        $data = [
+            'restaurant' => $restaurant,
+            'products' => $products,
+        ];
 
-        return response()->json($restaurant);
+        return response()->json($data);
     }
 
     /**

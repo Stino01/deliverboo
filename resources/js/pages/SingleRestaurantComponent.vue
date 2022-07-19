@@ -7,6 +7,7 @@
         </div>
       </div>
       <div class="card-body">
+        <h1></h1>
         <h2>MENU</h2>
         <h3>CATEGORIE</h3>
         <ul>
@@ -37,26 +38,19 @@ export default {
   },
   mounted() {
     const slug = this.$route.params.slug;
+    
     axios.get(`/api/restaurants/${slug}`).then((response) => {
-      this.restaurant = response.data;
-      console.log(this.restaurant);
-    });
+      this.restaurant = response.data.restaurant;
+      this.products = response.data.products;
+    }).catch((error) => {
+      console.log(error);
+    });;
 
     axios.get("/api/categories").then((res) => {
         this.categories = res.data.categories;
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-
-  // CHIAMATA PRODOTTI FILTRATA
-    axios.get("/api/products").then((res) => {
-        this.products = res.data.products;
-        console.log(this.products);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    }).catch((error) => {
+      console.log(error);
+    });
   },
 };
 </script>
