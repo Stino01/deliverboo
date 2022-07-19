@@ -11,12 +11,12 @@
         <h3>CATEGORIE</h3>
         <ul>
           <li v-for="category in categories" :key="category.id">
-            {{ category.name }}
+            <a href="">{{ category.name }}</a>
           </li>
         </ul>
         <h3>LISTA PRODOTTI</h3>
         <ul>
-          <li v-for="product in products" :key="product.id">
+          <li v-for="product in products" :key="product.id" >
             {{ product.name }}
           </li>
         </ul>
@@ -42,21 +42,15 @@ export default {
       console.log(this.restaurant);
     });
 
-    axios
-      .get("/api/categories")
-      .then((res) => {
-        // console.log(res.data.categories);
+    axios.get("/api/categories").then((res) => {
         this.categories = res.data.categories;
-        console.log(this.categories);
       })
       .catch((error) => {
         console.log(error);
       });
 
-    axios
-      .get("/api/products")
-      .then((res) => {
-        // console.log(res.data.products);
+  // CHIAMATA PRODOTTI FILTRATA
+    axios.get("/api/products").then((res) => {
         this.products = res.data.products;
         console.log(this.products);
       })

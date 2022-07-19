@@ -1,43 +1,22 @@
     <template>
   <section>
     <TypesSlider />
-    <InputComponent
-      @searchType="setSearchType($event)"
-      :restaurantTypes="types"
-    />
-    <div
-      v-if="filteredList.length > 0"
-      class="row d-flex justify-content-around my-5"
-    >
-      <div
-        v-for="restaurant in filteredList"
-        :key="restaurant.index"
-        class="
-          d-flex
-          justify-content-center
-          col-6 col-sm-4 col-md-3 col-lg-2
-          m-3
-        "
-      >
+    <InputComponent @searchType="setSearchType($event)" :restaurantTypes="types" />
+    <div v-if="filteredList.length > 0" class="row d-flex justify-content-around my-5" >
+      <div v-for="restaurant in filteredList" :key="restaurant.index" class=" d-flex justify-content-center col-6 col-sm-4 col-md-3 col-lg-2 m-3 " >
         <div class="card">
           <div class="card-header">
             {{ restaurant.name }}
           </div>
           <div class="card-body">
-            <router-link
-              class="mx-2 btn btn_main"
-              :to="{
-                name: 'single-restaurant',
-                params: { slug: restaurant.slug },
-              }"
-            >
+            <router-link class="mx-2 btn btn_main" :to="{ name: 'single-restaurant', params: { slug: restaurant.slug }, }" >
               Visualizza Ristorante
             </router-link>
           </div>
         </div>
       </div>
     </div>
-    <div v-if="filteredList.length == 0">
+    <div v-if="filteredList.length == 0" class="container">
       <p>Non ci sono ristoranti che corrispondono a questa tipologia</p>
     </div>
   </section>
@@ -53,15 +32,12 @@ export default {
     return {
       types: [],
       restaurants: [],
-      inputText: "",
-      searchText: "",
+      searchText: [],
     };
   },
   methods: {
     setSearchType(index) {
-      // this.searchText = this.inputText + 1;
-      this.searchText = index + 1;
-      console.log(this.searchText);
+      this.searchText = index;
       console.log(this.filteredList);
     },
   },
@@ -70,7 +46,6 @@ export default {
     axios
       .get("/api/types")
       .then((res) => {
-        // console.log(res.data.types);
         this.types = res.data.types;
       })
       .catch((error) => {
@@ -89,11 +64,13 @@ export default {
   },
   computed: {
     filteredList() {
-      if (this.searchText === "") {
+      if (this.searchText === []) {
         return (this.restaurants = []);
       }
       return this.restaurants.filter((el) => {
-        return el.pivot_type_id === this.searchText;
+        if (this.searchText.includes(el.pivot_type_id)) {
+          return el
+        }
       });
     },
   },
