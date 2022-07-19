@@ -11,8 +11,7 @@
         <div class="container d-flex align-items-center flex-column">
             <h1 class="text-center ">{{$restaurant->name}}</h1>
             @if ($restaurant->image)
-                <img class="resturant-image" src="{{$restaurant->image}}" alt="user">
-                {{-- <img id="resturant-image" src="{{ asset('storage/' . $restaurant->image)}}" alt="user"> --}}
+                <img class="resturant-image" src="{{asset('storage/' . $restaurant->image)}}" alt="user">
             @else
                 <img class="resturant-image" src="{{asset('media/img/mistery-resturant.png')}}" alt="user">
             @endif
