@@ -133,9 +133,36 @@ export default {
       this.cartadd.name = pro.name;
       this.cartadd.price = pro.price;
       this.cartadd.amount = pro.amount;
-      this.carts.push(this.cartadd);
-      this.cartadd = {};
-      this.storeCart();
+
+      let check = false;
+      this.carts.forEach((element) => {
+        if (element.restaurant_id != pro.restaurant_id) {
+          check = true;
+        }
+      });
+
+      if (check) {
+        let destroy = confirm(
+          "Svuotare il carrello con l'ordine di un altro ristorante per proseguire?"
+        );
+        if (destroy) {
+          this.emptyCart();
+          this.carts.push(pro);
+          this.cartadd.id = pro.id;
+          this.cartadd.name = pro.name;
+          this.cartadd.price = pro.price;
+          window.localStorage.setItem(
+            `item${this.carts.length}`,
+            JSON.stringify(pro)
+          );
+          this.storeCart();
+        }
+        // console.log('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA')
+      } else {
+        this.carts.push(this.cartadd);
+        this.cartadd = {};
+        this.storeCart();
+      }
     },
     removeCart(pro) {
       this.carts.splice(pro, 1);
@@ -145,6 +172,10 @@ export default {
       let parsed = JSON.stringify(this.carts);
       localStorage.setItem("carts", parsed);
       this.viewCart();
+    },
+    emptyCart() {
+      window.localStorage.clear();
+      this.carts = [];
     },
   },
   mounted() {
