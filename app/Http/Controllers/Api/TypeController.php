@@ -4,35 +4,19 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Restaurant;
-use App\Product;
+use App\Type;
 
-class HomeController extends Controller
+class TypeController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-        $data = $request->all();
-
-        if ($data == []) {
-            $restaurants = Restaurant::with(['types'])->get();
-            // dump($restaurants);
-        } else {
-            $queryParams = [];
-            if (isset($data['type'])) {
-                $queryParams = explode(',', $data['type']);
-            } else {
-                abort(400);
-            }
-            $restaurants = Restaurant::whereHas('types', function ($q) use ($queryParams) {
-                $q->whereIn('type_id', $queryParams);
-            })->with(['types'])->get();
-        }
-        return response()->json($restaurants);
+        $types = Type::all();
+        return response()->json($types);
     }
 
     /**
@@ -62,15 +46,9 @@ class HomeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($slug)
+    public function show($id)
     {
-        $restaurant = Restaurant::where("slug", $slug)->first();
-        $products = Product::where('restaurant_id', $restaurant->user_id)->get();
-        $data = [
-            'restaurant' => $restaurant,
-            'products' => $products,
-        ];
-        return response()->json($data);
+        //
     }
 
     /**
