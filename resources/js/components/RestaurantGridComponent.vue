@@ -39,9 +39,9 @@
         </div>
       </div>
     </div>
-    <div v-if="filteredList.length == 0" class="container">
+    <!-- <div v-if="finalRestaurants.length == 0" class="container">
       <p>Non ci sono ristoranti che corrispondono a questa tipologia</p>
-    </div>
+    </div> -->
   </section>
 </template>
 
@@ -57,14 +57,17 @@ export default {
       restaurants: [],
       searchText: [],
       filter: [],
+      finalRestaurants: [],
     };
   },
   methods: {
     setSearchType(index) {
       this.searchText = index;
+      // console.log(this.filteredList);
+      // console.log(this.finalRestaurants);
       // console.log(this.searchText);
-      // this.filter = this.filteredList;
-      // console.log(this.filter)
+      // this.filter = [...this.filteredList];
+      // console.log(this.filter, "array");
       // console.log(this.filteredList)
     },
   },
@@ -95,10 +98,17 @@ export default {
         return (this.restaurants = []);
       }
       return this.restaurants.filter((el) => {
+        // console.log(this.searchText, "Array coi tipi");
+        // console.log(el.pivot_type_id, "tipo di ristorante");
         if (this.searchText.includes(el.pivot_type_id)) {
-          // console.log(el);
-          // console.log(this.restaurants);
+          if (!this.filter.includes(el.pivot_restaurant_id)) {
+            this.filter.push(el.pivot_restaurant_id);
+            this.finalRestaurants.push(el);
+            console.log(this.finalRestaurants);
+          }
           return el;
+          // console.log(this.filter, "array");
+          // console.log(el);
         }
       });
     },

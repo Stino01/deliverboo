@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <link rel="stylesheet" href="{{asset('css/variables.css')}}">
+<link rel="stylesheet" href="{{asset('css/variables.css')}}">
 
 <head>
     <meta charset="utf-8">
@@ -45,7 +45,7 @@
                         @auth
                         <li class="nav-item">
                             <a class="nav-link btn btn_main {{Route::currentRouteName() == 'home' ? 'active' : ''}}"
-                                href="{{ url('home') }}">
+                                href="{{ url('/') }}">
                                 Home
                             </a>
                         </li>
