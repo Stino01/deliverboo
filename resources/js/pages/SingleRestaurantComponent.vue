@@ -1,5 +1,64 @@
 <template>
   <div class="container">
+    <!-- MODAL -->
+    <div>
+      <div>&nbsp;</div>
+      <div>
+        <button class="btn btn-primary" data-toggle="modal" data-target="#cart">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span class="badge badge-light">{{ badge }}</span>
+        </button>
+        <div class="modal fade" id="cart">
+          <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5>Your Cart</h5>
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body" id="cart-body">
+                <table class="table table-striped text-left">
+                  <tbody>
+                    <tr v-for="(cart, n) in carts" :key="n">
+                      <td>{{ cart.name }}</td>
+                      <td>${{ cart.price }}</td>
+                      <td width="100">
+                        <input
+                          type="text"
+                          readonly
+                          class="form-control"
+                          v-model="quantity"
+                        />
+                      </td>
+                      <td width="60">
+                        <button
+                          @click="removeCart(n)"
+                          class="btn btn-danger btn-sm"
+                        >
+                          <i class="fa-solid fa-xmark"></i>
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="modal-footer">
+                Total Price: ${{ totalprice }} &nbsp;
+                <button type="button" class="btn btn-primary">Checkout</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD PRODOTTI-->
     <div class="card">
       <div v-if="restaurant">
         <div class="card-header">
@@ -16,6 +75,9 @@
             <ul v-for="product in products" :key="product.id">
               <li v-if="product.category_id == category.id">
                 <p>{{ product.name }} : &euro; {{ product.price }}</p>
+                <button @click="addCart(product)" class="btn btn-primary">
+                  Aggiungi al carrello
+                </button>
               </li>
             </ul>
           </li>
@@ -33,7 +95,57 @@ export default {
       restaurant: null,
       categories: [],
       products: [],
+      // cart
+      carts: [],
+      cartadd: {
+        id: "",
+        name: "",
+        price: "",
+        amount: "",
+        formattedTotal: null,
+      },
+      badge: "0",
+      quantity: "1",
+      totalprice: "0",
     };
+  },
+  created() {
+    this.viewCart();
+  },
+  methods: {
+    viewCart() {
+      if (localStorage.getItem("carts")) {
+        this.carts = JSON.parse(localStorage.getItem("carts"));
+        this.badge = this.carts.length;
+        this.totalprice = this.carts.reduce((total, item) => {
+          // console.log(total);
+          // console.log(this.quantity);
+          // console.log(item.price);
+          this.formattedTotal = Math.round(
+            parseFloat(total) + parseFloat(item.price)
+          ).toFixed(2);
+          return this.formattedTotal;
+        }, 0);
+      }
+    },
+    addCart(pro) {
+      this.cartadd.id = pro.id;
+      this.cartadd.name = pro.name;
+      this.cartadd.price = pro.price;
+      this.cartadd.amount = pro.amount;
+      this.carts.push(this.cartadd);
+      this.cartadd = {};
+      this.storeCart();
+    },
+    removeCart(pro) {
+      this.carts.splice(pro, 1);
+      this.storeCart();
+    },
+    storeCart() {
+      let parsed = JSON.stringify(this.carts);
+      localStorage.setItem("carts", parsed);
+      this.viewCart();
+    },
   },
   mounted() {
     const slug = this.$route.params.slug;

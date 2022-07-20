@@ -30,32 +30,32 @@ main .card .card-header {
   text-align: center;
   text-transform: uppercase;
 }
-main .card .card-body {
+main .card .login-class {
   padding: 5rem 0;
   border-radius: 1rem;
   background-color: #042940;
   box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.5);
 }
-main .card .card-body .btn-login,
-main .card .card-body .btn-submit {
+main .card .login-class .btn-login,
+main .card .login-class .btn-submit {
   background-color: #dbf227 !important;
 }
-main .card .card-body .btn-login:hover,
-main .card .card-body .btn-login .btn-submit:hover,
-main .card .card-body .btn-submit:hover,
-main .card .card-body .btn-submit .btn-submit:hover {
+main .card .login-class .btn-login:hover,
+main .card .login-class .btn-login .btn-submit:hover,
+main .card .login-class .btn-submit:hover,
+main .card .login-class .btn-submit .btn-submit:hover {
   background-color: #005c53 !important;
   color: white;
 }
-main .card .card-body .btn-link {
+main .card .login-class .btn-link {
   color: #005c53 !important;
   text-decoration: underline;
   font-weight: 900;
 }
-main .card .card-body .btn-link:hover {
+main .card .login-class .btn-link:hover {
   color: #dbf227 !important;
 }
-main .card .card-body .form-check-input:checked {
+main .card .login-class .form-check-input:checked {
   background-color: #042940 !important;
 }
 

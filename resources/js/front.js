@@ -11,6 +11,8 @@ import App from "./views/App";
 
 import router from "./router";
 
+require("./bootstrap");
+
 const app = new Vue({
     el: "#root",
     render: (h) => h(App),

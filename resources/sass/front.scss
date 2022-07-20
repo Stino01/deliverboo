@@ -13,3 +13,9 @@ $fa-font-path: "../fonts/font-awesome" !default;
 @import "~@fortawesome/fontawesome-free/scss/regular";
 @import "~@fortawesome/fontawesome-free/scss/solid";
 @import "~@fortawesome/fontawesome-free/scss/brands";
+
+.btn-primary {
+    color: #fff;
+    background-color: #3490dc !important;
+    border-color: #3490dc;
+}
