@@ -136,6 +136,7 @@ export default {
 
       let check = false;
       this.carts.forEach((element) => {
+        console.log(element, "e poi ", pro.restaurant_id);
         if (element.restaurant_id != pro.restaurant_id) {
           check = true;
         }
@@ -155,7 +156,7 @@ export default {
             `item${this.carts.length}`,
             JSON.stringify(pro)
           );
-          this.storeCart();
+          // this.storeCart();
         }
         // console.log('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA')
       } else {
@@ -184,8 +185,9 @@ export default {
     axios
       .get(`/api/restaurants/${slug}`)
       .then((response) => {
-        this.restaurant = response.data.restaurant;
+        this.restaurant = response.data;
         this.products = response.data.products;
+        console.log(this.products, "e poi", this.restaurant);
       })
       .catch((error) => {
         console.log(error);
@@ -194,7 +196,7 @@ export default {
     axios
       .get("/api/categories")
       .then((res) => {
-        this.categories = res.data.categories;
+        this.categories = res.data;
       })
       .catch((error) => {
         console.log(error);

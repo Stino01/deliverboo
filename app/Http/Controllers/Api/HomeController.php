@@ -19,7 +19,7 @@ class HomeController extends Controller
         $data = $request->all();
 
         if ($data == []) {
-            $restaurants = Restaurant::with(['types'])->get();
+            $restaurants = [];
             // dump($restaurants);
         } else {
             $queryParams = [];
