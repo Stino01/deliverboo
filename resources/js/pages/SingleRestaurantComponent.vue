@@ -102,8 +102,9 @@ export default {
         name: "",
         price: "",
         amount: "",
-        formattedTotal: null,
+        restaurant_id: "",
       },
+      formattedTotal: null,
       badge: "0",
       quantity: "1",
       totalprice: "0",
@@ -129,19 +130,20 @@ export default {
       }
     },
     addCart(pro) {
-      this.cartadd.id = pro.id;
-      this.cartadd.name = pro.name;
-      this.cartadd.price = pro.price;
-      this.cartadd.amount = pro.amount;
-
       let check = false;
+      // this.cartadd.id = pro.id;
+      // this.cartadd.name = pro.name;
+      // this.cartadd.price = pro.price;
+      // this.cartadd.amount = pro.amount;
+      // this.cartadd.restaurant_id = pro.restaurant_id;
+      // console.log(pro.restaurant_id);
+      // console.log(pro);
       this.carts.forEach((element) => {
-        console.log(element, "e poi ", pro.restaurant_id);
+        console.log(element, "e poi", pro.restaurant_id);
         if (element.restaurant_id != pro.restaurant_id) {
           check = true;
         }
       });
-
       if (check) {
         let destroy = confirm(
           "Svuotare il carrello con l'ordine di un altro ristorante per proseguire?"
@@ -156,11 +158,10 @@ export default {
             `item${this.carts.length}`,
             JSON.stringify(pro)
           );
-          // this.storeCart();
+          this.storeCart();
         }
-        // console.log('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA')
       } else {
-        this.carts.push(this.cartadd);
+        this.carts.push(pro);
         this.cartadd = {};
         this.storeCart();
       }
