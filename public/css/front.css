@@ -19536,3 +19536,9 @@ readers do not read off random characters that represent icons */
 .fa-zhihu:before {
   content: "\F63F";
 }
+
+.btn-primary {
+  color: #fff;
+  background-color: #3490dc !important;
+  border-color: #3490dc;
+}

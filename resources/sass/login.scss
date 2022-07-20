@@ -10,7 +10,7 @@ main {
     align-items: center;
     justify-content: center;
     align-items: center;
-    background-image:url("https://svgshare.com/i/j84.svg");//url("https://svgshare.com/i/j7U.svg");
+    background-image: url("https://svgshare.com/i/j84.svg"); //url("https://svgshare.com/i/j7U.svg");
     background-attachment: fixed;
     background-size: cover;
     background-repeat: no-repeat;
@@ -19,12 +19,12 @@ main {
         width: 100%;
     }
     .card {
-        background-color:transparent !important;
+        background-color: transparent !important;
         border: none;
 
         .card-header {
             border-radius: 1rem;
-            background-color: $PrimaryColor;//#9fc131; // TERTIARY_COLOR
+            background-color: $PrimaryColor; //#9fc131; // TERTIARY_COLOR
             font-size: 1.5rem;
             margin-bottom: 1rem;
             box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.5);
@@ -32,7 +32,7 @@ main {
             text-transform: uppercase;
         }
 
-        .card-body {
+        .login-class {
             padding: 5rem 0;
             border-radius: 1rem;
             background-color: $PrimaryColor;
@@ -44,23 +44,23 @@ main {
 
                 &:hover,
                 .btn-submit:hover {
-                    background-color: $SecondaryColor !important; 
+                    background-color: $SecondaryColor !important;
                     color: white;
                 }
             }
 
             .btn-link {
-                color: $SecondaryColor !important; 
+                color: $SecondaryColor !important;
                 text-decoration: underline;
                 font-weight: 900;
 
                 &:hover {
-                    color:$QuaternaryColor !important; 
+                    color: $QuaternaryColor !important;
                 }
             }
 
             .form-check-input:checked {
-                background-color: $PrimaryColor !important; 
+                background-color: $PrimaryColor !important;
             }
         }
     }

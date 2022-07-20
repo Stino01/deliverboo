@@ -9,7 +9,7 @@
 
     <link rel="stylesheet" href="{{asset('css/front.css')}}">
     <link rel="stylesheet" href="{{asset('css/variables.css')}}">
-    
+
     <title>HomePage</title>
 </head>
 
@@ -46,14 +46,18 @@
     }
 
     .btn_add {
-        background-color:  var(--QuaternaryColor);/* YELLOW */
+        background-color: var(--QuaternaryColor);
+        /* YELLOW */
         text-transform: uppercase;
-        color:var(--SecondaryColor); /*BLUE MARINE */
+        color: var(--SecondaryColor);
+        /*BLUE MARINE */
         font-size: 15px;
         margin: 1.5rem .2rem;
     }
+
     .btn_add:hover {
-        background-color: var(--SecondaryColor); /*BLUE MARINE */
+        background-color: var(--SecondaryColor);
+        /*BLUE MARINE */
         color: white;
     }
 </style>

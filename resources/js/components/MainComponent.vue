@@ -1,17 +1,6 @@
 <template>
   <main>
     <SloganComponent />
-    <button
-      type="button"
-      class="btn btn-warning"
-      @click="addToCart('Kebab con cipolla')"
-    >
-      Aggiungi al carrello
-    </button>
-    <div class="card" v-if="cart">
-      {{ cart.nomeProdotto }} : &euro;{{ cart.prezzo }}
-    </div>
-    
     <router-view></router-view>
   </main>
 </template>
@@ -20,7 +9,7 @@
 import SloganComponent from "./SloganComponent.vue";
 export default {
   name: "MainComponent",
-  components: {  SloganComponent },
+  components: { SloganComponent },
   data() {
     return {
       cart: null,
