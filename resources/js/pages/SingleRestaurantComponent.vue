@@ -139,16 +139,16 @@ export default {
       // console.log(pro.restaurant_id);
       // console.log(pro);
       this.carts.forEach((element) => {
-        console.log(element, "e poi", pro.restaurant_id);
+        // console.log(element, "e poi", pro.restaurant_id);
         if (element.restaurant_id != pro.restaurant_id) {
           check = true;
         }
       });
       if (check) {
-        let destroy = confirm(
-          "Svuotare il carrello con l'ordine di un altro ristorante per proseguire?"
+        let deleteCart = confirm(
+          "Non puoi acquistare contemporanemante da più ristoranti. Vuoi veramente svuotare il carrello per inserire questo prodotto?"
         );
-        if (destroy) {
+        if (deleteCart) {
           this.emptyCart();
           this.carts.push(pro);
           this.cartadd.id = pro.id;
