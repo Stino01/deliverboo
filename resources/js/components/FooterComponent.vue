@@ -1,66 +1,184 @@
 <template>
-    <footer>
-        <div id="blocks">
-            <div class="block">
-                <ul>
-                    <li>Scopri Deliverboo</li>
-                    <li><a href="#"> investitori</a></li>
-                    <li><a href="#"> chi siamo </a></li>
-                    <li><a href="#">ristoranti</a></li>
-                    <li><a href="#"> altro </a></li>
-                    <li><a href="#">pressroom</a></li>
-                    <li><a href="#">il nostro blog</a></li>
-                    <li><a href=""> programmazione</a></li>
-                    <li><a href="#">design</a></li>
-                    <li><a href="#"> lavora con noi</a></li>
-                    <li><a href="#">diventa nostro partner</a></li>
-                </ul>
-            </div>
-            <div class="block">
-                <ul>
-                    <li>Note legali</li>
-                    <li><a href="#">termini & Condizioni </a></li>
-                    <li><a href="#"> informativa sulla privacy</a></li>
-                    <li><a href="#">cookies </a></li>
-                </ul>
-            </div>
-            <div class="block">
-                <ul>
-                    <li>Aiuto</li>
-                    <li><a href="#">contatti</a></li>
-                    <li><a href="#">FAQ</a></li>
-                    <li><a href="#">tipi di cucina</a></li>
-                </ul>
-            </div>
-            <div class="block">
-                <ul>
-                    <li>Porta Deliverboo con te</li>
-                    <li>
-                        <img
-                            style="width: 50%"
-                            src="https://cdn.discordapp.com/attachments/943126356932317214/998539536600670228/app_store.png"
-                        />
-                    </li>
-                    <li>
-                        <img
-                            style="width: 50%"
-                            src="https://cdn.discordapp.com/attachments/943126356932317214/998539537028497528/google_play.png"
-                        />
-                    </li>
-                </ul>
-            </div>
+    <!-- Footer -->
+    <footer class="primaryColorBG text-center text-white">
+        <!-- Grid container -->
+        <div class="container p-4">
+            <!-- Section: Form -->
+            <section class="">
+                <form action="">
+                    <!--Grid row-->
+                    <div class="row d-flex justify-content-center">
+                        <!--Grid column-->
+
+                        <!--Grid column-->
+                    </div>
+                    <!--Grid row-->
+                </form>
+            </section>
+            <!-- Section: Form -->
+
+            <!-- Section: Links -->
+            <section class="">
+                <!--Grid row-->
+                <div class="row">
+                    <!--Grid column-->
+                    <div class="col-lg-3 col-md-6 col-sm-6 mb-4 mb-md-0">
+                        <h5 class="text-uppercase">Scopri Deliverboo</h5>
+
+                        <ul class="list-unstyled mb-0">
+                            <li>
+                                <a href="#!" class="text-white">Investitori</a>
+                            </li>
+                            <li>
+                                <a href="#!" class="text-white">Chi siamo</a>
+                            </li>
+                            <li>
+                                <a href="#!" class="text-white">Ristoranti</a>
+                            </li>
+                            <li>
+                                <a href="#!" class="text-white">Altro</a>
+                            </li>
+                            <li>
+                                <a href="#!" class="text-white">Pressroom</a>
+                            </li>
+                            <li>
+                                <a href="#!" class="text-white"
+                                    >Il nostro blog</a
+                                >
+                            </li>
+                            <li>
+                                <a href="#!" class="text-white"
+                                    >Programmazione</a
+                                >
+                            </li>
+                            <li>
+                                <a href="#!" class="text-white">Design</a>
+                            </li>
+                            <li>
+                                <a href="#!" class="text-white"
+                                    >Lavora con noi</a
+                                >
+                            </li>
+
+                            <li>
+                                <a href="#!" class="text-white"
+                                    >Diventa nostro partner</a
+                                >
+                            </li>
+                        </ul>
+                    </div>
+                    <!--Grid column-->
+
+                    <!--Grid column-->
+                    <div class="col-lg-3 col-md-6 col-sm-6 mb-4 mb-md-0">
+                        <h5 class="text-uppercase">Note legali</h5>
+
+                        <ul class="list-unstyled mb-0">
+                            <li>
+                                <a href="#!" class="text-white"
+                                    >Termini & Condizioni</a
+                                >
+                            </li>
+                            <li>
+                                <a href="#!" class="text-white"
+                                    >Informativa sulla privacy</a
+                                >
+                            </li>
+                            <li>
+                                <a href="#!" class="text-white">Cookies</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--Grid column-->
+
+                    <!--Grid column-->
+                    <div class="col-lg-3 col-md-6 col-sm-6 mb-4 mb-md-0">
+                        <h5 class="text-uppercase">Aiuto</h5>
+
+                        <ul class="list-unstyled mb-0">
+                            <li>
+                                <a href="#!" class="text-white">Contatti</a>
+                            </li>
+                            <li>
+                                <a href="#!" class="text-white">FAQ</a>
+                            </li>
+                            <li>
+                                <a href="#!" class="text-white"
+                                    >Tipi di cucina</a
+                                >
+                            </li>
+                        </ul>
+                    </div>
+                    <!--Grid column-->
+
+                    <!--Grid column-->
+                    <div class="col-lg-3 col-md-6 col-sm-6 mb-4 mb-md-0">
+                        <h5 class="text-uppercase">Porta Deliverboo con te</h5>
+
+                        <ul class="list-unstyled mb-0">
+                            <li>
+                                <a href="#!">
+                                    <img
+                                        style="width: 10rem"
+                                        src="https://cdn.discordapp.com/attachments/943126356932317214/998539536600670228/app_store.png"
+                                    />
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#!">
+                                    <img
+                                        style="width: 10rem"
+                                        src="https://cdn.discordapp.com/attachments/943126356932317214/998539537028497528/google_play.png"
+                                    />
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--Grid column-->
+                </div>
+                <!--Grid row-->
+            </section>
+            <!-- Section: Links -->
         </div>
-        <div id="underFooter">
-            <div id="left">
-                <i class="fa-brands fa-facebook"></i>
-                <i class="fa-brands fa-twitter"></i>
-                <i class="fa-brands fa-instagram"></i>
-            </div>
-            <div id="right">
-                <p><i class="fa-solid fa-copyright"></i> 2022 Deliverboo</p>
-            </div>
+        <!-- Grid container -->
+        <!-- Section: Social media -->
+        <section class="mb-4">
+            <!-- Facebook -->
+            <a
+                class="btn btn-outline-light btn-floating m-1"
+                href="#!"
+                role="button"
+                ><i class="fab fa-facebook-f"></i
+            ></a>
+
+            <!-- Twitter -->
+            <a
+                class="btn btn-outline-light btn-floating m-1"
+                href="#!"
+                role="button"
+                ><i class="fab fa-twitter"></i
+            ></a>
+
+            <!-- Instagram -->
+            <a
+                class="btn btn-outline-light btn-floating m-1"
+                href="#!"
+                role="button"
+                ><i class="fab fa-instagram"></i
+            ></a>
+        </section>
+        <!-- Section: Social media -->
+
+        <!-- Copyright -->
+        <div
+            class="text-center p-3 secondaryColorBG "
+        >
+            © 2022 Copyright:
+            <a class="text-white" href="#">Deliverboo</a>
         </div>
+        <!-- Copyright -->
     </footer>
+    <!-- Footer -->
 </template>
 
 <script>
@@ -69,64 +187,4 @@ export default {
 };
 </script>
 
-<style lang="scss">
-footer {
-    padding: 0 15%;
-    margin: 0 auto;
-    background-color: #005c53;
-    #blocks {
-        display: flex;
-        justify-content: space-between;
-        .block {
-            background-color: #042940;
-            width: 23%;
-            margin: 40px 0;
-            border-radius: 10px;
-            padding: 10px;
-            ul {
-                list-style-type: none;
-                padding: 0 !important;
-                :first-child {
-                    font-size: 1.5rem;
-                    font-weight: 800;
-                    margin-bottom: 5px;
-                }
-                li {
-                    color: white;
-
-                    a {
-                        text-decoration: none;
-                        color: #dbf227 !important; // YELLOW
-                        font-size: 1rem !important;
-                        &:hover {
-                            color: #005c53 !important; // BLUE MARINE
-                        }
-                    }
-                }
-            }
-        }
-    }
-    #underFooter {
-        display: flex;
-        justify-content: space-between;
-        padding: 20px 0;
-        #left,
-        #right {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-        }
-        #left {
-            display: flex;
-            gap: 10px;
-            i {
-                font-size: 30px;
-                color: white;
-            }
-        }
-        #right {
-            color: #bdbdbd;
-        }
-    }
-}
-</style>
+<style lang="scss"></style>
