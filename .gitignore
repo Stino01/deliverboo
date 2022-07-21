@@ -12,5 +12,5 @@ npm-debug.log
 yarn-error.log
 composer.lock
 package.lock
-braintreeTutorial/package.lock
+braintreeTutorial/package-lock
 braintreeTutorial/node_modules
