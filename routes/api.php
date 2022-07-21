@@ -30,3 +30,4 @@ Route::get('/categories', 'Api\CategoryController@index');
 
 //CONTROLLER PER VISUALIZZARE I PRODOTTI NEL MENU
 Route::get('/products', 'Api\HomeController@index');
+
