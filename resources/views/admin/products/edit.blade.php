@@ -9,7 +9,8 @@
         {{-- NOME --}}
         <div class="mb-3">
             <label for="name" class="form-label">Nome prodotto *</label>
-            <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" placeholder="Inserisci il titolo" value="{{$product->name}}">
+            <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name"
+                placeholder="Inserisci il titolo" value="{{$product->name}}">
             @error('name')
             <div class="alert alert-danger">{{$message}}</div>
             @enderror
@@ -19,7 +20,8 @@
         <div class="mb-3">
             <label for="description" class="form-label @error('description') is-invalid @enderror">Descrizione
                 prodotto</label>
-            <textarea name="description" id="description" class="form-control" cols="30" rows="10">{{$product->description}}</textarea>
+            <textarea name="description" id="description" class="form-control" cols="30"
+                rows="10">{{$product->description}}</textarea>
             @error('description')
             <div class="alert alert-danger">{{$message}}</div>
             @enderror
@@ -31,7 +33,8 @@
             <select class="form-control @error('category_id') is-invalid @enderror" id="category" name="category_id">
                 <option value="">Selezione la categoria</option>
                 @foreach ($categories as $category)
-                    <option value="{{$category->id}}" {{old('category_id') == $category->id ? 'selected' : ''}}>{{$category->name}}</option>
+                <option value="{{$category->id}}" {{old('category_id')==$category->id ? 'selected' :
+                    ''}}>{{$category->name}}</option>
                 @endforeach
             </select>
             @error('category_id')
@@ -41,7 +44,8 @@
 
         {{-- IMAGE --}}
         <div class="form-group">
-            <img id="uploadPreview" width="100" src="https://cdn.discordapp.com/attachments/943126356932317214/998530366459621497/1231032-200.png">
+            <img id="uploadPreview" width="100"
+                src="https://cdn.discordapp.com/attachments/943126356932317214/998530366459621497/1231032-200.png">
             <label for="image">Aggiungi immagine</label>
             <input type="file" id="image" name="image" onchange="boolpress.previewImage();">
             {{-- @error('image')
@@ -78,14 +82,15 @@
 @endsection
 
 <style>
-
     .nicEdit-main {
         background-color: white;
     }
+
     .form-check-input:checked {
-                background-color: #042940 !important; 
-            }
-    #image::-webkit-file-upload-button{
+        background-color: #042940 !important;
+    }
+
+    #image::-webkit-file-upload-button {
         background-color: #DBF227;
         margin: 0 10px;
         border: 0;
@@ -94,10 +99,11 @@
         font-size: 1.1rem;
         padding: 6px 10px;
         cursor: pointer;
-        transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+        transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
         text-transform: uppercase;
     }
-    #image::-webkit-file-upload-button:hover{
+
+    #image::-webkit-file-upload-button:hover {
         background-color: #005C53;
         border: 0px;
         color: white;
@@ -106,5 +112,4 @@
         padding: 6px 10px;
         cursor: pointer;
     }
-
 </style>
