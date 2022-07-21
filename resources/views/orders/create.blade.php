@@ -2,6 +2,8 @@
 
 @section('content')
 <div class="container">
+    <div class="card container d-flex my-5" id="appendCartData">
+    </div>
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -74,7 +76,7 @@
                             <div class="col-md-6">
                                 <input type="tel" id="phone_number" type="phone_number"
                                     class="form-control @error('phone_number') is-invalid @enderror" name="phone_number"
-                                    pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required autocomplete="phone_number">
+                                    required autocomplete="phone_number">
 
                                 @error('phone_number')
                                 <span class="invalid-feedback" role="alert">
@@ -136,4 +138,45 @@
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    // CHIAMO LA FUNZIONE ANONIMA APPENA RENDERIZZO LA PAGINA PER MOSTRARE IL RIEPIGOLO DELLO SHOPPING CART
+    (function() {
+        let data = JSON.parse(localStorage.getItem("carts"));
+        console.log(data);
+        let total = 0;
+        data.forEach(function(item, index) {
+        // console.log(parseFloat(item.price));
+        console.log(typeof item.price);
+        total += parseFloat(item.price);
+        // return total;
+        });
+        console.log((total).toFixed(2));
+        // console.log(Math.round(total * 100) / 100).toFixed(2);
+        document.getElementById("appendCartData").innerHTML =
+        `<div class="card-header text-white">
+            <h5>Stai completando il tuo ordine presso
+                <h3 class="text-warning">${data[0].restaurant_name}</h3>
+            </h5>
+            <div class="d-flex gap-3 justify-content-center align-items-center">
+                <h6>Prezzo totale :
+                <h5>&euro; ${(total).toFixed(2)}</h5>
+                </h6>
+            </div>
+            <button type="submit" class="btn btn-submit btn-warning" onclick="history.back()">
+                Torna al carello
+            </button>
+        </div>`
+        ;
+
+        // console.log(prova);
+        return data;
+        })(); 
+        
+</script>
 @endsection
+
+<style>
+    #appendCartData {
+        background-color: transparent !important;
+    }
+</style>

@@ -108,7 +108,7 @@ export default {
         axios
           .get(this.apiPath)
           .then((response) => {
-            console.log(response.data);
+            // console.log(response.data);
             this.restaurants = response.data;
           })
           .catch((error) => {
