@@ -17,7 +17,7 @@ class OrderController extends Controller
      */
     public function index()
     {
-        // return view('orders.index');
+        return view('orders.index');
     }
 
     /**
@@ -39,7 +39,7 @@ class OrderController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-        // return redirect()->route('orders.index');
+        return redirect()->route('orders.index');
     }
 
     /**
