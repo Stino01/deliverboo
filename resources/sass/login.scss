@@ -31,6 +31,10 @@ main {
             text-align: center;
             text-transform: uppercase;
         }
+        .card-body {
+            border-radius: 1rem;
+            background-color: $PrimaryColor !important;
+        }
 
         .login-class {
             padding: 5rem 0;

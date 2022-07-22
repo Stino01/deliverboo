@@ -126,10 +126,8 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <a href="http://localhost:3000/">
-                                    <button type="" class="btn btn-submit">
-                                        {{ __('Completa il pagamento') }}
-                                    </button>
+                                <a class="btn btn-submit" href="http://localhost:3000">
+                                    Completa il pagamento
                                 </a>
 
                                 <span class="fst-italic text-white">(*) Campi obbligatori</span>
