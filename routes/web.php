@@ -28,6 +28,9 @@ Route::middleware('auth')
         Route::resource('/orders', 'OrderController');
     });
 
+//CONTROLLER PER VISUALIZZARE L'ORDINE DELL'UTENTE
+Route::resource('/orders', 'OrderController');
+
 Route::get("{any?}", function () {
     return view("guest.home");
 })->where("any", ".*");
