@@ -27,7 +27,7 @@
                   <tbody>
                     <tr v-for="(cart, n) in carts" :key="n">
                       <td>{{ cart.name }}</td>
-                      <td>${{ cart.price }}</td>
+                      <td>&euro; {{ cart.price }}</td>
                       <td width="100">
                         <input
                           type="text"
@@ -49,8 +49,16 @@
                 </table>
               </div>
               <div class="modal-footer">
-                Total Price: ${{ totalprice }} &nbsp;
-                <button type="button" class="btn btn-primary">Checkout</button>
+                Total Price: &euro; {{ totalprice }} &nbsp;
+                <a href="/orders/create">
+                  <button
+                    type="submit"
+                    value="Checkout"
+                    class="btn btn-primary"
+                  >
+                    Checkout
+                  </button>
+                </a>
               </div>
             </div>
           </div>
@@ -138,7 +146,19 @@ export default {
       // this.cartadd.restaurant_id = pro.restaurant_id;
       // console.log(pro.restaurant_id);
       // console.log(pro);
+      console.log(this.carts, "CARRELLO");
+      // console.log(this.restaurant.restaurant.name);
+      // console.log(this.restaurant.restaurant.user_id);
       this.carts.forEach((element) => {
+        // element.restaurant_id = this.restaurant.restaurant.name;
+        // pro.restaurant_id = this.restaurant.restaurant.name;
+        // console.log(pro.restaurant_id);
+        // console.log(element.restaurant_id);
+        // element.push(this.restaurant.name);
+        // if (pro.resturant_id == this.restaurant.restaurant.user_id) {
+        //   pro.restaurant_id = this.restaurant.restaurant.name;
+        // }
+        // console.log(pro);
         // console.log(element, "e poi", pro.restaurant_id);
         if (element.restaurant_id != pro.restaurant_id) {
           check = true;
@@ -171,6 +191,10 @@ export default {
       this.storeCart();
     },
     storeCart() {
+      this.carts.forEach((el) => {
+        console.log(el);
+        el.restaurant_name = this.restaurant.restaurant.name;
+      });
       let parsed = JSON.stringify(this.carts);
       localStorage.setItem("carts", parsed);
       this.viewCart();
@@ -188,7 +212,7 @@ export default {
       .then((response) => {
         this.restaurant = response.data;
         this.products = response.data.products;
-        console.log(this.products, "e poi", this.restaurant);
+        // console.log(this.products, "e poi", this.restaurant);
       })
       .catch((error) => {
         console.log(error);
