@@ -42,7 +42,8 @@
 
         {{-- IMAGE --}}
         <div class="form-group">
-            <img id="uploadPreview" width="75" src="https://cdn.discordapp.com/attachments/943126356932317214/998530366459621497/1231032-200.png">
+            <img id="uploadPreview" width="75"
+                src="https://cdn.discordapp.com/attachments/943126356932317214/998530366459621497/1231032-200.png">
             <label for="image" class="text-dark">Aggiungi immagine</label>
             <input type="file" id="image" name="image" onchange="boolpress.previewImage();">
             {{-- @error('image')
@@ -94,14 +95,15 @@
 @endsection
 
 <style>
-
     .nicEdit-main {
         background-color: white;
     }
+
     .form-check-input:checked {
-                background-color: #042940 !important; 
-            }
-    #image::-webkit-file-upload-button{
+        background-color: #042940 !important;
+    }
+
+    #image::-webkit-file-upload-button {
         background-color: #DBF227;
         margin: 0 10px;
         border: 0;
@@ -110,10 +112,11 @@
         font-size: 1.1rem;
         padding: 6px 10px;
         cursor: pointer;
-        transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+        transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
         text-transform: uppercase;
     }
-    #image::-webkit-file-upload-button:hover{
+
+    #image::-webkit-file-upload-button:hover {
         background-color: #005C53;
         border: 0px;
         color: white;
@@ -122,5 +125,4 @@
         padding: 6px 10px;
         cursor: pointer;
     }
-
 </style>
