@@ -84,7 +84,7 @@ class ProductsTableSeeder extends Seeder
                     "visible" => "1", //true or false
                     "restaurant_id" => "2", 
                     "category_id" => "", //???
-                    "image" => "",
+                    "image" => "clam_beer_small.png",
                     "created_at" => date("Y-m-d H:i:s"),
                     "updated_at" => date("Y-m-d H:i:s"),
                 ],
@@ -96,7 +96,7 @@ class ProductsTableSeeder extends Seeder
                     "visible" => "1", //true or false
                     "restaurant_id" => "2", 
                     "category_id" => "", //???
-                    "image" => "",
+                    "image" => "clam_beer_medium.png",
                     "created_at" => date("Y-m-d H:i:s"),
                     "updated_at" => date("Y-m-d H:i:s"),
                 ],
@@ -108,7 +108,7 @@ class ProductsTableSeeder extends Seeder
                     "visible" => "1", //true or false
                     "restaurant_id" => "2", 
                     "category_id" => "", //???
-                    "image" => "",
+                    "image" => "clam_beer_big.png",
                     "created_at" => date("Y-m-d H:i:s"),
                     "updated_at" => date("Y-m-d H:i:s"),
                 ],
@@ -1227,7 +1227,7 @@ class ProductsTableSeeder extends Seeder
                     "visible" => "1",
                     "restaurant_id" => $product["restaurant_id"], 
                     "category_id" => "1",
-                    "image" => $product["image"],
+                    "image" => "uploads/". $product["image"],
                     "created_at" => date("Y-m-d H:i:s"),
                     "updated_at" => date("Y-m-d H:i:s"),
                 ])->toArray()
