@@ -45,12 +45,11 @@ class OrderController extends Controller
         $newOrder->surname = $data['surname'];
         $newOrder->email = $data['email'];
         $newOrder->phone_number = $data['phone_number'];
-        // $newOrder->total_price = $data['total_price'];
-        $newOrder->total_price = 100.50;
+        $newOrder->total_price = $data['total_price'];
         $newOrder->billing_address = $data['billing_address'];
         $newOrder->shipping_address = $data['shipping_address'];
         $newOrder->shipped = false;
-        // dd($data['shipping_address']);
+
         $newOrder->save();
 
         // $newOrder->products()->sync($data['products']);
