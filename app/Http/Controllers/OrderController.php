@@ -38,8 +38,24 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
+        // $request->validate($this->validationRule);
         $data = $request->all();
-        return redirect()->route('orders.index');
+        $newOrder = new Order();
+        $newOrder->name = $data['name'];
+        $newOrder->surname = $data['surname'];
+        $newOrder->email = $data['email'];
+        $newOrder->phone_number = $data['phone_number'];
+        // $newOrder->total_price = $data['total_price'];
+        $newOrder->total_price = 100.50;
+        $newOrder->billing_address = $data['billing_address'];
+        $newOrder->shipping_address = $data['shipping_address'];
+        $newOrder->shipped = false;
+        // dd($data['shipping_address']);
+        $newOrder->save();
+
+        // $newOrder->products()->sync($data['products']);
+
+        return redirect()->route('orders.show', $newOrder->id);
     }
 
     /**
@@ -48,9 +64,9 @@ class OrderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Order $order)
     {
-        //
+        return view('orders.show');
     }
 
     /**

@@ -2,13 +2,13 @@
 
 @section('content')
 <div id="dropin-wrapper">
-    <div id="checkout-message"></div>
-    <div id="dropin-container"></div>
-    <button id="submit-button">Submit payment</button>
+  <div id="checkout-message"></div>
+  <div id="dropin-container"></div>
+  <button class="btn btn-warning" id="submit-button">Submit payment</button>
 </div>
-@endsection
+<script src="https://js.braintreegateway.com/web/dropin/1.33.1/js/dropin.min.js"></script>
 <script>
-    var button = document.querySelector('#submit-button');
+  var button = document.querySelector('#submit-button');
 
   braintree.dropin.create({
     // Insert your tokenization key here
@@ -46,3 +46,4 @@
     });
   });
 </script>
+@endsection
