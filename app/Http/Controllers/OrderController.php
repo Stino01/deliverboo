@@ -54,7 +54,7 @@ class OrderController extends Controller
 
         // $newOrder->products()->sync($data['products']);
 
-        return redirect()->route('orders.show', $newOrder->id);
+        return redirect()->route('orders.edit', $newOrder->id);
     }
 
     /**
@@ -74,11 +74,22 @@ class OrderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Order $order)
     {
-        //
-    }
+        // BRAINTREE TOKEN
+        $gateway = new \Braintree\Gateway([
+            'environment' => 'sandbox',
+            'merchantId' => '3928pc3krb84swd8',
+            'publicKey' => 'kv8cv2x6j45gmnw9',
+            'privateKey' => '3af3bb352ecedf87038faf05f13f6c21'
+        ]);
 
+        // PASSAGGIO DEL TOKEN ALLA ROTTA
+        $token = $gateway->ClientToken()->generate();
+        // $order = Order::where('name', $order)->first();
+        // dd($order->id);
+        return view('orders.edit', ['token' => $token, 'order' => $order]);
+    }
     /**
      * Update the specified resource in storage.
      *

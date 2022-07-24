@@ -31,3 +31,9 @@ Route::get('/categories', 'Api\CategoryController@index');
 //CONTROLLER PER VISUALIZZARE I PRODOTTI NEL MENU
 Route::get('/products', 'Api\HomeController@index');
 
+//ROTTA PER CONFERMARE IL PAGAMENTO CHECKOUT
+Route::post('/orders/{order->id}/edit', 'OrderController@edit');
+
+//ROTTA PER CONFERMARE IL PAGAMENTO CHECKOUT
+
+// Route::post('/orders/edit', 'OrderController@process');
