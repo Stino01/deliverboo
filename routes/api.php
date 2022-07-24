@@ -32,8 +32,9 @@ Route::get('/categories', 'Api\CategoryController@index');
 Route::get('/products', 'Api\HomeController@index');
 
 //ROTTA PER CONFERMARE IL PAGAMENTO CHECKOUT
-Route::post('/orders/{order->id}/edit', 'OrderController@edit');
+// Route::post('/orders/update/{id}', 'OrderController@update');
 
 //ROTTA PER CONFERMARE IL PAGAMENTO CHECKOUT
 
-// Route::post('/orders/edit', 'OrderController@process');
+// Route::get('/checkout/{id}', 'OrderController@edit');
+// Route::post('/checkout', 'OrderController@process');
