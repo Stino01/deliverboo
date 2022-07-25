@@ -17,7 +17,7 @@ class OrderController extends Controller
      */
     public function index()
     {
-        return view('orders.checkout');
+        return view('orders.index');
     }
 
     /**
@@ -38,8 +38,23 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
+        // $request->validate($this->validationRule);
         $data = $request->all();
-        return redirect()->route('admin.products.show', compact('data'));
+        $newOrder = new Order();
+        $newOrder->name = $data['name'];
+        $newOrder->surname = $data['surname'];
+        $newOrder->email = $data['email'];
+        $newOrder->phone_number = $data['phone_number'];
+        $newOrder->total_price = $data['total_price'];
+        $newOrder->billing_address = $data['billing_address'];
+        $newOrder->shipping_address = $data['shipping_address'];
+        $newOrder->shipped = false;
+
+        $newOrder->save();
+
+        // $newOrder->products()->sync($data['products']);
+
+        return redirect()->route('orders.edit', $newOrder->id);
     }
 
     /**
@@ -48,9 +63,9 @@ class OrderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Order $order)
     {
-        //
+        return view('orders.show');
     }
 
     /**
@@ -59,9 +74,22 @@ class OrderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Order $order)
     {
-        //
+        // INIZIALIZZAZIONE BRAINTREE
+        $gateway = new \Braintree\Gateway([
+            'environment' => 'sandbox',
+            'merchantId' => '3928pc3krb84swd8',
+            'publicKey' => 'kv8cv2x6j45gmnw9',
+            'privateKey' => '3af3bb352ecedf87038faf05f13f6c21'
+        ]);
+
+        // PASSAGGIO DEL TOKEN ALLA ROTTA
+        $token = $gateway->ClientToken()->generate();
+        // $order = Order::where('name', $order)->first();
+        // dump($order->id);
+        // dump($token);
+        return view('orders.edit', ['token' => $token, 'order' => $order]);
     }
 
     /**
@@ -71,9 +99,40 @@ class OrderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Order $order)
     {
-        //
+        // PROCESSO DI PAGAMENTO: SE AVVIENE CON SUCCESSO, CAMBIA IL VALORE DI ORDER DA "NON SPEDITO" A "SPEDITO"
+
+        $data = $request->all();
+        //qui inizializzo braintree
+        $gateway = new \Braintree\Gateway([
+            'environment' => 'sandbox',
+            'merchantId' => '3928pc3krb84swd8',
+            'publicKey' => 'kv8cv2x6j45gmnw9',
+            'privateKey' => '3af3bb352ecedf87038faf05f13f6c21'
+        ]);
+
+        //NONCE DAL CLIENTE
+        $nonceFromTheClient = $request->payment_method_nonce;
+
+        //RISULTATO DEL PAGAMENTO
+        $result = $gateway->transaction()->sale([
+            'amount' => $order->total_price,
+            'paymentMethodNonce' => $nonceFromTheClient,
+            'options' => [
+                'submitForSettlement' => True
+            ]
+        ]);
+
+        //dd($result);
+        if ($result->success) {
+            //dd($sponsorization);
+            $order->shipped = true;
+            $order->update();
+            dd('successo!!');
+        } else {
+            dd('noooooo!!');
+        }
     }
 
     /**

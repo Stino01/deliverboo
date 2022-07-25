@@ -68,7 +68,7 @@ class ProductController extends Controller
         $newProduct->description = $data['description'];
         // IMMAGINE
         if (isset($data['image'])) {
-            $path_image = Storage::put("uploads", $data['image']); // uploads/nomeimg.jpg
+            $path_image = Storage::disk('public')->put("uploads", $data['image']); // uploads/nomeimg.jpg
             $newProduct->image = $path_image;
         }
         $newProduct->price = $data['price'];

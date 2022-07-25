@@ -64,21 +64,6 @@ class RestaurantController extends Controller
         $data = $request->all();
         $newRestaurant = new Restaurant();
 
-        // $numbers=[0,1,2,3,4,5,6,7,8,9];
-        // $vie=['Via', 'Piazza', 'Largo', 'Strada', 'Stradone', 'Contrada', 'Rione', 'Circonvallazione'];
-        // $number = false;
-        // $via = false;
-        // foreach($numbers as $number){
-        //     if(str_contains($data["address"], $number)){
-        //         $number = true;
-        //     }
-        // }
-        // foreach($vie as $via){
-        //     if(str_contains($data["address"], $via)){
-        //         $via = true;
-        //     }
-        // }
-
         $newRestaurant->name = $data['name'];
         $newRestaurant->slug = $this->getSlug($newRestaurant->name);
         $newRestaurant->address = $data['address'];

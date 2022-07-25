@@ -124,11 +124,20 @@
                             </div>
                         </div>
 
+                        {{-- PREZZO TOTALE CHE MI PORTO DAL CARRELLO (INVISIBILE) --}}
+                        <div class="invisible" id="total_price_hidden">
+                            {{-- <label for="total_price" class="col-md-4 col-form-label text-md-right text-white">Total
+                                Price*</label>
+                            <input type="text" value="" id="txt" name="total_price" /> --}}
+                        </div>
+
+                        {{-- BOTTONE DI SUBMIT --}}
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-submit">
                                     {{ __('Completa il pagamento') }}
                                 </button>
+
                                 <span class="fst-italic text-white">(*) Campi obbligatori</span>
                             </div>
                         </div>
@@ -152,6 +161,11 @@
         });
         console.log((total).toFixed(2));
         // console.log(Math.round(total * 100) / 100).toFixed(2);
+        document.getElementById("total_price_hidden").innerHTML = `
+        <label for="total_price" class="col-md-4 col-form-label text-md-right text-white">
+            Total Price*</label>
+        <input type="text" value="${(total).toFixed(2)}" id="txt" name="total_price" />
+        `;
         document.getElementById("appendCartData").innerHTML =
         `<div class="card-header text-white">
             <h5>Stai completando il tuo ordine presso
