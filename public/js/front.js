@@ -2138,7 +2138,7 @@ __webpack_require__.r(__webpack_exports__);
       restaurant: null,
       categories: [],
       products: [],
-      // cart
+      // CARTELLO
       carts: [],
       cartadd: {
         id: "",
@@ -2149,7 +2149,7 @@ __webpack_require__.r(__webpack_exports__);
       },
       formattedTotal: null,
       badge: "0",
-      quantity: "1",
+      quantity: 1,
       totalprice: "0"
     };
   },
@@ -2164,37 +2164,14 @@ __webpack_require__.r(__webpack_exports__);
         this.carts = JSON.parse(localStorage.getItem("carts"));
         this.badge = this.carts.length;
         this.totalprice = this.carts.reduce(function (total, item) {
-          // console.log(total);
-          // console.log(this.quantity);
-          // console.log(item.price);
           _this.formattedTotal = Math.round(parseFloat(total) + parseFloat(item.price)).toFixed(2);
           return _this.formattedTotal;
         }, 0);
       }
     },
     addCart: function addCart(pro) {
-      var check = false; // this.cartadd.id = pro.id;
-      // this.cartadd.name = pro.name;
-      // this.cartadd.price = pro.price;
-      // this.cartadd.amount = pro.amount;
-      // this.cartadd.restaurant_id = pro.restaurant_id;
-      // console.log(pro.restaurant_id);
-      // console.log(pro);
-
-      console.log(this.carts, "CARRELLO"); // console.log(this.restaurant.restaurant.name);
-      // console.log(this.restaurant.restaurant.user_id);
-
+      var check = false;
       this.carts.forEach(function (element) {
-        // element.restaurant_id = this.restaurant.restaurant.name;
-        // pro.restaurant_id = this.restaurant.restaurant.name;
-        // console.log(pro.restaurant_id);
-        // console.log(element.restaurant_id);
-        // element.push(this.restaurant.name);
-        // if (pro.resturant_id == this.restaurant.restaurant.user_id) {
-        //   pro.restaurant_id = this.restaurant.restaurant.name;
-        // }
-        // console.log(pro);
-        // console.log(element, "e poi", pro.restaurant_id);
         if (element.restaurant_id != pro.restaurant_id) {
           check = true;
         }
@@ -2244,7 +2221,7 @@ __webpack_require__.r(__webpack_exports__);
     var slug = this.$route.params.slug;
     axios.get("/api/restaurants/".concat(slug)).then(function (response) {
       _this3.restaurant = response.data;
-      _this3.products = response.data.products; // console.log(this.products, "e poi", this.restaurant);
+      _this3.products = response.data.products;
     })["catch"](function (error) {
       console.log(error);
     });
@@ -2959,7 +2936,17 @@ var render = function render() {
     })])])]);
   }), 0)])]), _vm._v(" "), _c("div", {
     staticClass: "modal-footer"
-  }, [_vm._v("\n              Total Price: € " + _vm._s(_vm.totalprice) + "  \n              "), _vm._m(1)])])])])])]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n              Total Price: € " + _vm._s(_vm.totalprice) + "  \n              "), _vm.carts.length > 0 ? _c("a", {
+    attrs: {
+      href: "/orders/create"
+    }
+  }, [_c("button", {
+    staticClass: "btn btn-primary",
+    attrs: {
+      type: "submit",
+      value: "Checkout"
+    }
+  }, [_vm._v("\n                  Checkout\n                ")])]) : _vm._e()])])])])])]), _vm._v(" "), _c("div", {
     staticClass: "card"
   }, [_vm.restaurant ? _c("div", [_c("div", {
     staticClass: "card-header"
@@ -3005,21 +2992,6 @@ var staticRenderFns = [function () {
       "aria-hidden": "true"
     }
   }, [_vm._v("×")])])]);
-}, function () {
-  var _vm = this,
-      _c = _vm._self._c;
-
-  return _c("a", {
-    attrs: {
-      href: "/orders/create"
-    }
-  }, [_c("button", {
-    staticClass: "btn btn-primary",
-    attrs: {
-      type: "submit",
-      value: "Checkout"
-    }
-  }, [_vm._v("\n                  Checkout\n                ")])]);
 }];
 render._withStripped = true;
 

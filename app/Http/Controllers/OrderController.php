@@ -10,6 +10,14 @@ use App\Product;
 
 class OrderController extends Controller
 {
+    protected $validationRule = [
+        'name' => 'required|string|max:50',
+        'surname' => 'required|string|max:50',
+        'email' => 'required|string|max:200',
+        "phone_number" => "required|string|max:10",
+        "billing_address" => "required|string|max:200",
+        "shipping_address" => "required|string|max:200",
+    ];
     /**
      * Display a listing of the resource.
      *
@@ -38,7 +46,7 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        // $request->validate($this->validationRule);
+        $request->validate($this->validationRule);
         $data = $request->all();
         $newOrder = new Order();
         $newOrder->name = $data['name'];

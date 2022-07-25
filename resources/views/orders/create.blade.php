@@ -74,7 +74,7 @@
                                 }}*</label>
 
                             <div class="col-md-6">
-                                <input type="tel" id="phone_number" type="phone_number"
+                                <input type="text" id="phone_number" type="phone_number"
                                     class="form-control @error('phone_number') is-invalid @enderror" name="phone_number"
                                     required autocomplete="phone_number">
 
