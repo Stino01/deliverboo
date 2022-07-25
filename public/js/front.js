@@ -2953,24 +2953,24 @@ var render = function render() {
   }, [_c("h1", [_vm._v(_vm._s(_vm.restaurant.name))])])]) : _vm._e(), _vm._v(" "), _c("div", {
     staticClass: "card-body"
   }, [_c("h1"), _vm._v(" "), _c("h2", [_vm._v("MENU")]), _vm._v(" "), _c("h3", [_vm._v("CATEGORIE")]), _vm._v(" "), _c("ul", _vm._l(_vm.categories, function (category) {
-    return _c("li", {
+    return _c("div", {
       key: category.id
-    }, [_c("a", {
-      attrs: {
-        href: ""
-      }
-    }, [_vm._v(_vm._s(category.name))]), _vm._v(" "), _vm._l(_vm.products, function (product) {
-      return _c("ul", {
+    }, _vm._l(_vm.products, function (product) {
+      return _c("div", {
         key: product.id
-      }, [product.category_id == category.id ? _c("li", [_c("p", [_vm._v(_vm._s(product.name) + " : € " + _vm._s(product.price))]), _vm._v(" "), _c("button", {
+      }, [product.category_id == category.id ? _c("a", {
+        attrs: {
+          href: ""
+        }
+      }, [_vm._v(_vm._s(category.name))]) : _vm._e(), _vm._v(" "), product.category_id == category.id ? _c("li", [_c("p", [_vm._v(_vm._s(product.name) + " : € " + _vm._s(product.price))]), _vm._v(" "), _c("button", {
         staticClass: "btn btn-primary",
         on: {
           click: function click($event) {
             return _vm.addCart(product);
           }
         }
-      }, [_vm._v("\n                Aggiungi al carrello\n              ")])]) : _vm._e()]);
-    })], 2);
+      }, [_vm._v("Aggiungi al carrello")])]) : _vm._e()]);
+    }), 0);
   }), 0)])])]);
 };
 
