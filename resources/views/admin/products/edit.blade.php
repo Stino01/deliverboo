@@ -17,11 +17,9 @@
         </div>
 
         {{-- DESCRIZIONE --}}
-        <div class="mb-3">
-            <label for="description" class="form-label @error('description') is-invalid @enderror">Descrizione
-                prodotto</label>
-            <textarea name="description" id="description" class="form-control" cols="30"
-                rows="10">{{$product->description}}</textarea>
+        <div class="mb-3 form-cont">
+            <label for="description" class="form-label @error('description') is-invalid @enderror">Descrizione prodotto</label>
+            <textarea name="description" id="description" class="form-control" cols="30" rows="10">{{$product->description}}</textarea>
             @error('description')
             <div class="alert alert-danger">{{$message}}</div>
             @enderror
@@ -82,8 +80,32 @@
 @endsection
 
 <style>
+    main .container{
+        margin: 20px 0;
+        padding: 20px;
+        border-radius: 20px;
+        background-color: rgb(150, 150, 150);
+    }
+    .form-cont>div{
+        width: 100% !important;
+        border-radius: 0 0 10px 10px
+    }
+    .nicEdit-panelContain{
+        border-radius: 10px 10px 0 0;
+        padding: 5px
+    }
     .nicEdit-main {
+        width: 100% !important;
         background-color: white;
+        margin: 0 !important;
+        padding: 5px
+
+    }
+    .nicEdit-panel>div>div{
+        margin: 2px 5px;
+    }
+    .nicEdit-selectContain>div{
+        border-radius: 5px
     }
 
     .form-check-input:checked {
