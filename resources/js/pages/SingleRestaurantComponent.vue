@@ -27,13 +27,13 @@
                   <tbody>
                     <tr v-for="(cart, n) in carts" :key="n">
                       <td>{{ cart.name }}</td>
-                      <td>&euro; {{ cart.price }}</td>
+                      <td>&euro; {{ cart.subtotal.toFixed(2) }}</td>
                       <td width="100">
                         <input
                           type="text"
                           readonly
                           class="form-control"
-                          v-model="quantity"
+                          v-model="cart.quantity"
                         />
                       </td>
                       <td width="60">
@@ -83,7 +83,7 @@
             <ul v-for="product in products" :key="product.id">
               <li v-if="product.category_id == category.id">
                 <p>{{ product.name }} : &euro; {{ product.price }}</p>
-                <button @click="addCart(product)" class="btn btn-primary">
+                <button @click="addToCart(product)" class="btn btn-primary">
                   Aggiungi al carrello
                 </button>
               </li>
@@ -116,61 +116,51 @@ export default {
       badge: "0",
       quantity: "1",
       totalprice: "0",
-      count: 1,
+      // count: 1,
     };
   },
   created() {
     this.viewCart();
   },
   methods: {
+    // FUNZIONE PER VISUALIZZARE I DATI CORRETTI NEL CARRELLO
     viewCart() {
       if (localStorage.getItem("carts")) {
         this.carts = JSON.parse(localStorage.getItem("carts"));
-        this.badge = this.carts.length;
+
+        // FUNZIONE PER IL NUMERINO DEI PRODOTTI NEL BADGE
+        this.badge = this.carts.reduce((total, item) => {
+          return total + item.quantity;
+        }, 0);
+
+        // FUNZIONE PER VISUALIZZARE IL PREZZO TOTALE ALLA FINE DELL'ORDINE
         this.totalprice = this.carts.reduce((total, item) => {
-          // console.log(total);
-          // console.log(this.quantity);
-          // console.log(item.price);
-          this.formattedTotal = Math.round(
-            parseFloat(total) + parseFloat(item.price)
+          // console.log(total, "questo è total");
+          // console.log(item, "questo è item");
+          this.formattedTotal = (
+            parseFloat(total) + parseFloat(item.subtotal)
           ).toFixed(2);
           return this.formattedTotal;
         }, 0);
       }
     },
-    addCart(pro) {
+    // FUNZIONE PER AGGIUNGERE PRODOTTI AL CARRELLO
+    addToCart(pro) {
       let check = false;
-      // this.cartadd.id = pro.id;
-      // this.cartadd.name = pro.name;
-      // this.cartadd.price = pro.price;
-      // this.cartadd.amount = pro.amount;
-      // this.cartadd.restaurant_id = pro.restaurant_id;
-      // console.log(pro.restaurant_id);
-      // console.log(pro);
-      // console.log(this.carts, "CARRELLO");
-      // console.log(this.restaurant.restaurant.name);
-      // console.log(this.restaurant.restaurant.user_id);
       this.carts.forEach((element) => {
-        // element.restaurant_id = this.restaurant.restaurant.name;
-        // pro.restaurant_id = this.restaurant.restaurant.name;
-        // console.log(pro.restaurant_id);
-        // console.log(element.restaurant_id);
-        // element.push(this.restaurant.name);
-        // if (pro.resturant_id == this.restaurant.restaurant.user_id) {
-        //   pro.restaurant_id = this.restaurant.restaurant.name;
-        // }
-        // console.log(pro);
-        // console.log(element, "e poi", pro.restaurant_id);
         if (element.restaurant_id != pro.restaurant_id) {
           check = true;
         }
       });
       if (check) {
+        // ECCEZIONE, PRODOTTI DA RISTORANTI DIVERSI
         let deleteCart = confirm(
           "Non puoi acquistare contemporanemante da più ristoranti. Vuoi veramente svuotare il carrello per inserire questo prodotto?"
         );
         if (deleteCart) {
+          // CANCELLAZIONE CARRELLO E AGGIUNTA PRODOTTO DI RISTORANTE DIVERSO
           this.emptyCart();
+          pro.quantity = 1;
           this.carts.push(pro);
           this.cartadd.id = pro.id;
           this.cartadd.name = pro.name;
@@ -182,55 +172,68 @@ export default {
           this.storeCart();
         }
       } else {
+        pro.quantity = 1;
         // QUA ENTRA SOLO SE IL CARRELLO E' VUOTO
         if (this.carts.length == 0) {
           this.carts.push(pro);
-          pro.quantity = 1;
-          // console.log(pro, "prodotto aggiunto per primo");
-
           // IN QUESTO ELSE ENTRA SOLO DOPO IL PRIMO ELEMENTO AGGIUNTO NEL CARRELLO
         } else {
-          this.carts.push(pro);
-          this.count = 0; // RESET DEL COUNT
-          pro.quantity = 0;
-          this.carts.forEach((el) => {
-            this.count = this.count + 1; //2...3....4...5...6...7...8...
-            console.log(this.count, "contatore");
-            if (el.id == pro.id) {
-              console.log(pro.quantity, "quantita del prodotto");
-              pro.quantity = parseInt(pro.quantity) + 1;
-              return;
-            } else {
-              if (this.carts.length == this.count) {
-                // this.carts.push(pro);
-                pro.quantity = 1;
-                console.log(
-                  pro,
-                  "sono un elemento nuovo, qui finisce il ciclo se non aggiungi un altro prodotto"
-                );
-              }
-            }
-          });
+          // this.carts.push(pro);
+          let itemInCart = this.carts.filter((item) => item.id === pro.id);
+          let isItemInCart = itemInCart.length > 0;
+
+          if (isItemInCart === false) {
+            this.carts.push(Vue.util.extend({}, pro));
+          } else {
+            itemInCart[0].quantity += pro.quantity;
+          }
+          // console.log(this.carts);
+          // this.count = 0; // RESET DEL COUNT
+          // pro.quantity = 0; // RESET DELLA QUANTITA'
+          // this.carts.forEach((el) => {
+          // this.count = this.count + 1; //2...3....4...5...6...7...8...
+          // console.log(this.count, "contatore");
+          // if (el.id == pro.id) {
+          //   // console.log(pro.quantity, "quantita del prodotto");
+          //   pro.quantity = parseInt(pro.quantity) + 1;
+          //   return;
+          // } else {
+          //   if (this.carts.length == this.count) {
+          //     // this.carts.push(pro);
+          //     pro.quantity = 1;
+          //     console.log(
+          //       pro,
+          //       "sono un elemento nuovo, qui finisce il ciclo se non aggiungi un altro prodotto"
+          //     );
+          //   }
+          // }
+          // });
         }
-        console.log(pro, "PRODOTTO APPENA AGGIUNTO");
         this.cartadd = {};
         this.storeCart();
-        console.log(this.carts);
+        // console.log(this.carts);
       }
     },
+
+    // FUNZIONE PER RIMUOVERE TUTTA UNA LISTA DI PRODOTTI UGUALI DAL CARRELLO
     removeCart(pro) {
       this.carts.splice(pro, 1);
       this.storeCart();
     },
+
+    // FUNZIONE PER SALVARE IL CARRELLO
     storeCart() {
       this.carts.forEach((el) => {
         // console.log(el);
+        el.subtotal = el.price * el.quantity;
         el.restaurant_name = this.restaurant.restaurant.name;
       });
       let parsed = JSON.stringify(this.carts);
       localStorage.setItem("carts", parsed);
       this.viewCart();
     },
+
+    // FUNZIONE PER SVUOTARE IL CARRELLO
     emptyCart() {
       window.localStorage.clear();
       this.carts = [];
@@ -244,6 +247,9 @@ export default {
       .then((response) => {
         this.restaurant = response.data;
         this.products = response.data.products;
+        // this.products.forEach((product) => {
+        // product.quantity = 0;
+        // });
         // console.log(this.products, "e poi", this.restaurant);
       })
       .catch((error) => {
