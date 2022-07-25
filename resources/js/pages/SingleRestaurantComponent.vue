@@ -225,10 +225,6 @@ export default {
 
     //FUNZIONE PER AUMENTARE LA QUANTITA' DEL PRODOTTO
     addQuantity(cart) {
-      if (itemInCart[0].quantity <= 0) {
-        this.carts.splice(cart, 1);
-        this.storeCart();
-      }
       // cart.quantity = 1;
       console.log(cart);
       let itemInCart = this.carts.filter((item) => item.id === cart.id);
