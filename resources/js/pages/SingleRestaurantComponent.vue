@@ -35,13 +35,21 @@
                           class="form-control"
                           v-model="cart.quantity"
                         />
+                        <div class="d-flex justify-content-around">
+                          <button @click="addQuantity(cart)">
+                            <i class="fa-solid fa-plus text-success"></i>
+                          </button>
+                          <button @click="decreaseQuantity(cart)">
+                            <i class="fa-solid fa-minus text-muted"></i>
+                          </button>
+                        </div>
                       </td>
                       <td width="60">
                         <button
                           @click="removeCart(n)"
                           class="btn btn-danger btn-sm"
                         >
-                          <i class="fa-solid fa-xmark"></i>
+                          <i class="fa-solid fa-xmark text-danger"></i>
                         </button>
                       </td>
                     </tr>
@@ -213,6 +221,34 @@ export default {
         this.storeCart();
         // console.log(this.carts);
       }
+    },
+
+    //FUNZIONE PER AUMENTARE LA QUANTITA' DEL PRODOTTO
+    addQuantity(cart) {
+      if (itemInCart[0].quantity <= 0) {
+        this.carts.splice(cart, 1);
+        this.storeCart();
+      }
+      // cart.quantity = 1;
+      console.log(cart);
+      let itemInCart = this.carts.filter((item) => item.id === cart.id);
+      itemInCart[0].quantity += 1;
+      this.cartadd = {};
+      this.storeCart();
+    },
+
+    //FUNZIONE PER DIMINUIRE LA QUANTITA' DEL PRODOTTO
+    decreaseQuantity(cart) {
+      // cart.quantity = 1;
+      console.log(cart);
+      let itemInCart = this.carts.filter((item) => item.id === cart.id);
+      itemInCart[0].quantity -= 1;
+      if (itemInCart[0].quantity <= 0) {
+        this.carts.splice(cart, 1);
+        this.storeCart();
+      }
+      this.cartadd = {};
+      this.storeCart();
     },
 
     // FUNZIONE PER RIMUOVERE TUTTA UNA LISTA DI PRODOTTI UGUALI DAL CARRELLO
