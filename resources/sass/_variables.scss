@@ -25,3 +25,12 @@ $SecondaryColor: #005c53; // BLUE MARINE
 $TertiaryColor: #9fc131; // LIME GREEN
 $QuaternaryColor: #dbf227; // YELLOW
 $QuintiaryColor: #d6d58e; // SAND
+
+
+.primaryColorBG {
+    background-color: $PrimaryColor; //BLUE COLOR
+}
+
+.secondaryColorBG {
+    background-color: $SecondaryColor; //BLUE MARINE
+}

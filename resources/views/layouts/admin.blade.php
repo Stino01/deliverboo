@@ -42,6 +42,14 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
+                        <a  class="navbar-brand" href="http://127.0.0.1:8000/">
+                            <div id="left">
+                                <img class="d-inline-block align-top" style="width: 5rem"
+                                src="https://cdn.discordapp.com/attachments/941312490950766592/996354486467571802/TEq98Yg.png"
+                            />
+                                Deliverboo
+                            </div>
+                        </a>
                         @auth
                         <li class="nav-item">
                             <a class="nav-link btn btn_main {{Route::currentRouteName() == 'home' ? 'active' : ''}}"

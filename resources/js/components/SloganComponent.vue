@@ -1,5 +1,26 @@
 <template>
-    <div class="container-slogan">
+<div class="container-fluid secondaryColorBG">
+	<div class="row py-5 justify-content-center">
+
+
+		<div class="col-lg-4 col-sm-6">
+			<div>
+				<img class="img-fluid mx-auto d-block" src="https://cdn.discordapp.com/attachments/941312490950766592/996357413194170438/campaign.df58721f.png" alt="">
+			</div><!-- /lc-block -->
+		</div><!-- /col -->
+		<div class="col-lg-4 offset-lg-1">
+			<div class="lc-block my-5">
+				<div>
+					<h2 class=" text-white font-weight-bold text-center" style="font-size:5rem" >I piatti che ami a domicilio</h2>
+				</div>
+			</div>
+			
+			
+		</div><!-- /col -->
+	</div>
+</div>
+
+    <!-- <div class="container-slogan">
         <div id="bottom">
             <div id="left">
                 <h1>i piatti che ami a domicilio</h1>
@@ -8,45 +29,18 @@
                 <img src="https://cdn.discordapp.com/attachments/941312490950766592/996357413194170438/campaign.df58721f.png">
             </div>
         </div>
-    </div>
+    </div> -->
 </template>
 <script>
 export default {
     name: 'SloganComponent'
 }
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 
-.container-slogan{
-    
-    background-color: #005C53; /*BLUE MARINE */
-    #bottom{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        margin: 0 auto;
-        width: 70%;
-        #left{
-            h1{
-                text-transform: uppercase;
-                color: white;
-                font-size: 46px;
-                font-weight: 900;
-            }
-        }
-        #right{
-            display: flex;
-            flex-direction: row-reverse;
-            width: 30%;
-            img{
-                width: 100%;
-                position: relative;
-                bottom: -3vw;
-            }
-        }
-    }
-
+img{
+	width: 80%;
+	height: 80%;
 }
 
 </style>
