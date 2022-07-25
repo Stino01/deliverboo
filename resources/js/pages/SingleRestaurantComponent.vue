@@ -116,6 +116,7 @@ export default {
       badge: "0",
       quantity: "1",
       totalprice: "0",
+      count: 1,
     };
   },
   created() {
@@ -146,7 +147,7 @@ export default {
       // this.cartadd.restaurant_id = pro.restaurant_id;
       // console.log(pro.restaurant_id);
       // console.log(pro);
-      console.log(this.carts, "CARRELLO");
+      // console.log(this.carts, "CARRELLO");
       // console.log(this.restaurant.restaurant.name);
       // console.log(this.restaurant.restaurant.user_id);
       this.carts.forEach((element) => {
@@ -181,9 +182,40 @@ export default {
           this.storeCart();
         }
       } else {
-        this.carts.push(pro);
+        // QUA ENTRA SOLO SE IL CARRELLO E' VUOTO
+        if (this.carts.length == 0) {
+          this.carts.push(pro);
+          pro.quantity = 1;
+          // console.log(pro, "prodotto aggiunto per primo");
+
+          // IN QUESTO ELSE ENTRA SOLO DOPO IL PRIMO ELEMENTO AGGIUNTO NEL CARRELLO
+        } else {
+          this.carts.push(pro);
+          this.count = 0; // RESET DEL COUNT
+          pro.quantity = 0;
+          this.carts.forEach((el) => {
+            this.count = this.count + 1; //2...3....4...5...6...7...8...
+            console.log(this.count, "contatore");
+            if (el.id == pro.id) {
+              console.log(pro.quantity, "quantita del prodotto");
+              pro.quantity = parseInt(pro.quantity) + 1;
+              return;
+            } else {
+              if (this.carts.length == this.count) {
+                // this.carts.push(pro);
+                pro.quantity = 1;
+                console.log(
+                  pro,
+                  "sono un elemento nuovo, qui finisce il ciclo se non aggiungi un altro prodotto"
+                );
+              }
+            }
+          });
+        }
+        console.log(pro, "PRODOTTO APPENA AGGIUNTO");
         this.cartadd = {};
         this.storeCart();
+        console.log(this.carts);
       }
     },
     removeCart(pro) {
@@ -192,7 +224,7 @@ export default {
     },
     storeCart() {
       this.carts.forEach((el) => {
-        console.log(el);
+        // console.log(el);
         el.restaurant_name = this.restaurant.restaurant.name;
       });
       let parsed = JSON.stringify(this.carts);
