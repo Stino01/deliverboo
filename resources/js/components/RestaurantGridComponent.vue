@@ -13,6 +13,9 @@
             type="checkbox"
             name="type"
             id="type"
+            :style="'background-image: url(/media/img/type_'+ type.id +'.png);'+
+            'background-color:' + type.background_color+  ';'"
+            
             :value="index + 1"
             v-model="selectValue"
             @change="searchType()"
@@ -41,7 +44,7 @@
         "
       >
         <div class="card">
-          <div class="card-header">
+          <div class="card-header text-xl-center font-weight-bold">
             {{ restaurant.name }}
           </div>
           <div class="card-body">
@@ -161,77 +164,6 @@ export default {
     background-repeat: no-repeat;
     background-position: center;
     cursor: pointer;
-  }
-
-  //TYPES 1 PIZZA
-  &:first-of-type > input {
-    background-image: url("https://cdn.discordapp.com/attachments/993428504194584577/996431635790712892/unknown.png");
-    background-color: #adc965;
-  }
-  //TYPES 2 SUSHI
-  &:nth-child(2) > input {
-    background-image: url("https://cdn.discordapp.com/attachments/993428504194584577/996431633597071400/unknown.png");
-    background-color: #89d5c9;
-  }
-
-  //TYPES 3 DESSERT
-  &:nth-child(3) > input {
-    background-image: url("https://cdn.discordapp.com/attachments/993428504194584577/996431634133946518/unknown.png");
-    background-color: #fac172;
-  }
-
-  //TYPES 4 POKE
-  &:nth-child(4) > input {
-    background-image: url("https://cdn.discordapp.com/attachments/993428504194584577/996434061042130974/poke_icon.png");
-    background-color: #ff8357;
-  }
-
-  //TYPES 5 GELATO
-  &:nth-child(5) > input {
-    background-image: url("https://cdn.discordapp.com/attachments/993428504194584577/996431634444333147/unknown.png");
-    background-color: #e25b45;
-  }
-
-  //TYPES 6 HAMBURGER
-  &:nth-child(6) > input {
-    background-image: url("https://cdn.discordapp.com/attachments/993428504194584577/996431635060887664/unknown.png");
-    background-color: #fabe0e;
-  }
-
-  //TYPES 7 KEBAB
-  &:nth-child(7) > input {
-    background-image: url("https://cdn.discordapp.com/attachments/993428504194584577/996431635484508431/unknown.png");
-    background-color: #f5c6b2;
-  }
-
-  //TYPES 8 SANDWICH
-  &:nth-child(8) > input {
-    background-image: url("https://cdn.discordapp.com/attachments/993428504194584577/996431636008800347/unknown.png");
-    background-color: #aae6da;
-  }
-
-  //TYPES 9 AMERICANO
-  &:nth-child(9) > input {
-    background-image: url("https://cdn.discordapp.com/attachments/993428504194584577/996434061251854336/americana_icon.png");
-    background-color: #e0966f;
-  }
-
-  //TYPES 10 ITALIANO
-  &:nth-child(10) > input {
-    background-image: url("https://cdn.discordapp.com/attachments/993428504194584577/996434781866827847/italiana_icon.png");
-    background-color: #49888a;
-  }
-
-  //TYPES 11 CINESE
-  &:nth-child(11) > input {
-    background-image: url("https://cdn.discordapp.com/attachments/993428504194584577/996431633878110298/unknown.png");
-    background-color: #b68141;
-  }
-
-  //TYPES 12 GIAPPONESE
-  &:nth-child(12) > input {
-    background-image: url("https://cdn.discordapp.com/attachments/993428504194584577/996434781489336401/giapponese_icon.png");
-    background-color: #f8b2bc;
   }
 
   & > input:checked {
