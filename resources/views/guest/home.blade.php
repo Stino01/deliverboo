@@ -17,7 +17,7 @@
     <div id="auth-container">
         @if (Route::has('login'))
         <div>
-            @auth
+            {{-- @auth
             <a type="button" class="btn btn_add" href="{{ url('/admin') }}">area personale</a>
             @else
             <a type="button" class="btn btn_add" href="{{ route('login') }}">accedi</a>
@@ -25,7 +25,7 @@
             @if (Route::has('register'))
             <a type="button" class="btn btn_add" href="{{ route('register') }}">registrati</a>
             @endif
-            @endauth
+            @endauth --}}
         </div>
         @endif
     </div>
