@@ -19,7 +19,7 @@ class HomeController extends Controller
         $data = $request->all();
 
         if ($data == []) {
-            $restaurants = [];
+            $restaurants = Restaurant::where('user_id', '<=' , 12)->get();
             // dump($restaurants);
         } else {
             $queryParams = [];
