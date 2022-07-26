@@ -150,16 +150,18 @@
 <script type="text/javascript">
     // CHIAMO LA FUNZIONE ANONIMA APPENA RENDERIZZO LA PAGINA PER MOSTRARE IL RIEPIGOLO DELLO SHOPPING CART
     (function() {
+
         let data = JSON.parse(localStorage.getItem("carts"));
         console.log(data);
         let total = 0;
         data.forEach(function(item, index) {
         // console.log(parseFloat(item.subtotal));
-        console.log(typeof item.subtotal);
+        // console.log(typeof item.subtotal);
         total += parseFloat(item.subtotal);
         // return total;
         });
-        console.log((total).toFixed(2));
+
+        // console.log((total).toFixed(2));
         // console.log(Math.round(total * 100) / 100).toFixed(2);
         document.getElementById("total_price_hidden").innerHTML = `
         <label for="total_price" class="col-md-4 col-form-label text-md-right text-white">
