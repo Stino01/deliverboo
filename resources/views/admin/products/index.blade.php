@@ -47,10 +47,12 @@
                 <tr>
                     <td>#{{$product->id}}</td>
                     <td>{{$product->name}}</td>
-                    <td>€ {{$product->price}}</td>
+                    <td>€ {{number_format($product->price, 2, '.', ',')}}</td>
                     <td>{{$product->created_at}}</td>
-                    <td><a href="{{route('admin.products.show', $product->id)}}" class="btn btn_main">Visualizza</a></td>
-                    <td><a href="{{route('admin.products.edit', $product->id)}}" class="btn btn-warning">MODIFICA</a></td>
+                    <td><a href="{{route('admin.products.show', $product->id)}}" class="btn btn_main">Visualizza</a>
+                    </td>
+                    <td><a href="{{route('admin.products.edit', $product->id)}}" class="btn btn-warning">MODIFICA</a>
+                    </td>
                     <td>
                         <form action="{{route('admin.products.destroy', $product->id)}}" method="POST">
                             @csrf
@@ -70,17 +72,19 @@
 @endsection
 
 
-<style >
-    .table-container{
+<style>
+    .table-container {
         padding: 50px 0;
     }
-    #table-container{
+
+    #table-container {
         background-color: white;
         padding: 20px;
         border-radius: 20px
     }
-    tr>td:not(:nth-child(2)), tr>th:not(:nth-child(2)){
+
+    tr>td:not(:nth-child(2)),
+    tr>th:not(:nth-child(2)) {
         text-align: center
     }
-
 </style>

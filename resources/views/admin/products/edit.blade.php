@@ -18,8 +18,10 @@
 
         {{-- DESCRIZIONE --}}
         <div class="mb-3 form-cont">
-            <label for="description" class="form-label @error('description') is-invalid @enderror">Descrizione prodotto</label>
-            <textarea name="description" id="description" class="form-control" cols="30" rows="10">{{$product->description}}</textarea>
+            <label for="description" class="form-label @error('description') is-invalid @enderror">Descrizione
+                prodotto</label>
+            <textarea name="description" id="description" class="form-control" cols="30"
+                rows="10">{{$product->description}}</textarea>
             @error('description')
             <div class="alert alert-danger">{{$message}}</div>
             @enderror
@@ -55,7 +57,7 @@
         <div class="form-group mb-3">
             <label for="price" class="form-label @error('price') is-invalid @enderror">Prezzo *</label>
             <input type="number" step="0.10" class="form-control" id="price" name="price" min='1' max='999.90'
-                aria-describedby="price" value="{{$product->price}}">
+                aria-describedby="price" value="{{number_format($product->price, 2, '.', ',')}}">
             @error('price')
             <div class="alert alert-danger">{{$message}}</div>
             @enderror
@@ -80,7 +82,7 @@
 @endsection
 
 <style>
-    main .container{
+    main .container {
         margin: 30px 0;
         padding: 20px;
         border-radius: 20px;
@@ -88,14 +90,17 @@
         color: white;
         box-shadow: 0px 7px 14px 3px black;
     }
-    .form-cont>div{
+
+    .form-cont>div {
         width: 100% !important;
         border-radius: 0 0 10px 10px
     }
-    .nicEdit-panelContain{
+
+    .nicEdit-panelContain {
         border-radius: 10px 10px 0 0;
         padding: 5px
     }
+
     .nicEdit-main {
         width: 100% !important;
         background-color: white;
@@ -104,10 +109,12 @@
         color: black;
 
     }
-    .nicEdit-panel>div>div{
+
+    .nicEdit-panel>div>div {
         margin: 2px 5px;
     }
-    .nicEdit-selectContain>div{
+
+    .nicEdit-selectContain>div {
         border-radius: 5px
     }
 
