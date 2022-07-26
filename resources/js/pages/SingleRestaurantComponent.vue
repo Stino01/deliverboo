@@ -195,27 +195,6 @@ export default {
           } else {
             itemInCart[0].quantity += pro.quantity;
           }
-          // console.log(this.carts);
-          // this.count = 0; // RESET DEL COUNT
-          // pro.quantity = 0; // RESET DELLA QUANTITA'
-          // this.carts.forEach((el) => {
-          // this.count = this.count + 1; //2...3....4...5...6...7...8...
-          // console.log(this.count, "contatore");
-          // if (el.id == pro.id) {
-          //   // console.log(pro.quantity, "quantita del prodotto");
-          //   pro.quantity = parseInt(pro.quantity) + 1;
-          //   return;
-          // } else {
-          //   if (this.carts.length == this.count) {
-          //     // this.carts.push(pro);
-          //     pro.quantity = 1;
-          //     console.log(
-          //       pro,
-          //       "sono un elemento nuovo, qui finisce il ciclo se non aggiungi un altro prodotto"
-          //     );
-          //   }
-          // }
-          // });
         }
         this.cartadd = {};
         this.storeCart();
