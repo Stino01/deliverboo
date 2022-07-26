@@ -142,17 +142,83 @@
                             </div>
                         </div>
                     </form>
+                    <button id="apiButton">Chiamata Api</button>
                 </div>
             </div>
         </div>
     </div>
 </div>
 <script type="text/javascript">
+    //CHIAMATA API PER PASSARE I PRODOTTI AL BACKEND
+
+    // let formData: {
+    // id: "",
+    // name: "",
+    // lastname: "",
+    // email: "",
+    // phone: null,
+    // price: "",
+    // amount: "",
+    // restaurant_id: "",
+    // prod_id: [],
+    // prod_qnty: [],
+    // total: null,
+    // },
+        
+    document.getElementById("apiButton").addEventListener("click", sendOrder);
+    
+    function sendOrder() {
+
+
+       let formData = new FormData();
+        formData.append('key1', 'value1');
+        formData.append('key2', 'value2'); 
+        
+        // List key/value pairs
+        for(let [name, value] of formData) {
+        alert(`${name} = ${value}`); // key1 = value1, then key2 = value2
+        }
+
+
+        let data = JSON.parse(localStorage.getItem("carts"));
+        console.log(data);
+        // console.log(this.products);
+        // let prod = this.products;
+        // if (this.check) {
+        // this.payment = true;
+        prod.forEach((element) => {
+        this.formData.prod_id.push(element.id);
+        // console.log(element.id);
+        // console.log(this.formData.prod_id);
+        this.formData.prod_qnty.push(element.qnty);
+        });
+        
+        this.formData.total = this.total;
+        console.log(this.total);
+        console.log(this.formData.prod_id);
+        axios
+        .post("http://127.0.0.1:8000/api/orders", this.formData)
+        .then((res) => {
+        console.log(res);
+        })
+        .catch((err) => {
+        console.error(err);
+        });
+    }
+        // else {
+        // this.$refs["error"].innerHTML = "Compila tutti i campi obbligatori";
+        // const timeout = setTimeout(() => {
+        // this.$refs["error"].innerHTML = "";
+        // }, 3000);
+        // };
+        // },
+
+
     // CHIAMO LA FUNZIONE ANONIMA APPENA RENDERIZZO LA PAGINA PER MOSTRARE IL RIEPIGOLO DELLO SHOPPING CART
     (function() {
 
         let data = JSON.parse(localStorage.getItem("carts"));
-        console.log(data);
+        // console.log(data);
         let total = 0;
         data.forEach(function(item, index) {
         // console.log(parseFloat(item.subtotal));

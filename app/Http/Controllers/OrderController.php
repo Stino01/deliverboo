@@ -40,6 +40,20 @@ class OrderController extends Controller
         return view('orders.create');
     }
 
+
+    public function getCartData(Request $request)
+    {
+        $data = $request->all();
+        dump($data);
+
+        // $syncData = array_combine($data['prod_id'], $data['prod_qnty']);
+        // $qnty = collect($syncData)
+        //     ->map(function ($qnty) {
+        //         return ['quantity' => $qnty];
+        //     });
+        // dd($syncData);
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -52,12 +66,6 @@ class OrderController extends Controller
         $request->validate($this->validationRule);
         $data = $request->all();
 
-        $syncData = array_combine($data['prod_id'], $data['prod_qnty']);
-        $qnty = collect($syncData)
-            ->map(function ($qnty) {
-                return ['quantity' => $qnty];
-            });
-
         $newOrder = new Order();
         $newOrder->name = $data['name'];
         $newOrder->surname = $data['surname'];
@@ -68,8 +76,6 @@ class OrderController extends Controller
         $newOrder->shipping_address = $data['shipping_address'];
         $newOrder->shipped = false;
         // $message = "Ordine effettuato con successo";
-
-        $newOrder->products()->sync($qnty);
 
         $newOrder->save();
 

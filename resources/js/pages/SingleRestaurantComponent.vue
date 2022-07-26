@@ -13,7 +13,6 @@
             <div class="modal-content">
               <div class="modal-header">
                 <h4>Il tuo carrello</h4>
-                <button @click="sendOrder()">Prova chiamata API</button>
                 <button
                   type="button"
                   class="close"
@@ -309,36 +308,36 @@ export default {
 
     //CHIAMATA API PER PASSARE I PRODOTTI AL BACKEND
 
-    sendOrder() {
-      // console.log(this.products);
-      let prod = this.products;
-      // if (this.check) {
-      //   this.payment = true;
-      prod.forEach((element) => {
-        this.formData.prod_id.push(element.id);
-        // console.log(element.id);
-        // console.log(this.formData.prod_id);
-        this.formData.prod_qnty.push(element.qnty);
-      });
+    // sendOrder() {
+    //   // console.log(this.products);
+    //   let prod = this.products;
+    //   // if (this.check) {
+    //   //   this.payment = true;
+    //   prod.forEach((element) => {
+    //     this.formData.prod_id.push(element.id);
+    //     // console.log(element.id);
+    //     // console.log(this.formData.prod_id);
+    //     this.formData.prod_qnty.push(element.qnty);
+    //   });
 
-      this.formData.total = this.total;
-      console.log(this.formData.prod_id);
-      axios
-        .post("/api/orders", this.formData)
-        .then((res) => {
-          console.log(res);
-        })
-        .catch((err) => {
-          console.error(err);
-        });
-      // }
-      //  else {
-      //   this.$refs["error"].innerHTML = "Compila tutti i campi obbligatori";
-      //   const timeout = setTimeout(() => {
-      //     this.$refs["error"].innerHTML = "";
-      //   }, 3000);
-      // }
-    },
+    //   this.formData.total = this.total;
+    //   console.log(this.formData.prod_id);
+    //   axios
+    //     .post("/api/orders", this.formData)
+    //     .then((res) => {
+    //       console.log(res);
+    //     })
+    //     .catch((err) => {
+    //       console.error(err);
+    //     });
+    //   // }
+    //   //  else {
+    //   //   this.$refs["error"].innerHTML = "Compila tutti i campi obbligatori";
+    //   //   const timeout = setTimeout(() => {
+    //   //     this.$refs["error"].innerHTML = "";
+    //   //   }, 3000);
+    //   // }
+    // },
   },
   mounted() {
     const slug = this.$route.params.slug;
