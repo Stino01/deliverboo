@@ -43,7 +43,7 @@
                 :key="restaurant.index"
                 class="d-flex justify-content-center col-lg-3 col-md-4 col-sm-6 mb-4 mb-md-0"
             >
-                <div class="card my-2" style="width: 18rem">
+                <div class="card my-4" style="width: 18rem">
                     <router-link
                         class=""
                         :to="{
@@ -184,8 +184,16 @@ export default {
     border-radius: 10px;
     box-shadow: 0px 4px 13px 0px rgba(0, 0, 0, 0.52);
     transition: transform 0.3s ease-in-out;
+    img{
+      width: 100% !important;
+      height: 200px !important;
+      object-fit: cover;
+      border-radius: 10px 10px 0 0;
+    }
     &:hover {
         transform: scale(1.05);
+        box-shadow: 0px 8px 13px 0px rgba(0, 0, 0, 0.7);
+        transition: 0.5s;
     }
 }
 
