@@ -31,15 +31,15 @@
     </div>
 
     <div v-if="restaurants.length > 0" class="row d-flex justify-content-around my-5 card-resturant-container">
-      <div v-for="restaurant in restaurants" :key="restaurant.index" class=" d-flex justify-content-center col-4">
-        <div class="card-restaurant">
+      <div v-for="restaurant in restaurants" :key="restaurant.index" class=" d-flex justify-content-center col-lg-3 col-md-6 col-sm-6 mb-4 mb-md-4">
+        <div class="card  mb-2" style="width: 18rem;">
+          <img class="card-img-top" :src="'storage/'+ restaurant.image" :alt="'immagine di' +restaurant.name">
           <router-link class="" :to="{ name: 'single-restaurant', params: { slug: restaurant.slug }, }">
-            <div class="inner-card">
-              <img class="restaurant-image" :src="'storage/'+ restaurant.image" :alt="'immagine di' +restaurant.name">
-              <div class="under-card">
-                <h2>{{restaurant.name}}</h2>
-                <h4>{{restaurant.address}}</h4>
-              </div>
+            <div class="card-body">
+            
+                <h5 class="card-title">{{restaurant.name}}</h5>
+                <p class="card-text">{{restaurant.address}}</p>
+
             </div>
           </router-link>
         </div>
@@ -145,11 +145,11 @@ export default {
       border-radius: 10px;
       box-shadow: 0px 4px 13px 0px rgba(0,0,0,0.52);
       transition: 0.3s;
-      &:hover{
-        width: 380px;
-        margin-top: 10px;
-        transition: 0.3s;
-      }
+      // &:hover{
+      //   width: 380px;
+      //   margin-top: 10px;
+      //   transition: 0.3s;
+      // }
       img{
         width: 100%;
         height: 170px;
