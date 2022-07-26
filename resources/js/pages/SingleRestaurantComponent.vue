@@ -203,8 +203,8 @@
                   >
                     <img
                       class="img-fluid text-center"
-                      v-bind:src="product.image"
-                      v-bind:alt="product.name"
+                      :src="'storage/'+product.image"
+                      :alt="'immagine di' + product.name"
                     />
                   </div>
                   <button @click="addToCart(product)" class="btn btn_main">
