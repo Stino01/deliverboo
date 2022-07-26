@@ -1,5 +1,12 @@
 @import "./variables";
 
+.dropdown-item:hover{
+    background-color: #dbf227!important;
+    color: #005c53!important;
+}
+.nav-link:hover{
+    color: #dbf227!important;
+}
 main {
     position: absolute;
     top: 56px;
@@ -15,16 +22,17 @@ main {
     background-size: cover;
     background-repeat: no-repeat;
 
-    .container {
-        width: 100%;
-    }
+    // .container {
+    //     width: 100%;
+    // }
+    
     .card {
         background-color: transparent !important;
         border: none;
 
         .card-header {
             border-radius: 1rem;
-            background-color: $PrimaryColor; //#9fc131; // TERTIARY_COLOR
+            background-color: $PrimaryColor;
             font-size: 1.5rem;
             margin-bottom: 1rem;
             box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.5);

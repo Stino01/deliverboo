@@ -2,7 +2,7 @@
   <section>
     <!-- <TypesSlider /> -->
 
-    <div class="container">
+    <div class="container my-5">
       <div class="row">
         <div
           v-for="(type, index) in types"
@@ -27,6 +27,7 @@
           >
         </div>
       </div>
+
     </div>
 
     <div
@@ -57,6 +58,7 @@
             >
               Visualizza Ristorante
             </router-link>
+
           </div>
         </div>
       </div>
