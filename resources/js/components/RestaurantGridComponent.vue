@@ -30,36 +30,18 @@
 
     </div>
 
-    <div
-      v-if="restaurants.length > 0"
-      class="row d-flex justify-content-around my-5"
-    >
-      <div
-        v-for="restaurant in restaurants"
-        :key="restaurant.index"
-        class="
-          d-flex
-          justify-content-center
-          col-6 col-sm-4 col-md-3 col-lg-2
-          m-3
-        "
-      >
-        <div class="card">
-          <div class="card-header text-xl-center font-weight-bold">
-            {{ restaurant.name }}
-          </div>
-          <div class="card-body">
-            <router-link
-              class="mx-2 btn btn_main"
-              :to="{
-                name: 'single-restaurant',
-                params: { slug: restaurant.slug },
-              }"
-            >
-              Visualizza Ristorante
-            </router-link>
-
-          </div>
+    <div v-if="restaurants.length > 0" class="row d-flex justify-content-around my-5 card-resturant-container">
+      <div v-for="restaurant in restaurants" :key="restaurant.index" class=" d-flex justify-content-center col-4">
+        <div class="card-restaurant">
+          <router-link class="" :to="{ name: 'single-restaurant', params: { slug: restaurant.slug }, }">
+            <div class="inner-card">
+              <img class="restaurant-image" :src="'storage/'+ restaurant.image" :alt="'immagine di' +restaurant.name">
+              <div class="under-card">
+                <h2>{{restaurant.name}}</h2>
+                <h4>{{restaurant.address}}</h4>
+              </div>
+            </div>
+          </router-link>
         </div>
       </div>
     </div>
@@ -130,6 +112,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+
+
+
+
+
 // .label_text {
 //     position: absolute;
 //     top: 50%;
@@ -143,6 +131,41 @@ export default {
 //     color: #005c53;
 //     padding: 0.5rem 0.25rem;
 // }
+
+
+
+.card-restaurant{
+  a{
+    text-decoration: none;
+    .inner-card{
+      margin-top: 20px;
+      width: 100%;
+      text-align: center;
+      color: black;
+      border-radius: 10px;
+      box-shadow: 0px 4px 13px 0px rgba(0,0,0,0.52);
+      transition: 0.3s;
+      &:hover{
+        width: 380px;
+        margin-top: 10px;
+        transition: 0.3s;
+      }
+      img{
+        width: 100%;
+        height: 170px;
+        object-fit: cover;
+        border-radius: 10px 10px 0 0;
+      }
+      .under-card{
+        background-color: transparent;
+        padding: 10px 0;
+      }
+    }
+  }
+}
+
+
+
 
 .checkbox {
   display: inline-flex;
