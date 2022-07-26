@@ -3,16 +3,19 @@
 @section('content')
 <div id="container-products">
     <div id="container-ristorante">
-        <strong><h1 class="text-center my-4">{{$restaurant->name}}</h1></strong>
+        <strong>
+            <h1 class="text-center my-4">{{$restaurant->name}}</h1>
+        </strong>
         @if ($restaurant->image)
-            <img class="resturant-image" src="{{asset('storage/' . $restaurant->image)}}" alt="user">
+        <img class="resturant-image" src="{{asset('storage/' . $restaurant->image)}}" alt="user">
         {{-- <img id="resturant-image" src="{{ asset('storage/' . $restaurant->image)}}" alt="user"> --}}
         @else
-            <img class="resturant-image" src="{{asset('media/img/mistery-resturant.png')}}" alt="user">
+        <img class="resturant-image" src="{{asset('media/img/mistery-resturant.png')}}" alt="user">
         @endif
         <h3 class="mt-3">Indirizzo: {{$restaurant->address}}</h3>
         <h4 class="mt-2">Partita IVA: {{$restaurant->vat_number}}</h4>
-        <a href="{{route('admin.products.create')}}" class="btn btn_main text-uppercase my-3" type="button">Aggiungi piatto</a>
+        <a href="{{route('admin.products.create')}}" class="btn btn_main text-uppercase my-3" type="button">Aggiungi
+            piatto</a>
         <form action="{{route('admin.restaurants.destroy', $restaurant->id)}}" method="post" class="mt-3">
             @csrf
             @method('DELETE')
@@ -24,27 +27,29 @@
         @foreach ($products as $product)
         <div class="product-card">
             <div class="left-side-card">
-                <div  class="left-side-top-card">
+                <div class="left-side-top-card">
                     <div class="prod-name-cont">
                         <h1><a href="{{route('admin.products.show', $product->id)}}">{{$product->name}}</a></h1>
                     </div>
-                    <p>€ {{$product->price}}</p>
+                    <p>€ {{number_format($product->price, 2, '.', ',')}}</p>
                 </div>
                 <div class="left-side-under-card">
                     <form>
-                        <a href="{{route('admin.products.edit', $product->id)}}" class="btn btn-warning text-uppercase">Modifica</a>
+                        <a href="{{route('admin.products.edit', $product->id)}}"
+                            class="btn btn-warning text-uppercase">Modifica</a>
                     </form>
                     <form action="{{route('admin.products.destroy', $product->id)}}" method="post">
                         @csrf @method('DELETE')
-                        <button type="submit" onclick="boolpress.openModal(event, {{ $product->id }})" class="btn btn-danger delete text-uppercase">Elimina</button>
+                        <button type="submit" onclick="boolpress.openModal(event, {{ $product->id }})"
+                            class="btn btn-danger delete text-uppercase">Elimina</button>
                     </form>
                 </div>
             </div>
             <div class="right-side-card">
-                @if($product->image)         
-                    <img src="{{asset('storage/' . $product->image)}}">
+                @if($product->image)
+                <img src="{{asset('storage/' . $product->image)}}">
                 @else
-                    <img src="{{asset('media/img/mistery-food.png')}}">
+                <img src="{{asset('media/img/mistery-food.png')}}">
                 @endif
             </div>
         </div>
@@ -54,7 +59,7 @@
 @endsection
 
 <style>
-    .product-card{
+    .product-card {
         min-width: 335px;
         height: 150px;
         width: 45%;
@@ -68,10 +73,12 @@
         margin: 1vw 0;
 
     }
-    .prezzo-prodotto::before{
+
+    .prezzo-prodotto::before {
         content: "€ ";
     }
-    .left-side-card{
+
+    .left-side-card {
         width: 60%;
         height: 100%;
         display: flex;
@@ -79,50 +86,58 @@
         align-items: center;
 
     }
-    .left-side-top-card{
+
+    .left-side-top-card {
         width: 100%;
         height: 60%;
         text-align: center;
     }
-    .prod-name-cont{
+
+    .prod-name-cont {
         white-space: normal;
         max-height: 65%;
         overflow: hidden;
-        text-overflow: ellipsis; 
+        text-overflow: ellipsis;
     }
-    .left-side-top-card h1 a{
+
+    .left-side-top-card h1 a {
         font-size: 1.4rem;
         text-overflow: ellipsis;
 
         color: #005C53;
     }
-    .left-side-top-card h1 a:hover{
+
+    .left-side-top-card h1 a:hover {
         color: #DBF227;
         transition: 0.1s;
     }
-    .left-side-under-card{
+
+    .left-side-under-card {
         height: 40%;
         display: flex;
         flex-direction: row;
         gap: 10px;
     }
-    .right-side-card{
+
+    .right-side-card {
         width: 40%
     }
-    .product-card img{
+
+    .product-card img {
         border-radius: 10px;
         width: 100%;
         height: 80%;
         object-fit: cover;
     }
 
-    #container-products{
+    #container-products {
         display: flex;
         flex-direction: row;
-        justify-content: center;  
+        justify-content: center;
         width: 100%;
     }
-    #container-ristorante{
+
+    #container-ristorante {
         /* position: fixed;
         left: 0;
         top: auto; */
@@ -133,12 +148,14 @@
         justify-content: flex-start;
         width: 40%;
     }
-    #container-ristorante img{
+
+    #container-ristorante img {
         width: 100%;
         border-radius: 10px;
         box-shadow: 0px 5px 14px 3px black;
     }
-    #container-prodotti{
+
+    #container-prodotti {
         display: flex;
         flex-wrap: wrap;
         flex-direction: row;
@@ -148,11 +165,12 @@
         height: calc(100vh - 66px);
         overflow: auto;
     }
+
     #container-prodotti::-webkit-scrollbar {
         display: none;
     }
 
-    .py-4{
+    .py-4 {
         padding-bottom: 0 !important;
     }
 </style>
