@@ -52,7 +52,7 @@
                         }"
                     >
                         <img
-                            class="card-img-top"
+                            class="card-img-top img-fluid"
                             :src="'storage/' + restaurant.image"
                             :alt="'immagine di' + restaurant.name"
                         />

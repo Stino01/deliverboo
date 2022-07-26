@@ -7,7 +7,7 @@
                     <!-- Left Side Of Navbar -->
                     <a
                         class="navbar-brand text-white text-uppercase ml-5"
-                        href="#"
+                        href="http://127.0.0.1:8000/"
                     >
                         <img
                             src="https://cdn.discordapp.com/attachments/941312490950766592/996354486467571802/TEq98Yg.png"
