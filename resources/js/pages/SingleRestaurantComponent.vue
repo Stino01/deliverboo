@@ -69,15 +69,17 @@
         <h2>MENU</h2>
         <h3>CATEGORIE</h3>
         <ul>
-          <div v-for="category in categories" :key="category.id">
-            <div v-for="product in products" :key="product.id">
-              <a href="" v-if="product.category_id == category.id">{{ category.name }}</a>
+          <li v-for="category in categories" :key="category.id">
+            <a href="">{{ category.name }}</a>
+            <ul v-for="product in products" :key="product.id">
               <li v-if="product.category_id == category.id">
                 <p>{{ product.name }} : &euro; {{ product.price }}</p>
-                <button @click="addCart(product)" class="btn btn-primary">Aggiungi al carrello</button>
+                <button @click="addCart(product)" class="btn btn-primary">
+                  Aggiungi al carrello
+                </button>
               </li>
-            </div>
-          </div>
+            </ul>
+          </li>
         </ul>
       </div>
     </div>
