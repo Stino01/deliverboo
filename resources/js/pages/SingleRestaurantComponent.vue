@@ -1,16 +1,98 @@
 <template>
-    <div class="container">
-        <!-- MODAL -->
-        <div>
-            <div>&nbsp;</div>
-            <div>
+  <div class="container">
+    <!-- MODAL -->
+    <div>
+      <div>&nbsp;</div>
+      <div>
+        <button class="btn btn-primary" data-toggle="modal" data-target="#cart">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span class="badge badge-light">{{ badge }}</span>
+        </button>
+        <div class="modal fade" id="cart">
+          <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4>Il tuo carrello</h4>
                 <button
-                    class="btn btn-primary"
-                    data-toggle="modal"
-                    data-target="#cart"
+                  type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
                 >
-                    <i class="fa-solid fa-cart-shopping"></i>
-                    <span class="badge badge-light">{{ badge }}</span>
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body" id="cart-body">
+                <table class="table table-striped text-left">
+                  <tbody>
+                    <tr v-for="(cart, n) in carts" :key="n">
+                      <td>{{ cart.name }}</td>
+                      <td>&euro; {{ cart.subtotal.toFixed(2) }}</td>
+                      <td width="100">
+                        <input
+                          type="text"
+                          readonly
+                          class="form-control"
+                          v-model="cart.quantity"
+                        />
+                        <div class="d-flex justify-content-around">
+                          <button @click="addQuantity(cart)">
+                            <i class="fa-solid fa-plus text-success"></i>
+                          </button>
+                          <button @click="decreaseQuantity(cart)">
+                            <i class="fa-solid fa-minus text-muted"></i>
+                          </button>
+                        </div>
+                      </td>
+                      <td width="60">
+                        <button
+                          @click="removeCart(n)"
+                          class="btn btn-danger btn-sm"
+                        >
+                          <i class="fa-solid fa-xmark text-danger"></i>
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="modal-footer">
+                Total Price: &euro; {{ totalprice }} &nbsp;
+                <a href="/orders/create">
+                  <button
+                    type="submit"
+                    value="Checkout"
+                    class="btn btn-primary"
+                  >
+                    Checkout
+                  </button>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD PRODOTTI-->
+    <div class="card">
+      <div v-if="restaurant">
+        <div class="card-header">
+          <h1>{{ restaurant.name }}</h1>
+        </div>
+      </div>
+      <div class="card-body">
+        <h1></h1>
+        <h2>MENU</h2>
+        <h3>CATEGORIE</h3>
+        <ul>
+          <li v-for="category in categories" :key="category.id">
+            <a href="">{{ category.name }}</a>
+            <ul v-for="product in products" :key="product.id">
+              <li v-if="product.category_id == category.id">
+                <p>{{ product.name }} : &euro; {{ product.price }}</p>
+                <button @click="addToCart(product)" class="btn btn-primary">
+                  Aggiungi al carrello
                 </button>
                 <div class="modal fade" id="cart">
                     <div class="modal-dialog modal-dialog-centered modal-lg">
@@ -148,126 +230,167 @@
 
 <script>
 export default {
-    name: "SingleRestaurantComponent",
-    data() {
-        return {
-            restaurant: null,
-            categories: [],
-            products: [],
-            // cart
-            carts: [],
-            cartadd: {
-                id: "",
-                name: "",
-                price: "",
-                amount: "",
-                restaurant_id: "",
-            },
-            formattedTotal: null,
-            badge: "0",
-            quantity: "1",
-            totalprice: "0",
-        };
-    },
-    created() {
-        this.viewCart();
-    },
-    methods: {
-        viewCart() {
-            if (localStorage.getItem("carts")) {
-                this.carts = JSON.parse(localStorage.getItem("carts"));
-                this.badge = this.carts.length;
-                this.totalprice = this.carts.reduce((total, item) => {
-                    // console.log(total);
-                    // console.log(this.quantity);
-                    // console.log(item.price);
-                    this.formattedTotal = Math.round(
-                        parseFloat(total) + parseFloat(item.price)
-                    ).toFixed(2);
-                    return this.formattedTotal;
-                }, 0);
-            }
-        },
-        addCart(pro) {
-            let check = false;
-            // this.cartadd.id = pro.id;
-            // this.cartadd.name = pro.name;
-            // this.cartadd.price = pro.price;
-            // this.cartadd.amount = pro.amount;
-            // this.cartadd.restaurant_id = pro.restaurant_id;
-            // console.log(pro.restaurant_id);
-            // console.log(pro);
-            console.log(this.carts, "CARRELLO");
-            // console.log(this.restaurant.restaurant.name);
-            // console.log(this.restaurant.restaurant.user_id);
-            this.carts.forEach((element) => {
-                // element.restaurant_id = this.restaurant.restaurant.name;
-                // pro.restaurant_id = this.restaurant.restaurant.name;
-                // console.log(pro.restaurant_id);
-                // console.log(element.restaurant_id);
-                // element.push(this.restaurant.name);
-                // if (pro.resturant_id == this.restaurant.restaurant.user_id) {
-                //   pro.restaurant_id = this.restaurant.restaurant.name;
-                // }
-                // console.log(pro);
-                // console.log(element, "e poi", pro.restaurant_id);
-                if (element.restaurant_id != pro.restaurant_id) {
-                    check = true;
-                }
-            });
-            if (check) {
-                let deleteCart = confirm(
-                    "Non puoi acquistare contemporanemante da più ristoranti. Vuoi veramente svuotare il carrello per inserire questo prodotto?"
-                );
-                if (deleteCart) {
-                    this.emptyCart();
-                    this.carts.push(pro);
-                    this.cartadd.id = pro.id;
-                    this.cartadd.name = pro.name;
-                    this.cartadd.price = pro.price;
-                    window.localStorage.setItem(
-                        `item${this.carts.length}`,
-                        JSON.stringify(pro)
-                    );
-                    this.storeCart();
-                }
-            } else {
-                this.carts.push(pro);
-                this.cartadd = {};
-                this.storeCart();
-            }
-        },
-        removeCart(pro) {
-            this.carts.splice(pro, 1);
-            this.storeCart();
-        },
-        storeCart() {
-            this.carts.forEach((el) => {
-                console.log(el);
-                el.restaurant_name = this.restaurant.restaurant.name;
-            });
-            let parsed = JSON.stringify(this.carts);
-            localStorage.setItem("carts", parsed);
-            this.viewCart();
-        },
-        emptyCart() {
-            window.localStorage.clear();
-            this.carts = [];
-        },
-    },
-    mounted() {
-        const slug = this.$route.params.slug;
+  name: "SingleRestaurantComponent",
+  data() {
+    return {
+      restaurant: null,
+      categories: [],
+      products: [],
+      // cart
+      carts: [],
+      cartadd: {
+        id: "",
+        name: "",
+        price: "",
+        amount: "",
+        restaurant_id: "",
+      },
+      formattedTotal: null,
+      badge: "0",
+      quantity: "1",
+      totalprice: "0",
+      // count: 1,
+    };
+  },
+  created() {
+    this.viewCart();
+  },
+  methods: {
+    // FUNZIONE PER VISUALIZZARE I DATI CORRETTI NEL CARRELLO
+    viewCart() {
+      if (localStorage.getItem("carts")) {
+        this.carts = JSON.parse(localStorage.getItem("carts"));
 
-        axios
-            .get(`/api/restaurants/${slug}`)
-            .then((response) => {
-                this.restaurant = response.data;
-                this.products = response.data.products;
-                // console.log(this.products, "e poi", this.restaurant);
-            })
-            .catch((error) => {
-                console.log(error);
-            });
+        // FUNZIONE PER IL NUMERINO DEI PRODOTTI NEL BADGE
+        this.badge = this.carts.reduce((total, item) => {
+          return total + item.quantity;
+        }, 0);
+
+        // FUNZIONE PER VISUALIZZARE IL PREZZO TOTALE ALLA FINE DELL'ORDINE
+        this.totalprice = this.carts.reduce((total, item) => {
+          // console.log(total, "questo è total");
+          // console.log(item, "questo è item");
+          this.formattedTotal = (
+            parseFloat(total) + parseFloat(item.subtotal)
+          ).toFixed(2);
+          return this.formattedTotal;
+        }, 0);
+      }
+    },
+    // FUNZIONE PER AGGIUNGERE PRODOTTI AL CARRELLO
+    addToCart(pro) {
+      let check = false;
+      this.carts.forEach((element) => {
+        if (element.restaurant_id != pro.restaurant_id) {
+          check = true;
+        }
+      });
+      if (check) {
+        // ECCEZIONE, PRODOTTI DA RISTORANTI DIVERSI
+        let deleteCart = confirm(
+          "Non puoi acquistare contemporanemante da più ristoranti. Vuoi veramente svuotare il carrello per inserire questo prodotto?"
+        );
+        if (deleteCart) {
+          // CANCELLAZIONE CARRELLO E AGGIUNTA PRODOTTO DI RISTORANTE DIVERSO
+          this.emptyCart();
+          pro.quantity = 1;
+          this.carts.push(pro);
+          this.cartadd.id = pro.id;
+          this.cartadd.name = pro.name;
+          this.cartadd.price = pro.price;
+          window.localStorage.setItem(
+            `item${this.carts.length}`,
+            JSON.stringify(pro)
+          );
+          this.storeCart();
+        }
+      } else {
+        pro.quantity = 1;
+        // QUA ENTRA SOLO SE IL CARRELLO E' VUOTO
+        if (this.carts.length == 0) {
+          this.carts.push(pro);
+          // IN QUESTO ELSE ENTRA SOLO DOPO IL PRIMO ELEMENTO AGGIUNTO NEL CARRELLO
+        } else {
+          // this.carts.push(pro);
+          let itemInCart = this.carts.filter((item) => item.id === pro.id);
+          let isItemInCart = itemInCart.length > 0;
+
+          if (isItemInCart === false) {
+            this.carts.push(Vue.util.extend({}, pro));
+          } else {
+            itemInCart[0].quantity += pro.quantity;
+          }
+        }
+        this.cartadd = {};
+        this.storeCart();
+        // console.log(this.carts);
+      }
+    },
+
+    //FUNZIONE PER AUMENTARE LA QUANTITA' DEL PRODOTTO
+    addQuantity(cart) {
+      // cart.quantity = 1;
+      // console.log(cart);
+      let itemInCart = this.carts.filter((item) => item.id === cart.id);
+      itemInCart[0].quantity += 1;
+      this.cartadd = {};
+      this.storeCart();
+    },
+
+    //FUNZIONE PER DIMINUIRE LA QUANTITA' DEL PRODOTTO
+    decreaseQuantity(cart) {
+      // cart.quantity = 1;
+      // console.log(cart);
+      let itemInCart = this.carts.filter((item) => item.id === cart.id);
+      itemInCart[0].quantity -= 1;
+      if (itemInCart[0].quantity <= 0) {
+        this.carts.splice(cart, 1);
+        this.storeCart();
+      }
+      this.cartadd = {};
+      this.storeCart();
+    },
+
+    // FUNZIONE PER RIMUOVERE TUTTA UNA LISTA DI PRODOTTI UGUALI DAL CARRELLO
+    removeCart(pro) {
+      this.carts.splice(pro, 1);
+      this.storeCart();
+    },
+
+    // FUNZIONE PER SALVARE IL CARRELLO
+    storeCart() {
+      this.carts.forEach((el) => {
+        // console.log(el);
+        el.subtotal = el.price * el.quantity;
+        el.restaurant_name = this.restaurant.restaurant.name;
+      });
+      let parsed = JSON.stringify(this.carts);
+      localStorage.setItem("carts", parsed);
+      this.viewCart();
+    },
+
+    // FUNZIONE PER SVUOTARE IL CARRELLO
+    emptyCart() {
+      window.localStorage.clear();
+      this.carts = [];
+    },
+  },
+  mounted() {
+    const slug = this.$route.params.slug;
+
+    axios
+      .get(`/api/restaurants/${slug}`)
+      .then((response) => {
+        this.restaurant = response.data;
+        this.products = response.data.products;
+        // this.products.forEach((product) => {
+        // product.quantity = 0;
+        // });
+        // console.log(this.products, "e poi", this.restaurant);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
 
         axios
             .get("/api/categories")

@@ -154,9 +154,9 @@
         console.log(data);
         let total = 0;
         data.forEach(function(item, index) {
-        // console.log(parseFloat(item.price));
-        console.log(typeof item.price);
-        total += parseFloat(item.price);
+        // console.log(parseFloat(item.subtotal));
+        console.log(typeof item.subtotal);
+        total += parseFloat(item.subtotal);
         // return total;
         });
         console.log((total).toFixed(2));
