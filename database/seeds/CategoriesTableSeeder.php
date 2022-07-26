@@ -13,14 +13,12 @@ class CategoriesTableSeeder extends Seeder
      */
     public function run()
     {
-        $categorieslist = ['Primi piatti', 'Secondi piatti', 'Contorni', 'Antipasti', 'Dolci', 'Bevande']; /*richiedere approvazione di fabbbzz*/
-        foreach ($categorieslist as $category) {
+        $categorieslist = ['Primi piatti', 'Secondi piatti', 'Contorni', 'Antipasti', 'Dolci', 'Bevande', 'Panini', 'Pizza', 'Piadina', 'Nigiri', 'Roll', 'Sashimi'];
             $newCategory = new Category();
 
             $newCategory->name = $category;
             $newCategory->slug = Str::of($newCategory->name)->slug('-');
 
             $newCategory->save();
-        }
     }
 }
