@@ -41,14 +41,9 @@
             <div
                 v-for="restaurant in restaurants"
                 :key="restaurant.index"
-                class="d-flex justify-content-center col-lg-3 col-md-6 col-sm-6 mb-4 mb-md-0"
+                class="d-flex justify-content-center col-lg-3 col-md-4 col-sm-6 mb-4 mb-md-0"
             >
-                <div class="card mb-2" style="width: 18rem">
-                    <img
-                        class="card-img-top"
-                        :src="'storage/' + restaurant.image"
-                        :alt="'immagine di' + restaurant.name"
-                    />
+                <div class="card my-2" style="width: 18rem">
                     <router-link
                         class=""
                         :to="{
@@ -56,9 +51,19 @@
                             params: { slug: restaurant.slug },
                         }"
                     >
+                        <img
+                            class="card-img-top"
+                            :src="'storage/' + restaurant.image"
+                            :alt="'immagine di' + restaurant.name"
+                        />
+
                         <div class="card-body">
-                            <h5 class="card-title text-dark">{{ restaurant.name }}</h5>
-                            <p class="card-text text-dark">{{ restaurant.address }}</p>
+                            <h5 class="card-title text-dark">
+                                {{ restaurant.name }}
+                            </h5>
+                            <p class="card-text text-dark p_fixed">
+                                {{ restaurant.address }}
+                            </p>
                         </div>
                     </router-link>
                 </div>
@@ -174,21 +179,24 @@ export default {
 //     }
 // }
 .card {
-
-            text-align: center;
-            color: black;
-            border-radius: 10px;
-            box-shadow: 0px 4px 13px 0px rgba(0, 0, 0, 0.52);
-            transition: transform 0.3s ease-in-out;
-&:hover{
- transform: scale(1.05);
-}
+    text-align: center;
+    color: black;
+    border-radius: 10px;
+    box-shadow: 0px 4px 13px 0px rgba(0, 0, 0, 0.52);
+    transition: transform 0.3s ease-in-out;
+    &:hover {
+        transform: scale(1.05);
+    }
 }
 
 .fixed {
     width: 99vw;
 }
 
+
+:hover a{
+  text-decoration: none;
+}
 .checkbox {
     display: inline-flex;
     cursor: pointer;
