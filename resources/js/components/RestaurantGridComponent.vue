@@ -57,8 +57,8 @@
                         }"
                     >
                         <div class="card-body">
-                            <h5 class="card-title">{{ restaurant.name }}</h5>
-                            <p class="card-text">{{ restaurant.address }}</p>
+                            <h5 class="card-title text-dark">{{ restaurant.name }}</h5>
+                            <p class="card-text text-dark">{{ restaurant.address }}</p>
                         </div>
                     </router-link>
                 </div>
