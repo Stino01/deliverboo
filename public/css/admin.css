@@ -15,13 +15,13 @@
   background-color: #005c53;
 }
 
-body{
+body {
   background-image: url("https://svgshare.com/i/j84.svg");
   background-attachment: fixed;
   background-size: cover;
   background-repeat: no-repeat;
 }
-main {
+body main {
   min-height: calc(100vh - 250px);
   display: flex !important;
   justify-content: center;
@@ -29,48 +29,56 @@ main {
   justify-content: center;
   align-items: center;
 }
-main .container {
+body main .container {
   width: 100%;
 }
-main .card {
-  background-color: transparent !important;
-  border: none;
-}
-main .card .card-header {
+body main .card-body {
   border-radius: 1rem;
-  background-color: #042940;
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-  box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.5);
-  text-align: center;
-  text-transform: uppercase;
+  background-color: #042940 !important;
 }
-main .card .login-class {
+body main .login-class {
   padding: 5rem 0;
   border-radius: 1rem;
   background-color: #042940;
   box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.5);
 }
-main .card .login-class .btn-login,
-main .card .login-class .btn-submit {
+body main .login-class .btn-login,
+body main .login-class .btn-submit {
   background-color: #dbf227 !important;
 }
-main .card .login-class .btn-login:hover,
-main .card .login-class .btn-login .btn-submit:hover,
-main .card .login-class .btn-submit:hover,
-main .card .login-class .btn-submit .btn-submit:hover {
+body main .login-class .btn-login:hover,
+body main .login-class .btn-login .btn-submit:hover,
+body main .login-class .btn-submit:hover,
+body main .login-class .btn-submit .btn-submit:hover {
   background-color: #005c53 !important;
   color: white;
 }
-main .card .login-class .btn-link {
+body main .login-class .login-class {
+  padding: 5rem 0;
+  border-radius: 1rem;
+  background-color: #042940;
+  box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.5);
+}
+body main .login-class .login-class .btn-login,
+body main .login-class .login-class .btn-submit {
+  background-color: #dbf227 !important;
+}
+body main .login-class .login-class .btn-login:hover,
+body main .login-class .login-class .btn-login .btn-submit:hover,
+body main .login-class .login-class .btn-submit:hover,
+body main .login-class .login-class .btn-submit .btn-submit:hover {
+  background-color: #005c53 !important;
+  color: white;
+}
+body main .login-class .login-class .btn-link {
   color: #005c53 !important;
   text-decoration: underline;
   font-weight: 900;
 }
-main .card .login-class .btn-link:hover {
+body main .login-class .login-class .btn-link:hover {
   color: #dbf227 !important;
 }
-main .card .login-class .form-check-input:checked {
+body main .login-class .login-class .form-check-input:checked {
   background-color: #042940 !important;
 }
 
