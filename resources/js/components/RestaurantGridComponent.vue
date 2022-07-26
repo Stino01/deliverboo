@@ -1,123 +1,136 @@
-    <template>
-  <section>
-    <!-- <TypesSlider /> -->
+<template>
+    <section>
+        <!-- <TypesSlider /> -->
 
-    <div class="container my-5">
-      <div class="row">
-        <div
-          v-for="(type, index) in types"
-          :key="index"
-          class="col-sm-6 col-md-3 col-lg-2 py-2 checkbox"
-        >
-          <input
-            type="checkbox"
-            name="type"
-            id="type"
-            :style="'background-image: url(/media/img/type_'+ type.id +'.png);'+
-            'background-color:' + type.background_color+  ';'"
-            
-            :value="index + 1"
-            v-model="selectValue"
-            @change="searchType()"
-          />
-          <label
-            class="text-uppercase font-weight-bold pt-2 label_text"
-            for="type"
-            >{{ type.name }}</label
-          >
-        </div>
-      </div>
-
-    </div>
-
-    <div v-if="restaurants.length > 0" class="row d-flex justify-content-around my-5 card-resturant-container">
-      <div v-for="restaurant in restaurants" :key="restaurant.index" class=" d-flex justify-content-center col-lg-3 col-md-6 col-sm-6 mb-4 mb-md-4">
-        <div class="card  mb-2" style="width: 18rem;">
-          <img class="card-img-top" :src="'storage/'+ restaurant.image" :alt="'immagine di' +restaurant.name">
-          <router-link class="" :to="{ name: 'single-restaurant', params: { slug: restaurant.slug }, }">
-            <div class="card-body">
-            
-                <h5 class="card-title">{{restaurant.name}}</h5>
-                <p class="card-text">{{restaurant.address}}</p>
-
+        <div class="container my-5">
+            <div class="row">
+                <div
+                    v-for="(type, index) in types"
+                    :key="index"
+                    class="col-sm-6 col-md-3 col-lg-2 py-2 checkbox"
+                >
+                    <input
+                        type="checkbox"
+                        name="type"
+                        id="type"
+                        :style="
+                            'background-image: url(/media/img/type_' +
+                            type.id +
+                            '.png);' +
+                            'background-color:' +
+                            type.background_color +
+                            ';'
+                        "
+                        :value="index + 1"
+                        v-model="selectValue"
+                        @change="searchType()"
+                    />
+                    <label
+                        class="text-uppercase font-weight-bold pt-2 label_text"
+                        for="type"
+                        >{{ type.name }}</label
+                    >
+                </div>
             </div>
-          </router-link>
         </div>
-      </div>
-    </div>
-    <!-- <div v-if="finalRestaurants.length == 0" class="container">
+
+        <div
+            v-if="restaurants.length > 0"
+            class="row d-flex justify-content-around my-5 card-resturant-container fixed"
+        >
+            <div
+                v-for="restaurant in restaurants"
+                :key="restaurant.index"
+                class="d-flex justify-content-center col-lg-3 col-md-6 col-sm-6 mb-4 mb-md-0"
+            >
+                <div class="card mb-2" style="width: 18rem">
+                    <img
+                        class="card-img-top"
+                        :src="'storage/' + restaurant.image"
+                        :alt="'immagine di' + restaurant.name"
+                    />
+                    <router-link
+                        class=""
+                        :to="{
+                            name: 'single-restaurant',
+                            params: { slug: restaurant.slug },
+                        }"
+                    >
+                        <div class="card-body">
+                            <h5 class="card-title">{{ restaurant.name }}</h5>
+                            <p class="card-text">{{ restaurant.address }}</p>
+                        </div>
+                    </router-link>
+                </div>
+            </div>
+        </div>
+        <!-- <div v-if="finalRestaurants.length == 0" class="container">
       <p>Non ci sono ristoranti che corrispondono a questa tipologia</p>
     </div> -->
-  </section>
+    </section>
 </template>
 
 <script>
 // import InputComponent from "./InputComponent.vue";
 import TypesSlider from "./TypesSlider.vue";
 export default {
-  name: "RestaurantGridComponent",
-  components: { TypesSlider },
-  data() {
-    return {
-      types: [],
-      restaurants: [],
-      selectValue: [],
-      apiPath: "api/restaurants",
-    };
-  },
-  methods: {
-    getApiTypes() {
-      axios
-        .get("api/types")
-        .then((response) => {
-          this.types = response.data;
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+    name: "RestaurantGridComponent",
+    components: { TypesSlider },
+    data() {
+        return {
+            types: [],
+            restaurants: [],
+            selectValue: [],
+            apiPath: "api/restaurants",
+        };
     },
-    searchType() {
-      if (this.selectValue.length > 0) {
-        let finalQuery = "";
-        this.selectValue.forEach((el) => {
-          finalQuery += el + ",";
-        });
+    methods: {
+        getApiTypes() {
+            axios
+                .get("api/types")
+                .then((response) => {
+                    this.types = response.data;
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
+        },
+        searchType() {
+            if (this.selectValue.length > 0) {
+                let finalQuery = "";
+                this.selectValue.forEach((el) => {
+                    finalQuery += el + ",";
+                });
 
-        axios
-          .get(`${this.apiPath}?type=${finalQuery}`)
-          .then((response) => {
-            this.restaurants = response.data;
-          })
-          .catch((error) => {
-            console.log(error);
-          });
-      } else {
-        axios
-          .get(this.apiPath)
-          .then((response) => {
-            // console.log(response.data);
-            this.restaurants = response.data;
-          })
-          .catch((error) => {
-            console.log(error);
-          });
-      }
+                axios
+                    .get(`${this.apiPath}?type=${finalQuery}`)
+                    .then((response) => {
+                        this.restaurants = response.data;
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                    });
+            } else {
+                axios
+                    .get(this.apiPath)
+                    .then((response) => {
+                        // console.log(response.data);
+                        this.restaurants = response.data;
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                    });
+            }
+        },
     },
-  },
-  created() {
-    this.getApiTypes();
-    this.searchType();
-  },
+    created() {
+        this.getApiTypes();
+        this.searchType();
+    },
 };
 </script>
 
 <style lang="scss" scoped>
-
-
-
-
-
-
 // .label_text {
 //     position: absolute;
 //     top: 50%;
@@ -132,71 +145,80 @@ export default {
 //     padding: 0.5rem 0.25rem;
 // }
 
+// .card-restaurant {
+//     a {
+//         text-decoration: none;
+//         .card {
 
+//             // text-align: center;
+//             // color: black;
+//             // border-radius: 10px;
+//             // box-shadow: 0px 4px 13px 0px rgba(0, 0, 0, 0.52);
+//             // transition: 0.3s;
+//             // &:hover{
+//             //   width: 380px;
+//             //   margin-top: 10px;
+//             //   transition: 0.3s;
+//             // }
+//             img {
+//                 width: 100%;
+//                 height: 170px;
+//                 object-fit: cover;
+//                 border-radius: 10px 10px 0 0;
+//             }
+//             .under-card {
+//                 background-color: transparent;
+//                 padding: 10px 0;
+//             }
+//         }
+//     }
+// }
+.card {
 
-.card-restaurant{
-  a{
-    text-decoration: none;
-    .inner-card{
-      margin-top: 20px;
-      width: 100%;
-      text-align: center;
-      color: black;
-      border-radius: 10px;
-      box-shadow: 0px 4px 13px 0px rgba(0,0,0,0.52);
-      transition: 0.3s;
-      // &:hover{
-      //   width: 380px;
-      //   margin-top: 10px;
-      //   transition: 0.3s;
-      // }
-      img{
-        width: 100%;
-        height: 170px;
-        object-fit: cover;
-        border-radius: 10px 10px 0 0;
-      }
-      .under-card{
-        background-color: transparent;
-        padding: 10px 0;
-      }
-    }
-  }
+            text-align: center;
+            color: black;
+            border-radius: 10px;
+            box-shadow: 0px 4px 13px 0px rgba(0, 0, 0, 0.52);
+            transition: transform 0.3s ease-in-out;
+&:hover{
+ transform: scale(1.05);
+}
 }
 
-
-
+.fixed {
+    width: 99vw;
+}
 
 .checkbox {
-  display: inline-flex;
-  cursor: pointer;
-  position: relative;
-  flex-direction: column;
-  align-items: center;
-
-  & > input {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    -o-appearance: none;
-    appearance: none;
-    outline: none;
-    height: 8rem;
-    width: 8rem;
-    // border: 1px solid #34495e;
-    border-radius: 50%;
-    transition-duration: 0.3s;
-    background-size: 80%;
-    background-repeat: no-repeat;
-    background-position: center;
+    display: inline-flex;
     cursor: pointer;
-  }
+    position: relative;
+    flex-direction: column;
+    align-items: center;
 
-  & > input:checked {
-    border: 0.5rem solid #dbf227;
-  }
+    & > input {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        -o-appearance: none;
+        appearance: none;
+        outline: none;
+        height: 8rem;
+        width: 8rem;
+        // border: 1px solid #34495e;
+        border-radius: 50%;
+        transition-duration: 0.3s;
+        background-size: 80%;
+        background-repeat: no-repeat;
+        background-position: center;
+        cursor: pointer;
+    }
 
-  & > input:active {
-    border: 0.5rem solid #005c53;
-  }
+    & > input:checked {
+        border: 0.5rem solid #dbf227;
+    }
+
+    & > input:active {
+        border: 0.5rem solid #005c53;
+    }
 }
 </style>
