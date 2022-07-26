@@ -129,9 +129,9 @@ class OrderController extends Controller
             //dd($sponsorization);
             $order->shipped = true;
             $order->update();
-            dd('successo!!');
+            return view('orders.success');
         } else {
-            dd('noooooo!!');
+            return view('orders.failed');
         }
     }
 
