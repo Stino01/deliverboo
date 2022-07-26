@@ -1,18 +1,33 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
+.primaryColorBG {
+  background-color: #042940;
+}
+
+.secondaryColorBG {
+  background-color: #005c53;
+}
+
+.primaryColorBG {
+  background-color: #042940;
+}
+
+.secondaryColorBG {
+  background-color: #005c53;
+}
+
+body{
+  background-image: url("https://svgshare.com/i/j84.svg");
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
 main {
-  position: absolute;
-  top: 56px;
-  min-height: calc(100vh - 56px);
-  width: 100%;
+  min-height: calc(100vh - 250px);
   display: flex !important;
   justify-content: center;
   align-items: center;
   justify-content: center;
   align-items: center;
-  background-image: url("https://svgshare.com/i/j84.svg");
-  background-attachment: fixed;
-  background-size: cover;
-  background-repeat: no-repeat;
 }
 main .container {
   width: 100%;

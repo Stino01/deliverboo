@@ -3,21 +3,31 @@
 @section('content')
 <div id="container-products">
     <div id="container-ristorante">
-        <h1 class="text-center">{{$restaurant->name}}</h1>
-        <a href="{{route('admin.products.create')}}" class="btn btn_main text-uppercase my-3" type="button">Aggiungi piatto</a>
+        <strong><h1 class="text-center my-4">{{$restaurant->name}}</h1></strong>
         @if ($restaurant->image)
             <img class="resturant-image" src="{{asset('storage/' . $restaurant->image)}}" alt="user">
         {{-- <img id="resturant-image" src="{{ asset('storage/' . $restaurant->image)}}" alt="user"> --}}
         @else
             <img class="resturant-image" src="{{asset('media/img/mistery-resturant.png')}}" alt="user">
         @endif
+        <h3 class="mt-3">Indirizzo: {{$restaurant->address}}</h3>
+        <h4 class="mt-2">Partita IVA: {{$restaurant->vat_number}}</h4>
+        <a href="{{route('admin.products.create')}}" class="btn btn_main text-uppercase my-3" type="button">Aggiungi piatto</a>
+        <form action="{{route('admin.restaurants.destroy', $restaurant->id)}}" method="post" class="mt-3">
+            @csrf
+            @method('DELETE')
+            <button type="submit" onclick="boolpress.openModal(event, {{ $restaurant->id }})"
+                class="btn btn-danger delete text-uppercase">Elimina ristorante</button>
+        </form>
     </div>
     <div id="container-prodotti">
         @foreach ($products as $product)
         <div class="product-card">
             <div class="left-side-card">
                 <div  class="left-side-top-card">
-                    <h1><a href="{{route('admin.products.show', $product->id)}}">{{$product->name}}</a></h1>
+                    <div class="prod-name-cont">
+                        <h1><a href="{{route('admin.products.show', $product->id)}}">{{$product->name}}</a></h1>
+                    </div>
                     <p>€ {{$product->price}}</p>
                 </div>
                 <div class="left-side-under-card">
@@ -45,8 +55,10 @@
 
 <style>
     .product-card{
+        min-width: 335px;
         height: 150px;
-        width: 40%;
+        width: 45%;
+        padding: 0 1%;
         border-radius: 10px;
         background-color: white;
         box-shadow: 0px 5px 14px 3px black;
@@ -69,12 +81,15 @@
     }
     .left-side-top-card{
         width: 100%;
-        height: 100%;
-    }
-    .left-side-top-card{
+        height: 60%;
         text-align: center;
     }
-
+    .prod-name-cont{
+        white-space: normal;
+        max-height: 65%;
+        overflow: hidden;
+        text-overflow: ellipsis; 
+    }
     .left-side-top-card h1 a{
         font-size: 1.4rem;
         text-overflow: ellipsis;
@@ -86,6 +101,7 @@
         transition: 0.1s;
     }
     .left-side-under-card{
+        height: 40%;
         display: flex;
         flex-direction: row;
         gap: 10px;
@@ -95,7 +111,7 @@
     }
     .product-card img{
         border-radius: 10px;
-        width: 90%;
+        width: 100%;
         height: 80%;
         object-fit: cover;
     }
@@ -129,7 +145,7 @@
         justify-content: space-evenly;
         align-content: flex-start;
         width: 60%;
-        height: calc(100vh - 110px);
+        height: calc(100vh - 114px);
         overflow: auto;
     }
     #container-prodotti::-webkit-scrollbar {

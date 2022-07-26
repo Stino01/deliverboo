@@ -1,4 +1,12 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
+.primaryColorBG {
+  background-color: #042940;
+}
+
+.secondaryColorBG {
+  background-color: #005c53;
+}
+
 /*!
  * Bootstrap v4.6.1 (https://getbootstrap.com/)
  * Copyright 2011-2021 The Bootstrap Authors

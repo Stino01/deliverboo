@@ -28,45 +28,49 @@
 
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar_dark ">
-            <div class="container">
-                {{-- <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a> --}}
+        <nav class="navbar navbar-expand-lg navbar_dark ">
+                <a class="navbar-brand text-white text-uppercase ml-5" href="http://127.0.0.1:8000/">
+                        <img
+                        src="https://cdn.discordapp.com/attachments/941312490950766592/996354486467571802/TEq98Yg.png"
+                        width="40"
+                        height="40"
+                        class="d-inline-block align-center"
+                        alt="Deliverboo Logo"
+                    />
+                    <h4 class="d-inline-block align-center">
+                        Deliverboo
+                    </h4>
+
+                </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                    aria-label="{{ __('Toggle navigation') }}">
+                    {{-- aria-label="{{ __('Toggle navigation') }}" --}}
+                    aria-label="Toggle navigation"
+                    >
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-                        <a  class="navbar-brand" href="http://127.0.0.1:8000/">
-                            <div id="left">
-                                <img class="d-inline-block align-top" style="width: 5rem"
-                                src="https://cdn.discordapp.com/attachments/941312490950766592/996354486467571802/TEq98Yg.png"
-                            />
-                                Deliverboo
-                            </div>
-                        </a>
+
                         @auth
                         <li class="nav-item">
-                            <a class="nav-link btn btn_main {{Route::currentRouteName() == 'home' ? 'active' : ''}}"
+                            <a class="nav-link text-white  {{Route::currentRouteName() == 'home' ? 'active' : ''}}"
                                 href="{{ url('/') }}">
                                 Home
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link btn btn_main {{Route::currentRouteName() == 'admin.products.index' ? 'active' : ''}}"
+                            <a class="nav-link text-white {{Route::currentRouteName() == 'admin.products.index' ? 'active' : ''}}"
                                 href="{{ route('admin.products.index') }}">Prodotti</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link btn btn_main {{Route::currentRouteName() == 'admin.restaurants.index' ? 'active' : ''}}"
+                            <a class="nav-link text-white  {{Route::currentRouteName() == 'admin.restaurants.index' ? 'active' : ''}}"
                                 href="{{ route('admin.restaurants.index') }}">Ristorante</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link btn btn_main {{Route::currentRouteName() == 'admin.orders.index' ? 'active' : ''}}"
+                            <a class="nav-link text-white  {{Route::currentRouteName() == 'admin.orders.index' ? 'active' : ''}}"
                                 href="{{ route('admin.orders.index') }}">Ordini</a>
                         </li>
                         @endauth
@@ -77,26 +81,28 @@
                         <!-- Authentication Links -->
                         @guest
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            <a class="nav-link text-white" href="{{ route('login') }}">{{ __('Login') }}</a>
                         </li>
                         @if (Route::has('register'))
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            <a class="nav-link text-white" href="{{ route('register') }}">{{ __('Register') }}</a>
                         </li>
                         @endif
                         @else
                         <li class="nav-item">
-                            <a class=" btn btn_main nav-link {{Route::currentRouteName() == 'admin.home' ? 'active' : ''}}"
+                            <a class="  nav-link text-white {{Route::currentRouteName() == 'admin.home' ? 'active' : ''}}"
                                 href="{{ url('admin') }}">Dashboard</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle text-white" href="#" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }}
                             </a>
 
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                            <div class="dropdown-menu dropdown-menu-right" 
+                            style="background-color:#005c53"
+                            aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item text-white" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
                                 </a>
@@ -109,10 +115,9 @@
                         @endguest
                     </ul>
                 </div>
-            </div>
-        </nav>
 
-        <main class="py-4">
+        </nav>
+        <main> {{-- class="py-4" --}}
             @yield('content')
         </main>
     </div>
