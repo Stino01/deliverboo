@@ -33,6 +33,7 @@
         <table class="table">
             <thead>
                 <tr>
+                    <th scope="col">ID</th>
                     <th scope="col">Nome prodotto</th>
                     <th scope="col">Prezzo</th>
                     <th scope="col">Data di creazione</th>
@@ -44,10 +45,11 @@
             <tbody>
                 @foreach ($products as $product)
                 <tr>
+                    <td>#{{$product->id}}</td>
                     <td>{{$product->name}}</td>
                     <td>€ {{$product->price}}</td>
                     <td>{{$product->created_at}}</td>
-                    <td><a href="{{route('admin.products.show', $product->id)}}" class="btn btn_main">Visualiza</a></td>
+                    <td><a href="{{route('admin.products.show', $product->id)}}" class="btn btn_main">Visualizza</a></td>
                     <td><a href="{{route('admin.products.edit', $product->id)}}" class="btn btn-warning">MODIFICA</a></td>
                     <td>
                         <form action="{{route('admin.products.destroy', $product->id)}}" method="POST">
@@ -77,7 +79,7 @@
         padding: 20px;
         border-radius: 20px
     }
-    tr>td:not(:nth-child(1)), tr>th:not(:nth-child(1)){
+    tr>td:not(:nth-child(2)), tr>th:not(:nth-child(2)){
         text-align: center
     }
 
