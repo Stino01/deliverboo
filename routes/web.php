@@ -31,6 +31,9 @@ Route::middleware('auth')
 //CONTROLLER PER VISUALIZZARE L'ORDINE DELL'UTENTE
 Route::resource('/orders', 'OrderController');
 
+//CONTROLLER PER INVIARE DATI CARRELLO AL BACKEND
+Route::post('/orders', 'OrderController@store');
+
 Route::get("{any?}", function () {
     return view("guest.home");
 })->where("any", ".*");

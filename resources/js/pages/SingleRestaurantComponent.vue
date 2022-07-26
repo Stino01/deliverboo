@@ -13,6 +13,7 @@
             <div class="modal-content">
               <div class="modal-header">
                 <h4>Il tuo carrello</h4>
+                <button @click="sendOrder()">Prova chiamata API</button>
                 <button
                   type="button"
                   class="close"
@@ -73,88 +74,6 @@
         </div>
       </div>
     </div>
-
-    <!-- CARD PRODOTTI
-    <div class="card">
-      <div v-if="restaurant">
-        <div class="card-header">
-          <h1>{{ restaurant.name }}</h1>
-        </div>
-      </div>
-      <div class="card-body">
-        <h1></h1>
-        <h2>MENU</h2>
-        <h3>CATEGORIE</h3>
-        <ul>
-          <li v-for="category in categories" :key="category.id">
-            <a href="">{{ category.name }}</a>
-            <ul v-for="product in products" :key="product.id">
-              <li v-if="product.category_id == category.id">
-                <p>{{ product.name }} : &euro; {{ product.price }}</p>
-                <button @click="addToCart(product)" class="btn btn-primary">
-                  Aggiungi al carrello
-                </button>
-              </li>
-            </ul>
-          </li>
-        </ul>
-        <div class="modal fade" id="cart">
-          <div class="modal-dialog modal-dialog-centered modal-lg">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5>Your Cart</h5>
-                <button
-                  type="button"
-                  class="close"
-                  data-dismiss="modal"
-                  aria-label="Close"
-                >
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body" id="cart-body">
-                <table class="table table-striped text-left">
-                  <tbody>
-                    <tr v-for="(cart, n) in carts" :key="n">
-                      <td>{{ cart.name }}</td>
-                      <td>&euro; {{ cart.price }}</td>
-                      <td width="100">
-                        <input
-                          type="text"
-                          readonly
-                          class="form-control"
-                          v-model="quantity"
-                        />
-                      </td>
-                      <td width="60">
-                        <button
-                          @click="removeCart(n)"
-                          class="btn btn-danger btn-sm"
-                        >
-                          <i class="fa-solid fa-xmark"></i>
-                        </button>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <div class="modal-footer">
-                Total Price: &euro; {{ totalprice }} &nbsp;
-                <a href="/orders/create">
-                  <button
-                    type="submit"
-                    value="Checkout"
-                    class="btn btn-primary"
-                  >
-                    Checkout
-                  </button>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div> -->
 
     <!-- CARD PRODOTTI-->
     <div class="card">
@@ -228,15 +147,36 @@ export default {
       restaurant: null,
       categories: [],
       products: [],
-      // cart
       carts: [],
+
       cartadd: {
         id: "",
         name: "",
+        lastname: "",
+        email: "",
+        phone: null,
         price: "",
         amount: "",
         restaurant_id: "",
+        prod_id: [],
+        prod_qnty: [],
+        total: null,
       },
+
+      formData: {
+        id: "",
+        name: "",
+        lastname: "",
+        email: "",
+        phone: null,
+        price: "",
+        amount: "",
+        restaurant_id: "",
+        prod_id: [],
+        prod_qnty: [],
+        total: null,
+      },
+
       formattedTotal: null,
       badge: "0",
       quantity: "1",
@@ -365,6 +305,39 @@ export default {
     emptyCart() {
       window.localStorage.clear();
       this.carts = [];
+    },
+
+    //CHIAMATA API PER PASSARE I PRODOTTI AL BACKEND
+
+    sendOrder() {
+      // console.log(this.products);
+      let prod = this.products;
+      // if (this.check) {
+      //   this.payment = true;
+      prod.forEach((element) => {
+        this.formData.prod_id.push(element.id);
+        // console.log(element.id);
+        // console.log(this.formData.prod_id);
+        this.formData.prod_qnty.push(element.qnty);
+      });
+
+      this.formData.total = this.total;
+      console.log(this.formData.prod_id);
+      axios
+        .post("/api/orders", this.formData)
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+      // }
+      //  else {
+      //   this.$refs["error"].innerHTML = "Compila tutti i campi obbligatori";
+      //   const timeout = setTimeout(() => {
+      //     this.$refs["error"].innerHTML = "";
+      //   }, 3000);
+      // }
     },
   },
   mounted() {

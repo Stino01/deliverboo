@@ -51,6 +51,13 @@ class OrderController extends Controller
 
         $request->validate($this->validationRule);
         $data = $request->all();
+
+        $syncData = array_combine($data['prod_id'], $data['prod_qnty']);
+        $qnty = collect($syncData)
+            ->map(function ($qnty) {
+                return ['quantity' => $qnty];
+            });
+
         $newOrder = new Order();
         $newOrder->name = $data['name'];
         $newOrder->surname = $data['surname'];
@@ -61,6 +68,8 @@ class OrderController extends Controller
         $newOrder->shipping_address = $data['shipping_address'];
         $newOrder->shipped = false;
         // $message = "Ordine effettuato con successo";
+
+        $newOrder->products()->sync($qnty);
 
         $newOrder->save();
 
@@ -98,9 +107,6 @@ class OrderController extends Controller
 
         // PASSAGGIO DEL TOKEN ALLA ROTTA
         $token = $gateway->ClientToken()->generate();
-        // $order = Order::where('name', $order)->first();
-        // dump($order->id);
-        // dump($token);
         return view('orders.edit', ['token' => $token, 'order' => $order]);
     }
 
@@ -115,7 +121,7 @@ class OrderController extends Controller
     {
         // PROCESSO DI PAGAMENTO: SE AVVIENE CON SUCCESSO, CAMBIA IL VALORE DI ORDER DA "NON SPEDITO" A "SPEDITO"
 
-        $data = $request->all();
+        // $data = $request->all();
         //qui inizializzo braintree
         $gateway = new \Braintree\Gateway([
             'environment' => 'sandbox',
@@ -138,10 +144,8 @@ class OrderController extends Controller
 
         //dd($result);
         if ($result->success) {
-            //dd($sponsorization);
             $order->shipped = true;
             $order->update();
-            Mail::to('amministazione@deliverboo.it')->send(new SendNewMail($order->name, $order->total_price));
             return view('orders.success');
         } else {
             return view('orders.failed');
