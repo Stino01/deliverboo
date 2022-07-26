@@ -81,10 +81,12 @@
 
 <style>
     main .container{
-        margin: 20px 0;
+        margin: 30px 0;
         padding: 20px;
         border-radius: 20px;
-        background-color: rgb(150, 150, 150);
+        background-color: #042940;
+        color: white;
+        box-shadow: 0px 7px 14px 3px black;
     }
     .form-cont>div{
         width: 100% !important;
