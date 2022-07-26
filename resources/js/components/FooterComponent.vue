@@ -25,7 +25,7 @@
                     <div class="col-lg-3 col-md-6 col-sm-6 mb-4 mb-md-0">
                         <h5 class="text-uppercase">Scopri Deliverboo</h5>
 
-                        <ul class="list-unstyled mb-0">
+                        <ul class="list-unstyled mb-0 py-2">
                             <li>
                                 <a href="#!" class="text-white">Investitori</a>
                             </li>
@@ -116,7 +116,7 @@
                         <h5 class="text-uppercase">Porta Deliverboo con te</h5>
 
                         <ul class="list-unstyled mb-0">
-                            <li>
+                            <li class="my-1">
                                 <a href="#!">
                                     <img
                                         style="width: 10rem"
@@ -124,7 +124,7 @@
                                     />
                                 </a>
                             </li>
-                            <li>
+                            <li class="my-1">
                                 <a href="#!">
                                     <img
                                         style="width: 10rem"
@@ -187,4 +187,14 @@ export default {
 };
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+h5 {
+    font-weight: 600;
+}
+ul {
+
+    li {
+        padding: 0.3rem 0;
+    }
+}
+</style>

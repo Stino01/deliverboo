@@ -33,10 +33,10 @@
                 </div>
             </div>
         </div>
-
+        <h2 v-if="selectValue.length == 0" class="text-center">I più amati nella tua zona</h2>
         <div
             v-if="restaurants.length > 0"
-            class="row d-flex justify-content-around my-5 card-resturant-container fixed"
+            class="row d-flex justify-content-around my-5 card-resturant-container container centratura"
         >
             <div
                 v-for="restaurant in restaurants"
@@ -178,7 +178,12 @@ export default {
 //         }
 //     }
 // }
+.centratura {
+  margin: 0 auto;
+}
+
 .card {
+  padding: 0 !important;
     text-align: center;
     color: black;
     border-radius: 10px;
@@ -196,11 +201,6 @@ export default {
         transition: 0.5s;
     }
 }
-
-.fixed {
-    width: 99vw;
-}
-
 
 :hover a{
   text-decoration: none;
