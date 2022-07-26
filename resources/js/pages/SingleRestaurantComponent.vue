@@ -12,7 +12,7 @@
           <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content">
               <div class="modal-header">
-                <h5>Your Cart</h5>
+                <h4>Il tuo carrello</h4>
                 <button
                   type="button"
                   class="close"
@@ -226,7 +226,7 @@ export default {
     //FUNZIONE PER AUMENTARE LA QUANTITA' DEL PRODOTTO
     addQuantity(cart) {
       // cart.quantity = 1;
-      console.log(cart);
+      // console.log(cart);
       let itemInCart = this.carts.filter((item) => item.id === cart.id);
       itemInCart[0].quantity += 1;
       this.cartadd = {};
@@ -236,7 +236,7 @@ export default {
     //FUNZIONE PER DIMINUIRE LA QUANTITA' DEL PRODOTTO
     decreaseQuantity(cart) {
       // cart.quantity = 1;
-      console.log(cart);
+      // console.log(cart);
       let itemInCart = this.carts.filter((item) => item.id === cart.id);
       itemInCart[0].quantity -= 1;
       if (itemInCart[0].quantity <= 0) {
