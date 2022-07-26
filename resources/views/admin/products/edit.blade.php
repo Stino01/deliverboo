@@ -100,7 +100,8 @@
         width: 100% !important;
         background-color: white;
         margin: 0 !important;
-        padding: 5px
+        padding: 5px;
+        color: black;
 
     }
     .nicEdit-panel>div>div{

@@ -145,7 +145,7 @@
         justify-content: space-evenly;
         align-content: flex-start;
         width: 60%;
-        height: calc(100vh - 114px);
+        height: calc(100vh - 66px);
         overflow: auto;
     }
     #container-prodotti::-webkit-scrollbar {
