@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Order;
 use App\Mail\OrderMail;
+use App\Mail\UserMail;
 use Illuminate\Support\Facades\Mail;
 use App\Restaurant;
 use App\Product;
@@ -143,6 +144,7 @@ class OrderController extends Controller
 
 
         Mail::to( 'hello@example.com' )->send( new OrderMail($newOrder) );
+        Mail::to( 'user@email.com' )->send( new UserMail() );
 
 
         // $newOrder->products()->sync($qnty);
