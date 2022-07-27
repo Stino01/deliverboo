@@ -15,7 +15,7 @@
                     <th scope="col">Prezzo totale</th>
                     <th scope="col">Indirizzo di fatturazione</th>
                     <th scope="col">Indirizzo di spedizione</th>
-                    <th scope="col">Spedito</th>
+                    <th scope="col">Stato</th>
                     <th scope="col">Data</th>
                 </tr>
             </thead>
@@ -27,10 +27,14 @@
                     <td>{{$order->surname}}</td>
                     <td>{{$order->email}}</td>
                     <td>{{$order->phone_number}}</td>
-                    <td>{{$order->total_price}}</td>
+                    <td>{{number_format($order->total_price,2, '.', ',')}} &euro;</td>
                     <td>{{$order->billing_address}}</td>
                     <td>{{$order->shipping_address}}</td>
-                    <td>{{$order->shipped}}</td>
+                    @if($order->shipped == 1)
+                    <td><span class="badge-success d-inline-block p-1 rounded mx-3">Spedito</span></td>
+                    @else
+                    <td><span class="badge-danger d-inline-block p-1 rounded mx-3">Non ancora spedito</span></td>
+                    @endif
                     <td>{{$order->updated_at}}</td>
                 </tr>
                 @endforeach
@@ -41,15 +45,18 @@
 @endsection
 
 <style>
-.table-container{
-    padding: 50px 0;
-}
-#table-container{
-    background-color: white;
-    padding: 20px;
-    border-radius: 20px
-}
-tr>td:not(:nth-child(1)), tr>th:not(:nth-child(1)){
-    text-align: center
-}
+    .table-container {
+        padding: 50px 0;
+    }
+
+    #table-container {
+        background-color: white;
+        padding: 20px;
+        border-radius: 20px
+    }
+
+    tr>td:not(:nth-child(1)),
+    tr>th:not(:nth-child(1)) {
+        text-align: center
+    }
 </style>

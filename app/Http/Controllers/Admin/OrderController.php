@@ -98,12 +98,12 @@ class OrderController extends Controller
 
         // SERIE DI FILTRI E CONDIZIONI CHE DEVONO MOSTRARE UNA PAGINA DI ERRORE OGNI VOLTA CHE UN RISTORATORE CERCA DI ACCEDERE A DEGLI ORDINI DI ALTRI RISTORANTI O A ORDINI CHE NON ESISTONO
 
-        foreach ($filteredOrders as $filt_ord) {
-            // dump($filt_ord);
-            if ($filt_ord->id != $ord->id) {
-                return view('admin.orders.error');
-            }
-        }
+        // foreach ($filteredOrders as $filt_ord) {
+        //     // dump($filt_ord);
+        //     if ($filt_ord->id != $ord->id) {
+        //         return view('admin.orders.error');
+        //     }
+        // }
         // dump($order->getOriginal('pivot_order_id')); // = 7
         // dump($order->id); // = 7
         if ($order->getOriginal('pivot_order_id') == $order->id) {
