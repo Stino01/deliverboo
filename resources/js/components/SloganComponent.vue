@@ -5,7 +5,7 @@
 
 		<div class="col-lg-4 col-sm-6">
 			<div>
-				<img class="img-fluid mx-auto d-block" src="/media/img/banner.png" alt="">
+				<img class="img-fluid mx-auto d-block" :src="myImage" @mouseover=" myImage = newImage"    alt="">
 			</div><!-- /lc-block -->
 		</div><!-- /col -->
 		<div class="col-lg-4 offset-lg-1">
@@ -33,7 +33,15 @@
 </template>
 <script>
 export default {
-    name: 'SloganComponent'
+    name: 'SloganComponent',
+	  data() {
+    return { 
+      myImage: "/media/img/banner.png",
+	  newImage: "https://www.affaritaliani.it/static/upl2022/elis/0002/elisa-esposito-1-10.jpg"
+
+    }
+  }
+
 }
 </script>
 <style lang="scss" scoped>

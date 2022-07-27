@@ -7,7 +7,7 @@
                 <div
                     v-for="(type, index) in types"
                     :key="index"
-                    class="col-sm-6 col-md-3 col-lg-2 py-2 checkbox"
+                    class="col-6 col-sm-6 col-md-3 col-lg-2 py-2 checkbox"
                 >
                     <input
                         type="checkbox"
