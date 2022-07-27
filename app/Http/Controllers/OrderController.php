@@ -119,7 +119,7 @@ class OrderController extends Controller
         $newOrder->save();
         // dd($newOrder->id);
         $finalData = [];
-        dd(count($id_list));
+        // dd(count($id_list));
         for ($i = 0; $i < count($id_list); $i++) {
             $info = [
 
@@ -148,7 +148,7 @@ class OrderController extends Controller
 
         // $newOrder->products()->sync($qnty);
 
-        // return redirect()->route('orders.edit', $newOrder->id);
+        return redirect()->route('orders.edit', $newOrder->id);
     }
 
     /**
