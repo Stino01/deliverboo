@@ -16,7 +16,8 @@
 <body>
     <div id="auth-container">
 
-        <header-component :user={{ Auth::id() }}></header-component>
+        <header-component 
+        :user= "value to pass"></header-component>
         {{-- @dd(Auth::id()) --}}
 
 
@@ -68,3 +69,5 @@
         color: white;
     }
 </style>
+
+

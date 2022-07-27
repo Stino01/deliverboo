@@ -51,6 +51,8 @@
                                         <div v-else>
                                             <a class="dropdown-item text-white" href="http://127.0.0.1:8000/login"> Accedi </a>
                                             <a class="dropdown-item text-white" href="http://127.0.0.1:8000/register"> Registrati </a>
+                                            <a class="dropdown-item text-white" href="http://127.0.0.1:8000/register" v-html="user">  </a>
+
                                         </div>
                                     </div>
                                 </li>
