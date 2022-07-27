@@ -9,7 +9,7 @@
     @if($restaurant->user_id == $user)
     <div class="container d-flex my-5">
         <div class="container">
-            <div class="card container d-flex align-items-center flex-column py-3">
+            <div class="card container d-flex align-items-center flex-column py-3" id="restaurant-index-card">
                 <h1 class="text-center text-white mb-3">{{$restaurant->name}}</h1>
                 @if ($restaurant->image)
                 <img class="resturant-image" src="{{asset('storage/' . $restaurant->image)}}" alt="user">
@@ -40,7 +40,7 @@
         border-radius: 20px;
     }
 
-    .card {
+    #restaurant-index-card {
         width: 80% !important;
         background-color: #042940 !important;
     }
