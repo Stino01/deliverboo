@@ -41,36 +41,17 @@
                         <form class="form-inline my-2 my-lg-0">
                             <ul class="navbar-nav mr-auto">
                                 <li class="nav-item dropdown">
-                                    <a
-                                        class="nav-link dropdown-toggle text-white"
-                                        href="#"
-                                        role="button"
-                                        data-toggle="dropdown"
-                                        aria-expanded="false"
-                                    >
-                                        Area Riservata
-                                    </a>
-                                    <div
-                                        class="dropdown-menu"
-                                        style="background-color: #9fc131"
-                                    >
-                                        <a
-                                            class="dropdown-item text-white"
-                                            href="http://127.0.0.1:8000/login"
-                                            >Accedi</a
-                                        >
-                                        <a
-                                            class="dropdown-item text-white"
-                                            href="http://127.0.0.1:8000/register"
-                                            >Registrati</a
-                                        >
-
-                                        <div class="dropdown-divider"></div>
-                                        <a
-                                            class="dropdown-item text-white"
-                                            href="http://127.0.0.1:8000/admin"
-                                            >Menu Ristoratore</a
-                                        >
+                                    <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-toggle="dropdown" aria-expanded="false"> Area Riservata </a>
+                                    <div class="dropdown-menu" style="background-color: #9fc131" >
+                                        <div v-if="user">
+                                            <a class="dropdown-item text-white" href="http://127.0.0.1:8000/admin"> Menu Ristoratore </a>
+                                            <div class="dropdown-divider"></div>
+                                            <a class="dropdown-item text-white" href="http://127.0.0.1:8000/logout"> Log Out </a>
+                                        </div>
+                                        <div v-else>
+                                            <a class="dropdown-item text-white" href="http://127.0.0.1:8000/login"> Accedi </a>
+                                            <a class="dropdown-item text-white" href="http://127.0.0.1:8000/register"> Registrati </a>
+                                        </div>
                                     </div>
                                 </li>
                             </ul>
@@ -85,6 +66,10 @@
 <script>
 export default {
     name: "HeaderComponent",
+    props: ['user'],
+    mounted() {
+        console.log("lo user è " + this.user)
+    },
     data() {
         return {
             menuItem: [

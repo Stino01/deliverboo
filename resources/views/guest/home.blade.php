@@ -15,6 +15,13 @@
 
 <body>
     <div id="auth-container">
+
+        <header-component :user={{ Auth::id() }}></header-component>
+        {{-- @dd(Auth::id()) --}}
+
+
+
+
         @if (Route::has('login'))
         <div>
             {{-- @auth
