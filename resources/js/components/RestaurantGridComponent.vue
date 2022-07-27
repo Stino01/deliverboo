@@ -33,7 +33,9 @@
                 </div>
             </div>
         </div>
-        <h2 v-if="selectValue.length == 0" class="text-center">I più amati nella tua zona</h2>
+        <h2 v-if="selectValue.length == 0" class="text-center">
+            I più amati nella tua zona
+        </h2>
         <div
             v-if="restaurants.length > 0"
             class="row d-flex justify-content-around my-5 card-resturant-container container centratura"
@@ -179,21 +181,21 @@ export default {
 //     }
 // }
 .centratura {
-  margin: 0 auto;
+    margin: 0 auto;
 }
 
 .card {
-  padding: 0 !important;
+    padding: 0 !important;
     text-align: center;
     color: black;
     border-radius: 10px;
     box-shadow: 0px 4px 13px 0px rgba(0, 0, 0, 0.52);
     transition: transform 0.3s ease-in-out;
-    img{
-      width: 100% !important;
-      height: 200px !important;
-      object-fit: cover;
-      border-radius: 10px 10px 0 0;
+    img {
+        width: 100% !important;
+        height: 200px !important;
+        object-fit: cover;
+        border-radius: 10px 10px 0 0;
     }
     &:hover {
         transform: scale(1.05);
@@ -202,8 +204,8 @@ export default {
     }
 }
 
-:hover a{
-  text-decoration: none;
+:hover a {
+    text-decoration: none;
 }
 .checkbox {
     display: inline-flex;
@@ -211,6 +213,8 @@ export default {
     position: relative;
     flex-direction: column;
     align-items: center;
+    transition: transform 0.3s ease-in-out;
+
 
     & > input {
         -webkit-appearance: none;
@@ -231,6 +235,15 @@ export default {
 
     & > input:checked {
         border: 0.5rem solid #dbf227;
+        transform: scale(1.05);
+        transition: 0.3s;
+        box-shadow: 0px 8px 13px 0px rgba(0, 0, 0, 0.3);
+    }
+
+    & > input:hover {
+        transform: scale(1.05);
+        transition: 0.3s;
+        box-shadow: 0px 8px 13px 0px rgba(0, 0, 0, 0.3);
     }
 
     & > input:active {
