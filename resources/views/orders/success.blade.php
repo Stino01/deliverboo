@@ -9,14 +9,15 @@
 </div>
 @endsection
 
-<style>
-.card {
-    background-color: transparent !important;
-    border: none !important;
-}
-.cent {
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-}
+<style scoped>
+    .card {
+        background-color: red !important;
+        border: none !important;
+    }
+
+    .cent {
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+    }
 </style>
