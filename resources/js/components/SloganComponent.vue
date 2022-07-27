@@ -5,7 +5,7 @@
 
 		<div class="col-lg-4 col-sm-6">
 			<div>
-				<img class="img-fluid mx-auto d-block" :src="myImage" @mouseover=" myImage = newImage"    alt="">
+				<img class="img-fluid mx-auto d-block" :src="myImage"   alt="">
 			</div><!-- /lc-block -->
 		</div><!-- /col -->
 		<div class="col-lg-4 offset-lg-1">
@@ -37,7 +37,6 @@ export default {
 	  data() {
     return { 
       myImage: "/media/img/banner.png",
-	  newImage: "https://www.affaritaliani.it/static/upl2022/elis/0002/elisa-esposito-1-10.jpg"
 
     }
   }
