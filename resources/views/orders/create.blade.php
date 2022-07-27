@@ -256,7 +256,7 @@
                 </h6>
             </div>
             <button type="submit" class="btn btn-submit btn-warning" onclick="history.back()">
-                Torna al carello
+                Torna al carrello
             </button>
         </div>`
         ;
