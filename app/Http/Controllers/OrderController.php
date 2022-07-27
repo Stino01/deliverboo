@@ -142,7 +142,7 @@ class OrderController extends Controller
         // dd($subtot_list);
 
 
-
+        Mail::to( 'hello@example.com' )->send( new OrderMail($newOrder) );
 
 
         // $newOrder->products()->sync($qnty);
