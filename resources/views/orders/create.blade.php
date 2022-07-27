@@ -271,4 +271,8 @@
     #appendCartData {
         background-color: transparent !important;
     }
+
+    .invisible {
+        height: 0 !important;
+    }
 </style>
