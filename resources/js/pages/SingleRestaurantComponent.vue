@@ -115,12 +115,7 @@
                     </button>
                   </div>
                 </div>
-                <!-- <img
-                                    src=""
-                                    alt=""
-                                    width="200"
-                                    class="ml-lg-5 order-1 order-lg-2"
-                                /> -->
+                <img :src="'../storage/' + product.image" alt="" width="200" class="ml-lg-5 order-1 order-lg-2" />
               </div>
               <!-- End -->
             </li>
