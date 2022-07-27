@@ -37,7 +37,7 @@
 
                 <div class="card-body">
                     <h5 class="text-center">Non hai ancora registrato un ristorante.</h5>
-                    <a href="{{route('admin.restaurants.create')}}" class="btn btn-primary text-uppercase my-3"
+                    <a href="{{route('admin.restaurants.create')}}" class="btn btn_main text-uppercase my-3"
                         type="button">Aggiungi Ristorante</a>
                 </div>
             </div>
