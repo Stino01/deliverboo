@@ -66,7 +66,7 @@
         padding: 0 1%;
         border-radius: 10px;
         background-color: white;
-        box-shadow: 0px 5px 14px 3px black;
+        box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.7);
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -152,7 +152,7 @@
     #container-ristorante img {
         width: 100%;
         border-radius: 10px;
-        box-shadow: 0px 5px 14px 3px black;
+        box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.7);
     }
 
     #container-prodotti {

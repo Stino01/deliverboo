@@ -19,7 +19,7 @@
                 </p>
 
                 <h4>Prodotti:</h4>
-                <ol>
+                <ol class="back">
                     @for($i=0;$i<$pivot_attr->count();$i++)
                         <li class="my-3">{{$products[$i]->name}}
                             <ul>
@@ -42,9 +42,5 @@
 <style>
     .card {
         background-color: #042940 !important;
-    }
-
-    li {
-        margin-left: -15px !important;
     }
 </style>
