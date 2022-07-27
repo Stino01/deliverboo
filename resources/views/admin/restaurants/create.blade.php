@@ -56,19 +56,23 @@
             <div class="form-group text-center">
                 <span>Seleziona almeno una tipologia di ristorante *</span>
             </div>
-            <div class="row form-group d-flex justify-content-center align-items-center form-check-inline">
-                @foreach ($types as $type)
-                <div class="col-3 badge d-flex form-check-inline text-dark">
-                    <label for="types[]" class="col-form-label mx-3">{{$type->name}}</label>
-                    <div><input id="type" type="checkbox" name="types[]"
-                            class="form-check-input @error('types[]') is-invalid @enderror" value="{{$type->id}}"></div>
+            <div class="container"> 
+                <div class="row form-group d-flex justify-content-center align-items-center form-check-inline">
+                    @foreach ($types as $type)
+                    <div class="col-lg-3 col-md-6 col-sm-6 d-flex justify-content-center text-white">
+                        <div class="d-flex justify-content-start form-check-inline">
+                            <label for="types[]" class="col-form-label mx-3">{{$type->name}}</label>
+                            <input id="type" type="checkbox" name="types[]"
+                                    class="form-check-input @error('types[]') is-invalid @enderror" value="{{$type->id}}">
+                        </div>
+                    </div>
+                    @endforeach
+                    @error('types[]')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
                 </div>
-                @endforeach
-                @error('types[]')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-                @enderror
             </div>
             <div class="submit-button d-flex justify-content-center align-items-center gap-3">
                 <button type="submit" class="btn btn_main">Crea</button>
