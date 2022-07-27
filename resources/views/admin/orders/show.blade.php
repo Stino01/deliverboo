@@ -2,15 +2,16 @@
 @include('partials/popupdelete')
 @section('content')
 <div class="container">
-    <div class="card my-3 gap-3 text-white">
+    <div class="card my-4 gap-3 text-white">
         <div class="card-header">
             <div class="container">
-                <h1 class="my-5">Ordine numero: {{$order->id}}</h1>
+                <h1 class="my-3">Ordine numero: {{$order->id}}</h1>
                 <h3>Effettuato da: {{$order->name}} {{$order->surname}}</h3>
                 <h4>Contatti:</h4>
                 <p><i class="fa-solid fa-envelope"></i> {{$order->email}} - <i class="fa-solid fa-phone"></i>
                     {{$order->phone_number}} </p>
-                <p>{{$order->shipping_address}} - {{\Carbon\Carbon::parse($order->created_at)->format('d/m/Y H:i:s')}}
+                <p><i class="fa-solid fa-map-pin"></i> {{$order->shipping_address}} -
+                    {{\Carbon\Carbon::parse($order->created_at)->format('d/m/Y H:i:s')}}
                     @if($order->shipped !== 0)
                     <span class="badge-success d-inline-block p-1 rounded mx-3">Spedito</span>
                     @else
