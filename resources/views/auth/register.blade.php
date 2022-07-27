@@ -5,14 +5,15 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header text-white mb-3">{{ __('Register') }}</div>
+                <div class="card-header text-white mt-5 mb-3">Registrazione</div>
 
                 <div class="card-body login-class">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
 
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right text-white">{{ __('Nome') }}*</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-right text-white">{{ __('Nome')
+                                }}*</label>
 
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror"
@@ -27,7 +28,8 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="surname" class="col-md-4 col-form-label text-md-right text-white">{{ __('Cognome')
+                            <label for="surname" class="col-md-4 col-form-label text-md-right text-white">{{
+                                __('Cognome')
                                 }}*</label>
 
                             <div class="col-md-6">
@@ -44,7 +46,8 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right text-white">{{ __('Indirizzo E-Mail')
+                            <label for="email" class="col-md-4 col-form-label text-md-right text-white">{{ __('Indirizzo
+                                E-Mail')
                                 }}*</label>
 
                             <div class="col-md-6">
@@ -60,7 +63,8 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right text-white">{{ __('Password')
+                            <label for="password" class="col-md-4 col-form-label text-md-right text-white">{{
+                                __('Password')
                                 }}*</label>
 
                             <div class="col-md-6">
@@ -77,7 +81,8 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right text-white">{{ __('Conferma
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right text-white">{{
+                                __('Conferma
                                 Password') }}*</label>
 
                             <div class="col-md-6">
