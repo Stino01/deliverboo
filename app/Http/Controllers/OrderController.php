@@ -65,6 +65,45 @@ class OrderController extends Controller
 
         $request->validate($this->validationRule);
         $data = $request->all();
+        // dd($data);
+
+
+        $id_list = explode(',', $data['id_list'][0]);
+
+        $qty_list = explode(',', $data['qty_list'][0]);
+
+        $subtot_list = explode(',', $data['subtot_list'][0]);
+
+        $syncData = array_merge($id_list, $qty_list, $subtot_list);
+
+        // dump($id_list);
+        // dump($qty_list);
+        // dump($subtot_list);
+
+
+        $ids = collect($id_list)
+            ->map(function ($ids) {
+                return ['product_id' => $ids];
+            });
+
+        // dump($ids);
+
+
+        $qnty = collect($qty_list)
+            ->map(function ($qnty) {
+                return ['quantity' => $qnty];
+            });
+
+        // dump($qnty);
+
+
+
+        $subs = collect($subtot_list)
+            ->map(function ($subs) {
+                return ['subtotal' => $subs];
+            });
+
+        // dump($subs);
 
         $newOrder = new Order();
         $newOrder->name = $data['name'];
@@ -78,10 +117,38 @@ class OrderController extends Controller
         // $message = "Ordine effettuato con successo";
 
         $newOrder->save();
+        // dd($newOrder->id);
+        $finalData = [];
 
-        // $newOrder->products()->sync($data['products']);
+        for ($i = 0; $i < 2; $i++) {
+            $info = [
 
-        return redirect()->route('orders.edit', $newOrder->id);
+                [
+                    'order_id' => $newOrder->id,
+                    'product_id' => $id_list[$i],
+                    'quantity' => $qty_list[$i],
+                    'subtotal' => $subtot_list[$i],
+                ],
+
+            ];
+            array_push($finalData, [
+                'order_id' => $newOrder->id,
+                'product_id' => $id_list[$i],
+                'quantity' => $qty_list[$i],
+                'subtotal' => $subtot_list[$i],
+            ]);
+        }
+        // dump($finalData);
+        $newOrder->products()->sync($finalData);
+        // dd($subtot_list);
+
+
+
+
+
+        // $newOrder->products()->sync($qnty);
+
+        // return redirect()->route('orders.edit', $newOrder->id);
     }
 
     /**
