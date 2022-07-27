@@ -359,9 +359,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-#cart-body{
 
-}
 .fa-cart-shopping {
     color: #005c53;
 }
