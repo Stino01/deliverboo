@@ -1,14 +1,14 @@
 @extends('layouts.admin')
 @section('content')
 <div class="container">
-    <h2 class="">Inserisci un nuovo prodotto</h2>
+    <h2 class="text-white">Inserisci un nuovo prodotto</h2>
     <p class="fst-italic ">I campi contrassegnati con * sono obbligatori</p>
     <form action="{{route('admin.products.store')}}" method="POST" enctype="multipart/form-data">
         @csrf
 
         {{-- NOME --}}
         <div class="mb-3">
-            <label for="name" class="form-label text-dark">Nome prodotto *</label>
+            <label for="name" class="form-label text-white">Nome prodotto *</label>
             <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name"
                 placeholder="Inserisci il titolo">
             @error('name')

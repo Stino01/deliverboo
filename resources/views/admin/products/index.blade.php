@@ -23,7 +23,7 @@
             </div>
         </div>
     </div>
-    <a href="{{route('admin.products.create')}}" class="btn btn_main my-3">Crea nuovo prodotto</a>
+    <a href="{{route('admin.products.create')}}" class="btn btn_main my-3">Aggiungi piatto</a>
     @if(session()->has('message'))
     <div class="alert alert-success">
         {{session()->get('message')}}
@@ -49,9 +49,9 @@
                     <td>{{$product->name}}</td>
                     <td>€ {{number_format($product->price, 2, '.', ',')}}</td>
                     <td>{{$product->created_at}}</td>
-                    <td><a href="{{route('admin.products.show', $product->id)}}" class="btn btn_main">Visualizza</a>
+                    <td><a href="{{route('admin.products.show', $product->id)}}" class="btn btn-primary">VISUALIZZA</a>
                     </td>
-                    <td><a href="{{route('admin.products.edit', $product->id)}}" class="btn btn-warning">MODIFICA</a>
+                    <td><a href="{{route('admin.products.edit', $product->id)}}" class="btn btn-warning ">MODIFICA</a>
                     </td>
                     <td>
                         <form action="{{route('admin.products.destroy', $product->id)}}" method="POST">
