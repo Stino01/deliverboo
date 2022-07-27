@@ -10,7 +10,7 @@
             @foreach ($restaurants as $restaurant)
                 @if ($restaurant->user_id == $user->id)
                     <div class="card">
-                        <div class="card-header">{{ __('Dashboard') }}</div>
+                        <div class="card-header text-center text-uppercase font-weight-bold" style="margin-bottom:1rem;">{{ __('Dashboard') }}</div>
 
                         <div class="card-body">
                             @if (session('status'))
@@ -19,7 +19,8 @@
                                 </div>
                             @endif
 
-                            <p class="text-center">{{ __('You are logged in!') }}</p>
+                            <h2 class="text-center">{{ __('Benvenuto') }} {{ Auth::user()->name }}</h2>
+                            <p class="text-center">{{ __('Questa è la tua Dashboard. Usa la navbar per visualizzare il tuo ristorante, accedere al tuo menu e gestire gli ordini ricevuti.') }}</p>
                         </div>
                     </div>
                 @else

@@ -102,90 +102,9 @@
             </div>
         </div>
 
-        <!-- CARD PRODOTTI
-    <div class="card">
-      <div v-if="restaurant">
-        <div class="card-header">
-          <h1>{{ restaurant.name }}</h1>
-        </div>
-      </div>
-      <div class="card-body">
-        <h1></h1>
-        <h2>MENU</h2>
-        <h3>CATEGORIE</h3>
-        <ul>
-          <li v-for="category in categories" :key="category.id">
-            <a href="">{{ category.name }}</a>
-            <ul v-for="product in products" :key="product.id">
-              <li v-if="product.category_id == category.id">
-                <p>{{ product.name }} : &euro; {{ product.price }}</p>
-                <button @click="addToCart(product)" class="btn btn-primary">
-                  Aggiungi al carrello
-                </button>
-              </li>
-            </ul>
-          </li>
-        </ul>
-        <div class="modal fade" id="cart">
-          <div class="modal-dialog modal-dialog-centered modal-lg">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5>Your Cart</h5>
-                <button
-                  type="button"
-                  class="close"
-                  data-dismiss="modal"
-                  aria-label="Close"
-                >
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body" id="cart-body">
-                <table class="table table-striped text-left">
-                  <tbody>
-                    <tr v-for="(cart, n) in carts" :key="n">
-                      <td>{{ cart.name }}</td>
-                      <td>&euro; {{ cart.price }}</td>
-                      <td width="100">
-                        <input
-                          type="text"
-                          readonly
-                          class="form-control"
-                          v-model="quantity"
-                        />
-                      </td>
-                      <td width="60">
-                        <button
-                          @click="removeCart(n)"
-                          class="btn btn-danger btn-sm"
-                        >
-                          <i class="fa-solid fa-xmark"></i>
-                        </button>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <div class="modal-footer">
-                Total Price: &euro; {{ totalprice }} &nbsp;
-                <a href="/orders/create">
-                  <button
-                    type="submit"
-                    value="Checkout"
-                    class="btn btn-primary"
-                  >
-                    Checkout
-                  </button>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div> -->
+        <!-- CARD PRODOTTI -->
 
         <div class="container py-5">
-            <!-- End -->
 
             <div class="row">
                 <div class="col-lg-8 mx-auto">
@@ -240,62 +159,6 @@
             </div>
         </div>
 
-        <!-- CARD PRODOTTI-->
-        <!-- <div class="card">
-            <div v-if="restaurant">
-                <div class="card-header">
-                    <h1>{{ restaurant.name }}</h1>
-                </div>
-            </div>
-            <div class="card-body">
-                <h2>I NOSTRI PIATTI</h2>
-                <div class="container">
-                    <div class="row justify-content-center">
-                        <div
-                            class="col-lg-3 col-md-6 col-sm-6 mb-4 mb-md-4"
-                            v-for="product in products"
-                            :key="product.id"
-                        >
-                            <div
-                                class="card p-2 d-flex text-center text-white align-items-center justify-content-between"
-                                style="height: 25rem; background-color: #042940"
-                            >
-                                <div>
-                                    <h4 class="card-title text-uppercase">
-                                        {{ product.name }}
-                                    </h4>
-                                    <h6 class="card-subtitle mb-2">
-                                        Prezzo: &euro; {{ product.price }}
-                                    </h6>
-
-                                    <p class="card-text">
-                                        {{ product.description }}
-                                    </p>
-                                </div>
-
-                                <div class="d-flex styled">
-                                    <div class="mb-3 text-center">
-                                        <img
-                                            class="img-fluid text-center"
-                                            v-bind:src="
-                                                'storage/' + product.image
-                                            "
-                                            :alt="'immagine di' + product.name"
-                                        />
-                                    </div>
-                                    <button
-                                        @click="addToCart(product)"
-                                        class="btn btn_main"
-                                    >
-                                        Aggiungi al carrello
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> -->
     </div>
 </template>
 
@@ -476,17 +339,3 @@ export default {
     },
 };
 </script>
-
-<style lang="scss" scoped>
-.styled {
-    flex-direction: column;
-    align-items: center;
-}
-
-hr {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    border: 0;
-    border-top: 2px solid rgba(0, 0, 0, 0.1);
-}
-</style>
