@@ -31,10 +31,5 @@ Route::get('/categories', 'Api\CategoryController@index');
 //CONTROLLER PER VISUALIZZARE I PRODOTTI NEL MENU
 Route::get('/products', 'Api\HomeController@index');
 
-//ROTTA PER CONFERMARE IL PAGAMENTO CHECKOUT
-// Route::post('/orders/update/{id}', 'OrderController@update');
-
-//ROTTA PER CONFERMARE IL PAGAMENTO CHECKOUT
-
-// Route::get('/checkout/{id}', 'OrderController@edit');
-// Route::post('/checkout', 'OrderController@process');
+//CONTROLLER PER INVIARE DATI CARRELLO AL BACKEND
+Route::post('api/orders', 'OrderController@getCartData');

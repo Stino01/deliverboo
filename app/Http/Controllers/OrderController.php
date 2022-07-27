@@ -40,6 +40,20 @@ class OrderController extends Controller
         return view('orders.create');
     }
 
+
+    public function getCartData(Request $request)
+    {
+        $data = $request->all();
+        dump($data);
+
+        // $syncData = array_combine($data['prod_id'], $data['prod_qnty']);
+        // $qnty = collect($syncData)
+        //     ->map(function ($qnty) {
+        //         return ['quantity' => $qnty];
+        //     });
+        // dd($syncData);
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -51,6 +65,46 @@ class OrderController extends Controller
 
         $request->validate($this->validationRule);
         $data = $request->all();
+        // dd($data);
+
+
+        $id_list = explode(',', $data['id_list'][0]);
+
+        $qty_list = explode(',', $data['qty_list'][0]);
+
+        $subtot_list = explode(',', $data['subtot_list'][0]);
+
+        $syncData = array_merge($id_list, $qty_list, $subtot_list);
+
+        // dump($id_list);
+        // dump($qty_list);
+        // dump($subtot_list);
+
+
+        $ids = collect($id_list)
+            ->map(function ($ids) {
+                return ['product_id' => $ids];
+            });
+
+        // dump($ids);
+
+
+        $qnty = collect($qty_list)
+            ->map(function ($qnty) {
+                return ['quantity' => $qnty];
+            });
+
+        // dump($qnty);
+
+
+
+        $subs = collect($subtot_list)
+            ->map(function ($subs) {
+                return ['subtotal' => $subs];
+            });
+
+        // dump($subs);
+
         $newOrder = new Order();
         $newOrder->name = $data['name'];
         $newOrder->surname = $data['surname'];
@@ -62,8 +116,36 @@ class OrderController extends Controller
         $newOrder->shipped = false;
 
         $newOrder->save();
+        // dd($newOrder->id);
+        $finalData = [];
+        // dd(count($id_list));
+        for ($i = 0; $i < count($id_list); $i++) {
+            $info = [
 
-        Mail::to('hello@example.com')->send(new OrderMail($newOrder));
+                [
+                    'order_id' => $newOrder->id,
+                    'product_id' => $id_list[$i],
+                    'quantity' => $qty_list[$i],
+                    'subtotal' => $subtot_list[$i],
+                ],
+
+            ];
+            array_push($finalData, [
+                'order_id' => $newOrder->id,
+                'product_id' => $id_list[$i],
+                'quantity' => $qty_list[$i],
+                'subtotal' => $subtot_list[$i],
+            ]);
+        }
+        // dump($finalData);
+        $newOrder->products()->sync($finalData);
+        // dd($subtot_list);
+
+
+
+
+
+        // $newOrder->products()->sync($qnty);
 
         return redirect()->route('orders.edit', $newOrder->id);
     }
@@ -97,9 +179,6 @@ class OrderController extends Controller
 
         // PASSAGGIO DEL TOKEN ALLA ROTTA
         $token = $gateway->ClientToken()->generate();
-        // $order = Order::where('name', $order)->first();
-        // dump($order->id);
-        // dump($token);
         return view('orders.edit', ['token' => $token, 'order' => $order]);
     }
 
@@ -114,7 +193,7 @@ class OrderController extends Controller
     {
         // PROCESSO DI PAGAMENTO: SE AVVIENE CON SUCCESSO, CAMBIA IL VALORE DI ORDER DA "NON SPEDITO" A "SPEDITO"
 
-        $data = $request->all();
+        // $data = $request->all();
         //qui inizializzo braintree
         $gateway = new \Braintree\Gateway([
             'environment' => 'sandbox',
@@ -137,7 +216,6 @@ class OrderController extends Controller
 
         //dd($result);
         if ($result->success) {
-            //dd($sponsorization);
             $order->shipped = true;
             $order->update();
             return view('orders.success');

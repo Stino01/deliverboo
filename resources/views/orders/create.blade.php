@@ -132,6 +132,37 @@
                             <input type="text" value="" id="txt" name="total_price" /> --}}
                         </div>
 
+
+
+                        {{-- ARRAY DEGLI ID DEI PRODOTTI --}}
+
+                        <div class="invisible" id="pro_id_hidden">
+                            {{-- <label for="total_price" class="col-md-4 col-form-label text-md-right text-white">Total
+                                Price*</label>
+                            <input type="text" value="" id="txt" name="total_price" /> --}}
+                        </div>
+
+
+                        {{-- ARRAY DELLE QUANTITA' DEI PRODOTTI --}}
+
+                        <div class="invisible" id="pro_qty_hidden">
+                            {{-- <label for="total_price" class="col-md-4 col-form-label text-md-right text-white">Total
+                                Price*</label>
+                            <input type="text" value="" id="txt" name="total_price" /> --}}
+                        </div>
+
+
+
+                        {{-- ARRAY DEL SUBTOTAL DEI PRODOTTI --}}
+
+                        <div class="invisible" id="pro_subtotal_hidden">
+                            {{-- <label for="total_price" class="col-md-4 col-form-label text-md-right text-white">Total
+                                Price*</label>
+                            <input type="text" value="" id="txt" name="total_price" /> --}}
+                        </div>
+
+
+
                         {{-- BOTTONE DI SUBMIT --}}
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
@@ -149,26 +180,71 @@
     </div>
 </div>
 <script type="text/javascript">
+    //CHIAMATA API PER PASSARE I PRODOTTI AL BACKEND
+
     // CHIAMO LA FUNZIONE ANONIMA APPENA RENDERIZZO LA PAGINA PER MOSTRARE IL RIEPIGOLO DELLO SHOPPING CART
     (function() {
 
         let data = JSON.parse(localStorage.getItem("carts"));
-        console.log(data);
+        // console.log(data);
         let total = 0;
+        let idList = [];
+        let qtyList = [];
+        let subtotList = [];
         data.forEach(function(item, index) {
+            console.log(item);
         // console.log(parseFloat(item.subtotal));
         // console.log(typeof item.subtotal);
         total += parseFloat(item.subtotal);
+        idList.push(item.id);
+        qtyList.push(item.quantity);
+        subtotList.push(item.subtotal);
         // return total;
         });
+        console.log(idList, 'array id');
+        console.log(qtyList, 'array quantità');
+        console.log(subtotList, 'array subtotal');
 
         // console.log((total).toFixed(2));
         // console.log(Math.round(total * 100) / 100).toFixed(2);
-        document.getElementById("total_price_hidden").innerHTML = `
+
+        //CAMPO FORM PER PASSAGGIO ID DEI PRODOTTI
+        document.getElementById("pro_id_hidden").innerHTML =
+        `
+        <label for="id_list" class="col-md-4 col-form-label text-md-right text-white">
+            Lista degli id*
+        </label>
+            <input type="text" required value="${idList}" id="txt" name="id_list[]" />
+        `;
+
+        //CAMPO FORM PER PASSAGGIO QUANTITA' DEI PRODOTTI
+        document.getElementById("pro_qty_hidden").innerHTML =
+        `
+        <label for="qty_list" class="col-md-4 col-form-label text-md-right text-white">
+            Lista delle quantità*
+        </label>
+        <input type="text" required value="${qtyList}" id="txt" name="qty_list[]" />
+        `;
+
+        //CAMPO FORM PER PASSAGGIO SUBTOTALE DEI PRODOTTI
+        document.getElementById("pro_subtotal_hidden").innerHTML =
+        `
+        <label for="subtot_list" class="col-md-4 col-form-label text-md-right text-white">
+            Lista dei subtotal*
+        </label>
+        <input type="text" required value="${subtotList}" id="txt" name="subtot_list[]" />
+        `;
+
+        //CAMPO FORM PER PASSAGGIO PREZZO TOTALE
+        document.getElementById("total_price_hidden").innerHTML = 
+        `
         <label for="total_price" class="col-md-4 col-form-label text-md-right text-white">
-            Total Price*</label>
+            Total Price*
+        </label>
         <input type="text" value="${(total).toFixed(2)}" id="txt" name="total_price" />
         `;
+
+        //CARD HEADER CON RAPIDO RIEPILOGO ORDINE
         document.getElementById("appendCartData").innerHTML =
         `<div class="card-header text-white">
             <h5>Stai completando il tuo ordine presso
@@ -195,5 +271,9 @@
 <style>
     #appendCartData {
         background-color: transparent !important;
+    }
+
+    .invisible {
+        height: 0 !important;
     }
 </style>
