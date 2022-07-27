@@ -20,7 +20,7 @@
                     </div>
                     @endif
 
-                    <h2 class="text-center">{{ __('Benvenuto/a') }} {{ Auth::user()->name }}</h2>
+                    <h2 class="text-center">{{ __('Benvenutə') }} {{ Auth::user()->name }}</h2>
                     <p class="text-center">{{ __('Questa è la tua Dashboard. Usa la navbar per visualizzare il tuo
                         ristorante, accedere al tuo menu e gestire gli ordini ricevuti.') }}</p>
                 </div>
@@ -32,7 +32,7 @@
             @if ($c == count($restaurants))
             <div class="card">
                 <div class="card-header mb-3">
-                    <h2 class="text-center">{{ __('Benvenuto/a') }} {{ Auth::user()->name }}</h2>
+                    <h2 class="text-center">{{ __('Benvenutə') }} {{ Auth::user()->name }}</h2>
                 </div>
 
                 <div class="card-body">
