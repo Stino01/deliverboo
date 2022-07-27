@@ -43,5 +43,6 @@
     #restaurant-index-card {
         width: 80% !important;
         background-color: #042940 !important;
+        border-radius: 20px;
     }
 </style>
