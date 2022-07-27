@@ -56,7 +56,8 @@
                 </ul>
             </div> --}}
             <div class="d-flex align-items-start">
-                <a href="{{ route('admin.products.edit', $product->id) }}" class="btn btn-warning mr-2 text-uppercase">Modifica</a>
+                <a href="{{ route('admin.products.edit', $product->id) }}"
+                    class="btn btn-warning mr-2 text-uppercase">Modifica</a>
                 <form action="{{ route('admin.products.destroy', $product->id) }}" method="post">
                     @csrf
                     @method('DELETE')
@@ -68,3 +69,9 @@
         </div>
     </div>
     @endsection
+
+    <style>
+        .card {
+            background-color: transparent !important;
+        }
+    </style>

@@ -163,6 +163,7 @@
         align-content: flex-start;
         width: 60%;
         height: calc(100vh - 66px);
+        margin-top: 75px;
         overflow: auto;
     }
 
