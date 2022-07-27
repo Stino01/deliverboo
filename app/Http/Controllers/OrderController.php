@@ -119,8 +119,8 @@ class OrderController extends Controller
         $newOrder->save();
         // dd($newOrder->id);
         $finalData = [];
-
-        for ($i = 0; $i < 2; $i++) {
+        dd(count($id_list));
+        for ($i = 0; $i < count($id_list); $i++) {
             $info = [
 
                 [
