@@ -53,14 +53,16 @@
                 </div>
             </div>
             {{-- CHECKBOX --}}
-            <div class="form-group row text-center">
+            <div class="form-group text-center">
                 <span>Seleziona almeno una tipologia di ristorante *</span>
             </div>
-            <div class="form-group d-flex justify-content-center align-items-center form-check-inline">
+            <div class="row form-group d-flex justify-content-center align-items-center form-check-inline">
                 @foreach ($types as $type)
-                <label for="types[]" class="col-form-label mx-3">{{$type->name}}</label>
-                <div><input id="type" type="checkbox" name="types[]"
-                        class="form-check-input @error('types[]') is-invalid @enderror" value="{{$type->id}}"></div>
+                <div class="col-3 badge d-flex form-check-inline text-dark">
+                    <label for="types[]" class="col-form-label mx-3">{{$type->name}}</label>
+                    <div><input id="type" type="checkbox" name="types[]"
+                            class="form-check-input @error('types[]') is-invalid @enderror" value="{{$type->id}}"></div>
+                </div>
                 @endforeach
                 @error('types[]')
                 <span class="invalid-feedback" role="alert">
@@ -77,7 +79,7 @@
 </div>
 @endsection
 
-<style>
+<style scoped>
     main .container {
         display: flex;
         flex-flow: column nowrap;
@@ -88,5 +90,20 @@
     #card-create-restaraunt {
         background-color: #042940 !important;
         color: white;
+    }
+
+    .badge {
+        background-color: #005c53 !important;
+        padding: 10px 3px !important;
+        max-width: fit-content;
+    }
+
+    .badge>.label {
+        width: 50%;
+    }
+
+    .form-check-inline {
+        margin-right: 0 !important;
+        margin-left: 0 !important;
     }
 </style>

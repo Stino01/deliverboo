@@ -29,7 +29,7 @@
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-lg navbar_dark ">
-                <a class="navbar-brand text-white text-uppercase ml-5" href="http://127.0.0.1:8000/">
+                <a class="navbar-brand text-white ml-5" href="http://127.0.0.1:8000/">
                         <img
                         src="{{ asset('media/img/logo.png') }}"
                         width="40"
