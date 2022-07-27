@@ -98,8 +98,11 @@
                   <h5 class="mt-0 font-weight-bold mb-2">
                     {{ product.name }}
                   </h5>
-                  <p class="font-italic text-muted mb-0 small">
-                    {{ product.description }}
+                  <p
+                    class="font-italic text-muted mb-0 small"
+                    v-html="product.description"
+                  >
+                    <!-- {!! product.description !!} -->
                   </p>
                   <div
                     class="
@@ -115,7 +118,12 @@
                     </button>
                   </div>
                 </div>
-                <img :src="'../storage/' + product.image" alt="" width="200" class="ml-lg-5 order-1 order-lg-2" />
+                <img
+                  :src="'../storage/' + product.image"
+                  alt=""
+                  width="200"
+                  class="ml-lg-5 order-1 order-lg-2"
+                />
               </div>
               <!-- End -->
             </li>
