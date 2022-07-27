@@ -27,7 +27,10 @@
                   <tbody>
                     <tr v-for="(cart, n) in carts" :key="n">
                       <td>{{ cart.name }}</td>
-                      <td>&euro; {{ cart.subtotal.toFixed(2) }}</td>
+                      <td>
+                        &euro;
+                        {{ cart.subtotal.toFixed(2) }}
+                      </td>
                       <td width="100">
                         <input
                           type="text"
@@ -74,64 +77,56 @@
       </div>
     </div>
 
-    <!-- CARD PRODOTTI-->
-    <div class="card">
-      <div v-if="restaurant">
-        <div class="card-header">
-          <h1>{{ restaurant.name }}</h1>
-        </div>
-      </div>
-      <div class="card-body">
-        <h2>I NOSTRI PIATTI</h2>
-        <div class="container">
-          <div class="row justify-content-center">
-            <div
-              class="col-lg-3 col-md-6 col-sm-6 mb-4 mb-md-4"
+    <!-- CARD PRODOTTI -->
+
+    <div class="container py-5">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <!-- List group-->
+          <ul class="list-group shadow">
+            <!-- list group item-->
+            <li
+              class="list-group-item"
               v-for="product in products"
               :key="product.id"
             >
+              <!-- Custom content-->
               <div
-                class="
-                  card
-                  p-2
-                  d-flex
-                  text-center text-white
-                  align-items-center
-                  justify-content-between
-                "
-                style="height: 25rem; background-color: #042940"
+                class="media align-items-lg-center flex-column flex-lg-row p-3"
               >
-                <div>
-                  <h4 class="card-title text-uppercase">
+                <div class="media-body order-2 order-lg-1">
+                  <h5 class="mt-0 font-weight-bold mb-2">
                     {{ product.name }}
-                  </h4>
-                  <h6 class="card-subtitle mb-2">
-                    Prezzo: &euro; {{ product.price }}
-                  </h6>
-
-                  <p class="card-text">
+                  </h5>
+                  <p class="font-italic text-muted mb-0 small">
                     {{ product.description }}
                   </p>
-                </div>
-
-                <div class="d-flex styled">
                   <div
-                    class="mb-3 text-center"
-                    style="height: 10rem; width: 10rem; background-color: red"
+                    class="
+                      d-flex
+                      align-items-center
+                      justify-content-between
+                      mt-1
+                    "
                   >
-                    <img
-                      class="img-fluid text-center"
-                      v-bind:src="product.image"
-                      v-bind:alt="product.name"
-                    />
+                    <h6 class="font-weight-bold my-2">€ {{ product.price }}</h6>
+                    <button @click="addToCart(product)" class="btn btn_main">
+                      Aggiungi al carrello
+                    </button>
                   </div>
-                  <button @click="addToCart(product)" class="btn btn_main">
-                    Aggiungi al carrello
-                  </button>
                 </div>
+                <!-- <img
+                                    src=""
+                                    alt=""
+                                    width="200"
+                                    class="ml-lg-5 order-1 order-lg-2"
+                                /> -->
               </div>
-            </div>
-          </div>
+              <!-- End -->
+            </li>
+            <!-- End -->
+          </ul>
+          <!-- End -->
         </div>
       </div>
     </div>
@@ -146,36 +141,15 @@ export default {
       restaurant: null,
       categories: [],
       products: [],
+      // cart
       carts: [],
-
       cartadd: {
         id: "",
         name: "",
-        lastname: "",
-        email: "",
-        phone: null,
         price: "",
         amount: "",
         restaurant_id: "",
-        prod_id: [],
-        prod_qnty: [],
-        total: null,
       },
-
-      formData: {
-        id: "",
-        name: "",
-        lastname: "",
-        email: "",
-        phone: null,
-        price: "",
-        amount: "",
-        restaurant_id: "",
-        prod_id: [],
-        prod_qnty: [],
-        total: null,
-      },
-
       formattedTotal: null,
       badge: "0",
       quantity: "1",
@@ -305,39 +279,6 @@ export default {
       window.localStorage.clear();
       this.carts = [];
     },
-
-    //CHIAMATA API PER PASSARE I PRODOTTI AL BACKEND
-
-    // sendOrder() {
-    //   // console.log(this.products);
-    //   let prod = this.products;
-    //   // if (this.check) {
-    //   //   this.payment = true;
-    //   prod.forEach((element) => {
-    //     this.formData.prod_id.push(element.id);
-    //     // console.log(element.id);
-    //     // console.log(this.formData.prod_id);
-    //     this.formData.prod_qnty.push(element.qnty);
-    //   });
-
-    //   this.formData.total = this.total;
-    //   console.log(this.formData.prod_id);
-    //   axios
-    //     .post("/api/orders", this.formData)
-    //     .then((res) => {
-    //       console.log(res);
-    //     })
-    //     .catch((err) => {
-    //       console.error(err);
-    //     });
-    //   // }
-    //   //  else {
-    //   //   this.$refs["error"].innerHTML = "Compila tutti i campi obbligatori";
-    //   //   const timeout = setTimeout(() => {
-    //   //     this.$refs["error"].innerHTML = "";
-    //   //   }, 3000);
-    //   // }
-    // },
   },
   mounted() {
     const slug = this.$route.params.slug;
@@ -367,119 +308,3 @@ export default {
   },
 };
 </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<style lang="scss" scoped>
-.styled {
-  flex-direction: column;
-  align-items: center;
-}
-
-hr {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  border: 0;
-  border-top: 2px solid rgba(0, 0, 0, 0.1);
-}
-</style>

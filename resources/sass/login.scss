@@ -16,6 +16,16 @@ body {
         .container {
             width: 100%;
         }
+        .card {
+            background-color: transparent!important;
+            border: none!important;
+        }
+
+
+        .card-header {
+            background-color: $PrimaryColor !important;
+            border-radius: 1rem!important;
+        }
         .card-body {
             border-radius: 1rem;
             background-color: $PrimaryColor !important;

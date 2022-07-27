@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Order;
-use App\Mail\SendNewMail;
+use App\Mail\OrderMail;
 use Illuminate\Support\Facades\Mail;
 use App\Restaurant;
 use App\Product;
@@ -114,7 +114,6 @@ class OrderController extends Controller
         $newOrder->billing_address = $data['billing_address'];
         $newOrder->shipping_address = $data['shipping_address'];
         $newOrder->shipped = false;
-        // $message = "Ordine effettuato con successo";
 
         $newOrder->save();
         // dd($newOrder->id);

@@ -8,11 +8,11 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use App\Order;
 
-class SendNewMail extends Mailable
+class OrderMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $order; //istanziata variabile pubblica
+    public $order;
 
     /**
      * Create a new message instance.
@@ -31,6 +31,6 @@ class SendNewMail extends Mailable
      */
     public function build()
     {
-        return $this->view('mail.mailorder');
+        return $this->view('mail.order');
     }
 }
