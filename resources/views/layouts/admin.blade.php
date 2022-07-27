@@ -37,7 +37,7 @@
                         class="d-inline-block align-center"
                         alt="Deliverboo Logo"
                     />
-                    <h4 class="d-inline-block align-center">
+                    <h4 class="d-inline-block align-center logo">
                         Deliverboo
                     </h4>
 
@@ -126,7 +126,13 @@
 </html>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&display=swap');
 
+.logo {
+    font-family: 'Mochiy Pop One', sans-serif;
+    transform: translateY(20%);
+    font-size: 1.2rem;
+}
 
 
 </style>
