@@ -2,14 +2,14 @@
 
 @section('content')
 <div class="container">
-    <div class="card container d-flex my-5" id="appendCartData">
+    <div class="card container d-flex my-5 align-items-center" id="appendCartData">
     </div>
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
                 {{-- <div class="card-header text-white"></div> --}}
 
-                <div class="card-body login-class">
+                <div class="card-body login-class" id="complete-order-card">
                     <h2 class="text-center text-white mb-5">Completa l'ordine</h2>
                     <form method="POST" action="{{route('orders.store')}}">
                         @csrf
@@ -246,7 +246,7 @@
 
         //CARD HEADER CON RAPIDO RIEPILOGO ORDINE
         document.getElementById("appendCartData").innerHTML =
-        `<div class="card-header text-white">
+        `<div class="card-header text-white d-flex flex-column align-items-center py-3" id="card-header-style">
             <h5>Stai completando il tuo ordine presso
                 <h3 class="text-warning">${data[0].restaurant_name}</h3>
             </h5>
@@ -275,5 +275,9 @@
 
     .invisible {
         height: 0 !important;
+    }
+
+    #complete-order-card {
+        padding: 2rem !important;
     }
 </style>
