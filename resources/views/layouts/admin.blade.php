@@ -31,7 +31,7 @@
         <nav class="navbar navbar-expand-lg navbar_dark ">
                 <a class="navbar-brand text-white text-uppercase ml-5" href="http://127.0.0.1:8000/">
                         <img
-                        src="https://cdn.discordapp.com/attachments/941312490950766592/996354486467571802/TEq98Yg.png"
+                        src="{{ asset('media/img/logo.png') }}"
                         width="40"
                         height="40"
                         class="d-inline-block align-center"

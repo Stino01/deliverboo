@@ -6,17 +6,17 @@
                 
                     <!-- Left Side Of Navbar -->
                     <a
-                        class="navbar-brand text-white text-uppercase ml-5"
+                        class="navbar-brand text-white ml-5"
                         href="http://127.0.0.1:8000/"
                     >
                         <img
-                            src="https://cdn.discordapp.com/attachments/941312490950766592/996354486467571802/TEq98Yg.png"
+                            src="/media/img/logo.png"
                             width="40"
                             height="40"
                             class="d-inline-block align-center"
                             alt="Deliverboo Logo"
                         />
-                        <h4 class="d-inline-block align-center">
+                        <h4 class="d-inline-block align-center font" id="logo">
                             Deliverboo
                         </h4></a
                     >
@@ -98,9 +98,20 @@ export default {
 };
 </script>
 <style lang="scss">
+ @import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&display=swap');
+
 .dropdown-item:hover {
     background-color: #dbf227 !important ;
     color: #005c53 !important;
+}
+
+.font {
+    font-family: 'Mochiy Pop One', sans-serif;
+}
+
+#logo {
+    margin-bottom: 0 !important;
+    transform: translateY(20%);
 }
 
 </style>
