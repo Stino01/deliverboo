@@ -7,23 +7,25 @@
         un ristorante</a> --}}
     @foreach ($restaurants as $restaurant)
     @if($restaurant->user_id == $user)
-    <div class="container d-flex">
-        <div class="container d-flex align-items-center flex-column">
-            <h1 class="text-center ">{{$restaurant->name}}</h1>
-            @if ($restaurant->image)
+    <div class="container d-flex my-5">
+        <div class="container">
+            <div class="card container d-flex align-items-center flex-column py-3">
+                <h1 class="text-center text-white mb-3">{{$restaurant->name}}</h1>
+                @if ($restaurant->image)
                 <img class="resturant-image" src="{{asset('storage/' . $restaurant->image)}}" alt="user">
-            @else
+                @else
                 <img class="resturant-image" src="{{asset('media/img/mistery-resturant.png')}}" alt="user">
-            @endif
-            {{-- <p class="text-center">{{$user->address}}</p> --}}
-            <a href="{{route('admin.restaurants.show', $restaurant->id)}}" class="btn btn_main text-uppercase my-3"
-                type="button">Visualizza</a>
-            <form action="{{route('admin.restaurants.destroy', $restaurant->id)}}" method="post">
-                @csrf
-                @method('DELETE')
-                <button type="submit" onclick="boolpress.openModal(event, {{ $restaurant->id }})"
-                    class="btn btn-danger delete text-uppercase">Elimina</button>
-            </form>
+                @endif
+                {{-- <p class="text-center">{{$user->address}}</p> --}}
+                <a href="{{route('admin.restaurants.show', $restaurant->id)}}" class="btn btn_main text-uppercase my-3"
+                    type="button">Visualizza</a>
+                <form action="{{route('admin.restaurants.destroy', $restaurant->id)}}" method="post">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" onclick="boolpress.openModal(event, {{ $restaurant->id }})"
+                        class="btn btn-danger delete text-uppercase">Elimina</button>
+                </form>
+            </div>
         </div>
     </div>
     @endif
@@ -33,9 +35,13 @@
 @endsection
 
 <style>
-    .resturant-image{
+    .resturant-image {
         width: 60%;
         border-radius: 20px;
     }
 
+    .card {
+        width: 80% !important;
+        background-color: #042940 !important;
+    }
 </style>
