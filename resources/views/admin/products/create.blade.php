@@ -17,8 +17,8 @@
         </div>
 
         {{-- DESCRIZIONE --}}
-        <div class="mb-3">
-            <label for="description" class="form-label text-dark @error('description') is-invalid @enderror">Descrizione
+        <div class="mb-3 form-cont">
+            <label for="description" class="form-label @error('description') is-invalid @enderror">Descrizione
                 prodotto</label>
             <textarea name="description" id="description" class="form-control" cols="30" rows="10"></textarea>
             @error('description')
@@ -28,7 +28,7 @@
 
         {{-- CATEGORIA --}}
         <div class="mb-3">
-            <label for="category" class="form-label text-dark">Categoria *</label>
+            <label for="category" class="form-label">Categoria *</label>
             <select class="form-control @error('category_id') is-invalid @enderror" id="category" name="category_id">
                 <option value="">Selezione la categoria</option>
                 @foreach ($categories as $category)
@@ -44,7 +44,7 @@
         <div class="form-group">
             <img id="uploadPreview" width="75"
                 src="https://cdn.discordapp.com/attachments/943126356932317214/998530366459621497/1231032-200.png">
-            <label for="image" class="text-dark">Aggiungi immagine</label>
+            <label for="image" class="">Aggiungi immagine</label>
             <input type="file" id="image" name="image" onchange="boolpress.previewImage();">
             {{-- @error('image')
             <div class="alert alert-danger">{{ $message }}</div>
@@ -80,7 +80,7 @@
         <div class="mb-3 form-check">
             <input type="checkbox" class="form-check-input" {{old('visible') ? 'checked' : '' }} id="visible"
                 name="visible">
-            <label class="form-check-label text-dark" for="visible">Visibile</label>
+            <label class="form-check-label" for="visible">Visibile</label>
         </div>
 
         {{-- BOTTONE --}}
@@ -95,8 +95,40 @@
 @endsection
 
 <style>
+    main .container {
+        margin: 30px 0;
+        padding: 20px;
+        border-radius: 20px;
+        background-color: #042940;
+        color: white;
+        box-shadow: 0px 7px 14px 3px black;
+    }
+
+    .form-cont>div {
+        width: 100% !important;
+        border-radius: 0 0 10px 10px
+    }
+
+    .nicEdit-panelContain {
+        border-radius: 10px 10px 0 0;
+        padding: 5px
+    }
+
     .nicEdit-main {
+        width: 100% !important;
         background-color: white;
+        margin: 0 !important;
+        padding: 5px;
+        color: black;
+
+    }
+
+    .nicEdit-panel>div>div {
+        margin: 2px 5px;
+    }
+
+    .nicEdit-selectContain>div {
+        border-radius: 5px
     }
 
     .form-check-input:checked {

@@ -7,9 +7,10 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header text-white">Completa l'ordine</div>
+                {{-- <div class="card-header text-white"></div> --}}
 
                 <div class="card-body login-class">
+                    <h2 class="text-center text-white mb-5">Completa l'ordine</h2>
                     <form method="POST" action="{{route('orders.store')}}">
                         @csrf
 
