@@ -75,18 +75,18 @@ class OrderController extends Controller
         $orders = Order::all();
         $user_id = Auth::user()->id;
         $products = Order::find($order->id)->products()->get();
-        $ord_product = Order::find($order->id)->products()->get();
+        // $ord_product = Order::find($order->id)->products()->get();
         $user = Auth::user()->id;
         $restaurant = Restaurant::where('user_id', $user)->first();
         $allProducts = Product::where('restaurant_id', $user)->get();
 
-        //SERIE DI FILTRI PER RICAVARE UN ARRAY CON TUTTI GLI ORDINI RICEVUTI DAL RISTORATORE LOGGATO
+
         $filteredOrders = [];
         foreach ($products as $product) {
-            foreach ($product->orders as $order) {
-                $product_id[] = $order->pivot->product_id;
+            foreach ($product->orders as $orderius) {
+                $product_id[] = $orderius->pivot->product_id;
                 foreach ($orders as $ord) {
-                    if ($ord->id == $order->getOriginal('pivot_order_id')) {
+                    if ($ord->id == $orderius->getOriginal('pivot_order_id')) {
                         // dump($ord);
                         if (!in_array($ord, $filteredOrders)) {
                             array_push($filteredOrders, $ord);
@@ -96,33 +96,22 @@ class OrderController extends Controller
             }
         }
 
-        // SERIE DI FILTRI E CONDIZIONI CHE DEVONO MOSTRARE UNA PAGINA DI ERRORE OGNI VOLTA CHE UN RISTORATORE CERCA DI ACCEDERE A DEGLI ORDINI DI ALTRI RISTORANTI O A ORDINI CHE NON ESISTONO
-
-        // foreach ($filteredOrders as $filt_ord) {
-        //     // dump($filt_ord);
-        //     if ($filt_ord->id != $ord->id) {
-        //         return view('admin.orders.error');
-        //     }
-        // }
-        // dump($order->getOriginal('pivot_order_id')); // = 7
-        // dump($order->id); // = 7
-        if ($order->getOriginal('pivot_order_id') == $order->id) {
-            foreach ($ord_product as $prod_attributes) {
-                // dump($prod_attributes);
-
-                $prod_attributes = Order::find($order->id)->products()->get();
-                // dump($prod_attributes);
-            }
-            // dump($prod_attributes);
-            // dump($prod_attributes);
-            foreach ($prod_attributes as $pivot_attr) {
-                $pivot_attr = Order::find($order->id)->products()->get();
-                // dump($pivot_attr->pivot);
-            }
-            return view('admin.orders.show', compact('products', 'order', 'pivot_attr'));
-        } else {
+        $filteredIds = [];
+        // // dd($filteredOrders);
+        foreach ($filteredOrders as $getOrdId) {
+            // dump($getOrdId->id);
+            array_push($filteredIds, $getOrdId->id);
+            // array_push($filteredIds, $getOrdId->id)
+        }
+        // dd($filteredIds);
+        if (!in_array($order->id, $filteredIds)) {
             return view('admin.orders.error');
         }
+
+        // dd($orders);
+        // if ($order->getOriginal('id') == $order->id) {
+        return view('admin.orders.show', compact('products', 'order'));
+        // }
     }
 
 

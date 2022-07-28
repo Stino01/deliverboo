@@ -2,6 +2,7 @@
 @include('partials/popupdelete')
 @section('content')
 <div class="container">
+    {{-- @dd($order->id) --}}
     <div class="card my-4 gap-3 text-white">
         <div class="card-header">
             <div class="container">
@@ -21,17 +22,18 @@
 
                 <h4>Prodotti:</h4>
                 <ol class="back">
-                    @for($i=0;$i<$pivot_attr->count();$i++)
-                        <li class="my-3">{{$products[$i]->name}}
-                            <ul>
-                                <li>quantità: {{$pivot_attr[$i]->pivot->quantity}}
-                                </li>
-                                <li>
-                                    subtotale: {{number_format($products[$i]->pivot->subtotal,2, '.', ',')}} &euro;
-                                </li>
-                            </ul>
-                        </li>
-                        @endfor
+                    @foreach($products as $product)
+                    <li class="my-3">{{$product->name}}
+                        <ul>
+                            <li>quantità: {{$product->pivot->quantity}}
+                            </li>
+                            <li>
+                                subtotale: {{number_format($product->pivot->subtotal,2, '.', ',')}}
+                                &euro;
+                            </li>
+                        </ul>
+                    </li>
+                    @endforeach
                 </ol>
                 <h5 class="my-5">Totale ordine: {{number_format($order->total_price,2, '.', ',')}} &euro;</h5>
             </div>
