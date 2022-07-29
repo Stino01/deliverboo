@@ -31,9 +31,9 @@
                     <td>{{$order->billing_address}}</td>
                     <td>{{$order->shipping_address}}</td>
                     @if($order->shipped == 1)
-                    <td><span class="badge-success d-inline-block p-1 rounded mx-3">Spedito</span></td>
+                    <td><span class="badge-success d-inline-block p-1 rounded mx-3">Pagato</span></td>
                     @else
-                    <td><span class="badge-danger d-inline-block p-1 rounded mx-3">Non ancora spedito</span></td>
+                    <td><span class="badge-danger d-inline-block p-1 rounded mx-3">Non pagato</span></td>
                     @endif
                     <td>{{$order->updated_at}}</td>
                 </tr>

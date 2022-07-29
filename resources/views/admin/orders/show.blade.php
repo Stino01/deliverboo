@@ -14,9 +14,9 @@
                 <p><i class="fa-solid fa-map-pin"></i> {{$order->shipping_address}} -
                     {{\Carbon\Carbon::parse($order->created_at)->format('d/m/Y H:i:s')}}
                     @if($order->shipped !== 0)
-                    <span class="badge-success d-inline-block p-1 rounded mx-3">Spedito</span>
+                    <span class="badge-success d-inline-block p-1 rounded mx-3">Pagato</span>
                     @else
-                    <span class="badge-danger d-inline-block p-1 rounded mx-3">Non ancora spedito</span>
+                    <span class="badge-danger d-inline-block p-1 rounded mx-3">Non pagato</span>
                     @endif
                 </p>
 
