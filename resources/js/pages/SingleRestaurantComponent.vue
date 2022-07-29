@@ -133,7 +133,9 @@
                       mt-1
                     "
                   >
-                    <h6 class="font-weight-bold my-2">€ {{ product.price }}</h6>
+                    <h6 class="font-weight-bold my-2">
+                      € {{ product.price.toFixed(2) }}
+                    </h6>
                     <button @click="addToCart(product)" class="btn btn_main">
                       Aggiungi al carrello
                     </button>
@@ -272,12 +274,15 @@ export default {
       // console.log(cart);
       let itemInCart = this.carts.filter((item) => item.id === cart.id);
       itemInCart[0].quantity -= 1;
-      if (itemInCart[0].quantity <= 0) {
-        this.carts.splice(cart, 1);
+      if (itemInCart[0].quantity == 0) {
+        itemInCart[0].quantity += 1;
+        // this.carts.splice(cart, 1);
+        this.cartadd = {};
+        this.storeCart();
+      } else {
+        this.cartadd = {};
         this.storeCart();
       }
-      this.cartadd = {};
-      this.storeCart();
     },
 
     // FUNZIONE PER RIMUOVERE TUTTA UNA LISTA DI PRODOTTI UGUALI DAL CARRELLO
@@ -312,12 +317,14 @@ export default {
       .then((response) => {
         this.restaurant = response.data;
         this.products = response.data.products;
-        console.log(this.products);
+        // console.log(this.products);
         this.products.forEach((product) => {
-          console.log(product.description);
-          if (product.description.charAt(product.description.length - 1)) {
+          // console.log(product.description);
+          if (
+            product.description.charAt(product.description.length - 1) == ","
+          ) {
             product.description = product.description.slice(0, -1);
-            console.log(product.description);
+            // console.log(product.description);
           }
         });
         // this.products.forEach((product) => {
